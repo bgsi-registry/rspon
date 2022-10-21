@@ -1,9 +1,8 @@
-archetype (adl_version=1.4; uid=0c6c23ab-7018-4faf-93dd-c7e717e8569b)
+﻿archetype (adl_version=1.4; uid=0c6c23ab-7018-4faf-93dd-c7e717e8569b)
 	openEHR-EHR-OBSERVATION.management_screening.v1
 
 concept
-	[at0000]
-
+	[at0000]	-- Management screening questionnaire
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -29,21 +28,17 @@ language
 			>
 		>
 	>
-
 description
 	original_author = <
-		["date"] = <"2020-03-13">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
+		["date"] = <"2020-03-13">
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Astrid Askeland, Dips AS, Norway","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India","Yexuan Cheng, 浙江大学, China","Are Edvardsen, SKDE, Helse Nord RHF, Norway","Alexander Eikrem-Lüthi, Lovisenberg Diakonale Sykehus, Norway","Kåre Flø, DIPS ASA, Norway","Grant Forrest, Lunaria Ltd, United Kingdom","Heather Grain, Llewelyn Grain Informatics, Australia","Anca Heyd, DIPS ASA, Norway","Joost Holslag, Nedap, Netherlands","Evelyn Hovenga, EJSH Consulting, Australia","Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway","Gunnar Jårvik, Helse Vest IKT AS, Norway","Anjali Kulkarni, Karkinos, India","Kanika Kuwelker, Helse Vest IKT, Norway","Jörgen Kuylenstierna, eWeave AB, Sweden","Liv Laugen, ​Oslo University Hospital, Norway, Norway","Øygunn Leite Kallevik, Helse Bergen, Norway","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Hanne Marte Bårholm, Helse Vest IKT, Norway","Per Meinich, Helse Sør-Øst RHF, Norway","Mikael Nyström, Cambio Healthcare Systems AB, Sweden","Jussara Rotzsch, Hospital Alemão Oswaldo Cruz, Brazil","Andre Smitt-Ingebretsen, Sørlandet sykehus HF, Norway","Natalia Strauch, Medizinische Hochschule Hannover, Germany","Norwegian Review Summary, Norwegian Public Hospitals, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)","Ina Wille, Helse-Vest RHF, Norway">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"*To create a framework for recording answer to pre-defined screening questions about the broad range of clinical management that has been carried out in the past, with the exception of medications or surgical/operative procedures. (en)">
-			keywords = <"*treatment, screening, intervention, questionnaire, care, support, therapy (en)", ...>
 			use = <"*Use to create a framework for recording answer to pre-defined screening questions about the broad range of clinical management that has been carried out in the past, with the exception of medications or surgical/operative procedures.
 
 Common use cases include, but are not limited to:
@@ -65,6 +60,7 @@ The EVENT structure from the reference model can be used to specify whether the 
 The source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.
 
 This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of management or treatment, it is recommended that clinical system record and persist the specific details about the management or treatment using archetypes specific for the clinical purpose. (en)">
+			keywords = <"*treatment, screening, intervention, questionnaire, care, support, therapy (en)", ...>
 			misuse = <"*Not to be used to to create a framework for recording answers to pre-defined screening questions about procedures carried out in the past. Use the OBSERVATION.procedure_screening for this purpose.
 
 Not to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)">
@@ -72,7 +68,6 @@ Not to be used to record details about a simple selection list where a question 
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om utført håndtering av medisinske tilstander, med unntak av legemidler eller kirurgiske/operative prosedyrer.">
-			keywords = <"behandling, kartlegging, intervensjon, spørreskjema, omsorg, støtte, terapi", ...>
 			use = <"Brukes for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om utført håndtering av medisinske tilstander, med unntak av legemidler eller kirurgiske/operative prosedyrer.
 
 Vanlige bruksområder inkluderer, men er ikke begrenset til:
@@ -95,6 +90,7 @@ Bruk egne instanser av denne arketypen for å skille mellom spørsmål om sykdom
 Kilden til informasjonen i et spørreskjema kan variere i ulike kontekster, men kan identifiseres spesifikt ved å benytte \"Information provider\" elementet i openEHR referansemodellen.
 
 Denne arketypen er laget for å bli brukt i et spørreskjema eller for å registrere enkle strukturerte data til for eksempel et sykdomsregister. Dersom det i kartleggingen identifiseres at en aktivitet knyttet til sykdomshåndtering eller behandling er tilstede, anbefales det at spesifikke detaljer om sykdomshåndteringen eller behandlingen registreres og lagres i pasientjournalen i arketyper som er spesifikke for dette formålet.">
+			keywords = <"behandling, kartlegging, intervensjon, spørreskjema, omsorg, støtte, terapi", ...>
 			misuse = <"Brukes ikke for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om kirurgiske/operative prosedyrer som er utført tidligere, bruk arketypen OBSERVATION.procedure_screening for dette formålet.
 
 Brukes ikke for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om bruken av et hvilken som helst legemiddel eller gruppe av legemidler, bruk arketypen OBSERVATION.medication_screening for dette formålet.
@@ -104,8 +100,6 @@ Brukes ikke for å registrere detaljer om en enkel utvalgsliste der et spørsmå
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To create a framework for recording answers to pre-defined screening questions about the broad range of clinical management that has been carried out in the past, with the exception of medications or surgical/operative procedures.">
-			keywords = <"treatment, screening, intervention, questionnaire, care, support, therapy", ...>
-			copyright = <"© openEHR Foundation">
 			use = <"Use to create a framework for recording answers to pre-defined screening questions about the broad range of clinical management that has been carried out in the past, with the exception of medications or surgical/operative procedures.
 
 Common use cases include, but are not limited to:
@@ -127,17 +121,18 @@ The EVENT structure from the reference model can be used to specify whether the 
 The source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.
 
 This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of management or treatment, it is recommended that clinical system record and persist the specific details about the management or treatment using archetypes specific for the clinical purpose.">
+			keywords = <"treatment, screening, intervention, questionnaire, care, support, therapy", ...>
 			misuse = <"Not to be used to record answers to pre-defined screening questions about surgical/operative procedures that have been carried out in the past.
 Use the OBSERVATION.procedure_screening for this purpose.
 
 Not to be used to record answers to pre-defined screening questions about medications that have been used in the past. Use the OBSERVATION.medication_screening for this purpose.
 
 Not to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose.">
+			copyright = <"© openEHR Foundation">
 		>
 		["it"] = <
 			language = <[ISO_639-1::it]>
 			purpose = <"*To create a framework for recording answer to pre-defined screening questions about the broad range of clinical management that has been carried out in the past, with the exception of medications or surgical/operative procedures. (en)">
-			keywords = <"*treatment, screening, intervention, questionnaire, care, support, therapy (en)", ...>
 			use = <"*Use to create a framework for recording answer to pre-defined screening questions about the broad range of clinical management that has been carried out in the past, with the exception of medications or surgical/operative procedures.
 
 Common use cases include, but are not limited to:
@@ -159,11 +154,14 @@ The EVENT structure from the reference model can be used to specify whether the 
 The source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.
 
 This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of management or treatment, it is recommended that clinical system record and persist the specific details about the management or treatment using archetypes specific for the clinical purpose. (en)">
+			keywords = <"*treatment, screening, intervention, questionnaire, care, support, therapy (en)", ...>
 			misuse = <"*Not to be used to to create a framework for recording answers to pre-defined screening questions about procedures carried out in the past. Use the OBSERVATION.procedure_screening for this purpose.
 
 Not to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)">
 		>
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Astrid Askeland, Dips AS, Norway", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Yexuan Cheng, 浙江大学, China", "Are Edvardsen, SKDE, Helse Nord RHF, Norway", "Alexander Eikrem-Lüthi, Lovisenberg Diakonale Sykehus, Norway", "Kåre Flø, DIPS ASA, Norway", "Grant Forrest, Lunaria Ltd, United Kingdom", "Heather Grain, Llewelyn Grain Informatics, Australia", "Anca Heyd, DIPS ASA, Norway", "Joost Holslag, Nedap, Netherlands", "Evelyn Hovenga, EJSH Consulting, Australia", "Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway", "Gunnar Jårvik, Helse Vest IKT AS, Norway", "Anjali Kulkarni, Karkinos, India", "Kanika Kuwelker, Helse Vest IKT, Norway", "Jörgen Kuylenstierna, eWeave AB, Sweden", "Liv Laugen, ​Oslo University Hospital, Norway, Norway", "Øygunn Leite Kallevik, Helse Bergen, Norway", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Hanne Marte Bårholm, Helse Vest IKT, Norway", "Per Meinich, Helse Sør-Øst RHF, Norway", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Jussara Rotzsch, Hospital Alemão Oswaldo Cruz, Brazil", "Andre Smitt-Ingebretsen, Sørlandet sykehus HF, Norway", "Natalia Strauch, Medizinische Hochschule Hannover, Germany", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)", "Ina Wille, Helse-Vest RHF, Norway">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -281,6 +279,7 @@ definition
 			}
 		}
 	}
+
 
 ontology
 	terminologies_available = <"SNOMED-CT", ...>
@@ -737,7 +736,7 @@ In a template, the data element would usually be renamed to the specific questio
 			>
 		>
 	>
-	term_binding = <
+	term_bindings = <
 		["SNOMED-CT"] = <
 			items = <
 				["at0027"] = <[SNOMED-CT::261665006]>
