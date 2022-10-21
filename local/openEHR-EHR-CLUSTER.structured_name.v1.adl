@@ -1,9 +1,8 @@
-archetype (adl_version=1.4; uid=c4ed12e0-471f-40ec-b70d-be07ef3c5932)
+﻿archetype (adl_version=1.4; uid=c4ed12e0-471f-40ec-b70d-be07ef3c5932)
 	openEHR-EHR-CLUSTER.structured_name.v1
 
 concept
-	[at0000]
-
+	[at0000]	-- Structured name of a person
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -24,21 +23,17 @@ language
 			>
 		>
 	>
-
 description
 	original_author = <
-		["date"] = <"2021-04-14">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
+		["date"] = <"2021-04-14">
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Dag Aarhus, Vestre Viken HF, Norway","Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","Keisha Barwise, MOHW/IDB HSSP Project, Jamaica","SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India","Terje Bless, Helse Nord FRESK, Norway","Yexuan Cheng, 浙江大学, China","Candice de Lisser, Ministry of Health and Wellness, Jamaica","Ludvig Eek Hofmann, Cambio Healthcare Systems AB, Sweden","Alexander Eikrem-Lüthi, Lovisenberg Diakonale Sykehus, Norway","Valborg Ellingsen, Haraldsplass Diakonale sykehus, Norway","Heather Grain, Llewelyn Grain Informatics, Australia","Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (openEHR Editor)","Rebecka Hansson, Cambio Healthcare Systems AB, Sweden","Roar Holm, Helse Vest IKT A/S, Norway","Joost Holslag, Nedap, Netherlands","Evelyn Hovenga, EJSH Consulting, Australia","Gunnar Jårvik, Helse Vest IKT AS, Norway","Gunn-Lisbeth Kleiven, Oslo universitetssykehus HF, Norway","Shinji Kobayashi, National Institute of Public Health, Japan","Kanika Kuwelker, Helse Vest IKT, Norway","Jörgen Kuylenstierna, eWeave AB, Sweden","Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Mikael Nyström, Cambio Healthcare Systems AB, Sweden","Erik Skjemstad, Helse Nord RHF, Norway","Natalia Strauch, Medizinische Hochschule Hannover, Germany","Norwegian Review Summary, Norwegian Public Hospitals, Norway","Nyree Taylor, Ocean Health Systems, Australia","Anders Thurin, VGR, Sweden","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Darstellung von Angaben zu den einzelnen Bestandteilen des Namens einer Person in der Gesundheitsakte.">
-			keywords = <"*person, individual, name (en)", ...>
 			use = <"*Use to record details about the structured name of an individual as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index.
 
 In most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of an individual as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype.
@@ -53,6 +48,7 @@ It is anticipated that in most use cases for which this archetype has been desig
 - Family name first, given name/s last;
 - Family names with prefixes eg El Haddad or van der Heyden; and
 - Names containing both father's and mother's family names. (en)">
+			keywords = <"*person, individual, name (en)", ...>
 			misuse = <"Der Achetyp darf nicht verwendet werden, wenn eine unstrukturierte Textzeichenfolge, die den Namen der Person darstellt, für den Zweck geeignet ist. Verwenden Sie zu diesem Zweck das Datenelement „Name“ innerhalb des CLUSTER.person.
 
 Darf nicht für komplexe Namensdarstellung oder -verwaltung, wie z. B. Vorzugsnamen, Namensverwendung oder gültige Verwendungsdaten verwendet werden. Verwenden Sie zu diesem Zweck einen formellen Master Patient Index oder Health Provider Index oder Archetypen, die auf dem demografischen Informationsmodell von openEHR basieren.
@@ -64,7 +60,6 @@ Darf nicht verwendet werden, um den Behandlungsgegenstand, die Teilnehmer oder d
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere detaljer om et individs strukturerte navn, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet.">
-			keywords = <"person, individ, navn", ...>
 			use = <"Brukes for å registrere detaljer om et individs strukturerte navn, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet. Brukes ofte ad hoc eller i de tilfeller der det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.
 
 I de mest vanlige brukscasene vil det ustrukturerte dataelementet \"Navn\" i arketypen CLUSTER.person være tilstrekkelig til å registrere navnet til en person. Denne arketypen skal brukes i tilfeller der man har behov for detaljer om en eller flere komponenter i navnet, og gjøres ved å benytte denne arketypen i SLOTet \"Strukturert navn\" i arketypen CLUSTER.person.
@@ -80,6 +75,7 @@ ISO 22220:2007 (vedlegg F) gir eksempler og veiledning for hvordan du registrere
 - Etternavn først, fornavn/navn etter.
 - Familienavn med prefikser, f.eks. El Haddad eller van der Heyden.
 - Navn som inneholder både fars og mors etternavn.">
+			keywords = <"person, individ, navn", ...>
 			misuse = <"Brukes ikke dersom det for formålet er tilstrekkelig at personens navn registreres som fritekst. Bruk dataelementet \"Navn\" i CLUSTER.person (Person) for dette formålet. 
 
 Brukes ikke til kompleks navnerepresentasjon eller administrative oppgaver, for eksempel foretrukne navn, navnebruk eller gyldige bruksdatoer. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.
@@ -91,8 +87,6 @@ Brukes ikke for å representere pasient, deltakere eller forfatter av skjema ell
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record details about the structured name of an individual as they are known or understood in the course of clinical documentation.">
-			keywords = <"person, individual, name", ...>
-			copyright = <"© openEHR Foundation">
 			use = <"Use to record details about the structured name of an individual as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index.
 
 In most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of an individual as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype.
@@ -107,6 +101,7 @@ It is anticipated that in most use cases for which this archetype has been desig
 - Family name first, given name/s last;
 - Family names with prefixes eg El Haddad or van der Heyden; and
 - Names containing both father's and mother's family names.">
+			keywords = <"person, individual, name", ...>
 			misuse = <"Not to be used if an unstructured text string representing the individual's name is adequate for the purpose. Use the 'Name' data element within the CLUSTER.person for this purpose.
 
 Not to be used for complex name representation or management, such as preferred names, name usage or valid dates of usage. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.
@@ -114,8 +109,11 @@ Not to be used for complex name representation or management, such as preferred 
 Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.
 
 Not to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.">
+			copyright = <"© openEHR Foundation">
 		>
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Dag Aarhus, Vestre Viken HF, Norway", "Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "Keisha Barwise, MOHW/IDB HSSP Project, Jamaica", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Terje Bless, Helse Nord FRESK, Norway", "Yexuan Cheng, 浙江大学, China", "Candice de Lisser, Ministry of Health and Wellness, Jamaica", "Ludvig Eek Hofmann, Cambio Healthcare Systems AB, Sweden", "Alexander Eikrem-Lüthi, Lovisenberg Diakonale Sykehus, Norway", "Valborg Ellingsen, Haraldsplass Diakonale sykehus, Norway", "Heather Grain, Llewelyn Grain Informatics, Australia", "Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (openEHR Editor)", "Rebecka Hansson, Cambio Healthcare Systems AB, Sweden", "Roar Holm, Helse Vest IKT A/S, Norway", "Joost Holslag, Nedap, Netherlands", "Evelyn Hovenga, EJSH Consulting, Australia", "Gunnar Jårvik, Helse Vest IKT AS, Norway", "Gunn-Lisbeth Kleiven, Oslo universitetssykehus HF, Norway", "Shinji Kobayashi, National Institute of Public Health, Japan", "Kanika Kuwelker, Helse Vest IKT, Norway", "Jörgen Kuylenstierna, eWeave AB, Sweden", "Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Erik Skjemstad, Helse Nord RHF, Norway", "Natalia Strauch, Medizinische Hochschule Hannover, Germany", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "Nyree Taylor, Ocean Health Systems, Australia", "Anders Thurin, VGR, Sweden", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -159,6 +157,7 @@ definition
 			}
 		}
 	}
+
 
 ontology
 	term_definitions = <
