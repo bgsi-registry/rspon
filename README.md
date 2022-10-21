@@ -1,1 +1,3 @@
-# rspon
+# Variable Management System for BGSI
+
+This repository is intended to contain all `OpenEHR` archetypes and templates used in Biomedical and Genomic Science Initiative ([BGSI](https://bgsi.kemkes.go.id/)), a research-driven clinical initiative led by the Ministry of Health of the Republic of Indonesia. In this repository, we store all `OpenEHR` objects that we work on using [Archetype Designer](https://tools.openehr.org/) within the [`local`](https://github.com/bgsi-registry/OpenEHR-registry-template/tree/master/local) directory. In the [`hubs`](https://github.com/bgsi-registry/OpenEHR-registry-template/tree/master/hubs) directory, we stashed the template which we use in the production. We are open to discussion, and you will find the latest information on this project in the [Discussion](https://github.com/bgsi-registry/OpenEHR-registry-template/discussions) segment.
