@@ -19,8 +19,10 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "4cda6811fb4c6cb0ab3b224b43d087ff",
-      "PARENT:MD5-CAM-1.0.1" : "D02DE57ACD4A04C1ADAE1F8B28197890"
+      "MD5-CAM-1.0.1" : "5964d9f19b9425d64e3831887c5a61b2",
+      "PARENT:MD5-CAM-1.0.1" : "D02DE57ACD4A04C1ADAE1F8B28197890",
+      "sem_ver" : "1.0.0",
+      "build_uid" : ""
     },
     "details" : {
       "de" : {
@@ -171,7 +173,7 @@
   "differential" : true,
   "archetypeId" : {
     "@type" : "ARCHETYPE_HRID",
-    "value" : "openEHR-EHR-OBSERVATION.pemeriksaanmikroskopis bulan 2.v1"
+    "value" : "openEHR-EHR-OBSERVATION.pemeriksaanmikroskopis_bulan_2.v1"
   },
   "definition" : {
     "@type" : "C_COMPLEX_OBJECT",
@@ -413,7 +415,8 @@
           }, {
             "@type" : "C_COMPLEX_OBJECT",
             "rmTypeName" : "CLUSTER",
-            "nodeId" : "at0094",
+            "occurrences" : "0..0",
+            "nodeId" : "at0094.1",
             "attributes" : [ {
               "@type" : "C_ATTRIBUTE",
               "rmAttributeName" : "items",
@@ -653,7 +656,7 @@
     }
   },
   "adlVersion" : "1.4",
-  "buildUid" : "2132aa1c-44eb-3c78-9d53-eb6f0dbb84cc",
+  "buildUid" : "d7abea45-5c98-3266-a043-7aa114d34e7b",
   "rmName" : "openehr",
   "rmRelease" : "1.1.0",
   "generated" : true,
@@ -933,31 +936,6 @@
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_COUNT",
-              "occurrences" : "1..1",
-              "defaultValue" : {
-                "magnitude" : 0,
-                "@type" : "DV_COUNT"
-              },
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "magnitude",
-                "children" : [ {
-                  "@type" : "C_INTEGER",
-                  "rmTypeName" : "INTEGER",
-                  "occurrences" : "0..1",
-                  "constraint" : [ {
-                    "lower" : 0,
-                    "lowerIncluded" : true,
-                    "upperIncluded" : false,
-                    "lowerUnbounded" : false,
-                    "upperUnbounded" : true
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_CODED_TEXT",
               "occurrences" : "1..1",
               "attributes" : [ {
@@ -988,6 +966,10 @@
                     "terminologyId" : "local_terms",
                     "code" : "3",
                     "value" : "3+"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "4",
+                    "value" : ">3+"
                   } ]
                 } ]
               } ],
@@ -1101,6 +1083,12 @@
             "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
             "fhir_mapping" : "Observation.value[x]"
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Hasil pemeriksaan mikroskopis",
+            "description" : "The result of a laboratory test for a single analyte value."
           }
         },
         "nb" : { },
@@ -1456,14 +1444,6 @@
             "@type" : "C_ATTRIBUTE",
             "rmAttributeName" : "value",
             "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_IDENTIFIER",
-              "defaultValue" : {
-                "@type" : "DV_IDENTIFIER"
-              },
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_TEXT",
               "attributes" : [ ],
