@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.0.1",
+      "sem_ver" : "1.0.0",
       "build_uid" : "2d4ce419-06c8-4c3e-8464-3a7c0cc84e7c",
-      "MD5-CAM-1.0.1" : "05c73b5093d51f6f2d34c260df571cd7",
+      "MD5-CAM-1.0.1" : "238754031ef571315b9f5c0b77c95259",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -553,6 +553,15 @@
           "attributeTuples" : [ ],
           "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-body_composition-001.v0",
           "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "OBSERVATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.6",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-exam-001.v1",
+          "referenceType" : "archetypeOverlay"
         } ]
       } ],
       "attributeTuples" : [ ]
@@ -804,11 +813,59 @@
                     "children" : [ {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "CLUSTER",
-                      "nodeId" : "at0120",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0120.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "items",
                         "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "1..1",
+                          "nodeId" : "at0124.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_PROPORTION",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "numerator",
+                                "children" : [ {
+                                  "@type" : "C_REAL",
+                                  "rmTypeName" : "REAL",
+                                  "occurrences" : "1..1",
+                                  "constraint" : [ {
+                                    "lower" : 0.0,
+                                    "upper" : 100.0,
+                                    "lowerIncluded" : true,
+                                    "upperIncluded" : true,
+                                    "lowerUnbounded" : false,
+                                    "upperUnbounded" : false
+                                  } ]
+                                } ]
+                              }, {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "type",
+                                "children" : [ {
+                                  "@type" : "C_INTEGER",
+                                  "rmTypeName" : "INTEGER",
+                                  "constraint" : [ {
+                                    "lower" : 2,
+                                    "upper" : 2,
+                                    "lowerIncluded" : true,
+                                    "upperIncluded" : true,
+                                    "lowerUnbounded" : false,
+                                    "upperUnbounded" : false
+                                  } ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0005.1",
@@ -871,53 +928,6 @@
                                   } ]
                                 } ]
                               } ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0124.1",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "value",
-                            "children" : [ {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_PROPORTION",
-                              "attributes" : [ {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "numerator",
-                                "children" : [ {
-                                  "@type" : "C_REAL",
-                                  "rmTypeName" : "REAL",
-                                  "occurrences" : "1..1",
-                                  "constraint" : [ {
-                                    "lower" : 0.0,
-                                    "upper" : 100.0,
-                                    "lowerIncluded" : true,
-                                    "upperIncluded" : true,
-                                    "lowerUnbounded" : false,
-                                    "upperUnbounded" : false
-                                  } ]
-                                } ]
-                              }, {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "type",
-                                "children" : [ {
-                                  "@type" : "C_INTEGER",
-                                  "rmTypeName" : "INTEGER",
-                                  "occurrences" : "1..1",
-                                  "constraint" : [ {
-                                    "lower" : 2,
-                                    "upper" : 2,
-                                    "lowerIncluded" : true,
-                                    "upperIncluded" : true,
-                                    "lowerUnbounded" : false,
-                                    "upperUnbounded" : false
-                                  } ]
-                                } ]
-                              } ],
-                              "attributeTuples" : [ ]
                             } ]
                           } ],
                           "attributeTuples" : [ ]
@@ -1621,7 +1631,8 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "CLUSTER",
-                      "nodeId" : "at0068",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0068.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "items",
@@ -1762,6 +1773,77 @@
                         }, {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "occurrences" : "1..1",
+                          "nodeId" : "at0109.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_QUANTITY",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "property",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "occurrences" : "0..1",
+                                  "terminologyId" : {
+                                    "value" : "openehr"
+                                  },
+                                  "constraint" : [ "124" ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ {
+                                "@type" : "C_ATTRIBUTE_TUPLE",
+                                "members" : [ {
+                                  "@type" : "C_ATTRIBUTE",
+                                  "rmAttributeName" : "units",
+                                  "children" : [ ]
+                                }, {
+                                  "@type" : "C_ATTRIBUTE",
+                                  "rmAttributeName" : "magnitude",
+                                  "children" : [ ]
+                                }, {
+                                  "@type" : "C_ATTRIBUTE",
+                                  "rmAttributeName" : "precision",
+                                  "children" : [ ]
+                                } ],
+                                "tuples" : [ {
+                                  "@type" : "C_PRIMITIVE_TUPLE",
+                                  "members" : [ {
+                                    "@type" : "C_STRING",
+                                    "rmTypeName" : "STRING",
+                                    "constraint" : [ "kg" ]
+                                  }, {
+                                    "@type" : "C_REAL",
+                                    "rmTypeName" : "REAL",
+                                    "constraint" : [ {
+                                      "lowerIncluded" : false,
+                                      "upperIncluded" : false,
+                                      "lowerUnbounded" : true,
+                                      "upperUnbounded" : true
+                                    } ]
+                                  }, {
+                                    "@type" : "C_INTEGER",
+                                    "rmTypeName" : "INTEGER",
+                                    "constraint" : [ {
+                                      "lower" : 1,
+                                      "upper" : 1,
+                                      "lowerIncluded" : true,
+                                      "upperIncluded" : true,
+                                      "lowerUnbounded" : false,
+                                      "upperUnbounded" : false
+                                    } ]
+                                  } ]
+                                } ]
+                              } ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "1..1",
                           "nodeId" : "at0110.1",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
@@ -1810,75 +1892,6 @@
                                       "lowerIncluded" : true,
                                       "upperIncluded" : false,
                                       "lowerUnbounded" : false,
-                                      "upperUnbounded" : true
-                                    } ]
-                                  }, {
-                                    "@type" : "C_INTEGER",
-                                    "rmTypeName" : "INTEGER",
-                                    "constraint" : [ {
-                                      "lower" : 1,
-                                      "upper" : 1,
-                                      "lowerIncluded" : true,
-                                      "upperIncluded" : true,
-                                      "lowerUnbounded" : false,
-                                      "upperUnbounded" : false
-                                    } ]
-                                  } ]
-                                } ]
-                              } ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0109.1",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "value",
-                            "children" : [ {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_QUANTITY",
-                              "attributes" : [ {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "property",
-                                "children" : [ {
-                                  "@type" : "C_TERMINOLOGY_CODE",
-                                  "occurrences" : "0..1",
-                                  "terminologyId" : {
-                                    "value" : "openehr"
-                                  },
-                                  "constraint" : [ "124" ]
-                                } ]
-                              } ],
-                              "attributeTuples" : [ {
-                                "@type" : "C_ATTRIBUTE_TUPLE",
-                                "members" : [ {
-                                  "@type" : "C_ATTRIBUTE",
-                                  "rmAttributeName" : "units",
-                                  "children" : [ ]
-                                }, {
-                                  "@type" : "C_ATTRIBUTE",
-                                  "rmAttributeName" : "magnitude",
-                                  "children" : [ ]
-                                }, {
-                                  "@type" : "C_ATTRIBUTE",
-                                  "rmAttributeName" : "precision",
-                                  "children" : [ ]
-                                } ],
-                                "tuples" : [ {
-                                  "@type" : "C_PRIMITIVE_TUPLE",
-                                  "members" : [ {
-                                    "@type" : "C_STRING",
-                                    "rmTypeName" : "STRING",
-                                    "constraint" : [ "kg" ]
-                                  }, {
-                                    "@type" : "C_REAL",
-                                    "rmTypeName" : "REAL",
-                                    "constraint" : [ {
-                                      "lowerIncluded" : false,
-                                      "upperIncluded" : false,
-                                      "lowerUnbounded" : true,
                                       "upperUnbounded" : true
                                     } ]
                                   }, {
@@ -7861,6 +7874,191 @@
         "organisation" : "浙江大学",
         "email" : "3160100913@zju.edu.cn"
       },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "0978add0-f3aa-410e-af40-895e51881312",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "EE14278FF1F40843114E3AD7FEA0D73B"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-OBSERVATION.ovl-exam-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "OBSERVATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "ar-sy" : { },
+        "sl" : { },
+        "es-ar" : { },
+        "en" : { },
+        "nb" : { },
+        "es" : { },
+        "pt-br" : { },
+        "zh-cn" : { },
+        "de" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "a579ef9e-5c84-4943-8964-ab99a6e651fc",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Nina Schewe",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "schewe.nina@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Sofia Janstad",
+        "organisation" : "SLL",
+        "email" : "sofia.lang-janstad@sll.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen and Einar Fosse",
+        "organisation" : "Haukeland University Hospital Bergen, Norway; UNN HF Centre for Integrated Care and Telemedicine",
+        "email" : "lbla@helse-bergen.no; Einar.Fosse@unn.no"
+      },
+      "accreditation" : "MD, DEAA, MBA, specialist in tropical medic",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Edgardo Vazquez",
+        "organisation" : "VinculoMedico"
+      },
+      "accreditation" : "Medical Doctor",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima",
+        "organisation" : "Core Consulting",
+        "email" : "adriana.kitajima@coreconsulting.com.br"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sl"
+      },
+      "author" : {
+        "name" : "Uroš Rajkovič, Biljana Prinčič",
+        "organisation" : "Slovenia"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "zh-cn"
+      },
+      "author" : {
+        "name" : "Lin Zhang",
+        "organisation" : "BIPH",
+        "email" : "linforest@163.com"
+      },
+      "accreditation" : "?",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es"
+      },
+      "author" : {
+        "name" : "Pablo Pazos",
+        "organisation" : "CaboLabs"
+      },
+      "accreditation" : "Computer Engineer",
       "otherDetails" : { }
     } ]
   } ],
