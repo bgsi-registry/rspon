@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "6423605575c61f1a403d0249562d16cc",
+      "MD5-CAM-1.0.1" : "5917bcf7b800aa7f9f2d1899bb7806f4",
       "PARENT:MD5-CAM-1.0.1" : "D02DE57ACD4A04C1ADAE1F8B28197890",
-      "sem_ver" : "1.1.0",
+      "sem_ver" : "1.2.0",
       "build_uid" : ""
     },
     "details" : {
@@ -936,15 +936,41 @@
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
+              "rmTypeName" : "DV_CODED_TEXT",
               "occurrences" : "1..1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
+                "rmAttributeName" : "defining_code",
                 "children" : [ {
-                  "@type" : "C_STRING",
-                  "rmTypeName" : "STRING",
-                  "constraint" : [ "Negatif", "1+", "2+", "3+", "/.+/" ]
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_terms"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_terms" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_terms",
+                    "code" : "0",
+                    "value" : "Negatif"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "1",
+                    "value" : "1+"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "2",
+                    "value" : "2+"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "3",
+                    "value" : "3+"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "4",
+                    "value" : ">3+"
+                  } ]
                 } ]
               } ],
               "attributeTuples" : [ ]
