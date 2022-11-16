@@ -19,8 +19,10 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "4ea17c528007a71e93c5cef9762cb10c",
-      "PARENT:MD5-CAM-1.0.1" : "8FE80F3E80C594AAF99D3BA540A53D73"
+      "MD5-CAM-1.0.1" : "014c81fa2d20be3b0166a155a40b0a54",
+      "PARENT:MD5-CAM-1.0.1" : "8FE80F3E80C594AAF99D3BA540A53D73",
+      "sem_ver" : "0.1.1",
+      "build_uid" : "b178daba-2c69-4691-84d5-fb4d65b55fbe"
     },
     "details" : {
       "de" : {
@@ -455,10 +457,19 @@
                       "rmTypeName" : "TERMINOLOGY_CODE",
                       "occurrences" : "1..1",
                       "terminologyId" : {
-                        "value" : "local"
+                        "value" : "local_terms"
                       },
-                      "constraint" : [ "ac0.1" ],
-                      "selectedTerminologies" : [ ]
+                      "constraint" : [ ],
+                      "selectedTerminologies" : [ "local_terms" ],
+                      "includedExternalTerminologyCodes" : [ {
+                        "terminologyId" : "local_terms",
+                        "code" : "0",
+                        "value" : "Ya"
+                      }, {
+                        "terminologyId" : "local_terms",
+                        "code" : "1",
+                        "value" : "Tidak"
+                      } ]
                     } ]
                   } ],
                   "attributeTuples" : [ ]
@@ -468,15 +479,24 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
               "nodeId" : "at0043.1",
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
               "nodeId" : "at0015.1",
-              "attributes" : [ ],
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -575,7 +595,8 @@
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "CLUSTER",
-                  "nodeId" : "at0064",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0064.1",
                   "attributes" : [ {
                     "@type" : "C_ATTRIBUTE",
                     "rmAttributeName" : "items",
@@ -665,6 +686,7 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
                       "nodeId" : "at0023.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
@@ -935,14 +957,6 @@
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "ELEMENT",
-                  "occurrences" : "0..0",
-                  "nodeId" : "at0014.1",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                }, {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "ELEMENT",
-                  "occurrences" : "0..0",
                   "nodeId" : "at0017.1",
                   "attributes" : [ {
                     "@type" : "C_ATTRIBUTE",
@@ -955,7 +969,7 @@
                         "rmAttributeName" : "magnitude",
                         "children" : [ {
                           "@type" : "C_INTEGER",
-                          "rmTypeName" : "Integer",
+                          "rmTypeName" : "INTEGER",
                           "occurrences" : "1..1",
                           "constraint" : [ {
                             "lower" : 0,
@@ -969,6 +983,13 @@
                       "attributeTuples" : [ ]
                     } ]
                   } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0014.1",
+                  "attributes" : [ ],
                   "attributeTuples" : [ ]
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
@@ -1313,59 +1334,32 @@
             "description" : "Estimate of number of units of the specified type of tobacco consumed.",
             "comment" : "For example: the number of 'sticks' or 'full pipes' per day or per week. This data element is redundant if a value is recorded for 'Typical use(mass)'."
           },
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.1",
-            "description" : ""
-          },
           "at0095.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0095.1",
             "text" : "Jenis Rokok",
             "description" : "The type of tobacco smoked by the individual."
+          },
+          "at0017.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0017.1",
+            "text" : "Jumlah rokok per hari",
+            "description" : "Estimate of the cumulative amount of tobacco smoked using the specified type of tobacco.",
+            "comment" : "Commonly used in assessment of cigarette use. It is calculated by multiplying the number of packs of cigarettes smoked per day by the number of years the individual has smoked. One pack year equals 365 packs of cigarettes. Details about how to calculate pack years for other types of tobacco can be found at http://smokingpackyears.com. The definition of a pack can be recorded in the protocol of this archetype using the 'Pack definition' data element."
+          },
+          "at0043.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0043.1",
+            "text" : "Usia pertama kali merokok",
+            "description" : "Narrative summary about the individual's overall tobacco smoking pattern and history.",
+            "comment" : "Use this data element to record a narrative description of the tobacco smoking habits for this individual or to incorporate unstructured tobacco smoking information from existing or legacy clinical systems into an archetyped format."
           }
         },
-        "nb" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        },
-        "sv" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        },
-        "de" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        },
-        "fr" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        },
-        "nl" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        }
+        "nb" : { },
+        "sv" : { },
+        "de" : { },
+        "fr" : { },
+        "nl" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -1388,6 +1382,21 @@
         "ac0.5" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.5",
+          "members" : [ ]
+        },
+        "ac0.7" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.7",
+          "members" : [ "at0006", "at0003", "at0005" ]
+        },
+        "ac0.8" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.8",
+          "members" : [ ]
+        },
+        "ac0.9" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.9",
           "members" : [ ]
         }
       }
