@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "b2f3c23a5bfb125761fb7e0a7a850de6",
+      "MD5-CAM-1.0.1" : "041e8c8c15c6848b65874a5c64671a3b",
       "PARENT:MD5-CAM-1.0.1" : "D02DE57ACD4A04C1ADAE1F8B28197890",
-      "sem_ver" : "1.1.0",
+      "sem_ver" : "1.2.1",
       "build_uid" : ""
     },
     "details" : {
@@ -935,15 +935,53 @@
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
+              "rmTypeName" : "DV_CODED_TEXT",
               "occurrences" : "1..1",
+              "defaultValue" : {
+                "defining_code" : {
+                  "terminology_id" : {
+                    "value" : "local_terms",
+                    "@type" : "TERMINOLOGY_ID"
+                  },
+                  "code_string" : "0",
+                  "@type" : "CODE_PHRASE"
+                },
+                "value" : "Negatif",
+                "@type" : "DV_CODED_TEXT"
+              },
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
+                "rmAttributeName" : "defining_code",
                 "children" : [ {
-                  "@type" : "C_STRING",
-                  "rmTypeName" : "STRING",
-                  "constraint" : [ "Negatif", "1+", "2+", "3+", "/.+/" ]
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_terms"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_terms" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_terms",
+                    "code" : "0",
+                    "value" : "Negatif"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "1",
+                    "value" : "1+"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "2",
+                    "value" : "2+"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "3",
+                    "value" : "3+"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "4",
+                    "value" : ">3+"
+                  } ]
                 } ]
               } ],
               "attributeTuples" : [ ]
