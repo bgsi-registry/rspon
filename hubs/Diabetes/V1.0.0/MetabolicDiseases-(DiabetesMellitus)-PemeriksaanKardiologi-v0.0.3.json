@@ -1,0 +1,3233 @@
+{
+  "templateId" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanKardiologi-v0.0.3",
+  "semVer" : "0.0.3",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "metabolicdiseases-_diabetesmellitus_-pemeriksaankardiologi-v0.0.3",
+    "name" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanKardiologi-v0.0.3",
+    "localizedName" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanKardiologi-v0.0.3",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanKardiologi-v0.0.3"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context"
+    }, {
+      "id" : "echocardiography",
+      "name" : "Echocardiography",
+      "localizedName" : "Echocardiography",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Echocardiography"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']",
+      "children" : [ {
+        "id" : "echocardiography_-_aorta",
+        "name" : "Echocardiography - Aorta",
+        "localizedName" : "Echocardiography - Aorta",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Echocardiography - Aorta"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Echocardiography - Aorta",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsEA"
+          } ]
+        }, {
+          "id" : "root_diameter",
+          "name" : "Root Diameter",
+          "localizedName" : "Root Diameter",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Root Diameter"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Root Diameter']",
+          "children" : [ {
+            "id" : "ukuran_root_diameter_mm",
+            "name" : "Ukuran Root Diameter (mm)",
+            "localizedName" : "Ukuran Root Diameter (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Root Diameter (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Root Diameter']/items[at0024,'Ukuran Root Diameter (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "valve",
+          "name" : "Valve",
+          "localizedName" : "Valve",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Valve"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Valve']",
+          "children" : [ {
+            "id" : "keadaan_valve",
+            "name" : "Keadaan Valve",
+            "localizedName" : "Keadaan Valve",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Keadaan Valve"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Valve']/items[at0024,'Keadaan Valve']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "keadaan_valve_lainnya",
+            "name" : "Keadaan Valve lainnya",
+            "localizedName" : "Keadaan Valve lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keadaan Valve lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Additional narrative about the clinical finding, not captured in other fields."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Valve']/items[at0003,'Keadaan Valve lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Aorta']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "echocardiography_-_atrium_kiri",
+        "name" : "Echocardiography - Atrium Kiri",
+        "localizedName" : "Echocardiography - Atrium Kiri",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Echocardiography - Atrium Kiri"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Echocardiography - Atrium Kiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsAkr"
+          } ]
+        }, {
+          "id" : "diameter",
+          "name" : "Diameter",
+          "localizedName" : "Diameter",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Diameter"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Diameter']",
+          "children" : [ {
+            "id" : "ukuran_diameter_mm",
+            "name" : "Ukuran Diameter (mm)",
+            "localizedName" : "Ukuran Diameter (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Diameter (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Diameter']/items[at0024,'Ukuran Diameter (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "la_volume",
+          "name" : "LA volume",
+          "localizedName" : "LA volume",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LA volume"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LA volume']",
+          "children" : [ {
+            "id" : "ukuran_la_volume_ml",
+            "name" : "Ukuran LA volume (ml)",
+            "localizedName" : "Ukuran LA volume (ml)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran LA volume (ml)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LA volume']/items[at0024,'Ukuran LA volume (ml)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "lavi",
+          "name" : "LAVI",
+          "localizedName" : "LAVI",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LAVI"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LAVI']",
+          "children" : [ {
+            "id" : "ukuran_lavi_ml_m2",
+            "name" : "Ukuran LAVI (ml/m2)",
+            "localizedName" : "Ukuran LAVI (ml/m2)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran LAVI (ml/m2)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LAVI']/items[at0024,'Ukuran LAVI (ml/m2)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Atrium Kiri']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "echocardiography_-_ventrikel_kanan",
+        "name" : "Echocardiography - Ventrikel Kanan",
+        "localizedName" : "Echocardiography - Ventrikel Kanan",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Echocardiography - Ventrikel Kanan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Echocardiography - Ventrikel Kanan",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsVK"
+          } ]
+        }, {
+          "id" : "tapse",
+          "name" : "TAPSE",
+          "localizedName" : "TAPSE",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "TAPSE"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'TAPSE']",
+          "children" : [ {
+            "id" : "ukuran_tapse_mm",
+            "name" : "Ukuran TAPSE (mm)",
+            "localizedName" : "Ukuran TAPSE (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran TAPSE (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'TAPSE']/items[at0024,'Ukuran TAPSE (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kanan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "echocardiography_-_ventrikel_kiri",
+        "name" : "Echocardiography - Ventrikel Kiri",
+        "localizedName" : "Echocardiography - Ventrikel Kiri",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Echocardiography - Ventrikel Kiri"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Echocardiography - Ventrikel Kiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsVKr"
+          } ]
+        }, {
+          "id" : "diameter_ed",
+          "name" : "Diameter (ED)",
+          "localizedName" : "Diameter (ED)",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Diameter (ED)"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Diameter (ED)']",
+          "children" : [ {
+            "id" : "ukuran_diameter_mm",
+            "name" : "Ukuran Diameter (mm)",
+            "localizedName" : "Ukuran Diameter (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Diameter (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Diameter (ED)']/items[at0024,'Ukuran Diameter (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "diameter_es",
+          "name" : "Diameter (ES)",
+          "localizedName" : "Diameter (ES)",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Diameter (ES)"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Diameter (ES)']",
+          "children" : [ {
+            "id" : "ukuran_diameter_mm",
+            "name" : "Ukuran Diameter (mm)",
+            "localizedName" : "Ukuran Diameter (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Diameter (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Diameter (ES)']/items[at0024,'Ukuran Diameter (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "fs",
+          "name" : "FS",
+          "localizedName" : "FS",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "FS"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'FS']",
+          "children" : [ {
+            "id" : "ukuran_fs",
+            "name" : "Ukuran % FS",
+            "localizedName" : "Ukuran % FS",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran % FS"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'FS']/items[at0024,'Ukuran % FS']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "ivsd",
+          "name" : "IVSd",
+          "localizedName" : "IVSd",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "IVSd"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'IVSd']",
+          "children" : [ {
+            "id" : "ukuran_ivsd_mm",
+            "name" : "Ukuran IVSd (mm)",
+            "localizedName" : "Ukuran IVSd (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran IVSd (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'IVSd']/items[at0024,'Ukuran IVSd (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "lvpwd",
+          "name" : "LVPWd",
+          "localizedName" : "LVPWd",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LVPWd"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LVPWd']",
+          "children" : [ {
+            "id" : "ukuran_lvpwd_mm",
+            "name" : "Ukuran LVPWd (mm)",
+            "localizedName" : "Ukuran LVPWd (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran LVPWd (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LVPWd']/items[at0024,'Ukuran LVPWd (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "epss",
+          "name" : "EPSS",
+          "localizedName" : "EPSS",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "EPSS"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'EPSS']",
+          "children" : [ {
+            "id" : "ukuran_epss_mm",
+            "name" : "Ukuran EPSS (mm)",
+            "localizedName" : "Ukuran EPSS (mm)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran EPSS (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'EPSS']/items[at0024,'Ukuran EPSS (mm)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "lv_e",
+          "name" : "LV E",
+          "localizedName" : "LV E",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LV E"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV E']",
+          "children" : [ {
+            "id" : "ukuran_lv_e_cm_s",
+            "name" : "Ukuran LV E (cm/s)",
+            "localizedName" : "Ukuran LV E (cm/s)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran LV E (cm/s)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV E']/items[at0024,'Ukuran LV E (cm/s)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "lv_a",
+          "name" : "LV A",
+          "localizedName" : "LV A",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LV A"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV A']",
+          "children" : [ {
+            "id" : "ukuran_lv_e_cm_s",
+            "name" : "Ukuran LV E (cm/s)",
+            "localizedName" : "Ukuran LV E (cm/s)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran LV E (cm/s)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV A']/items[at0024,'Ukuran LV E (cm/s)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "perhitungan_e_a",
+          "name" : "Perhitungan E/A",
+          "localizedName" : "Perhitungan E/A",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Perhitungan E/A"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Perhitungan E/A']",
+          "children" : [ {
+            "id" : "perhitungan_e_a",
+            "name" : "Perhitungan E/A",
+            "localizedName" : "Perhitungan E/A",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Perhitungan E/A"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Perhitungan E/A']/items[at0024,'Perhitungan E/A']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "e_lateral",
+          "name" : "E' lateral",
+          "localizedName" : "E' lateral",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "E' lateral"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'E' lateral']",
+          "children" : [ {
+            "id" : "ukuran_e_lateral_cm_s",
+            "name" : "Ukuran E' lateral (cm/s)",
+            "localizedName" : "Ukuran E' lateral (cm/s)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran E' lateral (cm/s)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'E' lateral']/items[at0024,'Ukuran E' lateral (cm/s)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "e_medial",
+          "name" : "E' Medial",
+          "localizedName" : "E' Medial",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "E' Medial"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'E' Medial']",
+          "children" : [ {
+            "id" : "ukuran_e_medial_cm_s",
+            "name" : "Ukuran E' Medial (cm/s)",
+            "localizedName" : "Ukuran E' Medial (cm/s)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran E' Medial (cm/s)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'E' Medial']/items[at0024,'Ukuran E' Medial (cm/s)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "perhitungan_e_e",
+          "name" : "Perhitungan E/E",
+          "localizedName" : "Perhitungan E/E",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Perhitungan E/E"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Perhitungan E/E']",
+          "children" : [ {
+            "id" : "perhitungan_e_e",
+            "name" : "Perhitungan E/E",
+            "localizedName" : "Perhitungan E/E",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Perhitungan E/E"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Perhitungan E/E']/items[at0024,'Perhitungan E/E']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "ef_simpson",
+          "name" : "EF (Simpson)",
+          "localizedName" : "EF (Simpson)",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "EF (Simpson)"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'EF (Simpson)']",
+          "children" : [ {
+            "id" : "persentase_menurut_ef_simpson",
+            "name" : "Persentase menurut EF (Simpson) %",
+            "localizedName" : "Persentase menurut EF (Simpson) %",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Persentase menurut EF (Simpson) %"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'EF (Simpson)']/items[at0024,'Persentase menurut EF (Simpson) %']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "lv_mass",
+          "name" : "LV mass",
+          "localizedName" : "LV mass",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LV mass"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV mass']",
+          "children" : [ {
+            "id" : "nilai_lv_mass_gram",
+            "name" : "Nilai LV mass (gram)",
+            "localizedName" : "Nilai LV mass (gram)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai LV mass (gram)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV mass']/items[at0024,'Nilai LV mass (gram)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "lv_mass_index",
+          "name" : "LV mass index",
+          "localizedName" : "LV mass index",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LV mass index"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV mass index']",
+          "children" : [ {
+            "id" : "lv_mass_index_gram_m2",
+            "name" : "LV mass index (gram/m2)",
+            "localizedName" : "LV mass index (gram/m2)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "LV mass index (gram/m2)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LV mass index']/items[at0024,'LV mass index (gram/m2)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "rwt",
+          "name" : "RWT",
+          "localizedName" : "RWT",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "RWT"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'RWT']",
+          "children" : [ {
+            "id" : "nilai_rwt",
+            "name" : "Nilai RWT",
+            "localizedName" : "Nilai RWT",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai RWT"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'RWT']/items[at0024,'Nilai RWT']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "peak_gls",
+          "name" : "Peak GLS",
+          "localizedName" : "Peak GLS",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Peak GLS"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Peak GLS']",
+          "children" : [ {
+            "id" : "nilai_peak_gls",
+            "name" : "Nilai Peak GLS",
+            "localizedName" : "Nilai Peak GLS",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai Peak GLS"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Peak GLS']/items[at0024,'Nilai Peak GLS']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "wall_motion",
+          "name" : "Wall motion",
+          "localizedName" : "Wall motion",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Wall motion"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Wall motion']",
+          "children" : [ {
+            "id" : "keadaan_wall_motion",
+            "name" : "Keadaan Wall motion",
+            "localizedName" : "Keadaan Wall motion",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Keadaan Wall motion"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Wall motion']/items[at0024,'Keadaan Wall motion']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Abnormal (Akinetik, Hipokinetik)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Echocardiography - Ventrikel Kiri']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "katup_mitral",
+        "name" : "Katup Mitral",
+        "localizedName" : "Katup Mitral",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Katup Mitral"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Katup Mitral",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsKM"
+          } ]
+        }, {
+          "id" : "valve",
+          "name" : "VALVE",
+          "localizedName" : "VALVE",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "VALVE"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']",
+          "children" : [ {
+            "id" : "ukuran_valve",
+            "name" : "Ukuran Valve",
+            "localizedName" : "Ukuran Valve",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Valve"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0024,'Ukuran Valve']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "ukuran_valve_dalam_cm_s_apabila_tidak_normal",
+            "name" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "localizedName" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Valve dalam cm/s apabila tidak normal"
+            },
+            "localizedDescriptions" : {
+              "en" : "Additional narrative about the clinical finding, not captured in other fields."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "katup_trikuspid",
+        "name" : "Katup Trikuspid",
+        "localizedName" : "Katup Trikuspid",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Katup Trikuspid"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Katup Trikuspid",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsKT"
+          } ]
+        }, {
+          "id" : "valve",
+          "name" : "VALVE",
+          "localizedName" : "VALVE",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "VALVE"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']",
+          "children" : [ {
+            "id" : "ukuran_valve",
+            "name" : "Ukuran Valve",
+            "localizedName" : "Ukuran Valve",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Valve"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0024,'Ukuran Valve']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "ukuran_valve_dalam_cm_s_apabila_tidak_normal",
+            "name" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "localizedName" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Valve dalam cm/s apabila tidak normal"
+            },
+            "localizedDescriptions" : {
+              "en" : "Additional narrative about the clinical finding, not captured in other fields."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "trvmax",
+          "name" : "TRVmax",
+          "localizedName" : "TRVmax",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "TRVmax"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'TRVmax']",
+          "children" : [ {
+            "id" : "nilai_trvmax_cm_s",
+            "name" : "Nilai TRVmax (cm/s)",
+            "localizedName" : "Nilai TRVmax (cm/s)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai TRVmax (cm/s)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'TRVmax']/items[at0024,'Nilai TRVmax (cm/s)']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "katup_pulmonal",
+        "name" : "Katup Pulmonal",
+        "localizedName" : "Katup Pulmonal",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Katup Pulmonal"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Katup Pulmonal",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsKP"
+          } ]
+        }, {
+          "id" : "valve",
+          "name" : "VALVE",
+          "localizedName" : "VALVE",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "VALVE"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']",
+          "children" : [ {
+            "id" : "ukuran_valve",
+            "name" : "Ukuran Valve",
+            "localizedName" : "Ukuran Valve",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Valve"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0024,'Ukuran Valve']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "ukuran_valve_dalam_cm_s_apabila_tidak_normal",
+            "name" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "localizedName" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Valve dalam cm/s apabila tidak normal"
+            },
+            "localizedDescriptions" : {
+              "en" : "Additional narrative about the clinical finding, not captured in other fields."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "pv_acc_time",
+          "name" : "PV Acc Time",
+          "localizedName" : "PV Acc Time",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "PV Acc Time"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'PV Acc Time']",
+          "children" : [ {
+            "id" : "nilai_pv_acc_time_msec",
+            "name" : "Nilai PV Acc Time (msec)",
+            "localizedName" : "Nilai PV Acc Time (msec)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai PV Acc Time (msec)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'PV Acc Time']/items[at0024,'Nilai PV Acc Time (msec)']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Pulmonal']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "hemodinamik",
+        "name" : "Hemodinamik",
+        "localizedName" : "Hemodinamik",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Hemodinamik"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']",
+        "children" : [ {
+          "id" : "pemeriksaan",
+          "name" : "Pemeriksaan",
+          "localizedName" : "Pemeriksaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pemeriksaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the examination (to be) performed. Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[at0017,'Pemeriksaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Hemodinamik",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsHemo"
+          } ]
+        }, {
+          "id" : "lvot_diameter",
+          "name" : "LVOT diameter",
+          "localizedName" : "LVOT diameter",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "LVOT diameter"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LVOT diameter']",
+          "children" : [ {
+            "id" : "ukuran_lvot_diameter_mm",
+            "name" : "Ukuran LVOT diameter (mm)",
+            "localizedName" : "Ukuran LVOT diameter (mm)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran LVOT diameter (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LVOT diameter']/items[at0024,'Ukuran LVOT diameter (mm)']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "ukuran_valve_dalam_cm_s_apabila_tidak_normal",
+            "name" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "localizedName" : "Ukuran Valve dalam cm/s apabila tidak normal",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ukuran Valve dalam cm/s apabila tidak normal"
+            },
+            "localizedDescriptions" : {
+              "en" : "Additional narrative about the clinical finding, not captured in other fields."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'LVOT diameter']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "stroke_volume",
+          "name" : "Stroke volume",
+          "localizedName" : "Stroke volume",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Stroke volume"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Stroke volume']",
+          "children" : [ {
+            "id" : "nilai_stroke_volume_ml",
+            "name" : "Nilai Stroke volume (ml)",
+            "localizedName" : "Nilai Stroke volume (ml)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai Stroke volume (ml)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'Stroke volume']/items[at0024,'Nilai Stroke volume (ml)']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          } ]
+        }, {
+          "id" : "ivc_inspiration",
+          "name" : "IVC Inspiration",
+          "localizedName" : "IVC Inspiration",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "IVC Inspiration"
+          },
+          "localizedDescriptions" : {
+            "en" : "A significant clinical finding identified by radiological imaging techniques."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'IVC Inspiration']",
+          "children" : [ {
+            "id" : "nilai_ivc_inspiration_mm",
+            "name" : "Nilai IVC Inspiration (mm)",
+            "localizedName" : "Nilai IVC Inspiration (mm)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0024",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai IVC Inspiration (mm)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant clinical finding, by name."
+            },
+            "annotations" : {
+              "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'IVC Inspiration']/items[at0024,'Nilai IVC Inspiration (mm)']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Normal",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Hemodinamik']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "heart_rate_variability",
+      "name" : "Heart Rate Variability",
+      "localizedName" : "Heart Rate Variability",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Heart Rate Variability"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']",
+      "children" : [ {
+        "id" : "statistical_measure",
+        "name" : "Statistical Measure",
+        "localizedName" : "Statistical Measure",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.ecg_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Statistical Measure"
+        },
+        "localizedDescriptions" : {
+          "en" : "Measurement of the electrical activity generated by the heart."
+        },
+        "annotations" : {
+          "comment" : "Also known as an electrocardiograph or EKG."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "rr-intervals_nn",
+            "name" : "RR-intervals (NN)",
+            "localizedName" : "RR-intervals (NN)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0007",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "RR-intervals (NN)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Interval measurement from the onset of the QRS complex to the end of the T wave aacross the ECG as a whole (multiple leads)."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/data[at0001]/events[at0002]/data[at0005]/items[at0007,'RR-intervals (NN)']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "ms",
+                "label" : "ms",
+                "localizedLabels" : {
+                  "en" : "ms"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "sdnn",
+            "name" : "SDNN",
+            "localizedName" : "SDNN",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0008",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "SDNN"
+            },
+            "localizedDescriptions" : {
+              "en" : "Correction applied to the 'QT interval global'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/data[at0001]/events[at0002]/data[at0005]/items[at0008,'SDNN']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "ms",
+                "label" : "ms",
+                "localizedLabels" : {
+                  "en" : "ms"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "pnn50",
+            "name" : "pNN50",
+            "localizedName" : "pNN50",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0012",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "pNN50"
+            },
+            "localizedDescriptions" : {
+              "en" : "PR interval measurement across the ECG as a whole (multiple leads)."
+            },
+            "annotations" : {
+              "comment" : "The PR interval is measured from onset of P wave to the onset of QRS complex."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/data[at0001]/events[at0002]/data[at0005]/items[at0012,'pNN50']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "ms",
+                "label" : "ms",
+                "localizedLabels" : {
+                  "en" : "ms"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "rmssd",
+            "name" : "RMSSD",
+            "localizedName" : "RMSSD",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0014",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "RMSSD"
+            },
+            "localizedDescriptions" : {
+              "en" : "Duration of QRS complex across the ECG as a whole (multiple leads)."
+            },
+            "annotations" : {
+              "comment" : "The QRS complex is measured from its onset to \r\nthe ST segment onset (J point)."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/data[at0001]/events[at0002]/data[at0005]/items[at0014,'RMSSD']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "ms",
+                "label" : "ms",
+                "localizedLabels" : {
+                  "en" : "ms"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'Statistical Measure']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "spectral_component",
+        "name" : "Spectral Component",
+        "localizedName" : "Spectral Component",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.pulse.v2",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Spectral Component"
+        },
+        "localizedDescriptions" : {
+          "en" : "The rate and associated attributes for a pulse or heart beat."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/data[at0002]/events[at0003]",
+          "children" : [ {
+            "id" : "a5_min_total_power_ms2",
+            "name" : "5 min Total Power (ms2)",
+            "localizedName" : "5 min Total Power (ms2)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at1030",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "5 min Total Power (ms2)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Description of the character of the pulse or heart beat."
+            },
+            "annotations" : {
+              "comment" : "Coding with a terminology is desired, where possible. For example: full, thready, bounding, slow rising, or collapsing. Multiple terms may be recorded."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/data[at0002]/events[at0003]/data[at0001]/items[at1030,'5 min Total Power (ms2)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "lf_ms2",
+            "name" : "LF (ms2)",
+            "localizedName" : "LF (ms2)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at1030",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "LF (ms2)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Description of the character of the pulse or heart beat."
+            },
+            "annotations" : {
+              "comment" : "Coding with a terminology is desired, where possible. For example: full, thready, bounding, slow rising, or collapsing. Multiple terms may be recorded."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/data[at0002]/events[at0003]/data[at0001]/items[at1030,'LF (ms2)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "hf_ms2",
+            "name" : "HF (ms2)",
+            "localizedName" : "HF (ms2)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at1030",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "HF (ms2)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Description of the character of the pulse or heart beat."
+            },
+            "annotations" : {
+              "comment" : "Coding with a terminology is desired, where possible. For example: full, thready, bounding, slow rising, or collapsing. Multiple terms may be recorded."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/data[at0002]/events[at0003]/data[at0001]/items[at1030,'HF (ms2)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "lf_hf_ms2",
+            "name" : "LF/HF (ms2)",
+            "localizedName" : "LF/HF (ms2)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at1030",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "LF/HF (ms2)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Description of the character of the pulse or heart beat."
+            },
+            "annotations" : {
+              "comment" : "Coding with a terminology is desired, where possible. For example: full, thready, bounding, slow rising, or collapsing. Multiple terms may be recorded."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/data[at0002]/events[at0003]/data[at0001]/items[at1030,'LF/HF (ms2)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/data[at0002]/events[at0003]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.pulse.v2,'Spectral Component']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "ecg_result",
+        "name" : "ECG result",
+        "localizedName" : "ECG result",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.ecg_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "ECG result"
+        },
+        "localizedDescriptions" : {
+          "en" : "Measurement of the electrical activity generated by the heart."
+        },
+        "annotations" : {
+          "comment" : "Also known as an electrocardiograph or EKG."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "qtc_interval",
+            "name" : "QTc interval",
+            "localizedName" : "QTc interval",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0008",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "QTc interval"
+            },
+            "localizedDescriptions" : {
+              "en" : "Correction applied to the 'QT interval global'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0008,'QTc interval']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "ms",
+                "label" : "ms",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "irama_jantung",
+            "name" : "Irama Jantung",
+            "localizedName" : "Irama Jantung",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Irama Jantung"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Irama Jantung']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Sinus",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "irama_jantung_lainnya",
+            "name" : "Irama Jantung lainnya",
+            "localizedName" : "Irama Jantung lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Irama Jantung lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Irama Jantung lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "q_pathologic",
+            "name" : "Q Pathologic",
+            "localizedName" : "Q Pathologic",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Q Pathologic"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Q Pathologic']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Sinus",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "pada_leads_berapa_q_pathologic",
+            "name" : "Pada Leads Berapa Q Pathologic",
+            "localizedName" : "Pada Leads Berapa Q Pathologic",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pada Leads Berapa Q Pathologic"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Pada Leads Berapa Q Pathologic']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "qrs",
+            "name" : "QRS",
+            "localizedName" : "QRS",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "QRS"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'QRS']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Sinus",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "segmen_st",
+            "name" : "Segmen ST",
+            "localizedName" : "Segmen ST",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Segmen ST"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Segmen ST']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Sinus",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "Depresi",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "pada_leads_berapa_abnormalitas_segmen_st",
+            "name" : "Pada Leads berapa Abnormalitas segmen ST",
+            "localizedName" : "Pada Leads berapa Abnormalitas segmen ST",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0101",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pada Leads berapa Abnormalitas segmen ST"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Pada Leads berapa Abnormalitas segmen ST']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "block",
+            "name" : "Block",
+            "localizedName" : "Block",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Block"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Block']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Sinus",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "Depresi",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "Incomplete RBBB",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "Incomplete LBBB",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "Lainnya (free text)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "abnormalitas_block_lainnya",
+            "name" : "Abnormalitas block lainnya",
+            "localizedName" : "Abnormalitas block lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0101",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Abnormalitas block lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Abnormalitas block lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "hipertropi",
+            "name" : "Hipertropi",
+            "localizedName" : "Hipertropi",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0101",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hipertropi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Hipertropi']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Sinus",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "Depresi",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Heart Rate Variability']/items[openEHR-EHR-OBSERVATION.ecg_result.v1,'ECG result']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
