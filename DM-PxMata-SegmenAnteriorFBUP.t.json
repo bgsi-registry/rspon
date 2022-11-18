@@ -19,8 +19,10 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "6d36a2ba3293a75c4f1ece2ba1dcf51d",
-      "PARENT:MD5-CAM-1.0.1" : "8FE80F3E80C594AAF99D3BA540A53D73"
+      "MD5-CAM-1.0.1" : "48c85936aea3eee410c809a84cfcdea1",
+      "PARENT:MD5-CAM-1.0.1" : "8FE80F3E80C594AAF99D3BA540A53D73",
+      "sem_ver" : "0.0.1",
+      "build_uid" : "c890aa0d-e536-4b44-b552-79f871ec411b"
     },
     "details" : {
       "de" : {
@@ -149,7 +151,7 @@
   "differential" : true,
   "archetypeId" : {
     "@type" : "ARCHETYPE_HRID",
-    "value" : "openEHR-EHR-SECTION.segmenanterior/ fbup.v1"
+    "value" : "openEHR-EHR-SECTION.segmenanterior/_fbup.v1"
   },
   "definition" : {
     "@type" : "C_COMPLEX_OBJECT",
@@ -295,7 +297,7 @@
     "valueSets" : { }
   },
   "adlVersion" : "1.4",
-  "buildUid" : "bba218b6-4f05-3b04-acb8-22117586def5",
+  "buildUid" : "504cfbd2-cb8c-3258-8dfb-e9505bb7812e",
   "rmName" : "openehr",
   "rmRelease" : "1.1.0",
   "generated" : true,
@@ -431,12 +433,12 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_terms"
+                                "value" : "local_termsmka"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms" ],
+                              "selectedTerminologies" : [ "local_termsmka" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms",
+                                "terminologyId" : "local_termsmka",
                                 "code" : "1",
                                 "value" : "Pemeriksaan Segmen Anterior mata kanan"
                               } ]
@@ -502,6 +504,34 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0005.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "1..1",
+                                  "terminologyId" : {
+                                    "value" : "local"
+                                  },
+                                  "constraint" : [ "ac0.7" ],
+                                  "selectedTerminologies" : [ ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0004.1",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
@@ -545,44 +575,6 @@
                                   } ]
                                 } ]
                               } ],
-                              "attributeTuples" : [ ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0005.1",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "value",
-                            "children" : [ {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_CODED_TEXT",
-                              "attributes" : [ {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "defining_code",
-                                "children" : [ {
-                                  "@type" : "C_TERMINOLOGY_CODE",
-                                  "rmTypeName" : "TERMINOLOGY_CODE",
-                                  "occurrences" : "1..1",
-                                  "terminologyId" : {
-                                    "value" : "local"
-                                  },
-                                  "constraint" : [ "ac0.4" ],
-                                  "selectedTerminologies" : [ ]
-                                } ]
-                              } ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_TEXT",
-                              "attributes" : [ ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_BOOLEAN",
-                              "attributes" : [ ],
                               "attributeTuples" : [ ]
                             } ]
                           } ],
@@ -706,12 +698,6 @@
             "text" : "Segmen Anterior mata kanan",
             "description" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
           },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
@@ -731,47 +717,53 @@
             "text" : "(Synthesized)",
             "code" : "ac0.5",
             "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.7",
+            "description" : ""
           }
         },
         "nb" : {
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "ac0.5" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.5",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "de" : {
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "ac0.5" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.5",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "nl" : {
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "ac0.5" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.5",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         }
@@ -803,6 +795,16 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.5",
           "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.6" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.6",
+          "members" : [ "at0023", "at0024" ]
+        },
+        "ac0.7" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.7",
+          "members" : [ "at0023", "at0024" ]
         }
       }
     },
@@ -1245,12 +1247,12 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_terms"
+                                "value" : "local_termsmkr"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms" ],
+                              "selectedTerminologies" : [ "local_termsmkr" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms",
+                                "terminologyId" : "local_termsmkr",
                                 "code" : "1",
                                 "value" : "Pemeriksaan Segmen Anterior mata kiri"
                               } ]
@@ -1316,6 +1318,34 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0005.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "1..1",
+                                  "terminologyId" : {
+                                    "value" : "local"
+                                  },
+                                  "constraint" : [ "ac0.7" ],
+                                  "selectedTerminologies" : [ ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0004.1",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
@@ -1359,44 +1389,6 @@
                                   } ]
                                 } ]
                               } ],
-                              "attributeTuples" : [ ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0005.1",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "value",
-                            "children" : [ {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_CODED_TEXT",
-                              "attributes" : [ {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "defining_code",
-                                "children" : [ {
-                                  "@type" : "C_TERMINOLOGY_CODE",
-                                  "rmTypeName" : "TERMINOLOGY_CODE",
-                                  "occurrences" : "1..1",
-                                  "terminologyId" : {
-                                    "value" : "local"
-                                  },
-                                  "constraint" : [ "ac0.4" ],
-                                  "selectedTerminologies" : [ ]
-                                } ]
-                              } ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_TEXT",
-                              "attributes" : [ ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_BOOLEAN",
-                              "attributes" : [ ],
                               "attributeTuples" : [ ]
                             } ]
                           } ],
@@ -1456,29 +1448,6 @@
           } ],
           "attributeTuples" : [ ]
         } ]
-      }, {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "protocol",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ITEM_TREE",
-          "nodeId" : "at0007",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_ARCHETYPE_ROOT",
-              "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..0",
-              "nodeId" : "at0021.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ],
-              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-person-004.v1",
-              "referenceType" : "archetypeOverlay"
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        } ]
       } ],
       "attributeTuples" : [ ]
     },
@@ -1520,12 +1489,6 @@
             "text" : "Segmen Anterior mata kiri",
             "description" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
           },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
@@ -1545,6 +1508,12 @@
             "text" : "(Synthesized)",
             "code" : "ac0.5",
             "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.7",
+            "description" : ""
           }
         },
         "nb" : {
@@ -1555,16 +1524,16 @@
             "description" : "Spørsmål og tilhørende svar som brukes til å kartlegge bekymringer, plager, problemer eller diagnoser.",
             "comment" : "Svarene kan være selvrapporterte."
           },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "ac0.5" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.5",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
@@ -1576,16 +1545,16 @@
             "description" : "*Series of questions and associated answers used to screen for issues, problems or diagnoses. (en)",
             "comment" : "*The answers may be self-reported. (en)"
           },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "ac0.5" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.5",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
@@ -1597,16 +1566,16 @@
             "description" : "*Series of questions and associated answers used to screen for issues, problems or diagnoses. (en)",
             "comment" : "*The answers may be self-reported.(en)"
           },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "ac0.5" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.5",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         }
@@ -1638,6 +1607,16 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.5",
           "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.6" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.6",
+          "members" : [ "at0023", "at0024" ]
+        },
+        "ac0.7" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.7",
+          "members" : [ "at0023", "at0024" ]
         }
       }
     },
@@ -1693,261 +1672,6 @@
         "name" : "Martijn van Eenennaam",
         "organisation" : "Nedap Healthcare",
         "email" : "martijn.vaneenennaam@nedap.com"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "e265ef3d-4d0a-4d08-b8dd-bd2e7174c2a8",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "F1B417CBAE0A0D6B70856C5909865044"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Darstellung von Informationen zu einer Person, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden.",
-          "keywords" : [ "Anbieter, Dienstleister, Betreuer, Personal, medizinisches Fachpersonal, Verwandter, Angehöriger, Hausarzt, Zeuge, Freund, Nachbar, Kind, Familie, Geschwister, Elternteil, Einzelperson" ],
-          "use" : "Der Archetyp wird verwendet, um Informationen zur einer Person darzustellen, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden, oft ad hoc oder wenn die Verwendung von einem formellen demografischen Register oder einem Index nicht angemessen oder nicht möglich ist.\r\nBeispiele beinhalten:\r\n- der Inhaber einer Patientenverfügung unter Verwendung des SLOT „Inhaber der Kopie“ innerhalb des Archetyps EVALUATION.advance_care_directive;\r\n- die Rolle und Kontaktdaten eines benannten Ansprechpartners in einer Organisation, unter Verwendung des SLOT „Kontaktperson“ innerhalb des Archetyps CLUSTER.organisation;\r\n- Angaben zu einem Verwandten in einer Familienanamnese unter Verwendung des SLOT „Angaben zum Familienmitglied“ innerhalb des Archetyps openEHR-EHR-EVALUATION.family_history;\r\n- der Name der Person, die eine Laborprobe von einem Patienten entnommen hat, unter Verwendung der „Angaben zum Probennehmer“ innerhalb des Archetyps CLUSTER.specimen oder\r\n- ein Zeuge eines Sturzes oder Unfalls, unter Verwendung des SLOT \"Zeuge\" innerhalb des Archetyps CLUSTER.health_event.\r\n\r\nIn den meisten einfachen Anwendungsfällen reicht das unstrukturierte Element „Name“ innerhalb des Archetyps CLUSTER.person aus, um den Namen einer Person als Teil einer Gesundheitsakte darzustellen. In Fällen, in denen ein strukturierter Name für klinische Aufzeichnungszwecke erforderlich oder wünschenswert ist, verschachteln Sie diesen Archetyp jedoch im SLOT „Name strukturiert“ im Archetyp CLUSTER.person. Wenn der Archetyp CLUSTER.structured_name in den SLOT „Name strukturiert“ eingebettet ist, können beliebige oder alle Datenelemente als Textzeichenfolge kombiniert und im Element „Name“ dargestellt werden, solange sie konsistent sind.\r\n\r\nDieser Archetyp könnte auch stellvertretend für formale demografische Daten verwendet werden, wenn ein Template mit Domänenexperten überprüft wird – beispielsweise eine Bewertung, bei der Prüfer erwarten würden, dass die Details einer Person oben im Bewertungsformular angezeigt werden.",
-          "misuse" : "Der Archetyp darf nicht verwendet werden, um das formelle Identifikationsmanagement darzustellen oder zu ersetzen oder um ein offizielles demografisches Register oder einen Index zu führen. Verwenden Sie zu diesem Zweck einen formellen Master Patient Index oder Health Provider Index oder Archetypen, die auf dem demografischen Informationsmodell von openEHR basieren.\r\n\r\nDarf nicht verwendet werden, um den Patienten, die Teilnehmer oder den Verfasser der Akte und ähnliche Datenelemente darzustellen, die formal in der Patientenakte unter Verwendung der Referenzmodellattribute dargestellt werden sollten.\r\n\r\nDarf nicht verwendet werden, um das Geburtsdatum einer Person darzustellen – verwenden Sie zu diesem Zweck das Datenelement „Geburtsdatum“ im Archetyp EVALUATION.birth_summary.\r\n\r\nDarf nicht verwendet werden, um biometrische Details oder Biomarker über eine Person darzustellen – verwenden Sie zu diesem Zweck einen speziellen ENTRY-Archetyp.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "purpose" : "Används för att registrera information om en person som behöver representeras i patientjournalen.",
-          "keywords" : [ "Leverantör, vårdare, vårdgivare, personal, vårdpersonal, släkting, anhöriga, läkare, vittne, vän, granne, barn, familj, syskon, förälder, individ" ],
-          "use" : "Används för att registrera uppgifter om en person i den elektroniska journalen, när det inte är lämpligt eller möjligt att använda ett formellt demografiskt register eller index. Exempelvis:\r\n- Namn och kontaktuppgifter för en person som innehar en fysisk kopia av ett dokument om framtida behandlingsval eller behandlingsreservationer; exempelvis 'Copyholder'-attributet i arketypen EVALUATION.advance_care_directive;\r\n- Namn och kontaktuppgifter för en vårdgivare i en remiss;\r\n- Namn, roll och kontaktuppgifter för en medlem av ett vårdgivarteam;\r\n- Rollen och kontaktuppgifterna för en namngiven kontaktperson inom en organisation;\r\n- uppgifter om en släkting i en släkthistoria; eller\r\n- ett vittne till ett epileptisk anfall.\r\n\r\nI de flesta vanliga användningsfallen där ett namn måste inkluderas i en journal räcker det med fritextinmatning inom elementet 'Ostrukturerat namn'. I situationer när det krävs mer detaljerade detaljer om en eller flera namnkomponenter, använd de ytterligare strukturerade dataelementen i arketypen CLUSTER.structured_name. I denna arketyp finns en SLOT kapslade i \"Structured name\" . Om arketypen CLUSTER.structured name är kapslad i 'Structured name' SLOT, kan något eller alla av de strukturerade namnelementen sammanfogas och representeras i elementet 'Ostrukturerat namn'.\r\n\r\nDenna arketyp kan också användas som en proxy för formella demografiska data när man granskar en mall med domänexperter – till exempel en bedömning där granskare förväntar sig att se patientens uppgifter högst upp i bedömningsformuläret.",
-          "misuse" : "Får inte användas för att representera eller ersätta formell identifieringshantering eller i syfte att upprätthålla ett officiellt demografiskt register eller index. Använd ett formellt Master Patient Index eller Vårdgivare Index för detta ändamål, eller arketyper baserade på openEHR Demographic Information Model.\r\n\r\nFår inte användas för att representera patienten, deltagare eller författare till journalen och liknande dataelement som bör representeras formellt i journalen med hjälp av Referensmodellens attribut.\r\n\r\nFår inte användas för att registrera en individs födelsedatum - använd istället dataelementet \"Födelsedatum\" i EVALUATION.birth_summary för detta ändamål\r\n\r\nFår inte användas för att registrera biometriska detaljer eller biomarkörer om en individ - använd en specifik ENTRY-arketyp för detta ändamål.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For å registrere detaljer om en person i en pasientjournal.",
-          "keywords" : [ "tjenesteyter, omsorgsperson, helsepersonell, slektning, pårørende, vitne, venn, nabo, barn, familie, søsken, forelder, arbeidsgiver, rekvirent, henviser, ektefelle, verge, samboer, kjæreste" ],
-          "use" : "Brukes for å registrere detaljer om en person i en pasientjournal, når det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.\r\n\r\nFor eksempel:\r\n- navn og kontaktdetaljer til en person som har en kopi av et fremtidig behandlingsvalg, i SLOTet \"Kopiholder\" i arketypen EVALUATION.advance_care_directive (Fremtidig behandlingsvalg).\r\n- navn og kontaktdetaljer til en omsorgsperson eller helsepersonell i en organisasjon, i SLOTet \"Kontaktperson\" i arketypen CLUSTER.organisation (Organisasjon).\r\n- detaljer om en slektning i en familieanamnese, I SLOTet \"Detaljer om familiemedlem\" i arketypen EVALUATION.family_history (Familieanamnese).\r\n- navnet på en person som gjennomførte prøvetakning på en pasient, i SLOTet \"Detaljer om prøvetaker\" i arketypen CLUSTER.specimen (Prøvemateriale).\r\n- et vitne til et fall eller en ulykke, i SLOTet \"Witness\" i arketypen CLUSTER.health_event.\r\n\r\nI de mest vanlige brukscasene der navn skal registreres i pasientjournalen, vil dataelementet \"Navn\" i denne arketypen være tilstrekkelig. I tilfeller der det er nødvendig eller ønskelig med detaljer om en eller flere navnekomponenter, bruk arketypen CLUSTER.structured_name i SLOTet \"Strukturert navn\" i denne arketypen. \r\nOm det er gjort, kan noen eller alle de strukturerte navnelementene slås sammen av programvaren man benytter, og lagres i dataelementet \"Navn\".\r\n\r\nDenne arketypen kan også brukes som en midlertidig erstatning for formelle demografiske data når man gjennomgår et templat med domeneeksperter - for eksempel en vurdering der man i templatet forventer å se detaljer om en person på toppen av vurderingsskjema.",
-          "misuse" : "Brukes ikke til å representere eller erstatte de formelle demografiske opplysninger for formell identitetsforvaltning eller for å opprettholde et demografisk register eller en indeks. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.\r\n\r\nBrukes ikke for å representere pasient, deltakere eller forfatter av skjema eller lignende, som skal representeres formelt i pasientjournalen. Bruk attributter fra Referansemodellen for dette formålet.\r\n\r\nBrukes ikke for å registrere fødselsdato for individet - bruk dataelementet \"Fødselsdato\" i arketypen EVALUATION.birth_summary for dette formålet.\r\n\r\nBrukes ikke for å registrere detaljer om biometri eller biomarkører for personen - bruk en spesifikk ENTRY-arketype for dette formålet.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record details about a person as they are known or understood in the course of clinical documentation.",
-          "keywords" : [ "provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual" ],
-          "use" : "Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form.",
-          "misuse" : "Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "zh" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "zh"
-          },
-          "purpose" : "*To record details about a person as they are known or understood in the course of clinical documentation. (en)",
-          "keywords" : [ "*provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual (en)" ],
-          "use" : "*Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form. (en)",
-          "misuse" : "*Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.person.v1",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-person-004.v1"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0001.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0011.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0003.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_IDENTIFIER",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0010.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Pemeriksa",
-            "description" : "An individual human being."
-          },
-          "at0001.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0001.1",
-            "text" : "Nama Pemeriksa",
-            "description" : "The unstructured name for the individual.",
-            "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
-          }
-        },
-        "nb" : { },
-        "de" : { },
-        "zh" : { },
-        "sv" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "fe8b1f1b-f5e8-4db7-9060-1c22ca9d3d6a",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Natalia Strauch, Alina Rehberg",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "Strauch.Natalia@mh-hannover.de, rehberg.alina@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : {
-        "name" : "Elham Gholami, Erik Sundvall",
-        "organisation" : "Region Stockholm",
-        "email" : "erik.sundvall@regionstockholm.se"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Liv Laugen, John Tore Valand, Vebjørn Arntzen, Kanika Kuwelker",
-        "organisation" : "​Oslo University Hospital, Norway, Helse Bergen, Helse Vest IKT",
-        "email" : "liv.laugen@ous-hf.no, john.tore.valand@helse-bergen.no, john.tore.valand@helse-vest-ikt.no, varntzen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "zh"
-      },
-      "author" : {
-        "name" : "Yexuan Cheng",
-        "organisation" : "浙江大学",
-        "email" : "3160100913@zju.edu.cn"
       },
       "otherDetails" : { }
     } ]
@@ -2081,12 +1805,12 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_terms"
+                                "value" : "local_termsFBUTmka"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms" ],
+                              "selectedTerminologies" : [ "local_termsFBUTmka" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms",
+                                "terminologyId" : "local_termsFBUTmka",
                                 "code" : "1",
                                 "value" : "Pemeriksaan FBUT mata kanan"
                               } ]
@@ -2155,20 +1879,10 @@
                               "terminologyId" : {
                                 "value" : "local"
                               },
-                              "constraint" : [ "ac0.7" ],
+                              "constraint" : [ "ac0.10" ],
                               "selectedTerminologies" : [ ]
                             } ]
                           } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_TEXT",
-                          "attributes" : [ ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_BOOLEAN",
-                          "attributes" : [ ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
@@ -2187,6 +1901,34 @@
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "items",
                         "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0005.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "1..1",
+                                  "terminologyId" : {
+                                    "value" : "local"
+                                  },
+                                  "constraint" : [ "ac0.12" ],
+                                  "selectedTerminologies" : [ ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0004.1",
@@ -2232,44 +1974,6 @@
                                   } ]
                                 } ]
                               } ],
-                              "attributeTuples" : [ ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0005.1",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "value",
-                            "children" : [ {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_CODED_TEXT",
-                              "attributes" : [ {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "defining_code",
-                                "children" : [ {
-                                  "@type" : "C_TERMINOLOGY_CODE",
-                                  "rmTypeName" : "TERMINOLOGY_CODE",
-                                  "occurrences" : "1..1",
-                                  "terminologyId" : {
-                                    "value" : "local"
-                                  },
-                                  "constraint" : [ "ac0.4" ],
-                                  "selectedTerminologies" : [ ]
-                                } ]
-                              } ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_TEXT",
-                              "attributes" : [ ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_BOOLEAN",
-                              "attributes" : [ ],
                               "attributeTuples" : [ ]
                             } ]
                           } ],
@@ -2330,29 +2034,6 @@
           } ],
           "attributeTuples" : [ ]
         } ]
-      }, {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "protocol",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ITEM_TREE",
-          "nodeId" : "at0007",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_ARCHETYPE_ROOT",
-              "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..0",
-              "nodeId" : "at0021.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ],
-              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-person-005.v1",
-              "referenceType" : "archetypeOverlay"
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        } ]
       } ],
       "attributeTuples" : [ ]
     },
@@ -2394,12 +2075,6 @@
             "text" : "Pattern break mata kanan",
             "description" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
           },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
@@ -2426,6 +2101,18 @@
             "text" : "(Synthesized)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.12",
+            "description" : ""
           }
         },
         "nb" : {
@@ -2435,12 +2122,6 @@
             "text" : "Kartleggingsspørsmål om problemer eller diagnoser (3)",
             "description" : "Spørsmål og tilhørende svar som brukes til å kartlegge bekymringer, plager, problemer eller diagnoser.",
             "comment" : "Svarene kan være selvrapporterte."
-          },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
           },
           "at0028.2" : {
             "@type" : "ARCHETYPE_TERM",
@@ -2454,6 +2135,18 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.12",
+            "description" : ""
           }
         },
         "de" : {
@@ -2463,12 +2156,6 @@
             "text" : "*Problem/Diagnosis screening questionnaire (en) (3)",
             "description" : "*Series of questions and associated answers used to screen for issues, problems or diagnoses. (en)",
             "comment" : "*The answers may be self-reported. (en)"
-          },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
           },
           "at0028.2" : {
             "@type" : "ARCHETYPE_TERM",
@@ -2482,6 +2169,18 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.12",
+            "description" : ""
           }
         },
         "nl" : {
@@ -2491,12 +2190,6 @@
             "text" : "*Problem/Diagnosis screening questionnaire (en) (3)",
             "description" : "*Series of questions and associated answers used to screen for issues, problems or diagnoses. (en)",
             "comment" : "*The answers may be self-reported.(en)"
-          },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
           },
           "at0028.2" : {
             "@type" : "ARCHETYPE_TERM",
@@ -2509,6 +2202,18 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
+            "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.12",
             "description" : ""
           }
         }
@@ -2555,6 +2260,26 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.8",
           "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.9" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.9",
+          "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.10" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.10",
+          "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.11" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.11",
+          "members" : [ "at0023", "at0024" ]
+        },
+        "ac0.12" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.12",
+          "members" : [ "at0023", "at0024" ]
         }
       }
     },
@@ -2610,261 +2335,6 @@
         "name" : "Martijn van Eenennaam",
         "organisation" : "Nedap Healthcare",
         "email" : "martijn.vaneenennaam@nedap.com"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "e265ef3d-4d0a-4d08-b8dd-bd2e7174c2a8",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "F1B417CBAE0A0D6B70856C5909865044"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Darstellung von Informationen zu einer Person, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden.",
-          "keywords" : [ "Anbieter, Dienstleister, Betreuer, Personal, medizinisches Fachpersonal, Verwandter, Angehöriger, Hausarzt, Zeuge, Freund, Nachbar, Kind, Familie, Geschwister, Elternteil, Einzelperson" ],
-          "use" : "Der Archetyp wird verwendet, um Informationen zur einer Person darzustellen, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden, oft ad hoc oder wenn die Verwendung von einem formellen demografischen Register oder einem Index nicht angemessen oder nicht möglich ist.\r\nBeispiele beinhalten:\r\n- der Inhaber einer Patientenverfügung unter Verwendung des SLOT „Inhaber der Kopie“ innerhalb des Archetyps EVALUATION.advance_care_directive;\r\n- die Rolle und Kontaktdaten eines benannten Ansprechpartners in einer Organisation, unter Verwendung des SLOT „Kontaktperson“ innerhalb des Archetyps CLUSTER.organisation;\r\n- Angaben zu einem Verwandten in einer Familienanamnese unter Verwendung des SLOT „Angaben zum Familienmitglied“ innerhalb des Archetyps openEHR-EHR-EVALUATION.family_history;\r\n- der Name der Person, die eine Laborprobe von einem Patienten entnommen hat, unter Verwendung der „Angaben zum Probennehmer“ innerhalb des Archetyps CLUSTER.specimen oder\r\n- ein Zeuge eines Sturzes oder Unfalls, unter Verwendung des SLOT \"Zeuge\" innerhalb des Archetyps CLUSTER.health_event.\r\n\r\nIn den meisten einfachen Anwendungsfällen reicht das unstrukturierte Element „Name“ innerhalb des Archetyps CLUSTER.person aus, um den Namen einer Person als Teil einer Gesundheitsakte darzustellen. In Fällen, in denen ein strukturierter Name für klinische Aufzeichnungszwecke erforderlich oder wünschenswert ist, verschachteln Sie diesen Archetyp jedoch im SLOT „Name strukturiert“ im Archetyp CLUSTER.person. Wenn der Archetyp CLUSTER.structured_name in den SLOT „Name strukturiert“ eingebettet ist, können beliebige oder alle Datenelemente als Textzeichenfolge kombiniert und im Element „Name“ dargestellt werden, solange sie konsistent sind.\r\n\r\nDieser Archetyp könnte auch stellvertretend für formale demografische Daten verwendet werden, wenn ein Template mit Domänenexperten überprüft wird – beispielsweise eine Bewertung, bei der Prüfer erwarten würden, dass die Details einer Person oben im Bewertungsformular angezeigt werden.",
-          "misuse" : "Der Archetyp darf nicht verwendet werden, um das formelle Identifikationsmanagement darzustellen oder zu ersetzen oder um ein offizielles demografisches Register oder einen Index zu führen. Verwenden Sie zu diesem Zweck einen formellen Master Patient Index oder Health Provider Index oder Archetypen, die auf dem demografischen Informationsmodell von openEHR basieren.\r\n\r\nDarf nicht verwendet werden, um den Patienten, die Teilnehmer oder den Verfasser der Akte und ähnliche Datenelemente darzustellen, die formal in der Patientenakte unter Verwendung der Referenzmodellattribute dargestellt werden sollten.\r\n\r\nDarf nicht verwendet werden, um das Geburtsdatum einer Person darzustellen – verwenden Sie zu diesem Zweck das Datenelement „Geburtsdatum“ im Archetyp EVALUATION.birth_summary.\r\n\r\nDarf nicht verwendet werden, um biometrische Details oder Biomarker über eine Person darzustellen – verwenden Sie zu diesem Zweck einen speziellen ENTRY-Archetyp.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "purpose" : "Används för att registrera information om en person som behöver representeras i patientjournalen.",
-          "keywords" : [ "Leverantör, vårdare, vårdgivare, personal, vårdpersonal, släkting, anhöriga, läkare, vittne, vän, granne, barn, familj, syskon, förälder, individ" ],
-          "use" : "Används för att registrera uppgifter om en person i den elektroniska journalen, när det inte är lämpligt eller möjligt att använda ett formellt demografiskt register eller index. Exempelvis:\r\n- Namn och kontaktuppgifter för en person som innehar en fysisk kopia av ett dokument om framtida behandlingsval eller behandlingsreservationer; exempelvis 'Copyholder'-attributet i arketypen EVALUATION.advance_care_directive;\r\n- Namn och kontaktuppgifter för en vårdgivare i en remiss;\r\n- Namn, roll och kontaktuppgifter för en medlem av ett vårdgivarteam;\r\n- Rollen och kontaktuppgifterna för en namngiven kontaktperson inom en organisation;\r\n- uppgifter om en släkting i en släkthistoria; eller\r\n- ett vittne till ett epileptisk anfall.\r\n\r\nI de flesta vanliga användningsfallen där ett namn måste inkluderas i en journal räcker det med fritextinmatning inom elementet 'Ostrukturerat namn'. I situationer när det krävs mer detaljerade detaljer om en eller flera namnkomponenter, använd de ytterligare strukturerade dataelementen i arketypen CLUSTER.structured_name. I denna arketyp finns en SLOT kapslade i \"Structured name\" . Om arketypen CLUSTER.structured name är kapslad i 'Structured name' SLOT, kan något eller alla av de strukturerade namnelementen sammanfogas och representeras i elementet 'Ostrukturerat namn'.\r\n\r\nDenna arketyp kan också användas som en proxy för formella demografiska data när man granskar en mall med domänexperter – till exempel en bedömning där granskare förväntar sig att se patientens uppgifter högst upp i bedömningsformuläret.",
-          "misuse" : "Får inte användas för att representera eller ersätta formell identifieringshantering eller i syfte att upprätthålla ett officiellt demografiskt register eller index. Använd ett formellt Master Patient Index eller Vårdgivare Index för detta ändamål, eller arketyper baserade på openEHR Demographic Information Model.\r\n\r\nFår inte användas för att representera patienten, deltagare eller författare till journalen och liknande dataelement som bör representeras formellt i journalen med hjälp av Referensmodellens attribut.\r\n\r\nFår inte användas för att registrera en individs födelsedatum - använd istället dataelementet \"Födelsedatum\" i EVALUATION.birth_summary för detta ändamål\r\n\r\nFår inte användas för att registrera biometriska detaljer eller biomarkörer om en individ - använd en specifik ENTRY-arketyp för detta ändamål.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For å registrere detaljer om en person i en pasientjournal.",
-          "keywords" : [ "tjenesteyter, omsorgsperson, helsepersonell, slektning, pårørende, vitne, venn, nabo, barn, familie, søsken, forelder, arbeidsgiver, rekvirent, henviser, ektefelle, verge, samboer, kjæreste" ],
-          "use" : "Brukes for å registrere detaljer om en person i en pasientjournal, når det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.\r\n\r\nFor eksempel:\r\n- navn og kontaktdetaljer til en person som har en kopi av et fremtidig behandlingsvalg, i SLOTet \"Kopiholder\" i arketypen EVALUATION.advance_care_directive (Fremtidig behandlingsvalg).\r\n- navn og kontaktdetaljer til en omsorgsperson eller helsepersonell i en organisasjon, i SLOTet \"Kontaktperson\" i arketypen CLUSTER.organisation (Organisasjon).\r\n- detaljer om en slektning i en familieanamnese, I SLOTet \"Detaljer om familiemedlem\" i arketypen EVALUATION.family_history (Familieanamnese).\r\n- navnet på en person som gjennomførte prøvetakning på en pasient, i SLOTet \"Detaljer om prøvetaker\" i arketypen CLUSTER.specimen (Prøvemateriale).\r\n- et vitne til et fall eller en ulykke, i SLOTet \"Witness\" i arketypen CLUSTER.health_event.\r\n\r\nI de mest vanlige brukscasene der navn skal registreres i pasientjournalen, vil dataelementet \"Navn\" i denne arketypen være tilstrekkelig. I tilfeller der det er nødvendig eller ønskelig med detaljer om en eller flere navnekomponenter, bruk arketypen CLUSTER.structured_name i SLOTet \"Strukturert navn\" i denne arketypen. \r\nOm det er gjort, kan noen eller alle de strukturerte navnelementene slås sammen av programvaren man benytter, og lagres i dataelementet \"Navn\".\r\n\r\nDenne arketypen kan også brukes som en midlertidig erstatning for formelle demografiske data når man gjennomgår et templat med domeneeksperter - for eksempel en vurdering der man i templatet forventer å se detaljer om en person på toppen av vurderingsskjema.",
-          "misuse" : "Brukes ikke til å representere eller erstatte de formelle demografiske opplysninger for formell identitetsforvaltning eller for å opprettholde et demografisk register eller en indeks. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.\r\n\r\nBrukes ikke for å representere pasient, deltakere eller forfatter av skjema eller lignende, som skal representeres formelt i pasientjournalen. Bruk attributter fra Referansemodellen for dette formålet.\r\n\r\nBrukes ikke for å registrere fødselsdato for individet - bruk dataelementet \"Fødselsdato\" i arketypen EVALUATION.birth_summary for dette formålet.\r\n\r\nBrukes ikke for å registrere detaljer om biometri eller biomarkører for personen - bruk en spesifikk ENTRY-arketype for dette formålet.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record details about a person as they are known or understood in the course of clinical documentation.",
-          "keywords" : [ "provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual" ],
-          "use" : "Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form.",
-          "misuse" : "Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "zh" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "zh"
-          },
-          "purpose" : "*To record details about a person as they are known or understood in the course of clinical documentation. (en)",
-          "keywords" : [ "*provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual (en)" ],
-          "use" : "*Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form. (en)",
-          "misuse" : "*Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.person.v1",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-person-005.v1"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0001.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0011.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0003.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_IDENTIFIER",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0010.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Pemeriksa",
-            "description" : "An individual human being."
-          },
-          "at0001.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0001.1",
-            "text" : "Nama Pemeriksa",
-            "description" : "The unstructured name for the individual.",
-            "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
-          }
-        },
-        "nb" : { },
-        "de" : { },
-        "zh" : { },
-        "sv" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "fe8b1f1b-f5e8-4db7-9060-1c22ca9d3d6a",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Natalia Strauch, Alina Rehberg",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "Strauch.Natalia@mh-hannover.de, rehberg.alina@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : {
-        "name" : "Elham Gholami, Erik Sundvall",
-        "organisation" : "Region Stockholm",
-        "email" : "erik.sundvall@regionstockholm.se"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Liv Laugen, John Tore Valand, Vebjørn Arntzen, Kanika Kuwelker",
-        "organisation" : "​Oslo University Hospital, Norway, Helse Bergen, Helse Vest IKT",
-        "email" : "liv.laugen@ous-hf.no, john.tore.valand@helse-bergen.no, john.tore.valand@helse-vest-ikt.no, varntzen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "zh"
-      },
-      "author" : {
-        "name" : "Yexuan Cheng",
-        "organisation" : "浙江大学",
-        "email" : "3160100913@zju.edu.cn"
       },
       "otherDetails" : { }
     } ]
@@ -2997,12 +2467,12 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_terms"
+                                "value" : "local_termsFBUTmkr"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms" ],
+                              "selectedTerminologies" : [ "local_termsFBUTmkr" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms",
+                                "terminologyId" : "local_termsFBUTmkr",
                                 "code" : "1",
                                 "value" : "Pemeriksaan FBUT mata kiri"
                               } ]
@@ -3071,20 +2541,10 @@
                               "terminologyId" : {
                                 "value" : "local"
                               },
-                              "constraint" : [ "ac0.7" ],
+                              "constraint" : [ "ac0.10" ],
                               "selectedTerminologies" : [ ]
                             } ]
                           } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_TEXT",
-                          "attributes" : [ ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_BOOLEAN",
-                          "attributes" : [ ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
@@ -3103,6 +2563,34 @@
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "items",
                         "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0005.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "1..1",
+                                  "terminologyId" : {
+                                    "value" : "local"
+                                  },
+                                  "constraint" : [ "ac0.12" ],
+                                  "selectedTerminologies" : [ ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0004.1",
@@ -3148,44 +2636,6 @@
                                   } ]
                                 } ]
                               } ],
-                              "attributeTuples" : [ ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0005.1",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "value",
-                            "children" : [ {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_CODED_TEXT",
-                              "attributes" : [ {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "defining_code",
-                                "children" : [ {
-                                  "@type" : "C_TERMINOLOGY_CODE",
-                                  "rmTypeName" : "TERMINOLOGY_CODE",
-                                  "occurrences" : "1..1",
-                                  "terminologyId" : {
-                                    "value" : "local"
-                                  },
-                                  "constraint" : [ "ac0.4" ],
-                                  "selectedTerminologies" : [ ]
-                                } ]
-                              } ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_TEXT",
-                              "attributes" : [ ],
-                              "attributeTuples" : [ ]
-                            }, {
-                              "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_BOOLEAN",
-                              "attributes" : [ ],
                               "attributeTuples" : [ ]
                             } ]
                           } ],
@@ -3246,29 +2696,6 @@
           } ],
           "attributeTuples" : [ ]
         } ]
-      }, {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "protocol",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ITEM_TREE",
-          "nodeId" : "at0007",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_ARCHETYPE_ROOT",
-              "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..0",
-              "nodeId" : "at0021.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ],
-              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-person-006.v1",
-              "referenceType" : "archetypeOverlay"
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        } ]
       } ],
       "attributeTuples" : [ ]
     },
@@ -3310,12 +2737,6 @@
             "text" : "Pattern break mata kiri",
             "description" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
           },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.4",
-            "description" : ""
-          },
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
@@ -3342,6 +2763,18 @@
             "text" : "(Synthesized)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.12",
+            "description" : ""
           }
         },
         "nb" : {
@@ -3351,12 +2784,6 @@
             "text" : "Kartleggingsspørsmål om problemer eller diagnoser (4)",
             "description" : "Spørsmål og tilhørende svar som brukes til å kartlegge bekymringer, plager, problemer eller diagnoser.",
             "comment" : "Svarene kan være selvrapporterte."
-          },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
           },
           "at0028.2" : {
             "@type" : "ARCHETYPE_TERM",
@@ -3370,6 +2797,18 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.12",
+            "description" : ""
           }
         },
         "de" : {
@@ -3379,12 +2818,6 @@
             "text" : "*Problem/Diagnosis screening questionnaire (en) (4)",
             "description" : "*Series of questions and associated answers used to screen for issues, problems or diagnoses. (en)",
             "comment" : "*The answers may be self-reported. (en)"
-          },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
           },
           "at0028.2" : {
             "@type" : "ARCHETYPE_TERM",
@@ -3398,6 +2831,18 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.12",
+            "description" : ""
           }
         },
         "nl" : {
@@ -3407,12 +2852,6 @@
             "text" : "*Problem/Diagnosis screening questionnaire (en) (4)",
             "description" : "*Series of questions and associated answers used to screen for issues, problems or diagnoses. (en)",
             "comment" : "*The answers may be self-reported.(en)"
-          },
-          "ac0.4" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.4",
-            "description" : ""
           },
           "at0028.2" : {
             "@type" : "ARCHETYPE_TERM",
@@ -3425,6 +2864,18 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
+            "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
+          },
+          "ac0.12" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.12",
             "description" : ""
           }
         }
@@ -3471,6 +2922,26 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.8",
           "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.9" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.9",
+          "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.10" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.10",
+          "members" : [ "at0031", "at0032" ]
+        },
+        "ac0.11" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.11",
+          "members" : [ "at0023", "at0024" ]
+        },
+        "ac0.12" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.12",
+          "members" : [ "at0023", "at0024" ]
         }
       }
     },
@@ -3526,261 +2997,6 @@
         "name" : "Martijn van Eenennaam",
         "organisation" : "Nedap Healthcare",
         "email" : "martijn.vaneenennaam@nedap.com"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "e265ef3d-4d0a-4d08-b8dd-bd2e7174c2a8",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "F1B417CBAE0A0D6B70856C5909865044"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Darstellung von Informationen zu einer Person, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden.",
-          "keywords" : [ "Anbieter, Dienstleister, Betreuer, Personal, medizinisches Fachpersonal, Verwandter, Angehöriger, Hausarzt, Zeuge, Freund, Nachbar, Kind, Familie, Geschwister, Elternteil, Einzelperson" ],
-          "use" : "Der Archetyp wird verwendet, um Informationen zur einer Person darzustellen, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden, oft ad hoc oder wenn die Verwendung von einem formellen demografischen Register oder einem Index nicht angemessen oder nicht möglich ist.\r\nBeispiele beinhalten:\r\n- der Inhaber einer Patientenverfügung unter Verwendung des SLOT „Inhaber der Kopie“ innerhalb des Archetyps EVALUATION.advance_care_directive;\r\n- die Rolle und Kontaktdaten eines benannten Ansprechpartners in einer Organisation, unter Verwendung des SLOT „Kontaktperson“ innerhalb des Archetyps CLUSTER.organisation;\r\n- Angaben zu einem Verwandten in einer Familienanamnese unter Verwendung des SLOT „Angaben zum Familienmitglied“ innerhalb des Archetyps openEHR-EHR-EVALUATION.family_history;\r\n- der Name der Person, die eine Laborprobe von einem Patienten entnommen hat, unter Verwendung der „Angaben zum Probennehmer“ innerhalb des Archetyps CLUSTER.specimen oder\r\n- ein Zeuge eines Sturzes oder Unfalls, unter Verwendung des SLOT \"Zeuge\" innerhalb des Archetyps CLUSTER.health_event.\r\n\r\nIn den meisten einfachen Anwendungsfällen reicht das unstrukturierte Element „Name“ innerhalb des Archetyps CLUSTER.person aus, um den Namen einer Person als Teil einer Gesundheitsakte darzustellen. In Fällen, in denen ein strukturierter Name für klinische Aufzeichnungszwecke erforderlich oder wünschenswert ist, verschachteln Sie diesen Archetyp jedoch im SLOT „Name strukturiert“ im Archetyp CLUSTER.person. Wenn der Archetyp CLUSTER.structured_name in den SLOT „Name strukturiert“ eingebettet ist, können beliebige oder alle Datenelemente als Textzeichenfolge kombiniert und im Element „Name“ dargestellt werden, solange sie konsistent sind.\r\n\r\nDieser Archetyp könnte auch stellvertretend für formale demografische Daten verwendet werden, wenn ein Template mit Domänenexperten überprüft wird – beispielsweise eine Bewertung, bei der Prüfer erwarten würden, dass die Details einer Person oben im Bewertungsformular angezeigt werden.",
-          "misuse" : "Der Archetyp darf nicht verwendet werden, um das formelle Identifikationsmanagement darzustellen oder zu ersetzen oder um ein offizielles demografisches Register oder einen Index zu führen. Verwenden Sie zu diesem Zweck einen formellen Master Patient Index oder Health Provider Index oder Archetypen, die auf dem demografischen Informationsmodell von openEHR basieren.\r\n\r\nDarf nicht verwendet werden, um den Patienten, die Teilnehmer oder den Verfasser der Akte und ähnliche Datenelemente darzustellen, die formal in der Patientenakte unter Verwendung der Referenzmodellattribute dargestellt werden sollten.\r\n\r\nDarf nicht verwendet werden, um das Geburtsdatum einer Person darzustellen – verwenden Sie zu diesem Zweck das Datenelement „Geburtsdatum“ im Archetyp EVALUATION.birth_summary.\r\n\r\nDarf nicht verwendet werden, um biometrische Details oder Biomarker über eine Person darzustellen – verwenden Sie zu diesem Zweck einen speziellen ENTRY-Archetyp.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "purpose" : "Används för att registrera information om en person som behöver representeras i patientjournalen.",
-          "keywords" : [ "Leverantör, vårdare, vårdgivare, personal, vårdpersonal, släkting, anhöriga, läkare, vittne, vän, granne, barn, familj, syskon, förälder, individ" ],
-          "use" : "Används för att registrera uppgifter om en person i den elektroniska journalen, när det inte är lämpligt eller möjligt att använda ett formellt demografiskt register eller index. Exempelvis:\r\n- Namn och kontaktuppgifter för en person som innehar en fysisk kopia av ett dokument om framtida behandlingsval eller behandlingsreservationer; exempelvis 'Copyholder'-attributet i arketypen EVALUATION.advance_care_directive;\r\n- Namn och kontaktuppgifter för en vårdgivare i en remiss;\r\n- Namn, roll och kontaktuppgifter för en medlem av ett vårdgivarteam;\r\n- Rollen och kontaktuppgifterna för en namngiven kontaktperson inom en organisation;\r\n- uppgifter om en släkting i en släkthistoria; eller\r\n- ett vittne till ett epileptisk anfall.\r\n\r\nI de flesta vanliga användningsfallen där ett namn måste inkluderas i en journal räcker det med fritextinmatning inom elementet 'Ostrukturerat namn'. I situationer när det krävs mer detaljerade detaljer om en eller flera namnkomponenter, använd de ytterligare strukturerade dataelementen i arketypen CLUSTER.structured_name. I denna arketyp finns en SLOT kapslade i \"Structured name\" . Om arketypen CLUSTER.structured name är kapslad i 'Structured name' SLOT, kan något eller alla av de strukturerade namnelementen sammanfogas och representeras i elementet 'Ostrukturerat namn'.\r\n\r\nDenna arketyp kan också användas som en proxy för formella demografiska data när man granskar en mall med domänexperter – till exempel en bedömning där granskare förväntar sig att se patientens uppgifter högst upp i bedömningsformuläret.",
-          "misuse" : "Får inte användas för att representera eller ersätta formell identifieringshantering eller i syfte att upprätthålla ett officiellt demografiskt register eller index. Använd ett formellt Master Patient Index eller Vårdgivare Index för detta ändamål, eller arketyper baserade på openEHR Demographic Information Model.\r\n\r\nFår inte användas för att representera patienten, deltagare eller författare till journalen och liknande dataelement som bör representeras formellt i journalen med hjälp av Referensmodellens attribut.\r\n\r\nFår inte användas för att registrera en individs födelsedatum - använd istället dataelementet \"Födelsedatum\" i EVALUATION.birth_summary för detta ändamål\r\n\r\nFår inte användas för att registrera biometriska detaljer eller biomarkörer om en individ - använd en specifik ENTRY-arketyp för detta ändamål.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For å registrere detaljer om en person i en pasientjournal.",
-          "keywords" : [ "tjenesteyter, omsorgsperson, helsepersonell, slektning, pårørende, vitne, venn, nabo, barn, familie, søsken, forelder, arbeidsgiver, rekvirent, henviser, ektefelle, verge, samboer, kjæreste" ],
-          "use" : "Brukes for å registrere detaljer om en person i en pasientjournal, når det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.\r\n\r\nFor eksempel:\r\n- navn og kontaktdetaljer til en person som har en kopi av et fremtidig behandlingsvalg, i SLOTet \"Kopiholder\" i arketypen EVALUATION.advance_care_directive (Fremtidig behandlingsvalg).\r\n- navn og kontaktdetaljer til en omsorgsperson eller helsepersonell i en organisasjon, i SLOTet \"Kontaktperson\" i arketypen CLUSTER.organisation (Organisasjon).\r\n- detaljer om en slektning i en familieanamnese, I SLOTet \"Detaljer om familiemedlem\" i arketypen EVALUATION.family_history (Familieanamnese).\r\n- navnet på en person som gjennomførte prøvetakning på en pasient, i SLOTet \"Detaljer om prøvetaker\" i arketypen CLUSTER.specimen (Prøvemateriale).\r\n- et vitne til et fall eller en ulykke, i SLOTet \"Witness\" i arketypen CLUSTER.health_event.\r\n\r\nI de mest vanlige brukscasene der navn skal registreres i pasientjournalen, vil dataelementet \"Navn\" i denne arketypen være tilstrekkelig. I tilfeller der det er nødvendig eller ønskelig med detaljer om en eller flere navnekomponenter, bruk arketypen CLUSTER.structured_name i SLOTet \"Strukturert navn\" i denne arketypen. \r\nOm det er gjort, kan noen eller alle de strukturerte navnelementene slås sammen av programvaren man benytter, og lagres i dataelementet \"Navn\".\r\n\r\nDenne arketypen kan også brukes som en midlertidig erstatning for formelle demografiske data når man gjennomgår et templat med domeneeksperter - for eksempel en vurdering der man i templatet forventer å se detaljer om en person på toppen av vurderingsskjema.",
-          "misuse" : "Brukes ikke til å representere eller erstatte de formelle demografiske opplysninger for formell identitetsforvaltning eller for å opprettholde et demografisk register eller en indeks. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.\r\n\r\nBrukes ikke for å representere pasient, deltakere eller forfatter av skjema eller lignende, som skal representeres formelt i pasientjournalen. Bruk attributter fra Referansemodellen for dette formålet.\r\n\r\nBrukes ikke for å registrere fødselsdato for individet - bruk dataelementet \"Fødselsdato\" i arketypen EVALUATION.birth_summary for dette formålet.\r\n\r\nBrukes ikke for å registrere detaljer om biometri eller biomarkører for personen - bruk en spesifikk ENTRY-arketype for dette formålet.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record details about a person as they are known or understood in the course of clinical documentation.",
-          "keywords" : [ "provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual" ],
-          "use" : "Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form.",
-          "misuse" : "Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "zh" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "zh"
-          },
-          "purpose" : "*To record details about a person as they are known or understood in the course of clinical documentation. (en)",
-          "keywords" : [ "*provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual (en)" ],
-          "use" : "*Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form. (en)",
-          "misuse" : "*Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.person.v1",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-person-006.v1"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0001.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0011.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0003.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_IDENTIFIER",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0010.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Pemeriksa",
-            "description" : "An individual human being."
-          },
-          "at0001.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0001.1",
-            "text" : "Nama Pemeriksa",
-            "description" : "The unstructured name for the individual.",
-            "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
-          }
-        },
-        "nb" : { },
-        "de" : { },
-        "zh" : { },
-        "sv" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "fe8b1f1b-f5e8-4db7-9060-1c22ca9d3d6a",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Natalia Strauch, Alina Rehberg",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "Strauch.Natalia@mh-hannover.de, rehberg.alina@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : {
-        "name" : "Elham Gholami, Erik Sundvall",
-        "organisation" : "Region Stockholm",
-        "email" : "erik.sundvall@regionstockholm.se"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Liv Laugen, John Tore Valand, Vebjørn Arntzen, Kanika Kuwelker",
-        "organisation" : "​Oslo University Hospital, Norway, Helse Bergen, Helse Vest IKT",
-        "email" : "liv.laugen@ous-hf.no, john.tore.valand@helse-bergen.no, john.tore.valand@helse-vest-ikt.no, varntzen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "zh"
-      },
-      "author" : {
-        "name" : "Yexuan Cheng",
-        "organisation" : "浙江大学",
-        "email" : "3160100913@zju.edu.cn"
       },
       "otherDetails" : { }
     } ]
