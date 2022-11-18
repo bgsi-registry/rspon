@@ -1,6 +1,6 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitus)-Pemeriksaan Mata-v0.0.0",
-  "semVer" : "0.0.4",
+  "semVer" : "0.0.8",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -75,106 +75,34 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "pemeriksaan_mata_keratograf_kanan",
-            "name" : "Pemeriksaan mata keratograf kanan",
-            "localizedName" : "Pemeriksaan mata keratograf kanan",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Pemeriksaan mata keratograf kanan"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kanan']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Pemeriksaan mata keratograf kanan",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan mata keratograf kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kanan']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Pemeriksaan mata keratograf kanan",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan mata keratograf kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kanan']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Pemeriksaan mata keratograf kanan",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan mata keratograf kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kanan']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan mata keratograf kanan",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termskKa"
             } ]
           }, {
             "id" : "nilai_tmh_kanan",
@@ -216,7 +144,7 @@
               "id" : "apakah_ada_nilai_tmh_mata_kanan",
               "name" : "Apakah ada nilai TMH mata kanan",
               "localizedName" : "Apakah ada nilai TMH mata kanan",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -229,89 +157,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kanan']/items[at0005,'Apakah ada nilai TMH mata kanan']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada nilai TMH mata kanan",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kanan']/items[at0005,'Apakah ada nilai TMH mata kanan']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kanan']/items[at0005,'Apakah ada nilai TMH mata kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada nilai TMH mata kanan",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kanan']/items[at0005,'Apakah ada nilai TMH mata kanan']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada nilai TMH mata kanan",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kanan']/items[at0005,'Apakah ada nilai TMH mata kanan']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             } ]
@@ -355,7 +234,7 @@
               "id" : "apakah_ada_nilai_nikbut_mata_kanan",
               "name" : "Apakah ada nilai NIKBUT mata kanan",
               "localizedName" : "Apakah ada nilai NIKBUT mata kanan",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -368,89 +247,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kanan']/items[at0005,'Apakah ada nilai NIKBUT mata kanan']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada nilai NIKBUT mata kanan",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada nilai NIKBUT mata kanan"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kanan']/items[at0005,'Apakah ada nilai NIKBUT mata kanan']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kanan']/items[at0005,'Apakah ada nilai NIKBUT mata kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada nilai NIKBUT mata kanan",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada nilai NIKBUT mata kanan"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kanan']/items[at0005,'Apakah ada nilai NIKBUT mata kanan']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada nilai NIKBUT mata kanan",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada nilai NIKBUT mata kanan"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kanan']/items[at0005,'Apakah ada nilai NIKBUT mata kanan']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             } ]
@@ -646,106 +476,34 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "pemeriksaan_mata_keratograf_kiri",
-            "name" : "Pemeriksaan mata keratograf kiri",
-            "localizedName" : "Pemeriksaan mata keratograf kiri",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
             "min" : 0,
-            "max" : -1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Pemeriksaan mata keratograf kiri"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kiri']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Pemeriksaan mata keratograf kiri",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan mata keratograf kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kiri']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Pemeriksaan mata keratograf kiri",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan mata keratograf kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kiri']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Pemeriksaan mata keratograf kiri",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan mata keratograf kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan mata keratograf kiri']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan mata keratograf kiri",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termskki"
             } ]
           }, {
             "id" : "nilai_tmh_kiri",
@@ -787,7 +545,7 @@
               "id" : "apakah_ada_nilai_tmh_mata_kiri",
               "name" : "Apakah ada nilai TMH mata kiri",
               "localizedName" : "Apakah ada nilai TMH mata kiri",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -800,89 +558,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kiri']/items[at0005,'Apakah ada nilai TMH mata kiri']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada nilai TMH mata kiri",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kiri']/items[at0005,'Apakah ada nilai TMH mata kiri']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kiri']/items[at0005,'Apakah ada nilai TMH mata kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada nilai TMH mata kiri",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kiri']/items[at0005,'Apakah ada nilai TMH mata kiri']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada nilai TMH mata kiri",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai TMH Kiri']/items[at0005,'Apakah ada nilai TMH mata kiri']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             } ]
@@ -926,7 +635,7 @@
               "id" : "apakah_ada_nilai_nikbut_mata_kiri",
               "name" : "Apakah ada nilai NIKBUT mata kiri",
               "localizedName" : "Apakah ada nilai NIKBUT mata kiri",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -939,89 +648,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kiri']/items[at0005,'Apakah ada nilai NIKBUT mata kiri']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada nilai NIKBUT mata kiri",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kiri']/items[at0005,'Apakah ada nilai NIKBUT mata kiri']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kiri']/items[at0005,'Apakah ada nilai NIKBUT mata kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada nilai NIKBUT mata kiri",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kiri']/items[at0005,'Apakah ada nilai NIKBUT mata kiri']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada nilai NIKBUT mata kiri",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : null
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan mata keratograf kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nilai NIKBUT Kiri']/items[at0005,'Apakah ada nilai NIKBUT mata kiri']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             } ]
@@ -1217,106 +877,34 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "pemeriksaan_schirmer_s_test",
-            "name" : "Pemeriksaan Schirmer's Test",
-            "localizedName" : "Pemeriksaan Schirmer's Test",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
             "min" : 0,
-            "max" : -1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Pemeriksaan Schirmer's Test"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Schirmer's Test']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Pemeriksaan Schirmer's Test",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Schirmer's Test"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Schirmer's Test']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Pemeriksaan Schirmer's Test",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Schirmer's Test"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Schirmer's Test']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Pemeriksaan Schirmer's Test",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Schirmer's Test"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Schirmer's Test']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan Schirmer's Test",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsst"
             } ]
           }, {
             "id" : "pemeriksaan_schirmer_s_test_od",
@@ -1334,15 +922,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Schirmer's Test OD']",
             "children" : [ {
-              "id" : "hasil_pemeriksaan_od",
-              "name" : "Hasil Pemeriksaan OD",
-              "localizedName" : "Hasil Pemeriksaan OD",
+              "id" : "hasil_pemeriksaan_schirmer_s_test_od",
+              "name" : "Hasil Pemeriksaan Schirmer's Test OD",
+              "localizedName" : "Hasil Pemeriksaan Schirmer's Test OD",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Hasil Pemeriksaan OD"
+                "en" : "Hasil Pemeriksaan Schirmer's Test OD"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -1350,7 +938,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Schirmer's Test OD']/items[at0004,'Hasil Pemeriksaan OD']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Schirmer's Test OD']/items[at0004,'Hasil Pemeriksaan Schirmer's Test OD']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -1371,15 +959,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Schirmer's Test OS']",
             "children" : [ {
-              "id" : "hasil_pemeriksaan_os",
-              "name" : "Hasil Pemeriksaan OS",
-              "localizedName" : "Hasil Pemeriksaan OS",
+              "id" : "hasil_pemeriksaan_schirmer_s_test_os",
+              "name" : "Hasil Pemeriksaan Schirmer's Test OS",
+              "localizedName" : "Hasil Pemeriksaan Schirmer's Test OS",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Hasil Pemeriksaan OS"
+                "en" : "Hasil Pemeriksaan Schirmer's Test OS"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -1387,7 +975,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Schirmer's Test OS']/items[at0004,'Hasil Pemeriksaan OS']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Schirmer's Test']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Schirmer's Test OS']/items[at0004,'Hasil Pemeriksaan Schirmer's Test OS']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -1476,106 +1064,34 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "estesiometer_cochet_bonnet",
-            "name" : "Estesiometer Cochet Bonnet",
-            "localizedName" : "Estesiometer Cochet Bonnet",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Estesiometer Cochet Bonnet"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Estesiometer Cochet Bonnet']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Estesiometer Cochet Bonnet",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Estesiometer Cochet Bonnet"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Estesiometer Cochet Bonnet']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Estesiometer Cochet Bonnet",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Estesiometer Cochet Bonnet"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Estesiometer Cochet Bonnet']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Estesiometer Cochet Bonnet",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Estesiometer Cochet Bonnet"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Estesiometer Cochet Bonnet']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan Estesiometer Cochet Bonnet",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsECB"
             } ]
           }, {
             "id" : "pemeriksaan_estesiometer_cochet_bonnet_od",
@@ -1593,15 +1109,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Estesiometer Cochet Bonnet OD']",
             "children" : [ {
-              "id" : "hasil_pemeriksaan_od",
-              "name" : "Hasil Pemeriksaan OD",
-              "localizedName" : "Hasil Pemeriksaan OD",
+              "id" : "hasil_pemeriksaan_estesiometer_cochet_bonnet_od",
+              "name" : "Hasil Pemeriksaan Estesiometer Cochet Bonnet OD",
+              "localizedName" : "Hasil Pemeriksaan Estesiometer Cochet Bonnet OD",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Hasil Pemeriksaan OD"
+                "en" : "Hasil Pemeriksaan Estesiometer Cochet Bonnet OD"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -1609,7 +1125,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Estesiometer Cochet Bonnet OD']/items[at0004,'Hasil Pemeriksaan OD']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Estesiometer Cochet Bonnet OD']/items[at0004,'Hasil Pemeriksaan Estesiometer Cochet Bonnet OD']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -1630,15 +1146,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Estesiometer Cochet Bonnet OS']",
             "children" : [ {
-              "id" : "hasil_pemeriksaan_os",
-              "name" : "Hasil Pemeriksaan OS",
-              "localizedName" : "Hasil Pemeriksaan OS",
+              "id" : "hasil_estesiometer_cochet_bonnet_os",
+              "name" : "Hasil Estesiometer Cochet Bonnet OS",
+              "localizedName" : "Hasil Estesiometer Cochet Bonnet OS",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Hasil Pemeriksaan OS"
+                "en" : "Hasil Estesiometer Cochet Bonnet OS"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -1646,7 +1162,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Estesiometer Cochet Bonnet OS']/items[at0004,'Hasil Pemeriksaan OS']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Estesiometer Cochet Bonnet']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemeriksaan Estesiometer Cochet Bonnet OS']/items[at0004,'Hasil Estesiometer Cochet Bonnet OS']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -1751,106 +1267,34 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "pemeriksaan_segmen_anterior_mata_kanan",
-            "name" : "Pemeriksaan Segmen Anterior mata kanan",
-            "localizedName" : "Pemeriksaan Segmen Anterior mata kanan",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Pemeriksaan Segmen Anterior mata kanan"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kanan']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Pemeriksaan Segmen Anterior mata kanan",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Segmen Anterior mata kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kanan']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Pemeriksaan Segmen Anterior mata kanan",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Segmen Anterior mata kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kanan']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Pemeriksaan Segmen Anterior mata kanan",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Segmen Anterior mata kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kanan']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan Segmen Anterior mata kanan",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsmka"
             } ]
           }, {
             "id" : "segmen_anterior_mata_kanan",
@@ -1925,7 +1369,7 @@
               "id" : "apakah_ada_kelainan_lensa_kanan",
               "name" : "Apakah ada kelainan lensa kanan?",
               "localizedName" : "Apakah ada kelainan lensa kanan?",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -1938,89 +1382,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kanan']/items[at0005,'Apakah ada kelainan lensa kanan?']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada kelainan lensa kanan?",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada kelainan lensa kanan?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kanan']/items[at0005,'Apakah ada kelainan lensa kanan?']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kanan']/items[at0005,'Apakah ada kelainan lensa kanan?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada kelainan lensa kanan?",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada kelainan lensa kanan?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kanan']/items[at0005,'Apakah ada kelainan lensa kanan?']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada kelainan lensa kanan?",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada kelainan lensa kanan?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kanan']/items[at0005,'Apakah ada kelainan lensa kanan?']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             }, {
@@ -2164,106 +1559,34 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "pemeriksaan_segmen_anterior_mata_kiri",
-            "name" : "Pemeriksaan Segmen Anterior mata kiri",
-            "localizedName" : "Pemeriksaan Segmen Anterior mata kiri",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Pemeriksaan Segmen Anterior mata kiri"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kiri']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Pemeriksaan Segmen Anterior mata kiri",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Segmen Anterior mata kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kiri']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Pemeriksaan Segmen Anterior mata kiri",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Segmen Anterior mata kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kiri']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Pemeriksaan Segmen Anterior mata kiri",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pemeriksaan Segmen Anterior mata kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan Segmen Anterior mata kiri']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan Segmen Anterior mata kiri",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsmkr"
             } ]
           }, {
             "id" : "segmen_anterior_mata_kiri",
@@ -2338,7 +1661,7 @@
               "id" : "apakah_ada_kelainan_lensa_kiri",
               "name" : "Apakah ada kelainan lensa kiri?",
               "localizedName" : "Apakah ada kelainan lensa kiri?",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -2351,89 +1674,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kiri']/items[at0005,'Apakah ada kelainan lensa kiri?']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada kelainan lensa kiri?",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada kelainan lensa kiri?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kiri']/items[at0005,'Apakah ada kelainan lensa kiri?']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kiri']/items[at0005,'Apakah ada kelainan lensa kiri?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada kelainan lensa kiri?",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada kelainan lensa kiri?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kiri']/items[at0005,'Apakah ada kelainan lensa kiri?']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada kelainan lensa kiri?",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada kelainan lensa kiri?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kiri']/items[at0005,'Apakah ada kelainan lensa kiri?']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             }, {
@@ -2539,112 +1813,40 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "pemeriksaan_fbut_mata_kanan",
-            "name" : "Pemeriksaan FBUT mata kanan",
-            "localizedName" : "Pemeriksaan FBUT mata kanan",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Pemeriksaan FBUT mata kanan"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kanan']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Pemeriksaan FBUT mata kanan",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kanan']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Pemeriksaan FBUT mata kanan",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kanan']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Pemeriksaan FBUT mata kanan",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kanan']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan FBUT mata kanan",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsFBUTmka"
             } ]
           }, {
             "id" : "apakah_ada_rapid_expansion_mata_kanan",
             "name" : "Apakah ada rapid expansion mata kanan?",
             "localizedName" : "Apakah ada rapid expansion mata kanan?",
-            "rmType" : "ELEMENT",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
             "min" : 0,
             "max" : -1,
@@ -2657,89 +1859,40 @@
             "annotations" : {
               "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kanan?']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Apakah ada rapid expansion mata kanan?",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah ada rapid expansion mata kanan?"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kanan?']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kanan?']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0031",
+                "label" : "Yes",
+                "localizedLabels" : {
+                  "en" : "Yes"
+                },
+                "localizedDescriptions" : {
+                  "en" : ""
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::373066001]",
+                    "terminologyId" : "SNOMED-CT"
                   }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
+                }
+              }, {
+                "value" : "at0032",
+                "label" : "No",
+                "localizedLabels" : {
+                  "en" : "No"
+                },
+                "localizedDescriptions" : {
+                  "en" : ""
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::373067005]",
+                    "terminologyId" : "SNOMED-CT"
                   }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Apakah ada rapid expansion mata kanan?",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah ada rapid expansion mata kanan?"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kanan?']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Apakah ada rapid expansion mata kanan?",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah ada rapid expansion mata kanan?"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kanan?']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
+                }
               } ]
             } ]
           }, {
@@ -2833,7 +1986,7 @@
               "id" : "apakah_ada_pattern_break_mata_kanan",
               "name" : "Apakah ada pattern break mata kanan?",
               "localizedName" : "Apakah ada pattern break mata kanan?",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -2846,89 +1999,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kanan']/items[at0005,'Apakah ada pattern break mata kanan?']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada pattern break mata kanan?",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada pattern break mata kanan?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kanan']/items[at0005,'Apakah ada pattern break mata kanan?']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kanan']/items[at0005,'Apakah ada pattern break mata kanan?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada pattern break mata kanan?",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada pattern break mata kanan?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kanan']/items[at0005,'Apakah ada pattern break mata kanan?']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada pattern break mata kanan?",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada pattern break mata kanan?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kanan']/items[at0005,'Apakah ada pattern break mata kanan?']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             } ]
@@ -3016,112 +2120,40 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "pemeriksaan_fbut_mata_kiri",
-            "name" : "Pemeriksaan FBUT mata kiri",
-            "localizedName" : "Pemeriksaan FBUT mata kiri",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
             "min" : 0,
-            "max" : -1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Pemeriksaan FBUT mata kiri"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kiri']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Pemeriksaan FBUT mata kiri",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kiri']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Pemeriksaan FBUT mata kiri",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kiri']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Pemeriksaan FBUT mata kiri",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Pemeriksaan FBUT mata kiri']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan FBUT mata kiri",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsFBUTmkr"
             } ]
           }, {
             "id" : "apakah_ada_rapid_expansion_mata_kiri",
             "name" : "Apakah ada rapid expansion mata kiri?",
             "localizedName" : "Apakah ada rapid expansion mata kiri?",
-            "rmType" : "ELEMENT",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
             "min" : 0,
             "max" : -1,
@@ -3134,89 +2166,40 @@
             "annotations" : {
               "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kiri?']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Apakah ada rapid expansion mata kiri?",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah ada rapid expansion mata kiri?"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kiri?']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kiri?']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0031",
+                "label" : "Yes",
+                "localizedLabels" : {
+                  "en" : "Yes"
+                },
+                "localizedDescriptions" : {
+                  "en" : ""
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::373066001]",
+                    "terminologyId" : "SNOMED-CT"
                   }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
+                }
+              }, {
+                "value" : "at0032",
+                "label" : "No",
+                "localizedLabels" : {
+                  "en" : "No"
+                },
+                "localizedDescriptions" : {
+                  "en" : ""
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::373067005]",
+                    "terminologyId" : "SNOMED-CT"
                   }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Apakah ada rapid expansion mata kiri?",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah ada rapid expansion mata kiri?"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kiri?']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Apakah ada rapid expansion mata kiri?",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah ada rapid expansion mata kiri?"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah ada rapid expansion mata kiri?']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
+                }
               } ]
             } ]
           }, {
@@ -3310,7 +2293,7 @@
               "id" : "apakah_ada_pattern_break_mata_kiri",
               "name" : "Apakah ada pattern break mata kiri?",
               "localizedName" : "Apakah ada pattern break mata kiri?",
-              "rmType" : "ELEMENT",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0005",
               "min" : 0,
               "max" : 1,
@@ -3323,89 +2306,40 @@
               "annotations" : {
                 "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kiri']/items[at0005,'Apakah ada pattern break mata kiri?']",
-              "children" : [ {
-                "id" : "coded_text_value",
-                "localizedName" : "Apakah ada pattern break mata kiri?",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada pattern break mata kiri?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kiri']/items[at0005,'Apakah ada pattern break mata kiri?']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "at0023",
-                    "label" : "Yes",
-                    "localizedLabels" : {
-                      "en" : "Yes"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373066001]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kiri']/items[at0005,'Apakah ada pattern break mata kiri?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0023",
+                  "label" : "Yes",
+                  "localizedLabels" : {
+                    "en" : "Yes"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373066001]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  }, {
-                    "value" : "at0024",
-                    "label" : "No",
-                    "localizedLabels" : {
-                      "en" : "No"
-                    },
-                    "localizedDescriptions" : {
-                      "en" : ""
-                    },
-                    "termBindings" : {
-                      "SNOMED-CT" : {
-                        "value" : "[SNOMED-CT::373067005]",
-                        "terminologyId" : "SNOMED-CT"
-                      }
+                  }
+                }, {
+                  "value" : "at0024",
+                  "label" : "No",
+                  "localizedLabels" : {
+                    "en" : "No"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : ""
+                  },
+                  "termBindings" : {
+                    "SNOMED-CT" : {
+                      "value" : "[SNOMED-CT::373067005]",
+                      "terminologyId" : "SNOMED-CT"
                     }
-                  } ]
-                } ]
-              }, {
-                "id" : "text_value",
-                "localizedName" : "Apakah ada pattern break mata kiri?",
-                "rmType" : "DV_TEXT",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada pattern break mata kiri?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kiri']/items[at0005,'Apakah ada pattern break mata kiri?']/value",
-                "inputs" : [ {
-                  "type" : "TEXT"
-                } ]
-              }, {
-                "id" : "boolean_value",
-                "localizedName" : "Apakah ada pattern break mata kiri?",
-                "rmType" : "DV_BOOLEAN",
-                "nodeId" : "",
-                "min" : 0,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Apakah ada pattern break mata kiri?"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan FBUT mata kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pattern break mata kiri']/items[at0005,'Apakah ada pattern break mata kiri?']/value",
-                "inputs" : [ {
-                  "type" : "BOOLEAN"
+                  }
                 } ]
               } ]
             } ]
@@ -3509,106 +2443,34 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tetes Midriatikum']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "apakah_dilakukan_tetes_midriatikum_pada_mata",
-            "name" : "Apakah dilakukan tetes midriatikum pada mata",
-            "localizedName" : "Apakah dilakukan tetes midriatikum pada mata",
-            "rmType" : "ELEMENT",
-            "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
-              "en" : "Apakah dilakukan tetes midriatikum pada mata"
+              "en" : "Pemeriksaan"
             },
             "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              "en" : "The context or reason for screening."
             },
             "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tetes Midriatikum']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah dilakukan tetes midriatikum pada mata']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Apakah dilakukan tetes midriatikum pada mata",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah dilakukan tetes midriatikum pada mata"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tetes Midriatikum']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah dilakukan tetes midriatikum pada mata']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Apakah dilakukan tetes midriatikum pada mata",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah dilakukan tetes midriatikum pada mata"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tetes Midriatikum']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah dilakukan tetes midriatikum pada mata']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Apakah dilakukan tetes midriatikum pada mata",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Apakah dilakukan tetes midriatikum pada mata"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tetes Midriatikum']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah dilakukan tetes midriatikum pada mata']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tetes Midriatikum']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Tetes Midriatikum",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsTM"
             } ]
           }, {
             "id" : "tetes_midriatikum_mata_kanan",
@@ -3840,13 +2702,43 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]",
           "children" : [ {
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The context or reason for screening."
+            },
+            "annotations" : {
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Foto Fundus Kanan",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsFFKa"
+            } ]
+          }, {
             "id" : "apakah_sudah_dilakukan_foto_fundus_mata_kanan",
             "name" : "Apakah sudah dilakukan foto fundus mata kanan?",
             "localizedName" : "Apakah sudah dilakukan foto fundus mata kanan?",
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Apakah sudah dilakukan foto fundus mata kanan?"
             },
@@ -3908,15 +2800,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kanan']",
             "children" : [ {
-              "id" : "problem_diagnosis_name",
-              "name" : "Problem/diagnosis name",
-              "localizedName" : "Problem/diagnosis name",
-              "rmType" : "DV_TEXT",
+              "id" : "status_retinopati_diabetik_mata_kanan",
+              "name" : "Status retinopati diabetik mata kanan",
+              "localizedName" : "Status retinopati diabetik mata kanan",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Problem/diagnosis name"
+                "en" : "Status retinopati diabetik mata kanan"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -3924,28 +2816,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kanan']/items[at0004]/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "status_retinopati_diabetik_mata_kanan",
-              "name" : "Status retinopati diabetik mata kanan",
-              "localizedName" : "Status retinopati diabetik mata kanan",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0005",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Status retinopati diabetik mata kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-              },
-              "annotations" : {
-                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kanan']/items[at0005,'Status retinopati diabetik mata kanan']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kanan']/items[at0004,'Status retinopati diabetik mata kanan']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
@@ -3981,12 +2852,12 @@
                   }
                 }, {
                   "value" : "5",
-                  "label" : "Tidak dapat dibaca / digrading",
+                  "label" : "Tidak dapat dibaca/ digrading",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSRDMKa"
               } ]
             } ]
           }, {
@@ -4005,15 +2876,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kanan']",
             "children" : [ {
-              "id" : "problem_diagnosis_name",
-              "name" : "Problem/diagnosis name",
-              "localizedName" : "Problem/diagnosis name",
-              "rmType" : "DV_TEXT",
+              "id" : "status_vision_threatening_dr_vtdr_mata_kanan",
+              "name" : "Status vision threatening DR (VTDR) mata kanan",
+              "localizedName" : "Status vision threatening DR (VTDR) mata kanan",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Problem/diagnosis name"
+                "en" : "Status vision threatening DR (VTDR) mata kanan"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -4021,51 +2892,30 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kanan']/items[at0004]/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "status_vision_threatening_dr_vtdr_mata_kanan",
-              "name" : "Status vision threatening DR (VTDR) mata kanan",
-              "localizedName" : "Status vision threatening DR (VTDR) mata kanan",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0005",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Status vision threatening DR (VTDR) mata kanan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-              },
-              "annotations" : {
-                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kanan']/items[at0005,'Status vision threatening DR (VTDR) mata kanan']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kanan']/items[at0004,'Status vision threatening DR (VTDR) mata kanan']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "No-DR",
+                  "label" : "Tidak",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Mild NPDR",
+                  "label" : "Edema Macula",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "2",
-                  "label" : "Moderate NPDR",
+                  "label" : "Tractional Retinal Detachment",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsVTDRKa"
               } ]
             } ]
           }, {
@@ -4084,15 +2934,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kanan)']",
             "children" : [ {
-              "id" : "problem_diagnosis_name",
-              "name" : "Problem/diagnosis name",
-              "localizedName" : "Problem/diagnosis name",
-              "rmType" : "DV_TEXT",
+              "id" : "kelainan_mata_lainnya_mata_kanan",
+              "name" : "Kelainan mata lainnya (mata kanan)",
+              "localizedName" : "Kelainan mata lainnya (mata kanan)",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Problem/diagnosis name"
+                "en" : "Kelainan mata lainnya (mata kanan)"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -4100,57 +2950,36 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kanan)']/items[at0004]/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "kelainan_mata_lainnya_mata_kanan",
-              "name" : "Kelainan mata lainnya (mata kanan)",
-              "localizedName" : "Kelainan mata lainnya (mata kanan)",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0005",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Kelainan mata lainnya (mata kanan)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-              },
-              "annotations" : {
-                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kanan)']/items[at0005,'Kelainan mata lainnya (mata kanan)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kanan)']/items[at0004,'Kelainan mata lainnya (mata kanan)']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "No-DR",
+                  "label" : "Katarak",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Mild NPDR",
+                  "label" : "Glaukoma",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "2",
-                  "label" : "Moderate NPDR",
+                  "label" : "Kelainan Refraksi",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "3",
-                  "label" : "Severe NPDR",
+                  "label" : "Lainnya",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsLMKa"
               } ]
             }, {
               "id" : "kelainan_mata_lainnya_mata_kanan2",
@@ -4292,13 +3121,43 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]",
           "children" : [ {
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0034",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The context or reason for screening."
+            },
+            "annotations" : {
+              "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0034,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Foto Fundus Kiri",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsFFKr"
+            } ]
+          }, {
             "id" : "apakah_sudah_dilakukan_foto_fundus_mata_kiri",
             "name" : "Apakah sudah dilakukan foto fundus mata kiri?",
             "localizedName" : "Apakah sudah dilakukan foto fundus mata kiri?",
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Apakah sudah dilakukan foto fundus mata kiri?"
             },
@@ -4360,15 +3219,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kiri']",
             "children" : [ {
-              "id" : "problem_diagnosis_name",
-              "name" : "Problem/diagnosis name",
-              "localizedName" : "Problem/diagnosis name",
-              "rmType" : "DV_TEXT",
+              "id" : "status_retinopati_diabetik_mata_kiri",
+              "name" : "Status retinopati diabetik mata kiri",
+              "localizedName" : "Status retinopati diabetik mata kiri",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Problem/diagnosis name"
+                "en" : "Status retinopati diabetik mata kiri"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -4376,28 +3235,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kiri']/items[at0004]/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "status_retinopati_diabetik_mata_kiri",
-              "name" : "Status retinopati diabetik mata kiri",
-              "localizedName" : "Status retinopati diabetik mata kiri",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0005",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Status retinopati diabetik mata kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-              },
-              "annotations" : {
-                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kiri']/items[at0005,'Status retinopati diabetik mata kiri']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status retinopati diabetik mata kiri']/items[at0004,'Status retinopati diabetik mata kiri']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
@@ -4433,12 +3271,12 @@
                   }
                 }, {
                   "value" : "5",
-                  "label" : "Tidak dapat dibaca / digrading",
+                  "label" : "Tidak dapat dibaca/ digrading",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSRDMKr"
               } ]
             } ]
           }, {
@@ -4457,15 +3295,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kiri']",
             "children" : [ {
-              "id" : "problem_diagnosis_name",
-              "name" : "Problem/diagnosis name",
-              "localizedName" : "Problem/diagnosis name",
-              "rmType" : "DV_TEXT",
+              "id" : "status_vision_threatening_dr_vtdr_mata_kiri",
+              "name" : "Status vision threatening DR (VTDR) mata kiri",
+              "localizedName" : "Status vision threatening DR (VTDR) mata kiri",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Problem/diagnosis name"
+                "en" : "Status vision threatening DR (VTDR) mata kiri"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -4473,51 +3311,30 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kiri']/items[at0004]/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "status_vision_threatening_dr_vtdr_mata_kiri",
-              "name" : "Status vision threatening DR (VTDR) mata kiri",
-              "localizedName" : "Status vision threatening DR (VTDR) mata kiri",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0005",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Status vision threatening DR (VTDR) mata kiri"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-              },
-              "annotations" : {
-                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kiri']/items[at0005,'Status vision threatening DR (VTDR) mata kiri']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Status vision threatening DR (VTDR) mata kiri']/items[at0004,'Status vision threatening DR (VTDR) mata kiri']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "No-DR",
+                  "label" : "Tidak",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Mild NPDR",
+                  "label" : "Edema Macula",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "2",
-                  "label" : "Moderate NPDR",
+                  "label" : "Tractional Retinal Detachment",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsVTDRkr"
               } ]
             } ]
           }, {
@@ -4536,15 +3353,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kiri)']",
             "children" : [ {
-              "id" : "problem_diagnosis_name",
-              "name" : "Problem/diagnosis name",
-              "localizedName" : "Problem/diagnosis name",
-              "rmType" : "DV_TEXT",
+              "id" : "kelainan_mata_lainnya_mata_kiri",
+              "name" : "Kelainan mata lainnya (mata kiri)",
+              "localizedName" : "Kelainan mata lainnya (mata kiri)",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Problem/diagnosis name"
+                "en" : "Kelainan mata lainnya (mata kiri)"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -4552,57 +3369,36 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kiri)']/items[at0004]/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "kelainan_mata_lainnya_mata_kiri",
-              "name" : "Kelainan mata lainnya (mata kiri)",
-              "localizedName" : "Kelainan mata lainnya (mata kiri)",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0005",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Kelainan mata lainnya (mata kiri)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-              },
-              "annotations" : {
-                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kiri)']/items[at0005,'Kelainan mata lainnya (mata kiri)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Foto Fundus Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kelainan mata lainnya (mata kiri)']/items[at0004,'Kelainan mata lainnya (mata kiri)']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "No-DR",
+                  "label" : "Katarak",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Mild NPDR",
+                  "label" : "Glaukoma",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "2",
-                  "label" : "Moderate NPDR",
+                  "label" : "Kelainan Refraksi",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "3",
-                  "label" : "Severe NPDR",
+                  "label" : "Lainnya",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsLMKr"
               } ]
             }, {
               "id" : "kelainan_mata_lainnya_mata_kiri2",
@@ -7768,10 +6564,10 @@
             "id" : "visus_kanan",
             "name" : "Visus Kanan",
             "localizedName" : "Visus Kanan",
-            "rmType" : "ELEMENT",
+            "rmType" : "DV_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Visus Kanan"
             },
@@ -7781,114 +6577,18 @@
             "annotations" : {
               "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kanan']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Visus Kanan",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kanan']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0033",
-                  "label" : "Unknown",
-                  "localizedLabels" : {
-                    "en" : "Unknown"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::261665006]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Visus Kanan",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kanan']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Visus Kanan",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kanan']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kanan']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
             } ]
           }, {
             "id" : "non-contact_tonometry_kanan",
             "name" : "Non-contact tonometry kanan",
             "localizedName" : "Non-contact tonometry kanan",
-            "rmType" : "ELEMENT",
+            "rmType" : "DV_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Non-contact tonometry kanan"
             },
@@ -7898,105 +6598,9 @@
             "annotations" : {
               "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kanan']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Non-contact tonometry kanan",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kanan']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0033",
-                  "label" : "Unknown",
-                  "localizedLabels" : {
-                    "en" : "Unknown"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::261665006]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Non-contact tonometry kanan",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kanan']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Non-contact tonometry kanan",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kanan']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kanan']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
             } ]
           }, {
             "id" : "tetes_midriatikum_kanan",
@@ -8004,8 +6608,8 @@
             "localizedName" : "Tetes midriatikum kanan",
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Tetes midriatikum kanan"
             },
@@ -8138,10 +6742,10 @@
             "id" : "visus_kiri",
             "name" : "Visus Kiri",
             "localizedName" : "Visus Kiri",
-            "rmType" : "ELEMENT",
+            "rmType" : "DV_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Visus Kiri"
             },
@@ -8151,114 +6755,18 @@
             "annotations" : {
               "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kiri']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Visus Kiri",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kiri']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0033",
-                  "label" : "Unknown",
-                  "localizedLabels" : {
-                    "en" : "Unknown"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::261665006]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Visus Kiri",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kiri']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Visus Kiri",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kiri']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Visus Kiri']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
             } ]
           }, {
             "id" : "non-contact_tonometry_kiri",
             "name" : "Non-contact tonometry kiri",
             "localizedName" : "Non-contact tonometry kiri",
-            "rmType" : "ELEMENT",
+            "rmType" : "DV_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Non-contact tonometry kiri"
             },
@@ -8268,105 +6776,9 @@
             "annotations" : {
               "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kiri']",
-            "children" : [ {
-              "id" : "coded_text_value",
-              "localizedName" : "Non-contact tonometry kiri",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kiri']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0031",
-                  "label" : "Yes",
-                  "localizedLabels" : {
-                    "en" : "Yes"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373066001]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0032",
-                  "label" : "No",
-                  "localizedLabels" : {
-                    "en" : "No"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::373067005]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                }, {
-                  "value" : "at0033",
-                  "label" : "Unknown",
-                  "localizedLabels" : {
-                    "en" : "Unknown"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : ""
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::261665006]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "text_value",
-              "localizedName" : "Non-contact tonometry kiri",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kiri']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "boolean_value",
-              "localizedName" : "Non-contact tonometry kiri",
-              "rmType" : "DV_BOOLEAN",
-              "nodeId" : "",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : null
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kiri']/value",
-              "inputs" : [ {
-                "type" : "BOOLEAN"
-              } ]
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Visus dan NCT']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Mata Kiri']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Non-contact tonometry kiri']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
             } ]
           }, {
             "id" : "tetes_midriatikum_kiri",
@@ -8374,8 +6786,8 @@
             "localizedName" : "Tetes midriatikum kiri",
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
-            "min" : 0,
-            "max" : -1,
+            "min" : 1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Tetes midriatikum kiri"
             },
