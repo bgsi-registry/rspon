@@ -42,6 +42,194 @@
       },
       "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']",
       "children" : [ {
+        "id" : "procedure_screening_questionnaire",
+        "name" : "Procedure screening questionnaire",
+        "localizedName" : "Procedure screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.procedure_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Procedure screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for procedures that has been carried out in the past."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "specific_procedure",
+            "name" : "Specific procedure",
+            "localizedName" : "Specific procedure",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Specific procedure"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]",
+            "children" : [ {
+              "id" : "pemeriksaan",
+              "name" : "Pemeriksaan",
+              "localizedName" : "Pemeriksaan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004,'Pemeriksaan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Keratograf/ Schirmer's/ Estesiometer",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "waktu_pemeriksaan",
+              "name" : "Waktu Pemeriksaan",
+              "localizedName" : "Waktu Pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Waktu Pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0037,'Waktu Pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "person",
+          "name" : "Person",
+          "localizedName" : "Person",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "any_event" ],
+          "localizedNames" : {
+            "en" : "Person"
+          },
+          "localizedDescriptions" : {
+            "en" : "An individual human being."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/protocol[at0007]/items[openEHR-EHR-CLUSTER.person.v1]",
+          "children" : [ {
+            "id" : "nama_pemeriksa",
+            "name" : "Nama Pemeriksa",
+            "localizedName" : "Nama Pemeriksa",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama Pemeriksa"
+            },
+            "localizedDescriptions" : {
+              "en" : "The unstructured name for the individual."
+            },
+            "annotations" : {
+              "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/protocol[at0007]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0001,'Nama Pemeriksa']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keratograf/ Schirmer's/ Estesiometer']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
         "id" : "pemeriksaan_mata_keratograf_kanan",
         "name" : "Pemeriksaan mata keratograf kanan",
         "localizedName" : "Pemeriksaan mata keratograf kanan",
@@ -1234,6 +1422,156 @@
       },
       "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']",
       "children" : [ {
+        "id" : "procedure_screening_questionnaire",
+        "name" : "Procedure screening questionnaire",
+        "localizedName" : "Procedure screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.procedure_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Procedure screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for procedures that has been carried out in the past."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "specific_procedure",
+            "name" : "Specific procedure",
+            "localizedName" : "Specific procedure",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Specific procedure"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]",
+            "children" : [ {
+              "id" : "pemeriksaan",
+              "name" : "Pemeriksaan",
+              "localizedName" : "Pemeriksaan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004,'Pemeriksaan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Segmen Anterior/ FBUP",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsFBUP"
+              } ]
+            }, {
+              "id" : "waktu_pemeriksaan",
+              "name" : "Waktu Pemeriksaan",
+              "localizedName" : "Waktu Pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Waktu Pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0037,'Waktu Pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
         "id" : "pemeriksaan_segmen_anterior_mata_kanan",
         "name" : "Pemeriksaan Segmen Anterior mata kanan",
         "localizedName" : "Pemeriksaan Segmen Anterior mata kanan",
@@ -1417,6 +1755,27 @@
                     }
                   }
                 } ]
+              } ]
+            }, {
+              "id" : "waktu_pemeriksaan",
+              "name" : "Waktu Pemeriksaan",
+              "localizedName" : "Waktu Pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0040",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Waktu Pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the initial recognition of the issue, problem or diagnosis."
+              },
+              "annotations" : {
+                "comment" : "The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of a problem or the timing of a diagnosis. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date of diagnosis. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Segmen Anterior/ FBUP']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Pemeriksaan Segmen Anterior mata kanan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Segmen Anterior mata kanan']/items[at0040,'Waktu Pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
               } ]
             }, {
               "id" : "kelainan_lensa_kanan_lainnya",
@@ -2410,6 +2769,173 @@
       },
       "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']",
       "children" : [ {
+        "id" : "procedure_screening_questionnaire",
+        "name" : "Procedure screening questionnaire",
+        "localizedName" : "Procedure screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.procedure_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Procedure screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for procedures that has been carried out in the past."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "specific_procedure",
+            "name" : "Specific procedure",
+            "localizedName" : "Specific procedure",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Specific procedure"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]",
+            "children" : [ {
+              "id" : "pemeriksaan",
+              "name" : "Pemeriksaan",
+              "localizedName" : "Pemeriksaan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004,'Pemeriksaan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Foto Fundus",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsFF"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "person",
+          "name" : "Person",
+          "localizedName" : "Person",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "any_event" ],
+          "localizedNames" : {
+            "en" : "Person"
+          },
+          "localizedDescriptions" : {
+            "en" : "An individual human being."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/protocol[at0007]/items[openEHR-EHR-CLUSTER.person.v1]",
+          "children" : [ {
+            "id" : "nama_pemeriksa",
+            "name" : "Nama Pemeriksa",
+            "localizedName" : "Nama Pemeriksa",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama Pemeriksa"
+            },
+            "localizedDescriptions" : {
+              "en" : "The unstructured name for the individual."
+            },
+            "annotations" : {
+              "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/protocol[at0007]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0001,'Nama Pemeriksa']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Foto Fundus']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
         "id" : "tetes_midriatikum",
         "name" : "Tetes Midriatikum",
         "localizedName" : "Tetes Midriatikum",
@@ -6382,13 +6908,13 @@
               "type" : "CODED_TEXT",
               "list" : [ {
                 "value" : "0",
-                "label" : "Ya",
+                "label" : "Merasa penglihatan baik, mata tidak perlu diperiksa",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
                 "value" : "1",
-                "label" : "Tidak",
+                "label" : "Merasa pemeriksaan tidak nyaman",
                 "localizedLabels" : {
                   "en" : ""
                 }
@@ -6441,7 +6967,7 @@
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_terms1"
             } ]
           }, {
             "id" : "hambatan_lain_-_lain_dalam_pemeriksaan_mata",
