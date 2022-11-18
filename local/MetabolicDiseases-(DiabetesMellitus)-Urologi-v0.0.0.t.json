@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.0.5",
+      "sem_ver" : "1.0.0",
       "build_uid" : "b6a95d77-3835-4e58-8edf-3bbf5fce118a",
-      "MD5-CAM-1.0.1" : "86103584f8eea28ca94f7281a36ef36a",
+      "MD5-CAM-1.0.1" : "458a3996d7c57d267cd1b151643c9977",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -6701,22 +6701,6 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
                       "occurrences" : "1..1",
-                      "nodeId" : "at0070.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_DATE_TIME",
-                          "attributes" : [ ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "1..1",
                       "nodeId" : "at0091.1",
                       "attributes" : [ ],
                       "attributeTuples" : [ ]
@@ -6730,7 +6714,14 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0070.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "1..1",
                       "nodeId" : "at0072.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
@@ -6746,17 +6737,59 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "1..1",
                               "terminologyId" : {
-                                "value" : "local"
+                                "value" : "local_termsDE"
                               },
-                              "constraint" : [ "ac0.2" ],
-                              "selectedTerminologies" : [ ]
+                              "constraint" : [ ],
+                              "selectedTerminologies" : [ "local_termsDE" ],
+                              "includedExternalTerminologyCodes" : [ {
+                                "terminologyId" : "local_termsDE",
+                                "code" : "0",
+                                "value" : "Adekuat"
+                              }, {
+                                "terminologyId" : "local_termsDE",
+                                "code" : "1",
+                                "value" : "Tidak Adekuat"
+                              } ]
                             } ]
                           } ],
                           "attributeTuples" : [ ]
-                        }, {
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0072.2",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_TEXT",
-                          "attributes" : [ ],
+                          "rmTypeName" : "DV_CODED_TEXT",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "TERMINOLOGY_CODE",
+                              "occurrences" : "1..1",
+                              "terminologyId" : {
+                                "value" : "local_termsDE"
+                              },
+                              "constraint" : [ ],
+                              "selectedTerminologies" : [ "local_termsDE" ],
+                              "includedExternalTerminologyCodes" : [ {
+                                "terminologyId" : "local_termsDE",
+                                "code" : "0",
+                                "value" : "Adekuat"
+                              }, {
+                                "terminologyId" : "local_termsDE",
+                                "code" : "1",
+                                "value" : "Tidak Adekuat"
+                              } ]
+                            } ]
+                          } ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
@@ -6837,7 +6870,7 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "1..1",
+                      "occurrences" : "0..0",
                       "nodeId" : "at0020.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
@@ -6876,7 +6909,7 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "1..1",
+                      "occurrences" : "0..0",
                       "nodeId" : "at0020.2",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
@@ -7278,12 +7311,6 @@
             "description" : "The name of the imaging examination performed.",
             "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
           },
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "at0020.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0020.2",
@@ -7304,51 +7331,68 @@
             "text" : "Tanggal Pemeriksaan",
             "description" : "Date/time when the imaging started.",
             "comment" : "Equivalent to ImagingStudy.started in FHIR."
+          },
+          "at0072.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0072.1",
+            "text" : "Kesimpulan hasil pemeriksaan, tip erection",
+            "description" : "The status of the imaging examination result as a whole.",
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "at0072.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0072.2",
+            "text" : "Kesimpulan hasil pemeriksaan, base base erection",
+            "description" : "The status of the imaging examination result as a whole.",
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
           }
         },
         "nb" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "at0020.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0020.1",
             "text" : "Bildediagnostisk diagnose (2)",
             "description" : "Enkeltord, setning eller kort beskrivelse som uttrykker en den sannsynlige tilstand eller diagnose.",
             "comment" : "Dette dataelementet er repeterbart for å tillate flere enn én diagnose. Det er anbefalt å bruke en terminologi dersom mulig, for eksempel SNOMED CT. Dette dataelementet bør oppfattes som gjensidig utelukkende til \"Bildediagnostisk differensialdiagnose\", altså bare enten \"Bildediagnostisk diagnose\" eller \"Bildediagnostisk differensialdiagnose\" i hver instans av arketypen \"Bildediagnostisk svar\". Tilsvarer DiagnosticReport.conclusionCode in FHIR."
+          },
+          "at0072.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0072",
+            "text" : "Status på undersøkelsesresultatet (2)",
+            "description" : "Den overordnede statusen for hele undersøkelsesresultatet.",
+            "comment" : "Verdisetettet her er samordnet med FHIR Diagnostic report status, med unntak av koden \"Entered in error\" som bare er relevant i et meldingsorientert paradigme. Andre lokale koder eller termer kan brukes ved å bruke datatypen \"Fri eller kodet tekst\". I de fleste tilfellene er det bare passende å bruke en statuskode. Dataelementet er imidlertid åpent for flere forekomster for å understøtte bruksområdene der statuser for forskjellige aspekter av resultatet er delt opp i flere elementer. Et eksempel på dette er de norske standard svarrapport av medisinske tjenester v1.4 (HIS 80822:2014), der status for undersøkelsesresultat (Tjenestetype) og status/steg i arbeidsflyt håndteres separat.\r\n\r\nDette elementet tilsvarer FHIR Diagnostic report status."
           }
         },
         "de" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "at0020.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0020.1",
             "text" : "Bildgebende Diagnose (2)",
             "description" : "Ein einzelnes Wort, eine Phrase oder eine kurze Beschreibung, die einen wahrscheinlichen Zustand oder eine wahrscheinliche Diagnose darstellt.",
             "comment" : "Dieses Datenelement kommt mehrfach vor, um mehr als eine Diagnose zu ermöglichen. Wenn möglich, wird eine Codierung mit einer Terminologie wie SNOMED CT bevorzugt. Dieses Datenelement ist als sich gegenseitig ausschließend zur „Bildgebenden Differenzialdiagnostik“ zu betrachten, dh jeweils nur entweder „Bildgebende Diagnostik“ oder „Bildgebende Differenzialdiagnostik“ des Archetyps „Bildgebendes Untersuchungsergebnis“. Entspricht DiagnosticReport.conclusionCode in FHIR."
+          },
+          "at0072.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0072",
+            "text" : "Status des Gesamtergebnisses (2)",
+            "description" : "Der Status des Ergebnisses der bildgebenden Untersuchung als Ganzes.",
+            "comment" : "Die Werte wurden mit dem Status von Diagnostic report im FHIR abgeglichen, mit Ausnahme von „Entered in error“, das nur für ein datenaustausch-orientiertes Paradigma relevant ist. Andere lokale Codes/Begriffe können über die \"Choice of\" vom Text-Datentyp verwendet werden. In den meisten Anwendungsfällen ist jeweils nur ein Status anwendbar, jedoch erlaubt dieses Datenelement mehrere Vorkommen für die Anwendungsfälle, in denen eine Vielzahl von Status-Typen angegeben werden müssen, normalerweise innerhalb eines Templates. Entspricht DiagnosticReport.status in FHIR."
           }
         },
         "sv" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "at0020.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0020.1",
             "text" : "Diagnos (2)",
             "description" : "Enstaka ord, fras eller kort beskrivning som representerar det troliga tillståndet eller diagnosen.",
             "comment" : "*This data element has multiple occurrences to allow for more than one differential diagnosis. Coding with a terminology such as SNOMED CT is preferred, where possible. This data element should be considered as mutually exclusive to \"Imaging differential diagnosis\", ie only either \"Imaging diagnosis\" or \"Imaging differential diagnosis\" in each instance of the archetype \"Imaging examination result.\" Equivalent to DiagnosticReport.conclusionCode in FHIR. (en)"
+          },
+          "at0072.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0072",
+            "text" : "*Overall result status (en) (2)",
+            "description" : "*The status of the imaging examination result as a whole. (en)",
+            "comment" : "*The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR.  (en)"
           }
         }
       },
@@ -7364,6 +7408,41 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.2",
           "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        },
+        "ac0.3" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.3",
+          "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        },
+        "ac0.4" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.4",
+          "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        },
+        "ac0.5" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.5",
+          "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        },
+        "ac0.6" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.6",
+          "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        },
+        "ac0.8" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.8",
+          "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        },
+        "ac0.9" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.9",
+          "members" : [ ]
+        },
+        "ac0.10" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.10",
+          "members" : [ ]
         }
       }
     },
@@ -7438,7 +7517,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "60DD7069B50AAF5B394E3F246F80BCB5"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.",
+          "keywords" : [ "Bild, Radiologie, Modalität, Röntgen, CT, Ultraschall, MRI, Diagnostik, Scan, Röntgenbild, X-Ray, Bildgebung, biomagnetisch, Densitometrie, Tomographie, Radiographie, magnetisch, Resonanz, Mammographie, Nuklear, Medizin, Positron, PET, Angiographie, Fluoroskopie" ],
+          "use" : "Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.\r\n\r\nDieser Archetyp wurde entwickelt, mit dem Fokus auf die Befundung und Interpretation einer einzelnen bildgebenden Untersuchung (entspricht einer einzelnen DICOM-Studie). Verweise auf DICOM-bezogene Attribute sind enthalten, aber der Schwerpunkt liegt auf der Darstellung eines klinischen Berichts zu einer bildgebenden Untersuchung und nicht auf der Darstellung von DICOM-bezogenen Attributen, die in einem Radiologieinformationssystem (RIS) erwartet werden könnten. Spezifische Angaben über die DICOM-Serie können mithilfe von Archetyp CLUSTER.imaging_series dargestellt werden, der im SLOT „Seriendetails“ verschachtelt ist.\r\n\r\nDetaillierte Befunde, die während einer bildgebenden Untersuchung beobachtet wurden und auf eine bestimmte Körperstruktur oder -region abzielen, können dargestellt werden, indem der Archetyp CLUSTER.imaging_exam und/oder seine Gruppe spezialisierter Archetypen innerhalb des SLOTs „Strukturierte bildgebende Befunde“ in diesem Archetyp verschachtelt werden. Es ist beabsichtigt, dass im Laufe der Zeit die spezifischen Informationen in jeder Spezialisierung erweitert werden, um Befunde mit allen bildgebenden Modalitäten einzubeziehen.\r\n\r\nWird eine bildgebende Untersuchung im Rahmen einer komplexeren Aktivität durchgeführt, wie z. B. eines interventionellen chirurgischen Eingriffs, sollte der bildgebende Befund mit diesem Archetyp erfasst werden.\r\nStrukturierte Angaben über den chirurgischen Eingriff und verabreichte Medikamente oder Kontrastmittel sollten unter Verwendung der ACTION.procedure- bzw. ACTION.medication-Archetypen dargestellt werden. In dieser Situation wird empfohlen, alle verwandten Archetypen innerhalb derselben Templates zu repräsentieren.\r\n\r\nDieses Ergebnis wird dem anfordernden Kliniker normalerweise als eine Komponente im Kontext eines auf COMPOSITION-basierenden Gesamtberichts berichtet.",
+          "misuse" : "Nicht zur Darstellung von Ergebnissen von körperlichen Untersuchung verwenden. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.exam und/oder seine Gruppe spezialisierter Archetypen.\r\n\r\nDarf nicht verwendet werden, um die Funktionalität oder Spezifikationen eines radiologischen Informations- oder Quellsystems zu replizieren.\r\n\r\nDarf nicht verwendet werden, um strukturierte Angaben zu einem durchgeführten Verfahren darzustellen. Verwenden Sie für diesen Zweck die spezifischen prozedurbezogenen Archetypen, wie z. B. den Archetyp ACTION.procedure.\r\n\r\nNicht zur Darstellung von strukturierten Anaben über Medikamente, die während des radiologischen Untersuchung verabreicht werden. Verwenden Sie für diesen Zweck spezifische medikamentenbezogene Archetypen, wie z. B. den Archetyp ACTION.medication.\r\n\r\nDarf nicht verwendet werden, um Fotos oder Videos in der Gesundheitsakte darzustellen. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.media_file.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "*To record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques. (en)",
+          "keywords" : [ "*image, radiology, modality, xray, CT, ultrasound, MRI, diagnostic, scan, x-ray, imaging, biomagnetic, densitometry, tomography, radiography, magnetic, resonance, mammography, nuclear, medicine, positron, PET, angiography, fluoroscopy (en)" ],
+          "use" : "*Use to record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.\r\n\r\nThis archetype has been designed to focus on the reporting of findings and interpretation associated with a single imaging examination (equivalent to a single DICOM study). References to DICOM-related attributes are included but the focus is on the representation of a clinical report from an imaging examination and not on representing DICOM-related attributes that might be expected within a radiology information system. Specific details about the DICOM series can be recorded using the CLUSTER.imaging_series nested within the 'Series details' SLOT.\r\n\r\nDetailed findings observed during an imaging examination and targeting a specified structure or region can be recorded by nesting the CLUSTER.imaging_exam and/or its family of specialised archetypes within the 'Structured imaging findings' SLOT in this archetype. It is intended that over time the specific detail in each specialisation will grow to include findings using all imaging modalities.\r\n\r\nIf an imaging examination is carried out as part of a more complex activity, such as a surgical operation carried out under imaging guidance, the imaging findings should be recorded using this archetype. \r\nStructured details about the surgical procedure and medications or contrast administered should be recorded using the ACTION.procedure and/or ACTION.medication archetypes, respectively. In this situation, it is recommended that all related archetypes should be reported within the same template.\r\n\r\nThis result will normally be reported back to the requesting clinician as one component within the context of an overall COMPOSITION-based report. (en)",
+          "misuse" : "*Not to be used to record findings on physical examination. Use the CLUSTER.exam and/or its family of specialised archetypes for this purpose.\r\n\r\nNot to be used to replicate the functionality or specifications of a radiology information or source system.\r\n\r\nNot to be used to record structured details about any procedure undertaken. Use the specific procedure-related archetypes, such as ACTION.procedure archetype for this purpose.\r\n\r\nNot to be used to record structured details about medications administered during the imaging test. Use specific medication-related archetypes, such as the ACTION.medication archetype for this purpose.\r\n\r\nNot to be used to record photographs or videos  within the health record. Use the CLUSTER.media_file archetype for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.",
+          "keywords" : [ "bilde", "radiologi", "modalitet", "røntgen", "CT", "ultralyd", "MR", "diagnostisk", "biomagnetisk", "densitometri", "tomografi", "radiografi", "nukleær", "positron", "PET", "fluoroskopi", "bildeveiledet", "gjennomlysning", "nukleærmedisinsk", "angiografi" ],
+          "use" : "Brukes for å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.\r\n\r\nDenne arketypen har blitt laget med fokus på svarrapportering av funn og tolkning en enkelt bildediagnostisk undersøkelse (tilsvarende en enkelt \"DICOM Study\"). Referanser til DICOM-relaterte attributter er inkludert, men fokuset er på representasjonen av en klinisk rapport fra en bildeundersøkelse og ikke på å representere DICOM-relaterte attributter som kan forventes i et radiologiinformasjonssystem (RIS/PACS). Spesifikke detaljer om DICOM-serien kan registreres ved å nøste arketypen CLUSTER.imaging_study_details i SLOT'et \"Detaljer om undersøkelsesserier\".\r\n\r\nDetaljerte funn som er gjort ved en bildediagnostisk undersøkelse som er rettet mot en spesifikk struktur eller region i kroppen, kan registreres ved å nøste CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur) eller en av de spesialiserte CLUSTER.imaging_exam arketypene i SLOT'et \"Strukturerte funn\" i denne arketypen. Det er tenkt at det over tid vil det bli utviklet slike spesialiseringer som hver for seg omhandler funn fra alle modaliteter.\r\n\r\nHvis den bildediagnostiske undersøkelsen er en del av en mer kompleks prosedyre, som en kirurgisk operasjon som utføres under bildeveiledning, skal de radiologiske funn og observasjoner bli registrert i denne arketypen. Strukturerte detaljer om den kirurgiske prosedyren og administrasjon av medikasjon eller kontrast bør registreres i henholdsvis ACTION.procedure (Prosedyre) og/eller ACTION.medication (Legemiddelhåndtering). I dette tilfelle anbefales det at alle relaterte arketyper, som detaljer om prosedyren eller administrasjon av medikasjon/kontrast bør samles i det samme templatet.\r\n\r\nSvaret på bildediagnostikken vil normalt sett bli rapportert tilbake til den bestillende kliniker som en komponent innenfor rammen av en samlet COMPOSITION-basert rapport.",
+          "misuse" : "Skal ikke brukes til funn ved fysiske undersøkelser. Bruk CLUSTER.exam (Undersøkelsesfunn) eller dennes gruppe av spesialiserte arketyper for dette formålet.\r\n\r\nSkal ikke brukes til å replikere funksjonaliteten til et radiologi informasjonssystem (RIS/PACS) eller kildesystem.\r\n\r\nSkal ikke brukes til å registrere strukturerte detaljer om en klinisk prosedyre som er gjennomført. Bruk da de spesifikke arketypene for prosedyre-relatert innhold, for eksempel ACTION.procedure (Prosedyre).\r\n\r\nBrukes ikke til å registrere informasjon om legemidlene som administreres under en bildediagnostisk undersøkelse. Bruk da de spesifikke legemiddelrelaterte arketypene, for eksempel ACTION.medication (Legemiddelhåndtering).\r\n\r\nSkal ikke brukes til å lagre fotografier eller video i den elektroniske journalen. Bruk arketypen CLUSTER.media_file (Mediafil) for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.",
+          "keywords" : [ "image, radiology, modality, xray, CT, ultrasound, MRI, diagnostic, scan, x-ray, imaging, biomagnetic, densitometry, tomography, radiography, magnetic, resonance, mammography, nuclear, medicine, positron, PET, angiography, fluoroscopy" ],
+          "use" : "Use to record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.\r\n\r\nThis archetype has been designed to focus on the reporting of findings and interpretation associated with a single imaging examination (equivalent to a single DICOM study). References to DICOM-related attributes are included but the focus is on the representation of a clinical report from an imaging examination and not on representing DICOM-related attributes that might be expected within a radiology information system. Specific details about the DICOM series can be recorded using the CLUSTER.imaging_series nested within the 'Series details' SLOT.\r\n\r\nDetailed findings observed during an imaging examination and targeting a specified structure or region can be recorded by nesting the CLUSTER.imaging_exam and/or its family of specialised archetypes within the 'Structured imaging findings' SLOT in this archetype. It is intended that over time the specific detail in each specialisation will grow to include findings using all imaging modalities.\r\n\r\nIf an imaging examination is carried out as part of a more complex activity, such as a surgical operation carried out under imaging guidance, the imaging findings should be recorded using this archetype. \r\nStructured details about the surgical procedure and medications or contrast administered should be recorded using the ACTION.procedure and/or ACTION.medication archetypes, respectively. In this situation, it is recommended that all related archetypes should be reported within the same template.\r\n\r\nThis result will normally be reported back to the requesting clinician as one component within the context of an overall COMPOSITION-based report.",
+          "misuse" : "Not to be used to record findings on physical examination. Use the CLUSTER.exam and/or its family of specialised archetypes for this purpose.\r\n\r\nNot to be used to replicate the functionality or specifications of a radiology information or source system.\r\n\r\nNot to be used to record structured details about any procedure undertaken. Use the specific procedure-related archetypes, such as ACTION.procedure archetype for this purpose.\r\n\r\nNot to be used to record structured details about medications administered during the imaging test. Use specific medication-related archetypes, such as the ACTION.medication archetype for this purpose.\r\n\r\nNot to be used to record photographs or videos  within the health record. Use the CLUSTER.media_file archetype for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
     "differential" : true,
@@ -7505,22 +7646,6 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
                       "occurrences" : "1..1",
-                      "nodeId" : "at0070.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_DATE_TIME",
-                          "attributes" : [ ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "1..1",
                       "nodeId" : "at0091.1",
                       "attributes" : [ ],
                       "attributeTuples" : [ ]
@@ -7534,29 +7659,19 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0070.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "1..1",
                       "nodeId" : "at0072.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "value",
                         "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "defining_code",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "rmTypeName" : "CODE_PHRASE",
-                              "occurrences" : "1..1",
-                              "terminologyId" : {
-                                "value" : "local"
-                              },
-                              "constraint" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_TEXT",
                           "attributes" : [ ],
@@ -7630,7 +7745,7 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "1..*",
+                      "occurrences" : "0..0",
                       "nodeId" : "at0020.1",
                       "attributes" : [ ],
                       "attributeTuples" : [ ]
@@ -8004,6 +8119,13 @@
             "text" : "Pemeriksaan",
             "description" : "The name of the imaging examination performed.",
             "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+          },
+          "at0072.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0072.1",
+            "text" : "Kesimpulan hasil pemeriksaan",
+            "description" : "The status of the imaging examination result as a whole.",
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
           }
         },
         "nb" : {
@@ -8033,7 +8155,13 @@
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
-      "valueSets" : { }
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        }
+      }
     },
     "adlVersion" : "1.4",
     "buildUid" : "7a6046b4-804f-4b4f-bda2-661f5814f290",
@@ -8106,7 +8234,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "60DD7069B50AAF5B394E3F246F80BCB5"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.",
+          "keywords" : [ "Bild, Radiologie, Modalität, Röntgen, CT, Ultraschall, MRI, Diagnostik, Scan, Röntgenbild, X-Ray, Bildgebung, biomagnetisch, Densitometrie, Tomographie, Radiographie, magnetisch, Resonanz, Mammographie, Nuklear, Medizin, Positron, PET, Angiographie, Fluoroskopie" ],
+          "use" : "Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.\r\n\r\nDieser Archetyp wurde entwickelt, mit dem Fokus auf die Befundung und Interpretation einer einzelnen bildgebenden Untersuchung (entspricht einer einzelnen DICOM-Studie). Verweise auf DICOM-bezogene Attribute sind enthalten, aber der Schwerpunkt liegt auf der Darstellung eines klinischen Berichts zu einer bildgebenden Untersuchung und nicht auf der Darstellung von DICOM-bezogenen Attributen, die in einem Radiologieinformationssystem (RIS) erwartet werden könnten. Spezifische Angaben über die DICOM-Serie können mithilfe von Archetyp CLUSTER.imaging_series dargestellt werden, der im SLOT „Seriendetails“ verschachtelt ist.\r\n\r\nDetaillierte Befunde, die während einer bildgebenden Untersuchung beobachtet wurden und auf eine bestimmte Körperstruktur oder -region abzielen, können dargestellt werden, indem der Archetyp CLUSTER.imaging_exam und/oder seine Gruppe spezialisierter Archetypen innerhalb des SLOTs „Strukturierte bildgebende Befunde“ in diesem Archetyp verschachtelt werden. Es ist beabsichtigt, dass im Laufe der Zeit die spezifischen Informationen in jeder Spezialisierung erweitert werden, um Befunde mit allen bildgebenden Modalitäten einzubeziehen.\r\n\r\nWird eine bildgebende Untersuchung im Rahmen einer komplexeren Aktivität durchgeführt, wie z. B. eines interventionellen chirurgischen Eingriffs, sollte der bildgebende Befund mit diesem Archetyp erfasst werden.\r\nStrukturierte Angaben über den chirurgischen Eingriff und verabreichte Medikamente oder Kontrastmittel sollten unter Verwendung der ACTION.procedure- bzw. ACTION.medication-Archetypen dargestellt werden. In dieser Situation wird empfohlen, alle verwandten Archetypen innerhalb derselben Templates zu repräsentieren.\r\n\r\nDieses Ergebnis wird dem anfordernden Kliniker normalerweise als eine Komponente im Kontext eines auf COMPOSITION-basierenden Gesamtberichts berichtet.",
+          "misuse" : "Nicht zur Darstellung von Ergebnissen von körperlichen Untersuchung verwenden. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.exam und/oder seine Gruppe spezialisierter Archetypen.\r\n\r\nDarf nicht verwendet werden, um die Funktionalität oder Spezifikationen eines radiologischen Informations- oder Quellsystems zu replizieren.\r\n\r\nDarf nicht verwendet werden, um strukturierte Angaben zu einem durchgeführten Verfahren darzustellen. Verwenden Sie für diesen Zweck die spezifischen prozedurbezogenen Archetypen, wie z. B. den Archetyp ACTION.procedure.\r\n\r\nNicht zur Darstellung von strukturierten Anaben über Medikamente, die während des radiologischen Untersuchung verabreicht werden. Verwenden Sie für diesen Zweck spezifische medikamentenbezogene Archetypen, wie z. B. den Archetyp ACTION.medication.\r\n\r\nDarf nicht verwendet werden, um Fotos oder Videos in der Gesundheitsakte darzustellen. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.media_file.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "*To record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques. (en)",
+          "keywords" : [ "*image, radiology, modality, xray, CT, ultrasound, MRI, diagnostic, scan, x-ray, imaging, biomagnetic, densitometry, tomography, radiography, magnetic, resonance, mammography, nuclear, medicine, positron, PET, angiography, fluoroscopy (en)" ],
+          "use" : "*Use to record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.\r\n\r\nThis archetype has been designed to focus on the reporting of findings and interpretation associated with a single imaging examination (equivalent to a single DICOM study). References to DICOM-related attributes are included but the focus is on the representation of a clinical report from an imaging examination and not on representing DICOM-related attributes that might be expected within a radiology information system. Specific details about the DICOM series can be recorded using the CLUSTER.imaging_series nested within the 'Series details' SLOT.\r\n\r\nDetailed findings observed during an imaging examination and targeting a specified structure or region can be recorded by nesting the CLUSTER.imaging_exam and/or its family of specialised archetypes within the 'Structured imaging findings' SLOT in this archetype. It is intended that over time the specific detail in each specialisation will grow to include findings using all imaging modalities.\r\n\r\nIf an imaging examination is carried out as part of a more complex activity, such as a surgical operation carried out under imaging guidance, the imaging findings should be recorded using this archetype. \r\nStructured details about the surgical procedure and medications or contrast administered should be recorded using the ACTION.procedure and/or ACTION.medication archetypes, respectively. In this situation, it is recommended that all related archetypes should be reported within the same template.\r\n\r\nThis result will normally be reported back to the requesting clinician as one component within the context of an overall COMPOSITION-based report. (en)",
+          "misuse" : "*Not to be used to record findings on physical examination. Use the CLUSTER.exam and/or its family of specialised archetypes for this purpose.\r\n\r\nNot to be used to replicate the functionality or specifications of a radiology information or source system.\r\n\r\nNot to be used to record structured details about any procedure undertaken. Use the specific procedure-related archetypes, such as ACTION.procedure archetype for this purpose.\r\n\r\nNot to be used to record structured details about medications administered during the imaging test. Use specific medication-related archetypes, such as the ACTION.medication archetype for this purpose.\r\n\r\nNot to be used to record photographs or videos  within the health record. Use the CLUSTER.media_file archetype for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.",
+          "keywords" : [ "bilde", "radiologi", "modalitet", "røntgen", "CT", "ultralyd", "MR", "diagnostisk", "biomagnetisk", "densitometri", "tomografi", "radiografi", "nukleær", "positron", "PET", "fluoroskopi", "bildeveiledet", "gjennomlysning", "nukleærmedisinsk", "angiografi" ],
+          "use" : "Brukes for å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.\r\n\r\nDenne arketypen har blitt laget med fokus på svarrapportering av funn og tolkning en enkelt bildediagnostisk undersøkelse (tilsvarende en enkelt \"DICOM Study\"). Referanser til DICOM-relaterte attributter er inkludert, men fokuset er på representasjonen av en klinisk rapport fra en bildeundersøkelse og ikke på å representere DICOM-relaterte attributter som kan forventes i et radiologiinformasjonssystem (RIS/PACS). Spesifikke detaljer om DICOM-serien kan registreres ved å nøste arketypen CLUSTER.imaging_study_details i SLOT'et \"Detaljer om undersøkelsesserier\".\r\n\r\nDetaljerte funn som er gjort ved en bildediagnostisk undersøkelse som er rettet mot en spesifikk struktur eller region i kroppen, kan registreres ved å nøste CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur) eller en av de spesialiserte CLUSTER.imaging_exam arketypene i SLOT'et \"Strukturerte funn\" i denne arketypen. Det er tenkt at det over tid vil det bli utviklet slike spesialiseringer som hver for seg omhandler funn fra alle modaliteter.\r\n\r\nHvis den bildediagnostiske undersøkelsen er en del av en mer kompleks prosedyre, som en kirurgisk operasjon som utføres under bildeveiledning, skal de radiologiske funn og observasjoner bli registrert i denne arketypen. Strukturerte detaljer om den kirurgiske prosedyren og administrasjon av medikasjon eller kontrast bør registreres i henholdsvis ACTION.procedure (Prosedyre) og/eller ACTION.medication (Legemiddelhåndtering). I dette tilfelle anbefales det at alle relaterte arketyper, som detaljer om prosedyren eller administrasjon av medikasjon/kontrast bør samles i det samme templatet.\r\n\r\nSvaret på bildediagnostikken vil normalt sett bli rapportert tilbake til den bestillende kliniker som en komponent innenfor rammen av en samlet COMPOSITION-basert rapport.",
+          "misuse" : "Skal ikke brukes til funn ved fysiske undersøkelser. Bruk CLUSTER.exam (Undersøkelsesfunn) eller dennes gruppe av spesialiserte arketyper for dette formålet.\r\n\r\nSkal ikke brukes til å replikere funksjonaliteten til et radiologi informasjonssystem (RIS/PACS) eller kildesystem.\r\n\r\nSkal ikke brukes til å registrere strukturerte detaljer om en klinisk prosedyre som er gjennomført. Bruk da de spesifikke arketypene for prosedyre-relatert innhold, for eksempel ACTION.procedure (Prosedyre).\r\n\r\nBrukes ikke til å registrere informasjon om legemidlene som administreres under en bildediagnostisk undersøkelse. Bruk da de spesifikke legemiddelrelaterte arketypene, for eksempel ACTION.medication (Legemiddelhåndtering).\r\n\r\nSkal ikke brukes til å lagre fotografier eller video i den elektroniske journalen. Bruk arketypen CLUSTER.media_file (Mediafil) for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.",
+          "keywords" : [ "image, radiology, modality, xray, CT, ultrasound, MRI, diagnostic, scan, x-ray, imaging, biomagnetic, densitometry, tomography, radiography, magnetic, resonance, mammography, nuclear, medicine, positron, PET, angiography, fluoroscopy" ],
+          "use" : "Use to record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.\r\n\r\nThis archetype has been designed to focus on the reporting of findings and interpretation associated with a single imaging examination (equivalent to a single DICOM study). References to DICOM-related attributes are included but the focus is on the representation of a clinical report from an imaging examination and not on representing DICOM-related attributes that might be expected within a radiology information system. Specific details about the DICOM series can be recorded using the CLUSTER.imaging_series nested within the 'Series details' SLOT.\r\n\r\nDetailed findings observed during an imaging examination and targeting a specified structure or region can be recorded by nesting the CLUSTER.imaging_exam and/or its family of specialised archetypes within the 'Structured imaging findings' SLOT in this archetype. It is intended that over time the specific detail in each specialisation will grow to include findings using all imaging modalities.\r\n\r\nIf an imaging examination is carried out as part of a more complex activity, such as a surgical operation carried out under imaging guidance, the imaging findings should be recorded using this archetype. \r\nStructured details about the surgical procedure and medications or contrast administered should be recorded using the ACTION.procedure and/or ACTION.medication archetypes, respectively. In this situation, it is recommended that all related archetypes should be reported within the same template.\r\n\r\nThis result will normally be reported back to the requesting clinician as one component within the context of an overall COMPOSITION-based report.",
+          "misuse" : "Not to be used to record findings on physical examination. Use the CLUSTER.exam and/or its family of specialised archetypes for this purpose.\r\n\r\nNot to be used to replicate the functionality or specifications of a radiology information or source system.\r\n\r\nNot to be used to record structured details about any procedure undertaken. Use the specific procedure-related archetypes, such as ACTION.procedure archetype for this purpose.\r\n\r\nNot to be used to record structured details about medications administered during the imaging test. Use specific medication-related archetypes, such as the ACTION.medication archetype for this purpose.\r\n\r\nNot to be used to record photographs or videos  within the health record. Use the CLUSTER.media_file archetype for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
     "differential" : true,
@@ -8173,22 +8363,6 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
                       "occurrences" : "1..1",
-                      "nodeId" : "at0070.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_DATE_TIME",
-                          "attributes" : [ ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "1..1",
                       "nodeId" : "at0091.1",
                       "attributes" : [ ],
                       "attributeTuples" : [ ]
@@ -8202,29 +8376,19 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0070.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "1..1",
                       "nodeId" : "at0072.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "value",
                         "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "defining_code",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "rmTypeName" : "CODE_PHRASE",
-                              "occurrences" : "1..1",
-                              "terminologyId" : {
-                                "value" : "local"
-                              },
-                              "constraint" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_TEXT",
                           "attributes" : [ ],
@@ -8298,7 +8462,7 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "1..*",
+                      "occurrences" : "0..0",
                       "nodeId" : "at0020.1",
                       "attributes" : [ ],
                       "attributeTuples" : [ ]
@@ -8672,6 +8836,13 @@
             "text" : "Pemeriksaan",
             "description" : "The name of the imaging examination performed.",
             "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+          },
+          "at0072.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0072.1",
+            "text" : "Kesimpulan hasil pemeriksaan",
+            "description" : "The status of the imaging examination result as a whole.",
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
           }
         },
         "nb" : {
@@ -8701,7 +8872,13 @@
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
-      "valueSets" : { }
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+        }
+      }
     },
     "adlVersion" : "1.4",
     "buildUid" : "7a6046b4-804f-4b4f-bda2-661f5814f290",
