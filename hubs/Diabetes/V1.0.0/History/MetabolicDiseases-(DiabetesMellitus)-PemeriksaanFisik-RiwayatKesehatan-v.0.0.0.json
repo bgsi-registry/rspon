@@ -1,19 +1,19 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanFisik-RiwayatKesehatan-v.0.0.0",
-  "semVer" : "0.0.5",
+  "semVer" : "1.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
   "tree" : {
-    "id" : "metabolicdiseases_diabetesmellitus_-pemeriksaanfisik-v.0.0.0",
-    "name" : "MetabolicDiseases(DiabetesMellitus)-PemeriksaanFisik-v.0.0.0",
-    "localizedName" : "MetabolicDiseases(DiabetesMellitus)-PemeriksaanFisik-v.0.0.0",
+    "id" : "metabolic_diseases_diabetes_mellitus_-_pemeriksaan_fisik_-_v.0.0.0",
+    "name" : "Metabolic Diseases (Diabetes Mellitus) - Pemeriksaan Fisik - v.0.0.0",
+    "localizedName" : "Metabolic Diseases (Diabetes Mellitus) - Pemeriksaan Fisik - v.0.0.0",
     "rmType" : "COMPOSITION",
     "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
     "min" : 1,
     "max" : 1,
     "localizedNames" : {
-      "en" : "MetabolicDiseases(DiabetesMellitus)-PemeriksaanFisik-v.0.0.0"
+      "en" : "Metabolic Diseases (Diabetes Mellitus) - Pemeriksaan Fisik - v.0.0.0"
     },
     "localizedDescriptions" : {
       "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
@@ -87,20 +87,70 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0120]",
             "children" : [ {
-              "id" : "persentase_lemak",
-              "name" : "Persentase Lemak %",
-              "localizedName" : "Persentase Lemak %",
-              "rmType" : "DV_PROPORTION",
-              "nodeId" : "at0124",
+              "id" : "massa_lemak",
+              "name" : "Massa Lemak",
+              "localizedName" : "Massa Lemak",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0005",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Persentase Lemak %"
+                "en" : "Massa Lemak"
+              },
+              "localizedDescriptions" : {
+                "en" : "Body fat measurement in mass."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0120]/items[at0005,'Massa Lemak']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 1,
+                    "maxOp" : "<=",
+                    "max" : 1
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "kg",
+                  "label" : "kg",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 1,
+                      "maxOp" : "<=",
+                      "max" : 1
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "persentase_lemak",
+              "name" : "Persentase Lemak",
+              "localizedName" : "Persentase Lemak",
+              "rmType" : "DV_PROPORTION",
+              "nodeId" : "at0124",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Persentase Lemak"
               },
               "localizedDescriptions" : {
                 "en" : "Body fat measurement in percentage."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0120]/items[at0124,'Persentase Lemak %']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0120]/items[at0124,'Persentase Lemak']/value",
               "proportionTypes" : [ "percent" ],
               "inputs" : [ {
                 "suffix" : "numerator",
@@ -125,56 +175,6 @@
                   }
                 }
               } ]
-            }, {
-              "id" : "massa_lemak_kg",
-              "name" : "Massa Lemak (kg)",
-              "localizedName" : "Massa Lemak (kg)",
-              "rmType" : "DV_QUANTITY",
-              "nodeId" : "at0005",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Massa Lemak (kg)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Body fat measurement in mass."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0120]/items[at0005,'Massa Lemak (kg)']/value",
-              "inputs" : [ {
-                "suffix" : "magnitude",
-                "type" : "DECIMAL",
-                "validation" : {
-                  "range" : {
-                    "minOp" : ">=",
-                    "min" : 0.0
-                  },
-                  "precision" : {
-                    "minOp" : ">=",
-                    "min" : 1,
-                    "maxOp" : "<=",
-                    "max" : 1
-                  }
-                }
-              }, {
-                "suffix" : "unit",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "kg",
-                  "label" : "kg",
-                  "validation" : {
-                    "range" : {
-                      "minOp" : ">=",
-                      "min" : 0.0
-                    },
-                    "precision" : {
-                      "minOp" : ">=",
-                      "min" : 1,
-                      "maxOp" : "<=",
-                      "max" : 1
-                    }
-                  }
-                } ]
-              } ]
             } ]
           }, {
             "id" : "tissue-system_level",
@@ -192,20 +192,20 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0068]",
             "children" : [ {
-              "id" : "massa_tulang_kg",
-              "name" : "Massa Tulang (kg)",
-              "localizedName" : "Massa Tulang (kg)",
+              "id" : "massa_tulang",
+              "name" : "Massa Tulang",
+              "localizedName" : "Massa Tulang",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0110",
-              "min" : 1,
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Massa Tulang (kg)"
+                "en" : "Massa Tulang"
               },
               "localizedDescriptions" : {
                 "en" : "Measurement of body bone."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0068]/items[at0110,'Massa Tulang (kg)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0068]/items[at0110,'Massa Tulang']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
                 "type" : "DECIMAL",
@@ -242,20 +242,20 @@
                 } ]
               } ]
             }, {
-              "id" : "massa_otot_kg",
-              "name" : "Massa Otot (kg)",
-              "localizedName" : "Massa Otot (kg)",
+              "id" : "massa_otot",
+              "name" : "Massa Otot",
+              "localizedName" : "Massa Otot",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0109",
-              "min" : 1,
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Massa Otot (kg)"
+                "en" : "Massa Otot"
               },
               "localizedDescriptions" : {
                 "en" : "Measurement of skeletal muscle."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0068]/items[at0109,'Massa Otot (kg)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0068]/items[at0109,'Massa Otot']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
                 "type" : "DECIMAL",
@@ -319,200 +319,6 @@
           "min" : 1,
           "max" : 1,
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0]/subject",
-          "inputs" : [ {
-            "suffix" : "id",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_scheme",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_namespace",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "name",
-            "type" : "TEXT"
-          } ],
-          "inContext" : true
-        } ]
-      }, {
-        "id" : "komposisi_tubuh",
-        "name" : "Komposisi Tubuh",
-        "localizedName" : "Komposisi Tubuh",
-        "rmType" : "OBSERVATION",
-        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
-        "min" : 0,
-        "max" : 1,
-        "localizedNames" : {
-          "en" : "Komposisi Tubuh"
-        },
-        "localizedDescriptions" : {
-          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
-        },
-        "annotations" : {
-          "comment" : "The answers may be self-reported."
-        },
-        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']",
-        "children" : [ {
-          "id" : "any_event",
-          "name" : "Any event",
-          "localizedName" : "Any event",
-          "rmType" : "EVENT",
-          "nodeId" : "at0002",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Any event"
-          },
-          "localizedDescriptions" : {
-            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-          },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]",
-          "children" : [ {
-            "id" : "basal_metabolic_rate",
-            "name" : "Basal Metabolic Rate",
-            "localizedName" : "Basal Metabolic Rate",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Basal Metabolic Rate"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Basal Metabolic Rate']",
-            "children" : [ {
-              "id" : "basal_metabolic_rate_kkal_per_day",
-              "name" : "Basal Metabolic Rate (kkal per day)",
-              "localizedName" : "Basal Metabolic Rate (kkal per day)",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Basal Metabolic Rate (kkal per day)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Basal Metabolic Rate']/items[at0004,'Basal Metabolic Rate (kkal per day)']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "metabolic_age",
-            "name" : "Metabolic Age",
-            "localizedName" : "Metabolic Age",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Metabolic Age"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Metabolic Age']",
-            "children" : [ {
-              "id" : "metabolic_age_day",
-              "name" : "Metabolic Age (day)",
-              "localizedName" : "Metabolic Age (day)",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Metabolic Age (day)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Metabolic Age']/items[at0004,'Metabolic Age (day)']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "water_ratio",
-            "name" : "Water Ratio",
-            "localizedName" : "Water Ratio",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Water Ratio"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Water Ratio']",
-            "children" : [ {
-              "id" : "water_ratio",
-              "name" : "Water Ratio %",
-              "localizedName" : "Water Ratio %",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Water Ratio %"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Water Ratio']/items[at0004,'Water Ratio %']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "time",
-            "name" : "Time",
-            "rmType" : "DV_DATE_TIME",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/data[at0001]/events[at0002]/time",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ],
-            "inContext" : true
-          } ]
-        }, {
-          "id" : "language",
-          "name" : "Language",
-          "rmType" : "CODE_PHRASE",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/language",
-          "inContext" : true
-        }, {
-          "id" : "encoding",
-          "name" : "Encoding",
-          "rmType" : "CODE_PHRASE",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/encoding",
-          "inContext" : true
-        }, {
-          "id" : "subject",
-          "name" : "Subject",
-          "rmType" : "PARTY_PROXY",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Komposisi Tubuh']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"
