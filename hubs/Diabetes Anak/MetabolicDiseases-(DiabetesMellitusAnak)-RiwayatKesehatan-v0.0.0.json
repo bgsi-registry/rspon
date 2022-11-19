@@ -1,6 +1,6 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-RiwayatKesehatan-v0.0.0",
-  "semVer" : "0.0.6",
+  "semVer" : "0.0.7",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -123,7 +123,7 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsPrem"
               } ]
             } ]
           }, {
@@ -673,7 +673,7 @@
                 "en" : ""
               }
             } ],
-            "terminology" : "local_terms"
+            "terminology" : "local_termsSex"
           } ]
         }, {
           "id" : "language",
@@ -951,28 +951,6 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Kontrol Glikemik']",
           "children" : [ {
-            "id" : "kapan_pemeriksaan_hba1c_terakhir",
-            "name" : "Kapan pemeriksaan Hba1c terakhir",
-            "localizedName" : "Kapan pemeriksaan Hba1c terakhir",
-            "rmType" : "DV_DATE_TIME",
-            "nodeId" : "at0006",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Kapan pemeriksaan Hba1c terakhir"
-            },
-            "localizedDescriptions" : {
-              "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
-            },
-            "annotations" : {
-              "hl7v2_mapping" : "OBX.19",
-              "fhir_mapping" : "Observation.issued"
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Kontrol Glikemik']/items[at0006,'Kapan pemeriksaan Hba1c terakhir']/value",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ]
-          }, {
             "id" : "hasil_hba1c",
             "name" : "Hasil HbA1c %",
             "localizedName" : "Hasil HbA1c %",
@@ -994,6 +972,28 @@
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Kontrol Glikemik']/items[at0001,'Hasil HbA1c %']/value",
             "inputs" : [ {
               "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "kapan_pemeriksaan_hba1c_terakhir",
+            "name" : "Kapan pemeriksaan Hba1c terakhir",
+            "localizedName" : "Kapan pemeriksaan Hba1c terakhir",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Kapan pemeriksaan Hba1c terakhir"
+            },
+            "localizedDescriptions" : {
+              "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+            },
+            "annotations" : {
+              "hl7v2_mapping" : "OBX.19",
+              "fhir_mapping" : "Observation.issued"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Kontrol Glikemik']/items[at0006,'Kapan pemeriksaan Hba1c terakhir']/value",
+            "inputs" : [ {
+              "type" : "DATETIME"
             } ]
           } ]
         }, {
@@ -1718,7 +1718,7 @@
                 "en" : ""
               }
             } ],
-            "terminology" : "local_terms"
+            "terminology" : "local_termsHT"
           } ]
         }, {
           "id" : "riwayat_pengobatan_hipertensi",
@@ -1878,7 +1878,7 @@
                 "en" : ""
               }
             } ],
-            "terminology" : "local_terms"
+            "terminology" : "local_termsST"
           } ]
         }, {
           "id" : "riwayat_pengobatan_statin",
@@ -2030,7 +2030,7 @@
             "id" : "pemeriksaan",
             "name" : "Pemeriksaan",
             "localizedName" : "Pemeriksaan",
-            "rmType" : "DV_TEXT",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0005",
             "min" : 1,
             "max" : 1,
@@ -2045,8 +2045,16 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Komorbiditas/ kompleksitas']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Pemeriksaan']/value",
             "inputs" : [ {
-              "type" : "TEXT",
-              "defaultValue" : "Komorbiditas/ kompleksitas"
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Komorbiditas/ kompleksitas",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsMorbid"
             } ]
           }, {
             "id" : "fungsi_thyroid",
