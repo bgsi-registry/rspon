@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.0.6",
+      "sem_ver" : "0.0.7",
       "build_uid" : "f54cb9f9-c9a1-423f-b06b-0c25d861480a",
-      "MD5-CAM-1.0.1" : "cad584b88660961e97cdcfcdbad5b361",
+      "MD5-CAM-1.0.1" : "67d658d16752df9814576c20f50119a6",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -2636,20 +2636,20 @@
                       "rmTypeName" : "TERMINOLOGY_CODE",
                       "occurrences" : "0..1",
                       "terminologyId" : {
-                        "value" : "local_terms"
+                        "value" : "local_termsHT"
                       },
                       "constraint" : [ ],
-                      "selectedTerminologies" : [ "local_terms" ],
+                      "selectedTerminologies" : [ "local_termsHT" ],
                       "includedExternalTerminologyCodes" : [ {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsHT",
                         "code" : "0",
                         "value" : "Ya"
                       }, {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsHT",
                         "code" : "1",
                         "value" : "Tidak"
                       }, {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsHT",
                         "code" : "2",
                         "value" : "Tidak Tahu"
                       } ]
@@ -3778,20 +3778,20 @@
                       "rmTypeName" : "TERMINOLOGY_CODE",
                       "occurrences" : "0..1",
                       "terminologyId" : {
-                        "value" : "local_terms"
+                        "value" : "local_termsST"
                       },
                       "constraint" : [ ],
-                      "selectedTerminologies" : [ "local_terms" ],
+                      "selectedTerminologies" : [ "local_termsST" ],
                       "includedExternalTerminologyCodes" : [ {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsST",
                         "code" : "0",
                         "value" : "Ya"
                       }, {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsST",
                         "code" : "1",
                         "value" : "Tidak"
                       }, {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsST",
                         "code" : "2",
                         "value" : "Tidak Tahu"
                       } ]
@@ -4838,16 +4838,16 @@
                                   "rmTypeName" : "TERMINOLOGY_CODE",
                                   "occurrences" : "0..1",
                                   "terminologyId" : {
-                                    "value" : "local_terms"
+                                    "value" : "local_termsPrem"
                                   },
                                   "constraint" : [ ],
-                                  "selectedTerminologies" : [ "local_terms" ],
+                                  "selectedTerminologies" : [ "local_termsPrem" ],
                                   "includedExternalTerminologyCodes" : [ {
-                                    "terminologyId" : "local_terms",
+                                    "terminologyId" : "local_termsPrem",
                                     "code" : "0",
                                     "value" : "Premature"
                                   }, {
-                                    "terminologyId" : "local_terms",
+                                    "terminologyId" : "local_termsPrem",
                                     "code" : "1",
                                     "value" : "Tidak Premature"
                                   } ]
@@ -7564,16 +7564,16 @@
                       "rmTypeName" : "TERMINOLOGY_CODE",
                       "occurrences" : "0..1",
                       "terminologyId" : {
-                        "value" : "local_terms"
+                        "value" : "local_termsSex"
                       },
                       "constraint" : [ ],
-                      "selectedTerminologies" : [ "local_terms" ],
+                      "selectedTerminologies" : [ "local_termsSex" ],
                       "includedExternalTerminologyCodes" : [ {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsSex",
                         "code" : "1",
                         "value" : "Laki-laki"
                       }, {
-                        "terminologyId" : "local_terms",
+                        "terminologyId" : "local_termsSex",
                         "code" : "2",
                         "value" : "Perempuan"
                       } ]
@@ -8649,12 +8649,6 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0006.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0001.2",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -8721,6 +8715,12 @@
               "attributeTuples" : [ ]
             } ]
           } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0006.1",
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -12339,12 +12339,27 @@
                         "rmAttributeName" : "value",
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_TEXT",
-                          "defaultValue" : {
-                            "value" : "Komorbiditas/ kompleksitas",
-                            "@type" : "DV_TEXT"
-                          },
-                          "attributes" : [ ],
+                          "rmTypeName" : "DV_CODED_TEXT",
+                          "occurrences" : "1..1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "TERMINOLOGY_CODE",
+                              "occurrences" : "0..1",
+                              "terminologyId" : {
+                                "value" : "local_termsMorbid"
+                              },
+                              "constraint" : [ ],
+                              "selectedTerminologies" : [ "local_termsMorbid" ],
+                              "includedExternalTerminologyCodes" : [ {
+                                "terminologyId" : "local_termsMorbid",
+                                "code" : "1",
+                                "value" : "Komorbiditas/ kompleksitas"
+                              } ]
+                            } ]
+                          } ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
