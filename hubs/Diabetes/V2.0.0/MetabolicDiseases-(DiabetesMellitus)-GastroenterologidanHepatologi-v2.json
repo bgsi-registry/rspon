@@ -1,0 +1,2004 @@
+{
+  "templateId" : "MetabolicDiseases-(DiabetesMellitus)-GastroenterologidanHepatologi-v2",
+  "semVer" : "2.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "metabolicdiseases-_diabetesmellitus_-gastroenterologidanhepatologi-v2",
+    "name" : "MetabolicDiseases-(DiabetesMellitus)-GastroenterologidanHepatologi-v2",
+    "localizedName" : "MetabolicDiseases-(DiabetesMellitus)-GastroenterologidanHepatologi-v2",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "MetabolicDiseases-(DiabetesMellitus)-GastroenterologidanHepatologi-v2"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context"
+    }, {
+      "id" : "usg_abdomen",
+      "name" : "USG Abdomen",
+      "localizedName" : "USG Abdomen",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "USG Abdomen"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']",
+      "children" : [ {
+        "id" : "pemeriksaan_usg_abdomen",
+        "name" : "Pemeriksaan USG Abdomen",
+        "localizedName" : "Pemeriksaan USG Abdomen",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan USG Abdomen"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result of an imaging examination performed on an individual, using radiological techniques."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis Pemeriksaan",
+            "localizedName" : "Jenis Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis Pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the imaging examination performed."
+            },
+            "annotations" : {
+              "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Jenis Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "Pemeriksaan USG Abdomen",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "defaultValue" : "1",
+              "terminology" : "local_termsPemeriksaan"
+            } ]
+          }, {
+            "id" : "hati_lobus_kiri",
+            "name" : "Hati Lobus Kiri",
+            "localizedName" : "Hati Lobus Kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hati Lobus Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']",
+            "children" : [ {
+              "id" : "organ",
+              "name" : "Organ",
+              "localizedName" : "Organ",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Organ"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0001,'Organ']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Hati",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "1",
+                "terminology" : "local_termsOrgan"
+              } ]
+            }, {
+              "id" : "ukuran_lobus_kiri",
+              "name" : "Ukuran Lobus Kiri",
+              "localizedName" : "Ukuran Lobus Kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ukuran Lobus Kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0064,'Ukuran Lobus Kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "permukaan_lobus_kiri",
+              "name" : "Permukaan lobus kiri",
+              "localizedName" : "Permukaan lobus kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Permukaan lobus kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0064,'Permukaan lobus kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "tepi_lobus_kiri",
+              "name" : "Tepi lobus kiri",
+              "localizedName" : "Tepi lobus kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Tepi lobus kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0064,'Tepi lobus kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "echostruktur_kiri",
+              "name" : "Echostruktur kiri",
+              "localizedName" : "Echostruktur kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Echostruktur kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0064,'Echostruktur kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "sol_kiri",
+              "name" : "SOL kiri",
+              "localizedName" : "SOL kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "SOL kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0064,'SOL kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "v._hepatika_kiri",
+              "name" : "V. Hepatika kiri",
+              "localizedName" : "V. Hepatika kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "V. Hepatika kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0064,'V. Hepatika kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "v._porta_kiri",
+              "name" : "V. porta kiri",
+              "localizedName" : "V. porta kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "V. porta kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kiri']/items[at0064,'V. porta kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            } ]
+          }, {
+            "id" : "hati_lobus_kanan",
+            "name" : "Hati Lobus Kanan",
+            "localizedName" : "Hati Lobus Kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hati Lobus Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']",
+            "children" : [ {
+              "id" : "organ",
+              "name" : "Organ",
+              "localizedName" : "Organ",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Organ"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0001,'Organ']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Hati",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "1",
+                "terminology" : "local_termsOrgan"
+              } ]
+            }, {
+              "id" : "ukuran_lobus_kanan",
+              "name" : "Ukuran Lobus Kanan",
+              "localizedName" : "Ukuran Lobus Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ukuran Lobus Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0064,'Ukuran Lobus Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "permukaan_lobus_kanan",
+              "name" : "Permukaan lobus Kanan",
+              "localizedName" : "Permukaan lobus Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Permukaan lobus Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0064,'Permukaan lobus Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "tepi_lobus_kanan",
+              "name" : "Tepi lobus Kanan",
+              "localizedName" : "Tepi lobus Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Tepi lobus Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0064,'Tepi lobus Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "echostruktur_kanan",
+              "name" : "Echostruktur Kanan",
+              "localizedName" : "Echostruktur Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Echostruktur Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0064,'Echostruktur Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "sol_kanan",
+              "name" : "SOL Kanan",
+              "localizedName" : "SOL Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "SOL Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0064,'SOL Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "v._hepatika_kanan",
+              "name" : "V. Hepatika Kanan",
+              "localizedName" : "V. Hepatika Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "V. Hepatika Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0064,'V. Hepatika Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "v._porta_kanan",
+              "name" : "V. porta Kanan",
+              "localizedName" : "V. porta Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "V. porta Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Hati Lobus Kanan']/items[at0064,'V. porta Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Mengecil",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            } ]
+          }, {
+            "id" : "limpa",
+            "name" : "Limpa",
+            "localizedName" : "Limpa",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Limpa"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Limpa']",
+            "children" : [ {
+              "id" : "organ",
+              "name" : "Organ",
+              "localizedName" : "Organ",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Organ"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Limpa']/items[at0001,'Organ']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "2",
+                  "label" : "Limpa",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "2",
+                "terminology" : "local_termsOrgan"
+              } ]
+            }, {
+              "id" : "bentuk",
+              "name" : "Bentuk",
+              "localizedName" : "Bentuk",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Bentuk"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Limpa']/items[at0064,'Bentuk']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "echostruktur",
+              "name" : "Echostruktur",
+              "localizedName" : "Echostruktur",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Echostruktur"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Limpa']/items[at0064,'Echostruktur']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "sol",
+              "name" : "SOL",
+              "localizedName" : "SOL",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "SOL"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Limpa']/items[at0064,'SOL']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "vena_lienalis",
+              "name" : "Vena Lienalis",
+              "localizedName" : "Vena Lienalis",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Vena Lienalis"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Limpa']/items[at0064,'Vena Lienalis']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            } ]
+          }, {
+            "id" : "empedu_dan_saluran_empedu",
+            "name" : "Empedu dan Saluran Empedu",
+            "localizedName" : "Empedu dan Saluran Empedu",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Empedu dan Saluran Empedu"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']",
+            "children" : [ {
+              "id" : "organ",
+              "name" : "Organ",
+              "localizedName" : "Organ",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Organ"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0001,'Organ']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "3",
+                  "label" : "Empedu",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "3",
+                "terminology" : "local_termsOrgan"
+              } ]
+            }, {
+              "id" : "ukuran",
+              "name" : "Ukuran",
+              "localizedName" : "Ukuran",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ukuran"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0064,'Ukuran']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "bentuk",
+              "name" : "Bentuk",
+              "localizedName" : "Bentuk",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Bentuk"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0064,'Bentuk']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "dinding",
+              "name" : "Dinding",
+              "localizedName" : "Dinding",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Dinding"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0064,'Dinding']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "batu",
+              "name" : "Batu",
+              "localizedName" : "Batu",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Batu"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0064,'Batu']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "sludge",
+              "name" : "Sludge",
+              "localizedName" : "Sludge",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Sludge"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0064,'Sludge']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "s._empedu_intra_hepatik",
+              "name" : "(S. empedu) Intra hepatik",
+              "localizedName" : "(S. empedu) Intra hepatik",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "(S. empedu) Intra hepatik"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0064,'(S. empedu) Intra hepatik']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "s._empedu_cbd",
+              "name" : "(S. empedu) CBD",
+              "localizedName" : "(S. empedu) CBD",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "(S. empedu) CBD"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Empedu dan Saluran Empedu']/items[at0064,'(S. empedu) CBD']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            } ]
+          }, {
+            "id" : "pankreas",
+            "name" : "Pankreas",
+            "localizedName" : "Pankreas",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pankreas"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']",
+            "children" : [ {
+              "id" : "organ",
+              "name" : "Organ",
+              "localizedName" : "Organ",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Organ"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0001,'Organ']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "4",
+                  "label" : "Pankreas",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "4",
+                "terminology" : "local_termsOrgan"
+              } ]
+            }, {
+              "id" : "bentuk",
+              "name" : "Bentuk",
+              "localizedName" : "Bentuk",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Bentuk"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Bentuk']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "echostruktur",
+              "name" : "Echostruktur",
+              "localizedName" : "Echostruktur",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Echostruktur"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Echostruktur']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "sol",
+              "name" : "SOL",
+              "localizedName" : "SOL",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "SOL"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'SOL']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "ukuran_kaput",
+              "name" : "Ukuran Kaput",
+              "localizedName" : "Ukuran Kaput",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ukuran Kaput"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Ukuran Kaput']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "ukuran_korpus",
+              "name" : "Ukuran Korpus",
+              "localizedName" : "Ukuran Korpus",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ukuran Korpus"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Ukuran Korpus']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "ukuran_kauda",
+              "name" : "Ukuran Kauda",
+              "localizedName" : "Ukuran Kauda",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ukuran Kauda"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Ukuran Kauda']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "ekogenisitas",
+              "name" : "Ekogenisitas",
+              "localizedName" : "Ekogenisitas",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ekogenisitas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Ekogenisitas']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Menurun",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "ada_space_occupying_lesion_sol",
+              "name" : "Ada Space Occupying Lesion (SOL)",
+              "localizedName" : "Ada Space Occupying Lesion (SOL)",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ada Space Occupying Lesion (SOL)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Ada Space Occupying Lesion (SOL)']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "duktus_pankreatikus_mayor",
+              "name" : "Duktus Pankreatikus Mayor",
+              "localizedName" : "Duktus Pankreatikus Mayor",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Duktus Pankreatikus Mayor"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Pankreas']/items[at0064,'Duktus Pankreatikus Mayor']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Membesar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            } ]
+          }, {
+            "id" : "ginjal",
+            "name" : "Ginjal",
+            "localizedName" : "Ginjal",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ginjal"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']",
+            "children" : [ {
+              "id" : "organ",
+              "name" : "Organ",
+              "localizedName" : "Organ",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Organ"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0001,'Organ']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "5",
+                  "label" : "Ginjal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "5",
+                "terminology" : "local_termsOrgan"
+              } ]
+            }, {
+              "id" : "ginjal_kanan",
+              "name" : "Ginjal Kanan",
+              "localizedName" : "Ginjal Kanan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ginjal Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0064,'Ginjal Kanan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "ginjal_kiri",
+              "name" : "Ginjal Kiri",
+              "localizedName" : "Ginjal Kiri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ginjal Kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0064,'Ginjal Kiri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "ukuran",
+              "name" : "Ukuran",
+              "localizedName" : "Ukuran",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ukuran"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0064,'Ukuran']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "diferensiasi_korteks-medula",
+              "name" : "Diferensiasi Korteks-Medula",
+              "localizedName" : "Diferensiasi Korteks-Medula",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Diferensiasi Korteks-Medula"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0064,'Diferensiasi Korteks-Medula']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "pelebaran_peviokalises",
+              "name" : "Pelebaran Peviokalises",
+              "localizedName" : "Pelebaran Peviokalises",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Pelebaran Peviokalises"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0064,'Pelebaran Peviokalises']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "ada_batu_ginjal",
+              "name" : "Ada batu ginjal",
+              "localizedName" : "Ada batu ginjal",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ada batu ginjal"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0064,'Ada batu ginjal']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "ada_space_occupying_lesion_sol",
+              "name" : "Ada Space Occupying Lesion (SOL)",
+              "localizedName" : "Ada Space Occupying Lesion (SOL)",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "Ada Space Occupying Lesion (SOL)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Ginjal']/items[at0064,'Ada Space Occupying Lesion (SOL)']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Normal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Abnormal",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            } ]
+          }, {
+            "id" : "fibroscan",
+            "name" : "Fibroscan",
+            "localizedName" : "Fibroscan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Fibroscan"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Fibroscan']",
+            "children" : [ {
+              "id" : "pemeriksaan",
+              "name" : "Pemeriksaan",
+              "localizedName" : "Pemeriksaan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Fibroscan']/items[at0001,'Pemeriksaan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Fibroscan",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "1",
+                "terminology" : "local_termsPemeriksaan"
+              } ]
+            }, {
+              "id" : "cap_db_m",
+              "name" : "CAP (dB/m)",
+              "localizedName" : "CAP (dB/m)",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "CAP (dB/m)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Fibroscan']/items[at0064,'CAP (dB/m)']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "e_kpa",
+              "name" : "E (KPa)",
+              "localizedName" : "E (KPa)",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "E (KPa)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Fibroscan']/items[at0064,'E (KPa)']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "iqr_med",
+              "name" : "IQR/med",
+              "localizedName" : "IQR/med",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0064",
+              "min" : 0,
+              "max" : 2,
+              "localizedNames" : {
+                "en" : "IQR/med"
+              },
+              "localizedDescriptions" : {
+                "en" : "Qualifying detail about the specific aspect of the identified body site."
+              },
+              "annotations" : {
+                "comment" : "Use to increase precision of identification of the body site, if required. Common aspects have been included as a value set, which can be extended over time, plus a free text option. Assumes that the body is being described while in the anatomical position. For example: proximal urethra; plantar aspect of the left thumb. Multiple aspects can also be described, if required, by allowing for 0..2 occurrences. For example: a lesion may be on the left anterior/lateral (ie anterolateral) chest wall. If the 'Body site name' data element uses pre-coordinated terms that include the aspect, then this data element is redundant."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_location.v1,'Fibroscan']/items[at0064,'IQR/med']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
