@@ -1,19 +1,19 @@
 {
-  "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v0.0.0",
-  "semVer" : "0.0.5",
+  "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v2",
+  "semVer" : "2.1.1",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
   "tree" : {
-    "id" : "metabolicdiseases-_diabetesmellitusanak_-gastroenterologidanhepatologi-v0.0.0",
-    "name" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v0.0.0",
-    "localizedName" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v0.0.0",
+    "id" : "metabolicdiseases-_diabetesmellitusanak_-gastroenterologidanhepatologi-v2",
+    "name" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v2",
+    "localizedName" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v2",
     "rmType" : "COMPOSITION",
     "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
     "min" : 1,
     "max" : 1,
     "localizedNames" : {
-      "en" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v0.0.0"
+      "en" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v2"
     },
     "localizedDescriptions" : {
       "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
@@ -94,42 +94,13 @@
               "type" : "CODED_TEXT",
               "list" : [ {
                 "value" : "1",
-                "label" : "Pemeriksaan Hati",
+                "label" : "Pemeriksaan USG Abdomen",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
-            } ]
-          }, {
-            "id" : "modalitas",
-            "name" : "Modalitas",
-            "localizedName" : "Modalitas",
-            "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0091",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Modalitas"
-            },
-            "localizedDescriptions" : {
-              "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
-            },
-            "annotations" : {
-              "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'USG Abdomen']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Pemeriksaan USG Abdomen']/data[at0001]/events[at0002]/data[at0003]/items[at0091,'Modalitas']/value",
-            "inputs" : [ {
-              "suffix" : "code",
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "1",
-                "label" : "Pemeriksaan Hati",
-                "localizedLabels" : {
-                  "en" : ""
-                }
-              } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "1",
+              "terminology" : "local_termsPemeriksaan"
             } ]
           }, {
             "id" : "hati_lobus_kiri",
@@ -174,7 +145,8 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "defaultValue" : "1",
+                "terminology" : "local_termsOrgan"
               } ]
             }, {
               "id" : "ukuran_lobus_kiri",
@@ -205,7 +177,7 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Mengecil",
                   "localizedLabels" : {
                     "en" : ""
                   }
@@ -216,7 +188,7 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsUkuranL"
               } ]
             }, {
               "id" : "permukaan_lobus_kiri",
@@ -241,18 +213,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Reguler",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Irreguler",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsPermukaanL"
               } ]
             }, {
               "id" : "tepi_lobus_kiri",
@@ -277,18 +249,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Tajam",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tumpul",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsTepiL"
               } ]
             }, {
               "id" : "echostruktur_kiri",
@@ -313,18 +285,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Homogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Inhomogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsEcho"
               } ]
             }, {
               "id" : "sol_kiri",
@@ -349,18 +321,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSOL"
               } ]
             }, {
               "id" : "v._hepatika_kiri",
@@ -385,18 +357,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Terputus-putus",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tidak Terputus-putus",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsVH"
               } ]
             }, {
               "id" : "v._porta_kiri",
@@ -421,18 +393,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Terputus-putus",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tidak Terputus-putus",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsVH"
               } ]
             } ]
           }, {
@@ -478,7 +450,8 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "defaultValue" : "1",
+                "terminology" : "local_termsOrgan"
               } ]
             }, {
               "id" : "ukuran_lobus_kanan",
@@ -509,7 +482,7 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Mengecil",
                   "localizedLabels" : {
                     "en" : ""
                   }
@@ -520,7 +493,7 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsUkuranL"
               } ]
             }, {
               "id" : "permukaan_lobus_kanan",
@@ -545,18 +518,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Reguler",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Irreguler",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsPermukaan"
               } ]
             }, {
               "id" : "tepi_lobus_kanan",
@@ -581,18 +554,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Tajam",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tumpul",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsTepi"
               } ]
             }, {
               "id" : "echostruktur_kanan",
@@ -617,18 +590,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Homogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Inhomogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsEcho"
               } ]
             }, {
               "id" : "sol_kanan",
@@ -653,18 +626,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSOL"
               } ]
             }, {
               "id" : "v._hepatika_kanan",
@@ -689,18 +662,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Terputus-putus",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tidak Terputus-putus",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsVH"
               } ]
             }, {
               "id" : "v._porta_kanan",
@@ -725,18 +698,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Hati",
+                  "label" : "Tidak Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsVP"
               } ]
             } ]
           }, {
@@ -776,13 +749,14 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Limpa",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "defaultValue" : "2",
+                "terminology" : "local_termsOrgan"
               } ]
             }, {
               "id" : "bentuk",
@@ -813,12 +787,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Limpa",
+                  "label" : "Membesar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsBentuk"
               } ]
             }, {
               "id" : "echostruktur",
@@ -843,18 +817,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Homogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Limpa",
+                  "label" : "Inhomogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsEcho"
               } ]
             }, {
               "id" : "sol",
@@ -879,18 +853,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Limpa",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSOL"
               } ]
             }, {
               "id" : "vena_lienalis",
@@ -921,12 +895,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Limpa",
+                  "label" : "Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsVL"
               } ]
             } ]
           }, {
@@ -966,13 +940,14 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "1",
+                  "value" : "3",
                   "label" : "Empedu",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "defaultValue" : "3",
+                "terminology" : "local_termsOrgan"
               } ]
             }, {
               "id" : "ukuran",
@@ -1003,12 +978,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Empedu",
+                  "label" : "Abnormal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsUkuranEmpedu"
               } ]
             }, {
               "id" : "bentuk",
@@ -1039,12 +1014,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Empedu",
+                  "label" : "Abnormal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsBentukE"
               } ]
             }, {
               "id" : "dinding",
@@ -1069,18 +1044,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Menebal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Empedu",
+                  "label" : "Tidak Menebal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsDindingE"
               } ]
             }, {
               "id" : "batu",
@@ -1105,18 +1080,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Empedu",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsBatuE"
               } ]
             }, {
               "id" : "sludge",
@@ -1141,18 +1116,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Empedu",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSludgeE"
               } ]
             }, {
               "id" : "s._empedu_intra_hepatik",
@@ -1177,18 +1152,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Empedu",
+                  "label" : "Tidak Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsIHE"
               } ]
             }, {
               "id" : "s._empedu_cbd",
@@ -1213,18 +1188,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Empedu",
+                  "label" : "Tidak Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsCBDE"
               } ]
             } ]
           }, {
@@ -1264,13 +1239,14 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "1",
+                  "value" : "4",
                   "label" : "Pankreas",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "defaultValue" : "4",
+                "terminology" : "local_termsOrgan"
               } ]
             }, {
               "id" : "bentuk",
@@ -1301,12 +1277,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Pankreas",
+                  "label" : "Membesar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsBentukP"
               } ]
             }, {
               "id" : "echostruktur",
@@ -1331,18 +1307,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Homogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Pankreas",
+                  "label" : "Inhomogen",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsEcho"
               } ]
             }, {
               "id" : "sol",
@@ -1367,18 +1343,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Pankreas",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSOL"
               } ]
             }, {
               "id" : "ukuran_kaput",
@@ -1472,7 +1448,7 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Pankreas",
+                  "label" : "Meningkat",
                   "localizedLabels" : {
                     "en" : ""
                   }
@@ -1508,18 +1484,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Pankreas",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSOL"
               } ]
             }, {
               "id" : "duktus_pankreatikus_mayor",
@@ -1550,12 +1526,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Pankreas",
+                  "label" : "Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsDuktusP"
               } ]
             } ]
           }, {
@@ -1595,13 +1571,14 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "1",
+                  "value" : "5",
                   "label" : "Ginjal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "defaultValue" : "5",
+                "terminology" : "local_termsOrgan"
               } ]
             }, {
               "id" : "ginjal_kanan",
@@ -1632,12 +1609,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Ginjal",
+                  "label" : "Abnormal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsGinjal"
               } ]
             }, {
               "id" : "ginjal_kiri",
@@ -1668,12 +1645,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Ginjal",
+                  "label" : "Abnormal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsGinjal"
               } ]
             }, {
               "id" : "ukuran",
@@ -1725,12 +1702,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Ginjal",
+                  "label" : "Abnormal",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsGinjal"
               } ]
             }, {
               "id" : "pelebaran_peviokalises",
@@ -1761,12 +1738,12 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Ginjal",
+                  "label" : "Melebar",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsLebarG"
               } ]
             }, {
               "id" : "ada_batu_ginjal",
@@ -1791,18 +1768,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Ginjal",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsBatuG"
               } ]
             }, {
               "id" : "ada_space_occupying_lesion_sol",
@@ -1827,18 +1804,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Normal",
+                  "label" : "Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Ginjal",
+                  "label" : "Tidak Ada",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSOL"
               } ]
             } ]
           }, {
@@ -1884,7 +1861,8 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "defaultValue" : "1",
+                "terminology" : "local_termsPemeriksaan"
               } ]
             }, {
               "id" : "cap_db_m",
