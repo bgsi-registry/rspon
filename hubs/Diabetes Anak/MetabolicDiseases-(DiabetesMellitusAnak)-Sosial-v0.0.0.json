@@ -1,0 +1,1700 @@
+{
+  "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-Sosial-v0.0.0",
+  "semVer" : "0.0.1",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "metabolicdiseases-_diabetesmellitusanak_-sosial-v0.0.0",
+    "name" : "MetabolicDiseases-(DiabetesMellitusAnak)-Sosial-v0.0.0",
+    "localizedName" : "MetabolicDiseases-(DiabetesMellitusAnak)-Sosial-v0.0.0",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "MetabolicDiseases-(DiabetesMellitusAnak)-Sosial-v0.0.0"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context"
+    }, {
+      "id" : "umur_responden",
+      "name" : "Umur Responden",
+      "localizedName" : "Umur Responden",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.age.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Umur Responden"
+      },
+      "localizedDescriptions" : {
+        "en" : "Details about the age of an individual at a specific point in time."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0,'Umur Responden']",
+      "children" : [ {
+        "id" : "umur_responden_lebih_dari_sama_dengan_4_tahun_dan_kurang_dari_sama_dengan_10_tahun",
+        "name" : "Umur Responden lebih dari sama dengan 4 Tahun dan kurang dari sama dengan 10 Tahun",
+        "localizedName" : "Umur Responden lebih dari sama dengan 4 Tahun dan kurang dari sama dengan 10 Tahun",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0007",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Umur Responden lebih dari sama dengan 4 Tahun dan kurang dari sama dengan 10 Tahun"
+        },
+        "localizedDescriptions" : {
+          "en" : "Duration of time since birth, expressed as a specified age range or grouping."
+        },
+        "annotations" : {
+          "comment" : "Categories for each specific use case will be defined within a template."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0,'Umur Responden']/data[at0001]/events[at0002]/data[at0003]/items[at0007,'Umur Responden lebih dari sama dengan 4 Tahun dan kurang dari sama dengan 10 Tahun']/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "0",
+            "label" : "Ya",
+            "localizedLabels" : {
+              "en" : ""
+            }
+          }, {
+            "value" : "1",
+            "label" : "Tidak",
+            "localizedLabels" : {
+              "en" : ""
+            }
+          } ],
+          "terminology" : "local_terms"
+        } ]
+      }, {
+        "id" : "time",
+        "name" : "Time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0,'Umur Responden']/data[at0001]/events[at0002]/time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0,'Umur Responden']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0,'Umur Responden']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0,'Umur Responden']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "kekuatan_dan_kesulitan_sdq",
+      "name" : "Kekuatan dan Kesulitan (SDQ)",
+      "localizedName" : "Kekuatan dan Kesulitan (SDQ)",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Kekuatan dan Kesulitan (SDQ)"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']",
+      "children" : [ {
+        "id" : "sdq",
+        "name" : "SDQ",
+        "localizedName" : "SDQ",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "SDQ"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "perasaan_orang_lain",
+            "name" : "Perasaan Orang Lain",
+            "localizedName" : "Perasaan Orang Lain",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Perasaan Orang Lain"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Perasaan Orang Lain']",
+            "children" : [ {
+              "id" : "dapat_memperdulikan_perasaan_orang_lain",
+              "name" : "Dapat memperdulikan perasaan orang lain",
+              "localizedName" : "Dapat memperdulikan perasaan orang lain",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Dapat memperdulikan perasaan orang lain"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Perasaan Orang Lain']/items[at0004,'Dapat memperdulikan perasaan orang lain']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "gelisah",
+            "name" : "Gelisah",
+            "localizedName" : "Gelisah",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Gelisah"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Gelisah']",
+            "children" : [ {
+              "id" : "gelisah_terlalu_aktif_tidak_dapat_diam_untuk_waktu_lama",
+              "name" : "Gelisah, terlalu aktif, tidak dapat diam untuk waktu lama",
+              "localizedName" : "Gelisah, terlalu aktif, tidak dapat diam untuk waktu lama",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Gelisah, terlalu aktif, tidak dapat diam untuk waktu lama"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Gelisah']/items[at0004,'Gelisah, terlalu aktif, tidak dapat diam untuk waktu lama']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "sakit_sakitan",
+            "name" : "Sakit sakitan",
+            "localizedName" : "Sakit sakitan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Sakit sakitan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Sakit sakitan']",
+            "children" : [ {
+              "id" : "sering_mengeluh_sakit_kepala_sakit_perut_atau_sakit-sakit_lainnya",
+              "name" : "Sering mengeluh sakit kepala, sakit perut atau sakit-sakit lainnya",
+              "localizedName" : "Sering mengeluh sakit kepala, sakit perut atau sakit-sakit lainnya",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sering mengeluh sakit kepala, sakit perut atau sakit-sakit lainnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Sakit sakitan']/items[at0004,'Sering mengeluh sakit kepala, sakit perut atau sakit-sakit lainnya']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "berbagi",
+            "name" : "Berbagi",
+            "localizedName" : "Berbagi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Berbagi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Berbagi']",
+            "children" : [ {
+              "id" : "kalau_mempunyai_mainan_kesenangan_atau_pensil_anak_bersedia_dengan_anak-anak_lain",
+              "name" : "Kalau mempunyai mainan, kesenangan, atau pensil, anak bersedia dengan anak-anak lain",
+              "localizedName" : "Kalau mempunyai mainan, kesenangan, atau pensil, anak bersedia dengan anak-anak lain",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kalau mempunyai mainan, kesenangan, atau pensil, anak bersedia dengan anak-anak lain"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Berbagi']/items[at0004,'Kalau mempunyai mainan, kesenangan, atau pensil, anak bersedia dengan anak-anak lain']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "pemarah",
+            "name" : "Pemarah",
+            "localizedName" : "Pemarah",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pemarah"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemarah']",
+            "children" : [ {
+              "id" : "sering_sulit_mengendalikan_kemarahan",
+              "name" : "Sering sulit mengendalikan kemarahan",
+              "localizedName" : "Sering sulit mengendalikan kemarahan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sering sulit mengendalikan kemarahan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pemarah']/items[at0004,'Sering sulit mengendalikan kemarahan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "menyendiri",
+            "name" : "Menyendiri",
+            "localizedName" : "Menyendiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Menyendiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Menyendiri']",
+            "children" : [ {
+              "id" : "cenderung_menyendiri_lebih_suka_bermain_seorang_diri",
+              "name" : "Cenderung menyendiri, lebih suka bermain seorang diri",
+              "localizedName" : "Cenderung menyendiri, lebih suka bermain seorang diri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Cenderung menyendiri, lebih suka bermain seorang diri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Menyendiri']/items[at0004,'Cenderung menyendiri, lebih suka bermain seorang diri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "penurut",
+            "name" : "Penurut",
+            "localizedName" : "Penurut",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Penurut"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Penurut']",
+            "children" : [ {
+              "id" : "umumnya_bertingkah_laku_baik_biasanya_melakukan_apa_yang_disuruh_oleh_orang_dewasa",
+              "name" : "Umumnya bertingkah laku baik, biasanya melakukan apa yang disuruh oleh orang dewasa",
+              "localizedName" : "Umumnya bertingkah laku baik, biasanya melakukan apa yang disuruh oleh orang dewasa",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Umumnya bertingkah laku baik, biasanya melakukan apa yang disuruh oleh orang dewasa"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Penurut']/items[at0004,'Umumnya bertingkah laku baik, biasanya melakukan apa yang disuruh oleh orang dewasa']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "overthinking",
+            "name" : "Overthinking",
+            "localizedName" : "Overthinking",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Overthinking"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Overthinking']",
+            "children" : [ {
+              "id" : "banyak_kekhawatiran_atau_sering_tampak_khawatir",
+              "name" : "Banyak kekhawatiran atau sering tampak khawatir",
+              "localizedName" : "Banyak kekhawatiran atau sering tampak khawatir",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Banyak kekhawatiran atau sering tampak khawatir"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Overthinking']/items[at0004,'Banyak kekhawatiran atau sering tampak khawatir']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "menolong",
+            "name" : "Menolong",
+            "localizedName" : "Menolong",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Menolong"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Menolong']",
+            "children" : [ {
+              "id" : "suka_menolong_jika_seseorang_terluka_kecewa_atau_merasa_sakit",
+              "name" : "Suka menolong jika seseorang terluka, kecewa, atau merasa sakit",
+              "localizedName" : "Suka menolong jika seseorang terluka, kecewa, atau merasa sakit",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Suka menolong jika seseorang terluka, kecewa, atau merasa sakit"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Menolong']/items[at0004,'Suka menolong jika seseorang terluka, kecewa, atau merasa sakit']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "resah",
+            "name" : "Resah",
+            "localizedName" : "Resah",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Resah"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Resah']",
+            "children" : [ {
+              "id" : "terus_menerus_bergerak_dengan_resah_atau_menggeliat-geliat",
+              "name" : "Terus menerus bergerak dengan resah atau menggeliat-geliat",
+              "localizedName" : "Terus menerus bergerak dengan resah atau menggeliat-geliat",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Terus menerus bergerak dengan resah atau menggeliat-geliat"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Resah']/items[at0004,'Terus menerus bergerak dengan resah atau menggeliat-geliat']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "teman_baik",
+            "name" : "Teman Baik",
+            "localizedName" : "Teman Baik",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Teman Baik"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Teman Baik']",
+            "children" : [ {
+              "id" : "mempunyai_satu_atau_lebih_teman_baik",
+              "name" : "Mempunyai satu atau lebih teman baik",
+              "localizedName" : "Mempunyai satu atau lebih teman baik",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Mempunyai satu atau lebih teman baik"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Teman Baik']/items[at0004,'Mempunyai satu atau lebih teman baik']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "berkelahi",
+            "name" : "Berkelahi",
+            "localizedName" : "Berkelahi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Berkelahi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Berkelahi']",
+            "children" : [ {
+              "id" : "sering_berkelahi_dengan_anak-anak_lain_atau_mengintimidasi_mereka",
+              "name" : "Sering berkelahi dengan anak-anak lain atau mengintimidasi mereka",
+              "localizedName" : "Sering berkelahi dengan anak-anak lain atau mengintimidasi mereka",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sering berkelahi dengan anak-anak lain atau mengintimidasi mereka"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Berkelahi']/items[at0004,'Sering berkelahi dengan anak-anak lain atau mengintimidasi mereka']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "menangis",
+            "name" : "Menangis",
+            "localizedName" : "Menangis",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Menangis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Menangis']",
+            "children" : [ {
+              "id" : "sering_merasa_tidak_bahagia_sedih_atau_menangis",
+              "name" : "Sering merasa tidak bahagia, sedih atau menangis",
+              "localizedName" : "Sering merasa tidak bahagia, sedih atau menangis",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sering merasa tidak bahagia, sedih atau menangis"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Menangis']/items[at0004,'Sering merasa tidak bahagia, sedih atau menangis']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "disukai",
+            "name" : "Disukai",
+            "localizedName" : "Disukai",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Disukai"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Disukai']",
+            "children" : [ {
+              "id" : "pada_umumnya_disukai_oleh_anak-anak_lain",
+              "name" : "Pada umumnya disukai oleh anak-anak lain",
+              "localizedName" : "Pada umumnya disukai oleh anak-anak lain",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pada umumnya disukai oleh anak-anak lain"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Disukai']/items[at0004,'Pada umumnya disukai oleh anak-anak lain']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "susah_berkonsentrasi",
+            "name" : "Susah Berkonsentrasi",
+            "localizedName" : "Susah Berkonsentrasi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Susah Berkonsentrasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Susah Berkonsentrasi']",
+            "children" : [ {
+              "id" : "mudah_teralih_perhatiannya_tidak_dapat_berkonsentrasi",
+              "name" : "Mudah teralih perhatiannya, tidak dapat berkonsentrasi",
+              "localizedName" : "Mudah teralih perhatiannya, tidak dapat berkonsentrasi",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Mudah teralih perhatiannya, tidak dapat berkonsentrasi"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Susah Berkonsentrasi']/items[at0004,'Mudah teralih perhatiannya, tidak dapat berkonsentrasi']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "gugup",
+            "name" : "Gugup",
+            "localizedName" : "Gugup",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Gugup"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Gugup']",
+            "children" : [ {
+              "id" : "gugup_atau_sulit_berpisah_dengan_orang_tua_pengasuhnya_pada_situasi_baru_mudah_kehilangan_percaya_diri",
+              "name" : "Gugup atau sulit berpisah dengan orang tua/ pengasuhnya pada situasi baru, mudah kehilangan percaya diri",
+              "localizedName" : "Gugup atau sulit berpisah dengan orang tua/ pengasuhnya pada situasi baru, mudah kehilangan percaya diri",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Gugup atau sulit berpisah dengan orang tua/ pengasuhnya pada situasi baru, mudah kehilangan percaya diri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Gugup']/items[at0004,'Gugup atau sulit berpisah dengan orang tua/ pengasuhnya pada situasi baru, mudah kehilangan percaya diri']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "sikap_baik",
+            "name" : "Sikap Baik",
+            "localizedName" : "Sikap Baik",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Sikap Baik"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Sikap Baik']",
+            "children" : [ {
+              "id" : "bersikap_baik_terhadap_anak-anak_yang_lebih_muda",
+              "name" : "Bersikap baik terhadap anak-anak yang lebih muda",
+              "localizedName" : "Bersikap baik terhadap anak-anak yang lebih muda",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Bersikap baik terhadap anak-anak yang lebih muda"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Sikap Baik']/items[at0004,'Bersikap baik terhadap anak-anak yang lebih muda']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "curang",
+            "name" : "Curang",
+            "localizedName" : "Curang",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Curang"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Curang']",
+            "children" : [ {
+              "id" : "sering_berbohong_atau_berbuat_curang",
+              "name" : "Sering berbohong atau berbuat curang",
+              "localizedName" : "Sering berbohong atau berbuat curang",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sering berbohong atau berbuat curang"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Curang']/items[at0004,'Sering berbohong atau berbuat curang']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "bullying",
+            "name" : "Bullying",
+            "localizedName" : "Bullying",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Bullying"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Bullying']",
+            "children" : [ {
+              "id" : "sering_diganggu_dipermainkan_diintimidasi_atau_diancam_oleh_anak-anak_lain",
+              "name" : "Sering Diganggu, dipermainkan, diintimidasi atau diancam oleh anak-anak lain",
+              "localizedName" : "Sering Diganggu, dipermainkan, diintimidasi atau diancam oleh anak-anak lain",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sering Diganggu, dipermainkan, diintimidasi atau diancam oleh anak-anak lain"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Bullying']/items[at0004,'Sering Diganggu, dipermainkan, diintimidasi atau diancam oleh anak-anak lain']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "membantu_yang_lain",
+            "name" : "Membantu yang Lain",
+            "localizedName" : "Membantu yang Lain",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Membantu yang Lain"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Membantu yang Lain']",
+            "children" : [ {
+              "id" : "sering_menawarkan_diri_untuk_membantu_orang_lain_orang_tua_guru_anak-anak_lain",
+              "name" : "Sering menawarkan diri untuk membantu orang lain (orang tua, guru, anak-anak lain)",
+              "localizedName" : "Sering menawarkan diri untuk membantu orang lain (orang tua, guru, anak-anak lain)",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sering menawarkan diri untuk membantu orang lain (orang tua, guru, anak-anak lain)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Membantu yang Lain']/items[at0004,'Sering menawarkan diri untuk membantu orang lain (orang tua, guru, anak-anak lain)']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "akibat_perbuatan",
+            "name" : "Akibat Perbuatan",
+            "localizedName" : "Akibat Perbuatan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Akibat Perbuatan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Akibat Perbuatan']",
+            "children" : [ {
+              "id" : "sebelum_melakukan_sesuatu_ia_berpikir_dahulu_tentang_akibatnya",
+              "name" : "Sebelum melakukan sesuatu ia berpikir dahulu tentang akibatnya",
+              "localizedName" : "Sebelum melakukan sesuatu ia berpikir dahulu tentang akibatnya",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sebelum melakukan sesuatu ia berpikir dahulu tentang akibatnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Akibat Perbuatan']/items[at0004,'Sebelum melakukan sesuatu ia berpikir dahulu tentang akibatnya']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "mencuri",
+            "name" : "Mencuri",
+            "localizedName" : "Mencuri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Mencuri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Mencuri']",
+            "children" : [ {
+              "id" : "mencuri_dari_rumah_sekolah_atau_tempat_lain",
+              "name" : "Mencuri dari rumah, sekolah atau tempat lain",
+              "localizedName" : "Mencuri dari rumah, sekolah atau tempat lain",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Mencuri dari rumah, sekolah atau tempat lain"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Mencuri']/items[at0004,'Mencuri dari rumah, sekolah atau tempat lain']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "mudah_berteman",
+            "name" : "Mudah Berteman",
+            "localizedName" : "Mudah Berteman",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Mudah Berteman"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Mudah Berteman']",
+            "children" : [ {
+              "id" : "lebih_mudah_berteman_dengan_orang_dewasa_daripada_dengan_anak-anak_lain",
+              "name" : "Lebih mudah berteman dengan orang dewasa daripada dengan anak-anak lain",
+              "localizedName" : "Lebih mudah berteman dengan orang dewasa daripada dengan anak-anak lain",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Lebih mudah berteman dengan orang dewasa daripada dengan anak-anak lain"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Mudah Berteman']/items[at0004,'Lebih mudah berteman dengan orang dewasa daripada dengan anak-anak lain']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "penakut",
+            "name" : "Penakut",
+            "localizedName" : "Penakut",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Penakut"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Penakut']",
+            "children" : [ {
+              "id" : "banyak_yang_ditakuti_mudah_menjadi_takut",
+              "name" : "Banyak yang ditakuti, mudah menjadi takut",
+              "localizedName" : "Banyak yang ditakuti, mudah menjadi takut",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Banyak yang ditakuti, mudah menjadi takut"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Penakut']/items[at0004,'Banyak yang ditakuti, mudah menjadi takut']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "mudah_konsentrasi",
+            "name" : "Mudah Konsentrasi",
+            "localizedName" : "Mudah Konsentrasi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Mudah Konsentrasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Mudah Konsentrasi']",
+            "children" : [ {
+              "id" : "memiliki_perhatian_yang_baik_terhadap_apapun_mampu_menyelesaikan_tugas_atau_pekerjaan_rumah_sampai_selesai",
+              "name" : "Memiliki perhatian yang baik terhadap apapun, mampu menyelesaikan tugas atau pekerjaan rumah sampai selesai",
+              "localizedName" : "Memiliki perhatian yang baik terhadap apapun, mampu menyelesaikan tugas atau pekerjaan rumah sampai selesai",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Memiliki perhatian yang baik terhadap apapun, mampu menyelesaikan tugas atau pekerjaan rumah sampai selesai"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Mudah Konsentrasi']/items[at0004,'Memiliki perhatian yang baik terhadap apapun, mampu menyelesaikan tugas atau pekerjaan rumah sampai selesai']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Agak Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Benar",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "local_termsSDQ"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan dan Kesulitan (SDQ)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'SDQ']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
