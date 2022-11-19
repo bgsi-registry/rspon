@@ -1,6 +1,6 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitus)-THT-v0.0.0",
-  "semVer" : "0.0.5",
+  "semVer" : "0.0.8",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -219,7 +219,7 @@
           "cardinalities" : [ {
             "min" : 2,
             "max" : -1,
-            "ids" : [ "body_segment_name", "ukuran_lingkar_leher" ]
+            "ids" : [ "bagian_tubuh", "ukuran_lingkar_leher" ]
           } ],
           "localizedNames" : {
             "en" : "Any event"
@@ -229,15 +229,15 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Arthropometri']/items[openEHR-EHR-OBSERVATION.body_segment_circumference.v1,'Lingkar Leher']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "body_segment_name",
-            "name" : "Body segment name",
-            "localizedName" : "Body segment name",
+            "id" : "bagian_tubuh",
+            "name" : "Bagian Tubuh",
+            "localizedName" : "Bagian Tubuh",
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0004",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Body segment name"
+              "en" : "Bagian Tubuh"
             },
             "localizedDescriptions" : {
               "en" : "Name of the measured body segment."
@@ -245,7 +245,7 @@
             "annotations" : {
               "comment" : "Use the 'Measurement method' element and/or recording the 'Measurement origin/endpoint' to record how the body segment is measured."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Arthropometri']/items[openEHR-EHR-OBSERVATION.body_segment_circumference.v1,'Lingkar Leher']/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Arthropometri']/items[openEHR-EHR-OBSERVATION.body_segment_circumference.v1,'Lingkar Leher']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Bagian Tubuh']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
@@ -843,439 +843,6 @@
         },
         "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']",
         "children" : [ {
-          "id" : "nose_nasal_obstructive_symptoms_evaluation",
-          "name" : "NOSE (Nasal Obstructive Symptoms Evaluation)",
-          "localizedName" : "NOSE (Nasal Obstructive Symptoms Evaluation)",
-          "rmType" : "OBSERVATION",
-          "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "NOSE (Nasal Obstructive Symptoms Evaluation)"
-          },
-          "localizedDescriptions" : {
-            "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
-          },
-          "annotations" : {
-            "comment" : "The answers may be self-reported."
-          },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']",
-          "children" : [ {
-            "id" : "any_event",
-            "name" : "Any event",
-            "localizedName" : "Any event",
-            "rmType" : "EVENT",
-            "nodeId" : "at0002",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Any event"
-            },
-            "localizedDescriptions" : {
-              "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]",
-            "children" : [ {
-              "id" : "kepala_cuaca_suhu",
-              "name" : "kepala/cuaca/suhu",
-              "localizedName" : "kepala/cuaca/suhu",
-              "rmType" : "CLUSTER",
-              "nodeId" : "at0022",
-              "min" : 0,
-              "max" : -1,
-              "localizedNames" : {
-                "en" : "kepala/cuaca/suhu"
-              },
-              "localizedDescriptions" : {
-                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'kepala/cuaca/suhu']",
-              "children" : [ {
-                "id" : "hidung_tersumbat_yang_hilang_timbul_sesuai_dengan_perubahan_posisi_kepala_cuaca_suhu",
-                "name" : "Hidung tersumbat yang hilang timbul sesuai dengan perubahan posisi kepala/cuaca/suhu",
-                "localizedName" : "Hidung tersumbat yang hilang timbul sesuai dengan perubahan posisi kepala/cuaca/suhu",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "at0004",
-                "min" : 1,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Hidung tersumbat yang hilang timbul sesuai dengan perubahan posisi kepala/cuaca/suhu"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-                },
-                "annotations" : {
-                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'kepala/cuaca/suhu']/items[at0004,'Hidung tersumbat yang hilang timbul sesuai dengan perubahan posisi kepala/cuaca/suhu']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "0",
-                    "label" : "Tidak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "1",
-                    "label" : "Sedikit bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "2",
-                    "label" : "Agak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "3",
-                    "label" : "Cukup bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "4",
-                    "label" : "Sangat bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  } ],
-                  "terminology" : "local_terms"
-                } ]
-              } ]
-            }, {
-              "id" : "hidung_dominan",
-              "name" : "hidung dominan",
-              "localizedName" : "hidung dominan",
-              "rmType" : "CLUSTER",
-              "nodeId" : "at0022",
-              "min" : 0,
-              "max" : -1,
-              "localizedNames" : {
-                "en" : "hidung dominan"
-              },
-              "localizedDescriptions" : {
-                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'hidung dominan']",
-              "children" : [ {
-                "id" : "hidung_tersumbat_yang_menetap_terutama_pada_salah_satu_sisi_hidung_yang_lebih_dominan",
-                "name" : "Hidung tersumbat yang menetap terutama pada salah satu sisi hidung yang lebih dominan",
-                "localizedName" : "Hidung tersumbat yang menetap terutama pada salah satu sisi hidung yang lebih dominan",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "at0004",
-                "min" : 1,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Hidung tersumbat yang menetap terutama pada salah satu sisi hidung yang lebih dominan"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-                },
-                "annotations" : {
-                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'hidung dominan']/items[at0004,'Hidung tersumbat yang menetap terutama pada salah satu sisi hidung yang lebih dominan']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "0",
-                    "label" : "Tidak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "1",
-                    "label" : "Sedikit bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "2",
-                    "label" : "Agak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "3",
-                    "label" : "Cukup bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "4",
-                    "label" : "Sangat bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  } ],
-                  "terminology" : "local_terms"
-                } ]
-              } ]
-            }, {
-              "id" : "kesulitan_napas",
-              "name" : "kesulitan napas",
-              "localizedName" : "kesulitan napas",
-              "rmType" : "CLUSTER",
-              "nodeId" : "at0022",
-              "min" : 0,
-              "max" : -1,
-              "localizedNames" : {
-                "en" : "kesulitan napas"
-              },
-              "localizedDescriptions" : {
-                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'kesulitan napas']",
-              "children" : [ {
-                "id" : "kesulitan_bernapas_lewat_hidung",
-                "name" : "Kesulitan bernapas lewat hidung",
-                "localizedName" : "Kesulitan bernapas lewat hidung",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "at0004",
-                "min" : 1,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Kesulitan bernapas lewat hidung"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-                },
-                "annotations" : {
-                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'kesulitan napas']/items[at0004,'Kesulitan bernapas lewat hidung']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "0",
-                    "label" : "Tidak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "1",
-                    "label" : "Sedikit bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "2",
-                    "label" : "Agak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "3",
-                    "label" : "Cukup bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "4",
-                    "label" : "Sangat bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  } ],
-                  "terminology" : "local_terms"
-                } ]
-              } ]
-            }, {
-              "id" : "kesulitan_tidur",
-              "name" : "kesulitan tidur",
-              "localizedName" : "kesulitan tidur",
-              "rmType" : "CLUSTER",
-              "nodeId" : "at0022",
-              "min" : 0,
-              "max" : -1,
-              "localizedNames" : {
-                "en" : "kesulitan tidur"
-              },
-              "localizedDescriptions" : {
-                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'kesulitan tidur']",
-              "children" : [ {
-                "id" : "kesulitan_tidur",
-                "name" : "Kesulitan tidur",
-                "localizedName" : "Kesulitan tidur",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "at0004",
-                "min" : 1,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Kesulitan tidur"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-                },
-                "annotations" : {
-                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'kesulitan tidur']/items[at0004,'Kesulitan tidur']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "0",
-                    "label" : "Tidak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "1",
-                    "label" : "Sedikit bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "2",
-                    "label" : "Agak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "3",
-                    "label" : "Cukup bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "4",
-                    "label" : "Sangat bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  } ],
-                  "terminology" : "local_terms"
-                } ]
-              } ]
-            }, {
-              "id" : "udara_ke_hidung",
-              "name" : "udara ke hidung",
-              "localizedName" : "udara ke hidung",
-              "rmType" : "CLUSTER",
-              "nodeId" : "at0022",
-              "min" : 0,
-              "max" : -1,
-              "localizedNames" : {
-                "en" : "udara ke hidung"
-              },
-              "localizedDescriptions" : {
-                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'udara ke hidung']",
-              "children" : [ {
-                "id" : "kesulitan_mendapat_cukup_udara_melalui_hidung_ketika_sedang_beolahraga_atau_melakukan_pekerjaan_berat",
-                "name" : "Kesulitan mendapat cukup udara melalui hidung ketika sedang beolahraga atau melakukan pekerjaan berat",
-                "localizedName" : "Kesulitan mendapat cukup udara melalui hidung ketika sedang beolahraga atau melakukan pekerjaan berat",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "at0004",
-                "min" : 1,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Kesulitan mendapat cukup udara melalui hidung ketika sedang beolahraga atau melakukan pekerjaan berat"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-                },
-                "annotations" : {
-                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'udara ke hidung']/items[at0004,'Kesulitan mendapat cukup udara melalui hidung ketika sedang beolahraga atau melakukan pekerjaan berat']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "0",
-                    "label" : "Tidak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "1",
-                    "label" : "Sedikit bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "2",
-                    "label" : "Agak bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "3",
-                    "label" : "Cukup bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "4",
-                    "label" : "Sangat bermasalah",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  } ],
-                  "terminology" : "local_terms"
-                } ]
-              } ]
-            }, {
-              "id" : "time",
-              "name" : "Time",
-              "rmType" : "DV_DATE_TIME",
-              "min" : 1,
-              "max" : 1,
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/data[at0001]/events[at0002]/time",
-              "inputs" : [ {
-                "type" : "DATETIME"
-              } ],
-              "inContext" : true
-            } ]
-          }, {
-            "id" : "language",
-            "name" : "Language",
-            "rmType" : "CODE_PHRASE",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/language",
-            "inContext" : true
-          }, {
-            "id" : "encoding",
-            "name" : "Encoding",
-            "rmType" : "CODE_PHRASE",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/encoding",
-            "inContext" : true
-          }, {
-            "id" : "subject",
-            "name" : "Subject",
-            "rmType" : "PARTY_PROXY",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'NOSE (Nasal Obstructive Symptoms Evaluation)']/subject",
-            "inputs" : [ {
-              "suffix" : "id",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "id_scheme",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "id_namespace",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "name",
-              "type" : "TEXT"
-            } ],
-            "inContext" : true
-          } ]
-        }, {
           "id" : "kuisioner_tnss",
           "name" : "Kuisioner TNSS",
           "localizedName" : "Kuisioner TNSS",
@@ -1616,7 +1183,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -1680,7 +1247,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -1744,7 +1311,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -1808,7 +1375,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -1872,7 +1439,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -1936,7 +1503,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -2000,7 +1567,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -2064,7 +1631,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsESS"
                 } ]
               } ]
             }, {
@@ -2215,7 +1782,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               } ]
             }, {
@@ -2267,7 +1834,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               }, {
                 "id" : "adakah_anda_kerap_kali_berasa_letih_lesu_atau_mengantuk_saat_siang_hari_seperti_tertidur_saat_menyetir",
@@ -2352,7 +1919,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               }, {
                 "id" : "adakah_orang_lain_yang_memerhatikan_anda_berhenti_bernafas_atau_tersedak_tersengal_saat_tidur",
@@ -2437,7 +2004,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               } ]
             }, {
@@ -2489,7 +2056,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               } ]
             }, {
@@ -2541,7 +2108,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               } ]
             }, {
@@ -2593,7 +2160,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               } ]
             }, {
@@ -2645,7 +2212,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               } ]
             }, {
@@ -2697,7 +2264,7 @@
                       "en" : ""
                     }
                   } ],
-                  "terminology" : "local_terms"
+                  "terminology" : "local_termsST"
                 } ]
               } ]
             }, {
@@ -4491,7 +4058,7 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsRH"
               } ]
             } ]
           }, {
@@ -4532,13 +4099,13 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Sempit",
+                  "label" : "Edema",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Lapang",
+                  "label" : "Hipertrofi",
                   "localizedLabels" : {
                     "en" : ""
                   }
@@ -4549,7 +4116,7 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsKI"
               } ]
             } ]
           }, {
@@ -4590,18 +4157,18 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "0",
-                  "label" : "Sempit",
+                  "label" : "Lurus",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Lapang",
+                  "label" : "Defiasi",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsSp"
               } ]
             } ]
           }, {
@@ -4748,7 +4315,7 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsTn"
               } ]
             } ]
           }, {
@@ -4789,30 +4356,30 @@
                 "type" : "CODED_TEXT",
                 "list" : [ {
                   "value" : "1",
-                  "label" : "T1",
+                  "label" : "Tingkat 1: pemeriksaan memungkinkan pandangan lengkap dari uvula, langit-langit lunak dan amandel.",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "2",
-                  "label" : "T2",
+                  "label" : "Tingkat 2: uvula terlihat, tetapi amandel tidak terlihat.",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "3",
-                  "label" : "T3",
+                  "label" : "Tingkat 3: langit-langit lunak bisa terlihat, tapi uvula tidak.",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 }, {
                   "value" : "4",
-                  "label" : "T4",
+                  "label" : "Tingkat 4: hanya palatum durum yang terlihat",
                   "localizedLabels" : {
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsKF"
               } ]
             } ]
           }, {
