@@ -1,0 +1,346 @@
+{
+  "templateId" : "Simplified-demography-v1",
+  "semVer" : "0.5.2",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "simplified-demography-v1",
+    "name" : "Simplified-demography-v1",
+    "localizedName" : "Simplified-demography-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "Simplified-demography-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context"
+    }, {
+      "id" : "data_demographic",
+      "name" : "Data Demographic",
+      "localizedName" : "Data Demographic",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Data Demographic"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']",
+      "children" : [ {
+        "id" : "demographics_container",
+        "name" : "Demographics container",
+        "localizedName" : "Demographics container",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.demographics.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Demographics container"
+        },
+        "localizedDescriptions" : {
+          "en" : "A container archetype used to hold demographic-related EHR CLUSTER archetypes."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]",
+        "children" : [ {
+          "id" : "person",
+          "name" : "Person",
+          "localizedName" : "Person",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Person"
+          },
+          "localizedDescriptions" : {
+            "en" : "An individual human being."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]",
+          "children" : [ {
+            "id" : "nama",
+            "name" : "Nama",
+            "localizedName" : "Nama",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama"
+            },
+            "localizedDescriptions" : {
+              "en" : "The unstructured name for the individual."
+            },
+            "annotations" : {
+              "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0001,'Nama']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "nik",
+            "name" : "NIK",
+            "localizedName" : "NIK",
+            "rmType" : "ELEMENT",
+            "nodeId" : "at0003",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "NIK"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identifier associated with the individual."
+            },
+            "annotations" : {
+              "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the DV_IDENTIFIER data type contains multiple subcomponents for recording the ID value, type, issuer and assigned. For example - social security number; driver's license; or passport number."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0003,'NIK']",
+            "children" : [ {
+              "id" : "identifier_value",
+              "localizedName" : "NIK",
+              "rmType" : "DV_IDENTIFIER",
+              "nodeId" : "",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "NIK"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identifier associated with the individual."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0003,'NIK']/value",
+              "inputs" : [ {
+                "suffix" : "id",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "type",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "issuer",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "assigner",
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "text_value",
+              "localizedName" : "NIK",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "NIK"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identifier associated with the individual."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0003,'NIK']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "birth_data",
+            "name" : "Birth data",
+            "localizedName" : "Birth data",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v0",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Birth data"
+            },
+            "localizedDescriptions" : {
+              "en" : "Birth demographic data"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v0]",
+            "children" : [ {
+              "id" : "tanggal_lahir",
+              "name" : "Tanggal Lahir",
+              "localizedName" : "Tanggal Lahir",
+              "rmType" : "DV_DATE",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal Lahir"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date of birth of a person"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v0]/items[at0001,'Tanggal Lahir']/value",
+              "inputs" : [ {
+                "type" : "DATE",
+                "validation" : {
+                  "pattern" : "yyyy-mm-dd"
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "jenis_kelamin",
+        "name" : "Jenis Kelamin",
+        "localizedName" : "Jenis Kelamin",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.gender.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Jenis Kelamin"
+        },
+        "localizedDescriptions" : {
+          "en" : "Details about the gender of an individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']",
+        "children" : [ {
+          "id" : "jenis_kelamin_sesuai_ktp",
+          "name" : "Jenis Kelamin sesuai KTP",
+          "localizedName" : "Jenis Kelamin sesuai KTP",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Jenis Kelamin sesuai KTP"
+          },
+          "localizedDescriptions" : {
+            "en" : "The gender of an individual used for administrative purposes."
+          },
+          "annotations" : {
+            "comment" : "This element is what most systems today describes as 'Sex' or 'Gender'. For example 'Male', 'Female', 'Other'. This aligns with HL7 FHIR 'Person.gender'. Coding with a terminology is recommended, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/data[at0002]/items[at0022,'Jenis Kelamin sesuai KTP']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "male",
+              "label" : "Laki-laki",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "female",
+              "label" : "Perempuan",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "http://hl7.org/fhir/R4B/valueset-administrative-gender.html"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demographic']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
