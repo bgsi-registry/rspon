@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "2.0.0",
       "build_uid" : "f54cb9f9-c9a1-423f-b06b-0c25d861480a",
-      "MD5-CAM-1.0.1" : "6a470d51d1a0aee61eca3f4b4a960228",
+      "MD5-CAM-1.0.1" : "6e3a4a114efa7812d03c8a963df53fdf",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -828,11 +828,16 @@
                             "children" : [ {
                               "@type" : "C_COMPLEX_OBJECT",
                               "rmTypeName" : "DV_QUANTITY",
+                              "defaultValue" : {
+                                "units" : "kg",
+                                "@type" : "DV_QUANTITY"
+                              },
                               "attributes" : [ {
                                 "@type" : "C_ATTRIBUTE",
                                 "rmAttributeName" : "property",
                                 "children" : [ {
                                   "@type" : "C_TERMINOLOGY_CODE",
+                                  "occurrences" : "0..1",
                                   "terminologyId" : {
                                     "value" : "openehr"
                                   },
@@ -843,11 +848,11 @@
                                 "@type" : "C_ATTRIBUTE_TUPLE",
                                 "members" : [ {
                                   "@type" : "C_ATTRIBUTE",
-                                  "rmAttributeName" : "magnitude",
+                                  "rmAttributeName" : "units",
                                   "children" : [ ]
                                 }, {
                                   "@type" : "C_ATTRIBUTE",
-                                  "rmAttributeName" : "units",
+                                  "rmAttributeName" : "magnitude",
                                   "children" : [ ]
                                 }, {
                                   "@type" : "C_ATTRIBUTE",
@@ -857,7 +862,12 @@
                                 "tuples" : [ {
                                   "@type" : "C_PRIMITIVE_TUPLE",
                                   "members" : [ {
+                                    "@type" : "C_STRING",
+                                    "rmTypeName" : "STRING",
+                                    "constraint" : [ "kg" ]
+                                  }, {
                                     "@type" : "C_REAL",
+                                    "rmTypeName" : "REAL",
                                     "constraint" : [ {
                                       "lower" : 0.0,
                                       "lowerIncluded" : true,
@@ -866,10 +876,8 @@
                                       "upperUnbounded" : true
                                     } ]
                                   }, {
-                                    "@type" : "C_STRING",
-                                    "constraint" : [ "kg" ]
-                                  }, {
                                     "@type" : "C_INTEGER",
+                                    "rmTypeName" : "INTEGER",
                                     "constraint" : [ {
                                       "lower" : 1,
                                       "upper" : 1,
@@ -1784,6 +1792,10 @@
                             "children" : [ {
                               "@type" : "C_COMPLEX_OBJECT",
                               "rmTypeName" : "DV_QUANTITY",
+                              "defaultValue" : {
+                                "units" : "kg",
+                                "@type" : "DV_QUANTITY"
+                              },
                               "attributes" : [ {
                                 "@type" : "C_ATTRIBUTE",
                                 "rmAttributeName" : "property",
@@ -1855,6 +1867,10 @@
                             "children" : [ {
                               "@type" : "C_COMPLEX_OBJECT",
                               "rmTypeName" : "DV_QUANTITY",
+                              "defaultValue" : {
+                                "units" : "kg",
+                                "@type" : "DV_QUANTITY"
+                              },
                               "attributes" : [ {
                                 "@type" : "C_ATTRIBUTE",
                                 "rmAttributeName" : "property",
@@ -2919,9 +2935,22 @@
             "code" : "at0005.1",
             "text" : "Massa Lemak (kg)",
             "description" : "Body fat measurement in mass."
+          },
+          "kg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "kg",
+            "description" : "kilogram",
+            "code" : "kg"
           }
         },
-        "pt" : { }
+        "pt" : {
+          "kg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*kg (en)",
+            "description" : "*kilogram (en)",
+            "code" : "kg"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -4847,13 +4876,54 @@
             "text" : "Dosis Obat",
             "description" : "The amount of medication or medication component.",
             "comment" : "For example: '1 ml', '1.5 mg', '1000 ml'."
+          },
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "mg",
+            "description" : "milligram",
+            "code" : "mg"
           }
         },
-        "nb" : { },
-        "pt" : { },
-        "de" : { },
-        "nl" : { },
-        "sv" : { }
+        "nb" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "pt" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "de" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "nl" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "sv" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -6038,13 +6108,54 @@
             "text" : "Dosis Obat",
             "description" : "The amount of medication or medication component.",
             "comment" : "For example: '1 ml', '1.5 mg', '1000 ml'."
+          },
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "mg",
+            "description" : "milligram",
+            "code" : "mg"
           }
         },
-        "nb" : { },
-        "pt" : { },
-        "de" : { },
-        "nl" : { },
-        "sv" : { }
+        "nb" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "pt" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "de" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "nl" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "sv" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -7229,13 +7340,54 @@
             "text" : "Dosis Obat",
             "description" : "The amount of medication or medication component.",
             "comment" : "For example: '1 ml', '1.5 mg', '1000 ml'."
+          },
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "mg",
+            "description" : "milligram",
+            "code" : "mg"
           }
         },
-        "nb" : { },
-        "pt" : { },
-        "de" : { },
-        "nl" : { },
-        "sv" : { }
+        "nb" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "pt" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "de" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "nl" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        },
+        "sv" : {
+          "mg" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*mg (en)",
+            "description" : "*milligram (en)",
+            "code" : "mg"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
