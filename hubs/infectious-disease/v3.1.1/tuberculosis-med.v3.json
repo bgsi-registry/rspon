@@ -998,6 +998,78 @@
               } ]
             } ]
           }, {
+            "id" : "skrining_ppk_pemberian_profilaksis_kotrimoksasol",
+            "name" : "Skrining PPK (Pemberian Profilaksis Kotrimoksasol)",
+            "localizedName" : "Skrining PPK (Pemberian Profilaksis Kotrimoksasol)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining PPK (Pemberian Profilaksis Kotrimoksasol)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining PPK (Pemberian Profilaksis Kotrimoksasol)']",
+            "children" : [ {
+              "id" : "nama_pengobatan",
+              "name" : "Nama pengobatan",
+              "localizedName" : "Nama pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining PPK (Pemberian Profilaksis Kotrimoksasol)']/items[at0021,'Nama pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "RxCUI::154914",
+                  "label" : "Anti Retroviral Therapy (ART)",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "defaultValue" : "RxCUI::154914",
+                "terminology" : "RxNorm"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_pengobatan_di_atas",
+              "name" : "Centang jika terdapat pengobatan di atas",
+              "localizedName" : "Centang jika terdapat pengobatan di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat pengobatan di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining PPK (Pemberian Profilaksis Kotrimoksasol)']/items[at0024,'Centang jika terdapat pengobatan di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
             "id" : "skrining_insulin",
             "name" : "Skrining insulin",
             "localizedName" : "Skrining insulin",
