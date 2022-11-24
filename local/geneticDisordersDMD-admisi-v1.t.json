@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.1.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "7a0740a6-90b7-4697-b38b-ed7318631df5",
-      "MD5-CAM-1.0.1" : "069c0ed25e7ed4e1ee4d1702302014e6",
+      "MD5-CAM-1.0.1" : "3f762a1da8154b7c9108bd02f6fc7669",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -221,6 +221,15 @@
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-SECTION.ovl-adhoc-001.v1",
         "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "SECTION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.4",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-SECTION.ovl-adhoc-002.v1",
+        "referenceType" : "archetypeOverlay"
       } ]
     } ],
     "attributeTuples" : [ ]
@@ -370,14 +379,41 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "SECTION",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "existence" : "0..1",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "EVALUATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.4",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-birth_summary-001.v0",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "en" : { },
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "person",
+            "description" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+          }
+        },
         "ru" : { },
         "es-ar" : { },
         "sl" : { },
@@ -526,6 +562,2517 @@
         "organisation" : "Better - Pathfinder",
         "email" : "vanessapereira@protonmail.com"
       },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "bdb9240c-a379-4d3d-9fb8-468339755173",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "688E76C27F217B385CE1DBA503EABDAE"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-EVALUATION.birth_summary.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-EVALUATION.ovl-birth_summary-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "EVALUATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0004.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE_TIME",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_DATE_TIME",
+                      "rmTypeName" : "DATE_TIME",
+                      "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                      "constraint" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0002.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0012.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0006.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0007.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0014.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      }, {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "protocol",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0009",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0010.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Tanggal Lahir Pasien",
+            "description" : "The date/time of birth of the individual.",
+            "comment" : "May also be used to record the assumed or agreed date/time of birth for operational purposes, if the actual date/time is not formally recorded. Possible alternatives for the date/time of birth of the individual can be recorded using the CLUSTER.DOB_alternative archetype 'Date of birth details' SLOT. Partial dates are allowed."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "3c8cfadc-6e47-4866-a278-95e45d0084cd",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "55011bf1-33fa-4c69-bf4e-d8b6d2ba5644",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "8FE80F3E80C594AAF99D3BA540A53D73"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-SECTION.adhoc.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-SECTION.ovl-adhoc-002.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "SECTION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "existence" : "0..1",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "OBSERVATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.8",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-symptom_sign_screening-001.v1",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Gejala",
+            "description" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+          }
+        },
+        "ru" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "заготовка заголовка (2)",
+            "description" : "Образец заголовка раздела"
+          }
+        },
+        "es-ar" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Encabezado ad hoc (2)",
+            "description" : "Un encabezado de sección de tipo genérico que será renombrado en una plantilla para su empleo en un contexto clínico específico."
+          }
+        },
+        "sl" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Naslov sekcije (2)",
+            "description" : "Naslov sekcije"
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Templat-overskrift (2)",
+            "description" : "En generisk seksjonsoverskrift som skal gis nytt navn i en templat for å passe i en gitt klinisk kontekst."
+          }
+        },
+        "pt-br" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Cabeçalho Ad hoc (2)",
+            "description" : "Um cabeçalho de sessão genérico que deve ser renomeado no template para adequar-se a um contexto clínico específico."
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Rubrik (2)",
+            "description" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext."
+          }
+        },
+        "de" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Ad hoc Überschrift (2)",
+            "description" : "Eine generische Abschnittsüberschrift eines Templates, welche entsprechend dem spezifischen klinischen Kontext umbenannt werden sollte."
+          }
+        },
+        "it" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Intestazione di sezione ad hoc (2)",
+            "description" : "Un'intestazione di sezione generica che dovrebbe essere rinominata in un template per adattarsi ad uno specifico contesto clinico."
+          }
+        },
+        "fr" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Rubrique ad hoc (2)",
+            "description" : "Un en-tête de section générique qui doit être renommé dans un modèle pour s'adapter à un contexte clinique spécifique."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "46fe0e95-f5cc-44c8-8616-3b9fd0ca6e61",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Ramona Wellmann",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "wellmann.ramona@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ru"
+      },
+      "author" : {
+        "name" : "Art Latyp Латыпов Артур Шамилевич",
+        "organisation" : "RusBITech РусБИТех, Москва"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Daniel Hall",
+        "organisation" : "Region Östergötland",
+        "email" : "daniel.hall@regionostergotland.se"
+      },
+      "accreditation" : "Åsa Skagerhult, Lisa Axelsson",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Alan March",
+        "organisation" : "Hospital Universitario Austral, Buenos Aires, Argentina"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "einar.fosse@unn.no" : "einar.fosse@unn.no",
+        "name" : "Einar Fosse",
+        "organisation" : "Norwegian Centre for Integrated Care and Telemedicine, Tromsø, Norway"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Vladimir Pizzo",
+        "organisation" : "Hospital Sírio Libanês, São Paulo, Brazil",
+        "email" : "vladimir.pizzo@hsl.org.br"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sl"
+      },
+      "author" : {
+        "name" : "?"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "it"
+      },
+      "author" : {
+        "name" : "Paolo Anedda",
+        "organisation" : "Inpeco",
+        "email" : "paolo.anedda@inpeco.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fr"
+      },
+      "author" : {
+        "name" : "Vanessa Pereira",
+        "organisation" : "Better - Pathfinder",
+        "email" : "vanessapereira@protonmail.com"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "d61bdad3-409b-4000-b673-c34ce83b7230",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "D0E02DE26104C7DB2CB94198C5B658FE"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-OBSERVATION.ovl-symptom_sign_screening-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "OBSERVATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "HISTORY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "events",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "EVENT",
+              "nodeId" : "at0002",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0029.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_DATE_TIME",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_DATE_TIME",
+                              "rmTypeName" : "DATE_TIME",
+                              "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                              "constraint" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0029.2",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_TEXT",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0029.3",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "lower",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DATE_TIME",
+                              "occurrences" : "0..1",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "value",
+                                "children" : [ {
+                                  "@type" : "C_DATE_TIME",
+                                  "rmTypeName" : "DATE_TIME",
+                                  "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                                  "constraint" : [ ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          }, {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "upper",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DATE_TIME",
+                              "occurrences" : "0..1",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "value",
+                                "children" : [ {
+                                  "@type" : "C_DATE_TIME",
+                                  "rmTypeName" : "DATE_TIME",
+                                  "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                                  "constraint" : [ ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0034.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0028.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_CODED_TEXT",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "CODE_PHRASE",
+                              "occurrences" : "1..1",
+                              "terminologyId" : {
+                                "value" : "local"
+                              },
+                              "constraint" : [ "at0031", "at0032", "at0033" ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_TEXT",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_BOOLEAN",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0036.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "CLUSTER",
+                      "nodeId" : "at0022.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "items",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0004.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "occurrences" : "1..1",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "0..1",
+                                  "terminologyId" : {
+                                    "value" : "local_termsgejala"
+                                  },
+                                  "constraint" : [ ],
+                                  "selectedTerminologies" : [ "local_termsgejala" ],
+                                  "includedExternalTerminologyCodes" : [ {
+                                    "terminologyId" : "local_termsgejala",
+                                    "code" : "1",
+                                    "value" : "Keterlambatan perkembangan"
+                                  } ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "1..1",
+                          "nodeId" : "at0005.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "1..1",
+                                  "terminologyId" : {
+                                    "value" : "SNOMED-CT"
+                                  },
+                                  "constraint" : [ ],
+                                  "selectedTerminologies" : [ "SNOMED-CT" ],
+                                  "includedExternalTerminologyCodes" : [ {
+                                    "terminologyId" : "SNOMED-CT",
+                                    "code" : "373066001",
+                                    "value" : "Ada"
+                                  }, {
+                                    "terminologyId" : "SNOMED-CT",
+                                    "code" : "373067005",
+                                    "value" : "Tidak"
+                                  } ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..0",
+                          "nodeId" : "at0037.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DURATION",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DATE_TIME",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_TEXT",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..0",
+                          "nodeId" : "at0035.1",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_ARCHETYPE_ROOT",
+                          "rmTypeName" : "CLUSTER",
+                          "occurrences" : "0..1",
+                          "nodeId" : "at0026.1",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ],
+                          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-symptom_sign-001.v1",
+                          "referenceType" : "archetypeOverlay"
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "CLUSTER",
+                      "nodeId" : "at0022.2",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "items",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0004.2",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "occurrences" : "1..1",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "0..1",
+                                  "terminologyId" : {
+                                    "value" : "local_termsgejala"
+                                  },
+                                  "constraint" : [ ],
+                                  "selectedTerminologies" : [ "local_termsgejala" ],
+                                  "includedExternalTerminologyCodes" : [ {
+                                    "terminologyId" : "local_termsgejala",
+                                    "code" : "2",
+                                    "value" : "Waddling gait"
+                                  } ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "1..1",
+                          "nodeId" : "at0005.2",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "1..1",
+                                  "terminologyId" : {
+                                    "value" : "SNOMED-CT"
+                                  },
+                                  "constraint" : [ ],
+                                  "selectedTerminologies" : [ "SNOMED-CT" ],
+                                  "includedExternalTerminologyCodes" : [ {
+                                    "terminologyId" : "SNOMED-CT",
+                                    "code" : "373066001",
+                                    "value" : "Ada"
+                                  }, {
+                                    "terminologyId" : "SNOMED-CT",
+                                    "code" : "373067005",
+                                    "value" : "Tidak"
+                                  } ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..0",
+                          "nodeId" : "at0037.2",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DURATION",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DATE_TIME",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_TEXT",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..0",
+                          "nodeId" : "at0035.2",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0029.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Onset Gejala",
+            "description" : "Timing of the inital recognition of any symptom or sign relevant for the screening purpose.",
+            "comment" : "The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Ada gejala Keterlambatan perkembangan",
+            "description" : "Is there a history of the specific symptom or sign having been present?",
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.2",
+            "text" : "Usia saat onset gejala (Tahun)",
+            "description" : "Timing of the inital recognition of any symptom or sign relevant for the screening purpose.",
+            "comment" : "The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+          },
+          "at0029.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.3",
+            "text" : "Durasi gejala (hingga admisi ke rumah sakit)",
+            "description" : "Timing of the inital recognition of any symptom or sign relevant for the screening purpose.",
+            "comment" : "The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "Keterlambatan perkembangan",
+            "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Gejala",
+            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
+            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
+          },
+          "at0022.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.2",
+            "text" : "Waddling gait",
+            "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
+          },
+          "at0004.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Gejala",
+            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
+            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
+          },
+          "at0005.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.2",
+            "text" : "Ada gejala Waddling gait",
+            "description" : "Is there a history of the specific symptom or sign having been present?",
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          }
+        },
+        "fi" : {
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Toteamisen ajankohta (2)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0029.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Toteamisen ajankohta (3)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0022.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "Oire / tuntemus ryhmitys (2)",
+            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
+          }
+        },
+        "nb" : {
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Debut (2)",
+            "description" : "Tidsrommet da en først oppdaget noen av symptomene eller sykdomstegene som er innenfor kartleggingsformålet.",
+            "comment" : "Dataelementet \"Debut\" er løst modellert for å støtte ulike måter spørsmål om tidsrom for debut av et symptom eller sykdomstegn stilles i et spørreskjema. Den spesifikke og tiltenkte semantikken defineres i et templat. \r\nFor eksempel: Dato/klokkeslett brukes for dato for når symptomene først ble oppdaget. Intervall av dato/ klokkeslett brukes for å sette en tidsperiode, for eksempel mellom 1940 og 1942. Tekst brukes for spørsmålstillinger som \"Rett etter en operasjon\", \"For en uke siden\", \"Opp til to uker siden\", \"Tre uker siden\". Varighet brukes for å registrere individets alder ved debut. Intervall av varighet for å registrere tilnærmet alder ved debut."
+          },
+          "at0029.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Debut (3)",
+            "description" : "Tidsrommet da en først oppdaget noen av symptomene eller sykdomstegene som er innenfor kartleggingsformålet.",
+            "comment" : "Dataelementet \"Debut\" er løst modellert for å støtte ulike måter spørsmål om tidsrom for debut av et symptom eller sykdomstegn stilles i et spørreskjema. Den spesifikke og tiltenkte semantikken defineres i et templat. \r\nFor eksempel: Dato/klokkeslett brukes for dato for når symptomene først ble oppdaget. Intervall av dato/ klokkeslett brukes for å sette en tidsperiode, for eksempel mellom 1940 og 1942. Tekst brukes for spørsmålstillinger som \"Rett etter en operasjon\", \"For en uke siden\", \"Opp til to uker siden\", \"Tre uker siden\". Varighet brukes for å registrere individets alder ved debut. Intervall av varighet for å registrere tilnærmet alder ved debut."
+          },
+          "at0022.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "Spesifikt symptom/sykdomstegn (2)",
+            "description" : "Detaljer om et spesifikt symptom eller sykdomstegn, eller gruppe av symptomer eller sykdomstegn som er innenfor kartleggingsformålet."
+          }
+        },
+        "de" : {
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Auftreten von Symptomen oder Anzeichen (2)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0029.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Auftreten von Symptomen oder Anzeichen (3)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0022.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "Spezifisches Symptom/Anzeichen (2)",
+            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
+          }
+        },
+        "it" : {
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Inizio di qualsiasi sintomo o segno (2)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0029.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Inizio di qualsiasi sintomo o segno (3)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0022.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "Sintomo/segno specifico (2)",
+            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
+          }
+        },
+        "sv" : {
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "*Debut av symptom eller andra tecken (2)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0029.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "*Debut av symptom eller andra tecken (3)",
+            "description" : "*Timing of the initial recognition of any of the symptoms or signs. (en)",
+            "comment" : "*The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\nFor example:\r\n-Date: The date when the symptom started.\r\n-Interval of date/time: A period of time eg. between \r\n 1940 and 1942.\r\n-Text: 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'.\r\n-Duration:  The individuals age at the time of onset.\r\n-Interval of Duration: The approximate age of the individual at the time of onset. (en)"
+          },
+          "at0022.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "*Specifika symptom/tecken (2)",
+            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.2" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.2",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.3" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.3",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.4" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.4",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.6" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.6",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.7" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.7",
+          "members" : [ ]
+        },
+        "ac0.8" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.8",
+          "members" : [ ]
+        }
+      }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "b265bd06-044d-4245-9864-f97e297821c5",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Sarah Ballout, Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "ballout.sarah@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fi"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Emma Malm, Erik Sundvall",
+        "organisation" : "Karolinska University Hospital, Region Stockholm, Karolinska University Hospital, Region Stockholm + Linköping University",
+        "email" : "emma.malm@cambio.se, erik.sundvall@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Marit Alice Venheim, Silje Ljosland Bakke, John Tore Valand",
+        "organisation" : "Helse Vest IKT AS, Helse Bergen",
+        "email" : "marit.alice.venheim@helse-vest-ikt.no, silje.ljosland.bakke@helse-vest-ikt.no, john.tore.valand@helse-vest-ikt.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "it"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "43b9ce83-6d30-426f-9479-81ca3f230191",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "CA8101FC4DD8D2A4851F7194CACF2829"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.symptom_sign.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-symptom_sign-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_termsgejala"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_termsgejala" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_termsgejala",
+                    "code" : "1",
+                    "value" : "Keterlambatan perkembangan"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0151.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0175.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0176", "at0178", "at0177" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0186.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0187", "at0188" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0152.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0164.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "1..1",
+          "nodeId" : "at0028.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0021.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0023", "at0024", "at0025" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0026.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_QUANTITY",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "property",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "380" ]
+                } ]
+              } ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "precision",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "upper" : 10.0,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_STRING",
+                    "constraint" : [ "1" ]
+                  }, {
+                    "@type" : "C_INTEGER",
+                    "constraint" : [ {
+                      "lower" : 1,
+                      "upper" : 1,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                } ]
+              } ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0189.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0180.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0183", "at0182", "at0181", "at0184" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0003.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "nodeId" : "at0018",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0019.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0017.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "CODE_PHRASE",
+                      "occurrences" : "1..1",
+                      "terminologyId" : {
+                        "value" : "local"
+                      },
+                      "constraint" : [ "at0159", "at0156", "at0158" ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0056.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "nodeId" : "at0165",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0170.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0171.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0185.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "nodeId" : "at0190",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0193.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0195.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0196.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.2",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.3",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.4",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.5",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_termskonjalan"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_termskonjalan" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_termskonjalan",
+                    "code" : "1",
+                    "value" : "Berjalan tanpa support"
+                  }, {
+                    "terminologyId" : "local_termskonjalan",
+                    "code" : "2",
+                    "value" : "Berjalan dengan support"
+                  }, {
+                    "terminologyId" : "local_termskonjalan",
+                    "code" : "3",
+                    "value" : "Tidak dapat Berjalan"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.6",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_termskursiRoda"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_termskursiRoda" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_termskursiRoda",
+                    "code" : "0",
+                    "value" : "Selalu"
+                  }, {
+                    "terminologyId" : "local_termskursiRoda",
+                    "code" : "1",
+                    "value" : "Kadang-kadang"
+                  }, {
+                    "terminologyId" : "local_termskursiRoda",
+                    "code" : "2",
+                    "value" : "Tidak pernah"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.7",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "SNOMED-CT"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "SNOMED-CT" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "373066001",
+                    "value" : "Ya"
+                  }, {
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "373067005",
+                    "value" : "Tidak"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.8",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_termsbantuNafas"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_termsbantuNafas" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_termsbantuNafas",
+                    "code" : "0",
+                    "value" : "Invasif"
+                  }, {
+                    "terminologyId" : "local_termsbantuNafas",
+                    "code" : "1",
+                    "value" : "Non-invasif"
+                  }, {
+                    "terminologyId" : "local_termsbantuNafas",
+                    "code" : "2",
+                    "value" : "Tidak menggunakan"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0155.9",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_termsbantuNafas"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_termsbantuNafas" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_termsbantuNafas",
+                    "code" : "0",
+                    "value" : "Sepanjang hari"
+                  }, {
+                    "terminologyId" : "local_termsbantuNafas",
+                    "code" : "1",
+                    "value" : "Beberapa jam"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0037.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0161.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0057.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0031.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_COUNT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "magnitude",
+                "children" : [ {
+                  "@type" : "C_INTEGER",
+                  "rmTypeName" : "Integer",
+                  "occurrences" : "1..1",
+                  "constraint" : [ {
+                    "lower" : 0,
+                    "lowerIncluded" : true,
+                    "upperIncluded" : false,
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : true
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0163.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "ar-sy" : {
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (2)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (3)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (4)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (5)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (6)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (7)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (8)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (9)",
+            "description" : "*Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          }
+        },
+        "en" : {
+          "at0028.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0028.1",
+            "text" : "Usia muncul gejala keterlambatan perkembangan (Tahun)",
+            "description" : "The duration of this episode of the symptom or sign since onset.",
+            "comment" : "If 'Date/time of onset' and 'Date/time of resolution' are used in systems, this data element may be calculated, or alternatively, be considered redundant in this scenario. The text data type is used for recording preset duration intervals such as '0-7 days, 1-2 weeks, 2 weeks or more'."
+          },
+          "at0155.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Keadaan Motorik kasar",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.2",
+            "text" : "Keadaan Motorik halus",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.3",
+            "text" : "Keadaan Bahasa",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.4",
+            "text" : "Keadaan Sosial",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.5",
+            "text" : "Keadaan Kondisi berjalan",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.6",
+            "text" : "Jika usia > 3 tahun , Penggunaan kursi roda",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Gejala",
+            "description" : "The name of the reported symptom or sign.",
+            "comment" : "Symptom name should be coded with a terminology, where possible."
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.7",
+            "text" : "Dapat duduk tanpa bantuan",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.8",
+            "text" : "Penggunaan alat bantu nafas",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.9",
+            "text" : "Jika menggunakan alat bantu nafas, Lama pemakaian",
+            "description" : "Description of the impact of this symptom or sign.",
+            "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
+          }
+        },
+        "de" : {
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (2)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (3)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (4)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (5)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (6)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (7)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (8)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Auswirkungen (9)",
+            "description" : "Beschreibung der Auswirkung des Symptoms/Krankheitsanzeichens.",
+            "comment" : "Die Bewertung der Auswirkung könnte die Schwere, Dauer und Häufigkeit des Symptoms sowie die Art der Auswirkungen berücksichtigen, einschließlich (aber nicht beschränkt auf) funktionelle, soziale und emotionale Auswirkungen. Das Auftreten dieses Datenelements wird auf 0...* gesetzt, damit bei Bedarf mehrere Arten von Auswirkungen in einem Template getrennt voneinander erfasst werden können. Beispiele für funktionelle Auswirkungen von Hörverlust können sein: \"Schwierigkeiten beim Hören in ruhiger Umgebung\"; \"Schwierigkeiten beim Hören von TV oder Radio\"; \"Schwierigkeiten beim Hören von Gruppengesprächen\"; und \"Schwierigkeiten beim Hören am Telefon\"."
+          }
+        },
+        "nb" : {
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (2)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (3)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (4)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (5)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (6)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (7)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (8)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Innvirkning (9)",
+            "description" : "Beskrivelse av symptomet eller sykdomstegnets innvirkning.",
+            "comment" : "Bedømmelsen av innvirkning må ta høyde for alvorlighet, varighet og frekvens av symptomet, i tillegg til type innvirkning, for eksempel: funksjonell, sosial og emosjonell innvirkning. Dataelementet er satt til 0..* for å tillate at flere typer innvirkning kan trekkes ut i et templat om ønskelig. For hørselstap vil innvirkning kunne omfatte \"Vansker med å høre i et stille miljø\", \"Vansker med å høre TV eller radio\"; \"Vansker med å høre gruppesamtaler\" og \"Vansker med å høre i telefon\"."
+          }
+        },
+        "fi" : {
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (2)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (3)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (4)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (5)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (6)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (7)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (8)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Vaikutus (9)",
+            "description" : "Description of the impact of this symptom or sign.(en)",
+            "comment" : "*Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'.(en)"
+          }
+        },
+        "sv" : {
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (2)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (3)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (4)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (5)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (6)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (7)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (8)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Verkan (9)",
+            "description" : "Beskrivning av det här symptomet eller tecknets verkan.",
+            "comment" : "I bedömningen av verkan kan symtomets svårighetsgrad, varaktighet och frekvens samt typ av verkan inklusive, men inte begränsat till, funktionell, social och emotionell påverkan beaktas. Förekomster i det här datafältet är inställda på 0 .. * för att tillåta flera typer av verkan att separeras i en mall om så önskas. Exempel på funktionell påverkan av hörselnedsättning kan innefatta: \"Svårigheter att höra i lugn miljö\"; \"Svårighet att höra tv eller radio\",\"Svårighet att höra gruppkonversation\" och \"Svårighet att höra vid telefonsamtal\"."
+          }
+        },
+        "pt-br" : {
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (2)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (3)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (4)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (5)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (6)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (7)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (8)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "Impacto (9)",
+            "description" : "Descrição do impacto deste sintoma ou sinal.",
+            "comment" : "Avaliação do impacto pode considerar a gravidade, duração e frequência do sintoma ou sinal como também o tipo de impacto incluindo, mas limitado a, impacto funcional, social e emocional. Ocorrências deste elemento de dado são setadas para 0..* para permitir múltiplos tipos de impacto para serem separados no template se desejado. Exemplos de impacto funcional para perda auditiva podem incluir: 'Dificuldade de audição em ambiente quieto'; 'Dificuldade para ouvir rádio e TV'; 'Dificuldade de audição para conversa em grupo' e 'Dificuldade de audição ao telefone'."
+          }
+        },
+        "nl" : {
+          "at0155.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (2)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          },
+          "at0155.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (3)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          },
+          "at0155.4" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (4)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          },
+          "at0155.5" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (5)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          },
+          "at0155.6" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (6)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          },
+          "at0155.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (7)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          },
+          "at0155.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (8)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          },
+          "at0155.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0155.1",
+            "text" : "*Impact(en) (9)",
+            "description" : "*Description of the impact of this symptom or sign.(en)"
+          }
+        }
+      },
+      "termBindings" : {
+        "SNOMED-CT" : {
+          "at0152.1" : "term:SNOMED-CT::405795006",
+          "at0028.1" : "term:SNOMED-CT::162434008",
+          "at0021.1" : "term:SNOMED-CT::405162009"
+        }
+      },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "6bd012a0-c73a-4f4b-ac6f-3093da8fe2d8",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Jasmin Buck, Sebastian Garde, Kim Sommer",
+        "organisation" : "University of Heidelberg, Central Queensland University, Medizinische Hochschule Hannover"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fi"
+      },
+      "author" : {
+        "name" : "Kalle Vuorinen",
+        "organisation" : "Tieto Healthcare & Welfare Oy",
+        "email" : "kalle.vuorinen@tieto.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Kirsi Poikela",
+        "organisation" : "Tieto Sweden AB",
+        "email" : "ext.kirsi.poikela@tieto.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen, Silje Ljosland Bakke",
+        "organisation" : "Haukeland University Hospital of Bergen, Norway, Helse Vest IKT AS",
+        "email" : "lbla@helse-bergen.no, silje.ljosland.bakke@helse-vest-ikt.no"
+      },
+      "accreditation" : "MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Vladimir Pizzo",
+        "organisation" : "Hospital Sirio Libanes - Brazil",
+        "email" : "vladimir.pizzo@hsl.org.br"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Joost Holslag",
+        "organisation" : "Nedap",
+        "email" : "joost.holslag@nedap.com"
+      },
+      "accreditation" : "MD",
       "otherDetails" : { }
     } ]
   } ],
