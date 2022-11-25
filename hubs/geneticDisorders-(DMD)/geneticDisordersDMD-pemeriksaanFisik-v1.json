@@ -1,0 +1,3367 @@
+{
+  "templateId" : "geneticDisordersDMD-pemeriksaanFisik-v1",
+  "semVer" : "1.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisordersdmd-pemeriksaanfisik-v1",
+    "name" : "geneticDisordersDMD-pemeriksaanFisik-v1",
+    "localizedName" : "geneticDisordersDMD-pemeriksaanFisik-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersDMD-pemeriksaanFisik-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context"
+    }, {
+      "id" : "gizi",
+      "name" : "Gizi",
+      "localizedName" : "Gizi",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Gizi"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']",
+      "children" : [ {
+        "id" : "food_and_nutrition_summary",
+        "name" : "Food and nutrition summary",
+        "localizedName" : "Food and nutrition summary",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.food_nutrition_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Food and nutrition summary"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of the food and nutritional situation for an individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-EVALUATION.food_nutrition_summary.v0]",
+        "children" : [ {
+          "id" : "status_gizi",
+          "name" : "Status Gizi",
+          "localizedName" : "Status Gizi",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status Gizi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Description of the individual's nutritional status as assessed by a clinician, for example, malnourished or well nourished. Coding with a terminology is desirable, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-EVALUATION.food_nutrition_summary.v0]/data[at0001]/items[at0002,'Status Gizi']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-EVALUATION.food_nutrition_summary.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-EVALUATION.food_nutrition_summary.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-EVALUATION.food_nutrition_summary.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "gower_s_sign",
+        "name" : "Gower's Sign",
+        "localizedName" : "Gower's Sign",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Gower's Sign"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "gower_s_sign",
+            "name" : "Gower's Sign",
+            "localizedName" : "Gower's Sign",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Gower's Sign"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Gower's Sign']",
+            "children" : [ {
+              "id" : "gower_s_sign",
+              "name" : "Gower's Sign",
+              "localizedName" : "Gower's Sign",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Gower's Sign"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Gower's Sign']/items[at0004,'Gower's Sign']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "10828004",
+                  "label" : "Positive",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "260385009",
+                  "label" : "Negative",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gizi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gower's Sign']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "pemeriksaan_thorax",
+      "name" : "Pemeriksaan Thorax",
+      "localizedName" : "Pemeriksaan Thorax",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan Thorax"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']",
+      "children" : [ {
+        "id" : "paru",
+        "name" : "Paru",
+        "localizedName" : "Paru",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Paru"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']",
+        "children" : [ {
+          "id" : "paru_inspeksi",
+          "name" : "Paru Inspeksi",
+          "localizedName" : "Paru Inspeksi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Paru Inspeksi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Inspeksi']",
+          "children" : [ {
+            "id" : "paru_inspeksi",
+            "name" : "Paru Inspeksi",
+            "localizedName" : "Paru Inspeksi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Paru Inspeksi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Inspeksi']/data[at0003]/items[at0004,'Paru Inspeksi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Inspeksi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "paru_palpasi",
+          "name" : "Paru Palpasi",
+          "localizedName" : "Paru Palpasi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Paru Palpasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Palpasi']",
+          "children" : [ {
+            "id" : "paru_palpasi",
+            "name" : "Paru Palpasi",
+            "localizedName" : "Paru Palpasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Paru Palpasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Palpasi']/data[at0003]/items[at0004,'Paru Palpasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Palpasi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "paru_perkusi",
+          "name" : "Paru Perkusi",
+          "localizedName" : "Paru Perkusi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Paru Perkusi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Perkusi']",
+          "children" : [ {
+            "id" : "paru_perkusi",
+            "name" : "Paru Perkusi",
+            "localizedName" : "Paru Perkusi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Paru Perkusi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Perkusi']/data[at0003]/items[at0004,'Paru Perkusi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Perkusi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "paru_auskultasi",
+          "name" : "Paru Auskultasi",
+          "localizedName" : "Paru Auskultasi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Paru Auskultasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Auskultasi']",
+          "children" : [ {
+            "id" : "paru_auskultasi",
+            "name" : "Paru Auskultasi",
+            "localizedName" : "Paru Auskultasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Paru Auskultasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Auskultasi']/data[at0003]/items[at0004,'Paru Auskultasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/data[at0001]/events[at0002,'Paru Auskultasi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Paru']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "jantung",
+        "name" : "Jantung",
+        "localizedName" : "Jantung",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Jantung"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']",
+        "children" : [ {
+          "id" : "jantung_inspeksi",
+          "name" : "Jantung Inspeksi",
+          "localizedName" : "Jantung Inspeksi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Jantung Inspeksi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Inspeksi']",
+          "children" : [ {
+            "id" : "jantung_inspeksi",
+            "name" : "Jantung Inspeksi",
+            "localizedName" : "Jantung Inspeksi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jantung Inspeksi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Inspeksi']/data[at0003]/items[at0004,'Jantung Inspeksi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Inspeksi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "jantung_palpasi",
+          "name" : "Jantung Palpasi",
+          "localizedName" : "Jantung Palpasi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Jantung Palpasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Palpasi']",
+          "children" : [ {
+            "id" : "jantung_palpasi",
+            "name" : "Jantung Palpasi",
+            "localizedName" : "Jantung Palpasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jantung Palpasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Palpasi']/data[at0003]/items[at0004,'Jantung Palpasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Palpasi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "jantung_perkusi",
+          "name" : "Jantung Perkusi",
+          "localizedName" : "Jantung Perkusi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Jantung Perkusi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Perkusi']",
+          "children" : [ {
+            "id" : "jantung_perkusi",
+            "name" : "Jantung Perkusi",
+            "localizedName" : "Jantung Perkusi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jantung Perkusi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Perkusi']/data[at0003]/items[at0004,'Jantung Perkusi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Perkusi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "jantung_auskultasi",
+          "name" : "Jantung Auskultasi",
+          "localizedName" : "Jantung Auskultasi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Jantung Auskultasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Auskultasi']",
+          "children" : [ {
+            "id" : "jantung_auskultasi",
+            "name" : "Jantung Auskultasi",
+            "localizedName" : "Jantung Auskultasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jantung Auskultasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Auskultasi']/data[at0003]/items[at0004,'Jantung Auskultasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/data[at0001]/events[at0002,'Jantung Auskultasi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Jantung']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "abdomen",
+        "name" : "Abdomen",
+        "localizedName" : "Abdomen",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Abdomen"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']",
+        "children" : [ {
+          "id" : "abdomen_inspeksi",
+          "name" : "Abdomen Inspeksi",
+          "localizedName" : "Abdomen Inspeksi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Abdomen Inspeksi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Inspeksi']",
+          "children" : [ {
+            "id" : "abdomen_inspeksi",
+            "name" : "Abdomen Inspeksi",
+            "localizedName" : "Abdomen Inspeksi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Abdomen Inspeksi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Inspeksi']/data[at0003]/items[at0004,'Abdomen Inspeksi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Inspeksi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "abdomen_palpasi",
+          "name" : "Abdomen Palpasi",
+          "localizedName" : "Abdomen Palpasi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Abdomen Palpasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Palpasi']",
+          "children" : [ {
+            "id" : "abdomen_palpasi",
+            "name" : "Abdomen Palpasi",
+            "localizedName" : "Abdomen Palpasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Abdomen Palpasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Palpasi']/data[at0003]/items[at0004,'Abdomen Palpasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Palpasi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "abdoemen_perkusi",
+          "name" : "Abdoemen Perkusi",
+          "localizedName" : "Abdoemen Perkusi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Abdoemen Perkusi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdoemen Perkusi']",
+          "children" : [ {
+            "id" : "abdoemen_perkusi",
+            "name" : "Abdoemen Perkusi",
+            "localizedName" : "Abdoemen Perkusi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Abdoemen Perkusi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdoemen Perkusi']/data[at0003]/items[at0004,'Abdoemen Perkusi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdoemen Perkusi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "abdomen_auskultasi",
+          "name" : "Abdomen Auskultasi",
+          "localizedName" : "Abdomen Auskultasi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Abdomen Auskultasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Auskultasi']",
+          "children" : [ {
+            "id" : "abdomen_auskultasi",
+            "name" : "Abdomen Auskultasi",
+            "localizedName" : "Abdomen Auskultasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Abdomen Auskultasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Auskultasi']/data[at0003]/items[at0004,'Abdomen Auskultasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/data[at0001]/events[at0002,'Abdomen Auskultasi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Thorax']/items[openEHR-EHR-OBSERVATION.exam.v1,'Abdomen']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "kekuatan_otot",
+      "name" : "Kekuatan Otot",
+      "localizedName" : "Kekuatan Otot",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Kekuatan Otot"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']",
+      "children" : [ {
+        "id" : "ekstremitas_atas",
+        "name" : "Ekstremitas Atas",
+        "localizedName" : "Ekstremitas Atas",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Ekstremitas Atas"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']",
+        "children" : [ {
+          "id" : "bahu",
+          "name" : "Bahu",
+          "localizedName" : "Bahu",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Bahu"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Bahu']",
+          "children" : [ {
+            "id" : "bahu",
+            "name" : "Bahu",
+            "localizedName" : "Bahu",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Bahu"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Bahu']/data[at0003]/items[at0004,'Bahu']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms15"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Bahu']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "siku",
+          "name" : "Siku",
+          "localizedName" : "Siku",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Siku"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Siku']",
+          "children" : [ {
+            "id" : "siku",
+            "name" : "Siku",
+            "localizedName" : "Siku",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Siku"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Siku']/data[at0003]/items[at0004,'Siku']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms15"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Siku']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "pergelangan_tangan",
+          "name" : "Pergelangan tangan",
+          "localizedName" : "Pergelangan tangan",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Pergelangan tangan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Pergelangan tangan']",
+          "children" : [ {
+            "id" : "pergelangan_tangan",
+            "name" : "Pergelangan tangan",
+            "localizedName" : "Pergelangan tangan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pergelangan tangan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Pergelangan tangan']/data[at0003]/items[at0004,'Pergelangan tangan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms15"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Pergelangan tangan']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "jari",
+          "name" : "Jari",
+          "localizedName" : "Jari",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Jari"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Jari']",
+          "children" : [ {
+            "id" : "jari",
+            "name" : "Jari",
+            "localizedName" : "Jari",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jari"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Jari']/data[at0003]/items[at0004,'Jari']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_terms15"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/data[at0001]/events[at0002,'Jari']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Atas']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "ekstremitas_bawah",
+        "name" : "Ekstremitas Bawah",
+        "localizedName" : "Ekstremitas Bawah",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Ekstremitas Bawah"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']",
+        "children" : [ {
+          "id" : "pinggang",
+          "name" : "Pinggang",
+          "localizedName" : "Pinggang",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Pinggang"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Pinggang']",
+          "children" : [ {
+            "id" : "pinggang",
+            "name" : "Pinggang",
+            "localizedName" : "Pinggang",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pinggang"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Pinggang']/data[at0003]/items[at0004,'Pinggang']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "listOpen" : true,
+              "terminology" : "local_terms15"
+            }, {
+              "suffix" : "other",
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Pinggang']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "lutut",
+          "name" : "Lutut",
+          "localizedName" : "Lutut",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Lutut"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Lutut']",
+          "children" : [ {
+            "id" : "lutut",
+            "name" : "Lutut",
+            "localizedName" : "Lutut",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Lutut"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Lutut']/data[at0003]/items[at0004,'Lutut']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "listOpen" : true,
+              "terminology" : "local_terms15"
+            }, {
+              "suffix" : "other",
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Lutut']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "ankle",
+          "name" : "Ankle",
+          "localizedName" : "Ankle",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ankle"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Ankle']",
+          "children" : [ {
+            "id" : "pergelangan_tangan",
+            "name" : "Pergelangan tangan",
+            "localizedName" : "Pergelangan tangan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pergelangan tangan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Ankle']/data[at0003]/items[at0004,'Pergelangan tangan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "listOpen" : true,
+              "terminology" : "local_terms15"
+            }, {
+              "suffix" : "other",
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Ankle']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "kaki",
+          "name" : "Kaki",
+          "localizedName" : "Kaki",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Kaki"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Kaki']",
+          "children" : [ {
+            "id" : "jari",
+            "name" : "Jari",
+            "localizedName" : "Jari",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jari"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Kaki']/data[at0003]/items[at0004,'Jari']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "listOpen" : true,
+              "terminology" : "local_terms15"
+            }, {
+              "suffix" : "other",
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/data[at0001]/events[at0002,'Kaki']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas Bawah']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "skoliosis",
+        "name" : "Skoliosis",
+        "localizedName" : "Skoliosis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Skoliosis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "skoliosis",
+            "name" : "Skoliosis",
+            "localizedName" : "Skoliosis",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Skoliosis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Skoliosis']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "10828004",
+                "label" : "Positive",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "260385009",
+                "label" : "Negative",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pseudohipertrofi",
+        "name" : "Pseudohipertrofi",
+        "localizedName" : "Pseudohipertrofi",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pseudohipertrofi"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "pseudohipertrofi",
+            "name" : "Pseudohipertrofi",
+            "localizedName" : "Pseudohipertrofi",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pseudohipertrofi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Pseudohipertrofi']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "10828004",
+                "label" : "Positive",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "260385009",
+                "label" : "Negative",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "cobbs_angle",
+        "name" : "Cobbs Angle",
+        "localizedName" : "Cobbs Angle",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Cobbs Angle"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Cobbs Angle']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Cobbs Angle']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jika_ada_skoliosis_berapa_derajat_nilai_cobbs_angle",
+            "name" : "Jika ada Skoliosis, berapa derajat nilai Cobbs Angle",
+            "localizedName" : "Jika ada Skoliosis, berapa derajat nilai Cobbs Angle",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jika ada Skoliosis, berapa derajat nilai Cobbs Angle"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Cobbs Angle']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Jika ada Skoliosis, berapa derajat nilai Cobbs Angle']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Cobbs Angle']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Cobbs Angle']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Cobbs Angle']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Cobbs Angle']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "status_neurologis",
+      "name" : "Status Neurologis",
+      "localizedName" : "Status Neurologis",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Status Neurologis"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']",
+      "children" : [ {
+        "id" : "neurologis",
+        "name" : "Neurologis",
+        "localizedName" : "Neurologis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Neurologis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']",
+        "children" : [ {
+          "id" : "sensoris_neurologis",
+          "name" : "Sensoris Neurologis",
+          "localizedName" : "Sensoris Neurologis",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Sensoris Neurologis"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/data[at0001]/events[at0002,'Sensoris Neurologis']",
+          "children" : [ {
+            "id" : "sensoris_neurologis",
+            "name" : "Sensoris Neurologis",
+            "localizedName" : "Sensoris Neurologis",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Sensoris Neurologis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/data[at0001]/events[at0002,'Sensoris Neurologis']/data[at0003]/items[at0004,'Sensoris Neurologis']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/data[at0001]/events[at0002,'Sensoris Neurologis']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "motoris_neurologis",
+          "name" : "Motoris Neurologis",
+          "localizedName" : "Motoris Neurologis",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Motoris Neurologis"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/data[at0001]/events[at0002,'Motoris Neurologis']",
+          "children" : [ {
+            "id" : "motoris_neurologis",
+            "name" : "Motoris Neurologis",
+            "localizedName" : "Motoris Neurologis",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Motoris Neurologis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/data[at0001]/events[at0002,'Motoris Neurologis']/data[at0003]/items[at0004,'Motoris Neurologis']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/data[at0001]/events[at0002,'Motoris Neurologis']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Neurologis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "refleks_fisiologis_neurologis",
+        "name" : "Refleks Fisiologis Neurologis",
+        "localizedName" : "Refleks Fisiologis Neurologis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Refleks Fisiologis Neurologis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']",
+        "children" : [ {
+          "id" : "ekstremitas_atas_-_kanan",
+          "name" : "Ekstremitas Atas - Kanan",
+          "localizedName" : "Ekstremitas Atas - Kanan",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Atas - Kanan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kanan']",
+          "children" : [ {
+            "id" : "ekstremitas_atas_-_kanan",
+            "name" : "Ekstremitas Atas - Kanan",
+            "localizedName" : "Ekstremitas Atas - Kanan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Atas - Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kanan']/data[at0003]/items[at0004,'Ekstremitas Atas - Kanan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kanan']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "ekstremitas_atas_-_kiri",
+          "name" : "Ekstremitas Atas - Kiri",
+          "localizedName" : "Ekstremitas Atas - Kiri",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Atas - Kiri"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kiri']",
+          "children" : [ {
+            "id" : "ekstremitas_atas_-_kiri",
+            "name" : "Ekstremitas Atas - Kiri",
+            "localizedName" : "Ekstremitas Atas - Kiri",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Atas - Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kiri']/data[at0003]/items[at0004,'Ekstremitas Atas - Kiri']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kiri']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "ekstremitas_bawah_-_kanan",
+          "name" : "Ekstremitas Bawah - Kanan",
+          "localizedName" : "Ekstremitas Bawah - Kanan",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Bawah - Kanan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kanan']",
+          "children" : [ {
+            "id" : "ekstremitas_bawah_-_kanan",
+            "name" : "Ekstremitas Bawah - Kanan",
+            "localizedName" : "Ekstremitas Bawah - Kanan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Bawah - Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kanan']/data[at0003]/items[at0004,'Ekstremitas Bawah - Kanan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kanan']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "ekstremitas_bawah_-_kiri",
+          "name" : "Ekstremitas Bawah - Kiri",
+          "localizedName" : "Ekstremitas Bawah - Kiri",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Bawah - Kiri"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kiri']",
+          "children" : [ {
+            "id" : "ekstremitas_bawah_-_kiri",
+            "name" : "Ekstremitas Bawah - Kiri",
+            "localizedName" : "Ekstremitas Bawah - Kiri",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Bawah - Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kiri']/data[at0003]/items[at0004,'Ekstremitas Bawah - Kiri']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kiri']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Fisiologis Neurologis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "refleks_patologis_neurologis",
+        "name" : "Refleks Patologis Neurologis",
+        "localizedName" : "Refleks Patologis Neurologis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Refleks Patologis Neurologis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']",
+        "children" : [ {
+          "id" : "ekstremitas_atas_-_kanan",
+          "name" : "Ekstremitas Atas - Kanan",
+          "localizedName" : "Ekstremitas Atas - Kanan",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Atas - Kanan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kanan']",
+          "children" : [ {
+            "id" : "ekstremitas_atas_-_kanan",
+            "name" : "Ekstremitas Atas - Kanan",
+            "localizedName" : "Ekstremitas Atas - Kanan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Atas - Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kanan']/data[at0003]/items[at0004,'Ekstremitas Atas - Kanan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kanan']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "ekstremitas_atas_-_kiri",
+          "name" : "Ekstremitas Atas - Kiri",
+          "localizedName" : "Ekstremitas Atas - Kiri",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Atas - Kiri"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kiri']",
+          "children" : [ {
+            "id" : "ekstremitas_atas_-_kiri",
+            "name" : "Ekstremitas Atas - Kiri",
+            "localizedName" : "Ekstremitas Atas - Kiri",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Atas - Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kiri']/data[at0003]/items[at0004,'Ekstremitas Atas - Kiri']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Atas - Kiri']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "ekstremitas_bawah_-_kanan",
+          "name" : "Ekstremitas Bawah - Kanan",
+          "localizedName" : "Ekstremitas Bawah - Kanan",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Bawah - Kanan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kanan']",
+          "children" : [ {
+            "id" : "ekstremitas_bawah_-_kanan",
+            "name" : "Ekstremitas Bawah - Kanan",
+            "localizedName" : "Ekstremitas Bawah - Kanan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Bawah - Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kanan']/data[at0003]/items[at0004,'Ekstremitas Bawah - Kanan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kanan']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "ekstremitas_bawah_-_kiri",
+          "name" : "Ekstremitas Bawah - Kiri",
+          "localizedName" : "Ekstremitas Bawah - Kiri",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Ekstremitas Bawah - Kiri"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kiri']",
+          "children" : [ {
+            "id" : "ekstremitas_bawah_-_kiri",
+            "name" : "Ekstremitas Bawah - Kiri",
+            "localizedName" : "Ekstremitas Bawah - Kiri",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Ekstremitas Bawah - Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kiri']/data[at0003]/items[at0004,'Ekstremitas Bawah - Kiri']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "- (Tidak ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "+ (Ada refleks)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "++ (Normal)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "+++ (Hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "++++ (Sangat hiperaktif)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsreflek"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/data[at0001]/events[at0002,'Ekstremitas Bawah - Kiri']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Refleks Patologis Neurologis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "meningeal_sign",
+        "name" : "Meningeal Sign",
+        "localizedName" : "Meningeal Sign",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Meningeal Sign"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']",
+        "children" : [ {
+          "id" : "kaku_kuduk",
+          "name" : "Kaku Kuduk",
+          "localizedName" : "Kaku Kuduk",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Kaku Kuduk"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Kaku Kuduk']",
+          "children" : [ {
+            "id" : "kaku_kuduk",
+            "name" : "Kaku Kuduk",
+            "localizedName" : "Kaku Kuduk",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Kaku Kuduk"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Kaku Kuduk']/data[at0003]/items[at0004,'Kaku Kuduk']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "373066001",
+                "label" : "Ada (+)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "373067005",
+                "label" : "Tidak Ada (-)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "SNOMED-CTmeningeal"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Kaku Kuduk']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "brudzinski",
+          "name" : "Brudzinski",
+          "localizedName" : "Brudzinski",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Brudzinski"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Brudzinski']",
+          "children" : [ {
+            "id" : "brudzinski",
+            "name" : "Brudzinski",
+            "localizedName" : "Brudzinski",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Brudzinski"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Brudzinski']/data[at0003]/items[at0004,'Brudzinski']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "373066001",
+                "label" : "Ada (+)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "373067005",
+                "label" : "Tidak Ada (-)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "SNOMED-CTmeningeal"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Brudzinski']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "lasegue_s_sign",
+          "name" : "Lasegue's sign",
+          "localizedName" : "Lasegue's sign",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Lasegue's sign"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Lasegue's sign']",
+          "children" : [ {
+            "id" : "lasegue_s_sign",
+            "name" : "Lasegue's sign",
+            "localizedName" : "Lasegue's sign",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Lasegue's sign"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Lasegue's sign']/data[at0003]/items[at0004,'Lasegue's sign']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "373066001",
+                "label" : "Ada (+)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "373067005",
+                "label" : "Tidak Ada (-)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "SNOMED-CTmeningeal"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Lasegue's sign']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "kernig_s_sign",
+          "name" : "Kernig's sign",
+          "localizedName" : "Kernig's sign",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Kernig's sign"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Kernig's sign']",
+          "children" : [ {
+            "id" : "kernig_s_sign",
+            "name" : "Kernig's sign",
+            "localizedName" : "Kernig's sign",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Kernig's sign"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Kernig's sign']/data[at0003]/items[at0004,'Kernig's sign']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "373066001",
+                "label" : "Ada (+)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "373067005",
+                "label" : "Tidak Ada (-)",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "SNOMED-CTmeningeal"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/data[at0001]/events[at0002,'Kernig's sign']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status Neurologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Meningeal Sign']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
