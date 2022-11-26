@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "5917bcf7b800aa7f9f2d1899bb7806f4",
+      "MD5-CAM-1.0.1" : "6dad9b831a4e648acb9c454732e87759",
       "PARENT:MD5-CAM-1.0.1" : "D02DE57ACD4A04C1ADAE1F8B28197890",
-      "sem_ver" : "1.2.0",
+      "sem_ver" : "2.0.0",
       "build_uid" : ""
     },
     "details" : {
@@ -793,6 +793,10 @@
           "/items[at0003.1]" : {
             "hl7v2_mapping" : "NTE.3",
             "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0001.2]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
         "nb" : {
@@ -815,6 +819,10 @@
           "/items[at0003.1]" : {
             "hl7v2_mapping" : "NTE.3",
             "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0001.2]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
         "pt-br" : {
@@ -837,6 +845,10 @@
           "/items[at0003.1]" : {
             "hl7v2_mapping" : "*NTE.3(en)",
             "fhir_mapping" : "*Observation.comments(en)"
+          },
+          "/items[at0001.2]" : {
+            "hl7v2_mapping" : "*OBX.2,OBX.5,OBX.6(en)",
+            "fhir_mapping" : "*Observation.value[x](en)"
           }
         },
         "de" : {
@@ -859,6 +871,10 @@
           "/items[at0003.1]" : {
             "hl7v2_mapping" : "NTE.3",
             "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0001.2]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
         "nl" : {
@@ -881,6 +897,10 @@
           "/items[at0003.1]" : {
             "hl7v2_mapping" : "NTE.3",
             "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0001.2]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
         "sv" : {
@@ -895,6 +915,10 @@
           "/items[at0005.1]" : {
             "hl7v2_mapping" : "OBX.11",
             "fhir_mapping" : "Observation.status"
+          },
+          "/items[at0001.2]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         }
       }
@@ -946,30 +970,61 @@
                   "rmTypeName" : "TERMINOLOGY_CODE",
                   "occurrences" : "0..1",
                   "terminologyId" : {
-                    "value" : "local_terms"
+                    "value" : "TB Count"
                   },
                   "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms" ],
+                  "selectedTerminologies" : [ "TB Count" ],
                   "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "TB Count",
                     "code" : "0",
                     "value" : "Negatif"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "TB Count",
                     "code" : "1",
                     "value" : "1+"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "TB Count",
                     "code" : "2",
                     "value" : "2+"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "TB Count",
                     "code" : "3",
                     "value" : "3+"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "TB Count",
                     "code" : "4",
                     "value" : ">3+"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "1..1",
+          "nodeId" : "at0001.2",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_COUNT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "magnitude",
+                "children" : [ {
+                  "@type" : "C_INTEGER",
+                  "rmTypeName" : "INTEGER",
+                  "constraint" : [ {
+                    "lower" : 3,
+                    "lowerIncluded" : true,
+                    "upperIncluded" : false,
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : true
                   } ]
                 } ]
               } ],
@@ -1089,13 +1144,72 @@
             "code" : "at0000.1",
             "text" : "Hasil pemeriksaan mikroskopis",
             "description" : "The result of a laboratory test for a single analyte value."
+          },
+          "at0001.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.2",
+            "text" : "Tuliskan jika hasil >3+",
+            "description" : "The value of the analyte result.",
+            "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
-        "nb" : { },
-        "pt-br" : { },
-        "de" : { },
-        "nl" : { },
-        "sv" : { }
+        "nb" : {
+          "at0001.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "Analyseresultat (2)",
+            "description" : "Verdien av analyseresultatet.",
+            "comment" : "For eksempel \"7,3 mmol/L\" eller \"Forhøyet\". Datatypen \"Udefinert datatype\" må begrenses til en passende datatype i en spesialisering, et templat eller i applikasjonen. Datatypen Quantity har attributter fra referansemodellen som dekker flagg for normalt/unormalt, referanseområder og approksimeringer. Se https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for mer detaljer.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          }
+        },
+        "pt-br" : {
+          "at0001.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "*Analyte result(en) (2)",
+            "description" : "*The value of the analyte result.(en)",
+            "comment" : "*For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.(en)",
+            "hl7v2_mapping" : "*OBX.2,OBX.5,OBX.6(en)",
+            "fhir_mapping" : "*Observation.value[x](en)"
+          }
+        },
+        "de" : {
+          "at0001.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "Analyt-Ergebnis (2)",
+            "description" : "(Mess-)Wert des Analyt-Ergebnisses.",
+            "comment" : "Z.B. \"7,3 mmol/l\", \"Erhöht\". Der \"Any\"-Datentyp wird dann durch eine Spezialisierung, eine Vorlage oder zur Laufzeit der Anwendung auf einen passenden Datentyp eingeschränkt werden müssen, um das aktuelle Analyt-Ergebnis wiederzugeben. Der \"Quantity\"-Datentyp hat Referenzmodell-Attribute, wie Kennungen für normal/abnormal, Referenzbereiche und Näherungen - für weitere Details s. https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class .",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          }
+        },
+        "nl" : {
+          "at0001.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "Uitslag van een analyt (2)",
+            "description" : "De waarde van een analyt uitslag.",
+            "comment" : "Bijvoorbeeld: '7.3 mmol/l', 'Verhoogd'. Om het daadwerkelijke analyt result weer te geven dient het 'Any' data type gespecificeerd te worden tot een toepasselijk data type in een specialisatie, een template of terwijl de applicatie loopt.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          }
+        },
+        "sv" : {
+          "at0001.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "Analysresultat (2)",
+            "description" : "Analysresultatets värde",
+            "comment" : "Till exempel \"7,3 mmol/L\" eller \"Förhöjd\". Datatypen \"Any\", som är en odefinierad datatyp, måste begränsas till en lämplig datatyp i en specialisering, mall eller applikation. Datatypen \"Quantity\" har attribut från referensmodellen som täcker flaggor för normal/onormal, referensområden och approximationer.\r\nSe https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class för mer information.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
