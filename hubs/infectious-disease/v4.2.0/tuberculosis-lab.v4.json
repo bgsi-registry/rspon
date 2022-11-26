@@ -1,6 +1,6 @@
 {
   "templateId" : "tuberculosis-lab.v4",
-  "semVer" : "4.2.0",
+  "semVer" : "4.3.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -175,6 +175,35 @@
                   }
                 } ],
                 "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "tuliskan_jika_hasil_3",
+              "name" : "Tuliskan jika hasil >3+",
+              "localizedName" : "Tuliskan jika hasil >3+",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tuliskan jika hasil >3+"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan mikroskopis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan mikroskopis']/items[at0001,'Tuliskan jika hasil >3+']/value",
+              "inputs" : [ {
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 3
+                  }
+                }
               } ]
             } ]
           }, {
