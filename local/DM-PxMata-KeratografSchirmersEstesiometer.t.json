@@ -19,7 +19,7 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "f06dc15987b3cbab1717858ecd1d04a3",
+      "MD5-CAM-1.0.1" : "20f093ac8cda11017bdc291ffac21037",
       "PARENT:MD5-CAM-1.0.1" : "8FE80F3E80C594AAF99D3BA540A53D73",
       "sem_ver" : "2.0.0",
       "build_uid" : "ee1306f8-22cf-4556-b60d-d314a270d05d"
@@ -189,6 +189,15 @@
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "OBSERVATION",
         "occurrences" : "0..1",
+        "nodeId" : "at0.38",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-problem_screening-002.v1",
+        "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "OBSERVATION",
+        "occurrences" : "0..1",
         "nodeId" : "at0.22",
         "attributes" : [ ],
         "attributeTuples" : [ ],
@@ -202,15 +211,6 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-problem_screening-004.v1",
-        "referenceType" : "archetypeOverlay"
-      }, {
-        "@type" : "C_ARCHETYPE_ROOT",
-        "rmTypeName" : "OBSERVATION",
-        "occurrences" : "0..1",
-        "nodeId" : "at0.36",
-        "attributes" : [ ],
-        "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-problem_screening-002.v1",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -445,6 +445,12 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0004.1",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0005.1",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
@@ -478,12 +484,6 @@
                               "attributeTuples" : [ ]
                             } ]
                           } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0004.1",
-                          "attributes" : [ ],
                           "attributeTuples" : [ ]
                         }, {
                           "@type" : "C_COMPLEX_OBJECT",
@@ -541,6 +541,12 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0004.4",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0005.4",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
@@ -574,12 +580,6 @@
                               "attributeTuples" : [ ]
                             } ]
                           } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0004.4",
-                          "attributes" : [ ],
                           "attributeTuples" : [ ]
                         }, {
                           "@type" : "C_COMPLEX_OBJECT",
@@ -1562,14 +1562,18 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_termsst"
+                                "value" : "SNOMEDCT"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_termsst" ],
+                              "selectedTerminologies" : [ "SNOMEDCT" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_termsst",
-                                "code" : "1",
-                                "value" : "Pemeriksaan Schirmer's Test"
+                                "terminologyId" : "SNOMEDCT",
+                                "code" : "373066001",
+                                "value" : "Ya"
+                              }, {
+                                "terminologyId" : "SNOMEDCT",
+                                "code" : "373067005",
+                                "value" : "Tidak"
                               } ]
                             } ]
                           } ],
@@ -1858,7 +1862,7 @@
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
-            "text" : "Hasil Pemeriksaan Schirmer's Test OD",
+            "text" : "Hasil Pemeriksaan Schirmer's Test OD (mm)",
             "description" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name.",
             "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
           },
@@ -1871,14 +1875,14 @@
           "at0004.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.2",
-            "text" : "Hasil Pemeriksaan Schirmer's Test OS",
+            "text" : "Hasil Pemeriksaan Schirmer's Test OS (mm)",
             "description" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name.",
             "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
           },
           "at0034.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0034.1",
-            "text" : "Pemeriksaan",
+            "text" : "Pemeriksaan Schirmer's Test",
             "description" : "The context or reason for screening.",
             "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
           },
@@ -2164,8 +2168,12 @@
                               "selectedTerminologies" : [ "local_termsECB" ],
                               "includedExternalTerminologyCodes" : [ {
                                 "terminologyId" : "local_termsECB",
-                                "code" : "1",
-                                "value" : "Pemeriksaan Estesiometer Cochet Bonnet"
+                                "code" : "373066001",
+                                "value" : "Ya"
+                              }, {
+                                "terminologyId" : "local_termsECB",
+                                "code" : "373067005",
+                                "value" : "Tidak"
                               } ]
                             } ]
                           } ],
@@ -2454,7 +2462,7 @@
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
-            "text" : "Hasil Pemeriksaan Estesiometer Cochet Bonnet OD",
+            "text" : "Hasil Pemeriksaan Estesiometer Cochet Bonnet OD (mm)",
             "description" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name.",
             "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
           },
@@ -2467,14 +2475,14 @@
           "at0004.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.2",
-            "text" : "Hasil Estesiometer Cochet Bonnet OS",
+            "text" : "Hasil Estesiometer Cochet Bonnet OS (mm)",
             "description" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name.",
             "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
           },
           "at0034.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0034.1",
-            "text" : "Pemeriksaan",
+            "text" : "Pemeriksaan Estesiometer Cochet Bonnet",
             "description" : "The context or reason for screening.",
             "comment" : "This data element is intended to provide collection context for the question/answer groups when queried at a later date. It is not expected that this data element will be exposed to the individual, but only stored in data.\r\nFor example: pre-admission screening or the name of the actual questionnaire."
           },
@@ -3727,6 +3735,12 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0004.1",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0005.1",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
@@ -3760,12 +3774,6 @@
                               "attributeTuples" : [ ]
                             } ]
                           } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0004.1",
-                          "attributes" : [ ],
                           "attributeTuples" : [ ]
                         }, {
                           "@type" : "C_COMPLEX_OBJECT",
@@ -3823,6 +3831,12 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0004.4",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
                           "nodeId" : "at0005.4",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
@@ -3856,12 +3870,6 @@
                               "attributeTuples" : [ ]
                             } ]
                           } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "ELEMENT",
-                          "nodeId" : "at0004.4",
-                          "attributes" : [ ],
                           "attributeTuples" : [ ]
                         }, {
                           "@type" : "C_COMPLEX_OBJECT",
@@ -4116,7 +4124,7 @@
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
-            "text" : "Nilai TMH mata kanan",
+            "text" : "Nilai TMH mata kiri",
             "description" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name.",
             "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
           },
@@ -4129,7 +4137,7 @@
           "at0022.3" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0022.3",
-            "text" : "Redness Kanan",
+            "text" : "Redness kiri",
             "description" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
           },
           "at0005.3" : {
@@ -4142,7 +4150,7 @@
           "at0004.3" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.3",
-            "text" : "Redness mata kanan",
+            "text" : "Redness mata kiri",
             "description" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name.",
             "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
           },
@@ -4168,20 +4176,20 @@
           "at0022.4" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0022.4",
-            "text" : "Nilai NIKBUT Kanan",
+            "text" : "Nilai NIKBUT kiri",
             "description" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
           },
           "at0005.4" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0005.4",
-            "text" : "Apakah ada nilai NIKBUT mata kanan",
+            "text" : "Apakah ada nilai NIKBUT mata kiri",
             "description" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
           "at0004.4" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.4",
-            "text" : "Nilai NIKBUT mata kanan",
+            "text" : "Nilai NIKBUT mata kiri",
             "description" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name.",
             "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
           }
