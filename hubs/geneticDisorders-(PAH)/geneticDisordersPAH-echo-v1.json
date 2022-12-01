@@ -1,0 +1,1005 @@
+{
+  "templateId" : "geneticDisordersPAH-echo",
+  "semVer" : "1.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisorderspah-echo",
+    "name" : "geneticDisordersPAH-echo",
+    "localizedName" : "geneticDisordersPAH-echo",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.report.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersPAH-echo"
+    },
+    "localizedDescriptions" : {
+      "en" : "Document to communicate information to others, commonly in response to a request from another party."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "report_id",
+        "name" : "Report ID",
+        "localizedName" : "Report ID",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Report ID"
+        },
+        "localizedDescriptions" : {
+          "en" : "Identification information about the report."
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0002]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "status",
+        "name" : "Status",
+        "localizedName" : "Status",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0005",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Status"
+        },
+        "localizedDescriptions" : {
+          "en" : "The status of the entire report. Note: This is not the status of any of the report components."
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0005]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      } ]
+    }, {
+      "id" : "hasil_echocardiography",
+      "name" : "Hasil Echocardiography",
+      "localizedName" : "Hasil Echocardiography",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Hasil Echocardiography"
+      },
+      "localizedDescriptions" : {
+        "en" : "The result of an imaging examination performed on an individual, using radiological techniques."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']",
+      "children" : [ {
+        "id" : "echocardiography",
+        "name" : "Echocardiography",
+        "localizedName" : "Echocardiography",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Echocardiography"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']",
+        "children" : [ {
+          "id" : "tanggal_transtorachal_echocardiography",
+          "name" : "Tanggal transtorachal Echocardiography",
+          "localizedName" : "Tanggal transtorachal Echocardiography",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0070",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal transtorachal Echocardiography"
+          },
+          "localizedDescriptions" : {
+            "en" : "Date/time when the imaging started."
+          },
+          "annotations" : {
+            "comment" : "Equivalent to ImagingStudy.started in FHIR."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0070,'Tanggal transtorachal Echocardiography']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "diagnosis_tee",
+          "name" : "Diagnosis TEE",
+          "localizedName" : "Diagnosis TEE",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Diagnosis TEE"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the imaging examination performed."
+          },
+          "annotations" : {
+            "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0004,'Diagnosis TEE']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "jenis_defek",
+          "name" : "Jenis defek",
+          "localizedName" : "Jenis defek",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Jenis defek"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Jenis defek']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "abnormalitas_tte_lain",
+          "name" : "Abnormalitas TTE lain",
+          "localizedName" : "Abnormalitas TTE lain",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Abnormalitas TTE lain"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Abnormalitas TTE lain']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "efusi_perikardium",
+          "name" : "Efusi perikardium",
+          "localizedName" : "Efusi perikardium",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Efusi perikardium"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Efusi perikardium']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "1",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_efusiperikardium"
+          } ]
+        }, {
+          "id" : "probability_ph_by_tte",
+          "name" : "Probability PH by TTE",
+          "localizedName" : "Probability PH by TTE",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Probability PH by TTE"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Probability PH by TTE']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Low",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "1",
+              "label" : "Intermediate",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "2",
+              "label" : "High",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_phtte"
+          } ]
+        }, {
+          "id" : "diameter_defek_minimum",
+          "name" : "Diameter defek minimum",
+          "localizedName" : "Diameter defek minimum",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Diameter defek minimum"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Diameter defek minimum']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "diameter_defek_maximum",
+          "name" : "Diameter defek maximum",
+          "localizedName" : "Diameter defek maximum",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Diameter defek maximum"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Diameter defek maximum']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "diameter_right_atrium_ra_area",
+          "name" : "Diameter Right Atrium/RA Area",
+          "localizedName" : "Diameter Right Atrium/RA Area",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Diameter Right Atrium/RA Area"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Diameter Right Atrium/RA Area']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "diameter_right_ventricle",
+          "name" : "Diameter Right Ventricle",
+          "localizedName" : "Diameter Right Ventricle",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Diameter Right Ventricle"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Diameter Right Ventricle']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "mean_pulmonary_arterial_pressure",
+          "name" : "Mean Pulmonary Arterial Pressure",
+          "localizedName" : "Mean Pulmonary Arterial Pressure",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Mean Pulmonary Arterial Pressure"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Mean Pulmonary Arterial Pressure']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "pulmonary_arterial_systolic_pressure",
+          "name" : "Pulmonary arterial systolic pressure",
+          "localizedName" : "Pulmonary arterial systolic pressure",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Pulmonary arterial systolic pressure"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Pulmonary arterial systolic pressure']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "left_ventricular_ejection_fraction",
+          "name" : "Left Ventricular Ejection Fraction",
+          "localizedName" : "Left Ventricular Ejection Fraction",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Left Ventricular Ejection Fraction"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Left Ventricular Ejection Fraction']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "tricuspid_annular_plane_systolic_excursion",
+          "name" : "Tricuspid annular plane systolic excursion",
+          "localizedName" : "Tricuspid annular plane systolic excursion",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Tricuspid annular plane systolic excursion"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Tricuspid annular plane systolic excursion']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "rv_fac",
+          "name" : "RV FAC",
+          "localizedName" : "RV FAC",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "RV FAC"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'RV FAC']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "derajat_regurgitasi_tricuspid",
+          "name" : "Derajat Regurgitasi Tricuspid",
+          "localizedName" : "Derajat Regurgitasi Tricuspid",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Derajat Regurgitasi Tricuspid"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Derajat Regurgitasi Tricuspid']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "None",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "1",
+              "label" : "Mild",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "2",
+              "label" : "Moderate",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "3",
+              "label" : "Severe",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_regurgitasi"
+          } ]
+        }, {
+          "id" : "tricuspid_valve_gradient",
+          "name" : "Tricuspid Valve Gradient",
+          "localizedName" : "Tricuspid Valve Gradient",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Tricuspid Valve Gradient"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Tricuspid Valve Gradient']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "estimated_right_atrial_pressure",
+          "name" : "Estimated Right Atrial Pressure",
+          "localizedName" : "Estimated Right Atrial Pressure",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Estimated Right Atrial Pressure"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Estimated Right Atrial Pressure']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "right_ventricular_systolic_pressure",
+          "name" : "Right ventricular systolic pressure",
+          "localizedName" : "Right ventricular systolic pressure",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Right ventricular systolic pressure"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Right ventricular systolic pressure']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "right_ventricular_outflow_tract_velocity_time",
+          "name" : "Right ventricular outflow tract, velocity time",
+          "localizedName" : "Right ventricular outflow tract, velocity time",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Right ventricular outflow tract, velocity time"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Right ventricular outflow tract, velocity time']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "diameter_main_pulmonary_artery",
+          "name" : "Diameter main pulmonary Artery",
+          "localizedName" : "Diameter main pulmonary Artery",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Diameter main pulmonary Artery"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Diameter main pulmonary Artery']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "tricuspid_regurgitation_velocity",
+          "name" : "Tricuspid regurgitation velocity",
+          "localizedName" : "Tricuspid regurgitation velocity",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Tricuspid regurgitation velocity"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Tricuspid regurgitation velocity']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "left_atrial_diameter",
+          "name" : "Left Atrial Diameter",
+          "localizedName" : "Left Atrial Diameter",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Left Atrial Diameter"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Left Atrial Diameter']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "left_ventricle_internal_diameter_diastolic",
+          "name" : "Left Ventricle Internal Diameter Diastolic",
+          "localizedName" : "Left Ventricle Internal Diameter Diastolic",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Left Ventricle Internal Diameter Diastolic"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Left Ventricle Internal Diameter Diastolic']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "derajat_mitral_regurgitation",
+          "name" : "Derajat Mitral Regurgitation",
+          "localizedName" : "Derajat Mitral Regurgitation",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Derajat Mitral Regurgitation"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Derajat Mitral Regurgitation']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "None",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "1",
+              "label" : "Mild",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "2",
+              "label" : "Moderate",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "3",
+              "label" : "Severe",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_regurgitasi"
+          } ]
+        }, {
+          "id" : "prolaps_anterior_mitral_leaflet",
+          "name" : "Prolaps Anterior Mitral Leaflet",
+          "localizedName" : "Prolaps Anterior Mitral Leaflet",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Prolaps Anterior Mitral Leaflet"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Prolaps Anterior Mitral Leaflet']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "1",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_prolaps"
+          } ]
+        }, {
+          "id" : "gradient_pulmonary_stenosis",
+          "name" : "Gradient Pulmonary Stenosis",
+          "localizedName" : "Gradient Pulmonary Stenosis",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Gradient Pulmonary Stenosis"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Gradient Pulmonary Stenosis']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "disfungsi_diastolik",
+          "name" : "Disfungsi Diastolik",
+          "localizedName" : "Disfungsi Diastolik",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Disfungsi Diastolik"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Disfungsi Diastolik']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "1",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_disfungsi_diastolik"
+          } ]
+        }, {
+          "id" : "arah_shunt_pada_defek",
+          "name" : "Arah Shunt pada defek",
+          "localizedName" : "Arah Shunt pada defek",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Arah Shunt pada defek"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Arah Shunt pada defek']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "L to R",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "1",
+              "label" : "Bidirectional",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "2",
+              "label" : "R to L",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_arahshunt"
+          } ]
+        }, {
+          "id" : "eissenmenger_syndrome",
+          "name" : "Eissenmenger Syndrome",
+          "localizedName" : "Eissenmenger Syndrome",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0091",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Eissenmenger Syndrome"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study."
+          },
+          "annotations" : {
+            "comment" : "For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0091,'Eissenmenger Syndrome']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "tanggal_tee",
+          "name" : "Tanggal TEE",
+          "localizedName" : "Tanggal TEE",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0071",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal TEE"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date and/or time that ‘Overall result status’ was assigned."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0071,'Tanggal TEE']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "confounding_factors",
+          "name" : "Confounding factors",
+          "localizedName" : "Confounding factors",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0048",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "prolaps_anterior_mitral_leaflet", "jenis_defek", "right_ventricular_systolic_pressure", "diameter_main_pulmonary_artery", "left_ventricular_ejection_fraction", "tricuspid_valve_gradient", "left_atrial_diameter", "gradient_pulmonary_stenosis", "efusi_perikardium", "mean_pulmonary_arterial_pressure", "diameter_defek_maximum", "diameter_right_ventricle", "disfungsi_diastolik", "tricuspid_annular_plane_systolic_excursion", "arah_shunt_pada_defek", "diameter_right_atrium_ra_area", "left_ventricle_internal_diameter_diastolic", "derajat_mitral_regurgitation", "probability_ph_by_tte", "diameter_defek_minimum", "diagnosis_tee", "estimated_right_atrial_pressure", "pulmonary_arterial_systolic_pressure", "eissenmenger_syndrome", "abnormalitas_tte_lain", "tricuspid_regurgitation_velocity", "tanggal_transtorachal_echocardiography", "rv_fac", "derajat_regurgitasi_tricuspid", "tanggal_tee", "right_ventricular_outflow_tract_velocity_time" ],
+          "localizedNames" : {
+            "en" : "Confounding factors"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description of factors, not recorded elsewhere, that may influence the examination findings and/or result."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/state[at0047]/items[at0048]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "position",
+          "name" : "Position",
+          "localizedName" : "Position",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0108",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "prolaps_anterior_mitral_leaflet", "jenis_defek", "right_ventricular_systolic_pressure", "diameter_main_pulmonary_artery", "left_ventricular_ejection_fraction", "tricuspid_valve_gradient", "left_atrial_diameter", "gradient_pulmonary_stenosis", "efusi_perikardium", "mean_pulmonary_arterial_pressure", "diameter_defek_maximum", "diameter_right_ventricle", "disfungsi_diastolik", "tricuspid_annular_plane_systolic_excursion", "arah_shunt_pada_defek", "diameter_right_atrium_ra_area", "left_ventricle_internal_diameter_diastolic", "derajat_mitral_regurgitation", "probability_ph_by_tte", "diameter_defek_minimum", "diagnosis_tee", "estimated_right_atrial_pressure", "pulmonary_arterial_systolic_pressure", "eissenmenger_syndrome", "abnormalitas_tte_lain", "tricuspid_regurgitation_velocity", "tanggal_transtorachal_echocardiography", "rv_fac", "derajat_regurgitasi_tricuspid", "tanggal_tee", "right_ventricular_outflow_tract_velocity_time" ],
+          "localizedNames" : {
+            "en" : "Position"
+          },
+          "localizedDescriptions" : {
+            "en" : "Position of the individual during the imaging examination."
+          },
+          "annotations" : {
+            "comment" : "For example: standing or lying."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/state[at0047]/items[at0108]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
