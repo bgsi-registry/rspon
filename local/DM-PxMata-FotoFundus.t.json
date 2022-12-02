@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "494982fd689bc2d5fe0a7fd930323f9f",
+      "MD5-CAM-1.0.1" : "9291886eaf038a28986e97122196d051",
       "PARENT:MD5-CAM-1.0.1" : "8FE80F3E80C594AAF99D3BA540A53D73",
-      "sem_ver" : "2.0.0",
+      "sem_ver" : "3.0.0",
       "build_uid" : "ce5834f6-18d4-4b96-a04d-8e2d24bb802d"
     },
     "details" : {
@@ -606,7 +606,7 @@
                                 "children" : [ {
                                   "@type" : "C_DATE_TIME",
                                   "rmTypeName" : "DATE_TIME",
-                                  "patternedConstraint" : "yyyy-mm-ddThh:??:XX",
+                                  "patternedConstraint" : "yyyy-mm-ddThh:mm:??",
                                   "constraint" : [ ]
                                 } ]
                               } ],
@@ -724,7 +724,7 @@
                                 "children" : [ {
                                   "@type" : "C_DATE_TIME",
                                   "rmTypeName" : "DATE_TIME",
-                                  "patternedConstraint" : "yyyy-mm-ddThh:??:XX",
+                                  "patternedConstraint" : "yyyy-mm-ddThh:mm:??",
                                   "constraint" : [ ]
                                 } ]
                               } ],
@@ -1107,7 +1107,19 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ ],
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "CODE_PHRASE",
+                              "occurrences" : "1..1",
+                              "terminologyId" : {
+                                "value" : "local"
+                              },
+                              "constraint" : [ "at0031", "at0032", "at0033" ]
+                            } ]
+                          } ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
@@ -1985,16 +1997,7 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0001.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_MULTIMEDIA",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
