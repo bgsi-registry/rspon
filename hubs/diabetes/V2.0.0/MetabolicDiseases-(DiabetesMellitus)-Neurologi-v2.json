@@ -1,0 +1,2127 @@
+{
+  "templateId" : "MetabolicDiseases-(DiabetesMellitus)-Neurologi-v2",
+  "semVer" : "1.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "metabolicdiseases-_diabetesmellitus_-neurologi-v2",
+    "name" : "MetabolicDiseases-(DiabetesMellitus)-Neurologi-v2",
+    "localizedName" : "MetabolicDiseases-(DiabetesMellitus)-Neurologi-v2",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "MetabolicDiseases-(DiabetesMellitus)-Neurologi-v2"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context"
+    }, {
+      "id" : "pemeriksaan_fisik",
+      "name" : "Pemeriksaan Fisik",
+      "localizedName" : "Pemeriksaan Fisik",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan Fisik"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']",
+      "children" : [ {
+        "id" : "umum",
+        "name" : "Umum",
+        "localizedName" : "Umum",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Umum"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "glascow_comma_scale",
+            "name" : "Glascow Comma Scale",
+            "localizedName" : "Glascow Comma Scale",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Glascow Comma Scale"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Glascow Comma Scale']",
+            "children" : [ {
+              "id" : "nilai_glascow_comma_scale",
+              "name" : "Nilai Glascow Comma Scale",
+              "localizedName" : "Nilai Glascow Comma Scale",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nilai Glascow Comma Scale"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Glascow Comma Scale']/items[at0004,'Nilai Glascow Comma Scale']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "pupil",
+            "name" : "Pupil",
+            "localizedName" : "Pupil",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pupil"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pupil']",
+            "children" : [ {
+              "id" : "ukuran_pupil_mm",
+              "name" : "Ukuran Pupil (mm)",
+              "localizedName" : "Ukuran Pupil (mm)",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Ukuran Pupil (mm)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pupil']/items[at0004,'Ukuran Pupil (mm)']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "retropulsi",
+            "name" : "Retropulsi",
+            "localizedName" : "Retropulsi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Retropulsi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Retropulsi']",
+            "children" : [ {
+              "id" : "retropulsi",
+              "name" : "Retropulsi",
+              "localizedName" : "Retropulsi",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Retropulsi"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Retropulsi']/items[at0004,'Retropulsi']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "romberg",
+            "name" : "Romberg",
+            "localizedName" : "Romberg",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Romberg"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Romberg']",
+            "children" : [ {
+              "id" : "romberg",
+              "name" : "Romberg",
+              "localizedName" : "Romberg",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Romberg"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Romberg']/items[at0004,'Romberg']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "romberg_dipertajam",
+            "name" : "Romberg dipertajam",
+            "localizedName" : "Romberg dipertajam",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Romberg dipertajam"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Romberg dipertajam']",
+            "children" : [ {
+              "id" : "romberg_dipertajam",
+              "name" : "Romberg dipertajam",
+              "localizedName" : "Romberg dipertajam",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Romberg dipertajam"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Romberg dipertajam']/items[at0004,'Romberg dipertajam']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "tandem_gait",
+            "name" : "Tandem gait",
+            "localizedName" : "Tandem gait",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Tandem gait"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tandem gait']",
+            "children" : [ {
+              "id" : "tandem_gait",
+              "name" : "Tandem gait",
+              "localizedName" : "Tandem gait",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tandem gait"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tandem gait']/items[at0004,'Tandem gait']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Umum']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "skrinning",
+        "name" : "Skrinning",
+        "localizedName" : "Skrinning",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Skrinning"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "brief_peripheran_neuropathy_screening",
+            "name" : "Brief Peripheran Neuropathy Screening",
+            "localizedName" : "Brief Peripheran Neuropathy Screening",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Brief Peripheran Neuropathy Screening"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Brief Peripheran Neuropathy Screening']",
+            "children" : [ {
+              "id" : "brief_peripheran_neuropathy_screening",
+              "name" : "Brief Peripheran Neuropathy Screening",
+              "localizedName" : "Brief Peripheran Neuropathy Screening",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Brief Peripheran Neuropathy Screening"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Brief Peripheran Neuropathy Screening']/items[at0004,'Brief Peripheran Neuropathy Screening']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "montreal_cognitive_assessment_versi_indonesia",
+            "name" : "Montreal Cognitive Assessment Versi Indonesia",
+            "localizedName" : "Montreal Cognitive Assessment Versi Indonesia",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Montreal Cognitive Assessment Versi Indonesia"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Montreal Cognitive Assessment Versi Indonesia']",
+            "children" : [ {
+              "id" : "montreal_cognitive_assessment_versi_indonesia",
+              "name" : "Montreal Cognitive Assessment Versi Indonesia",
+              "localizedName" : "Montreal Cognitive Assessment Versi Indonesia",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Montreal Cognitive Assessment Versi Indonesia"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Montreal Cognitive Assessment Versi Indonesia']/items[at0004,'Montreal Cognitive Assessment Versi Indonesia']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrinning']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "pemeriksaan_fisik_neurologis",
+      "name" : "Pemeriksaan Fisik Neurologis",
+      "localizedName" : "Pemeriksaan Fisik Neurologis",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan Fisik Neurologis"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']",
+      "children" : [ {
+        "id" : "nervus_kranialis",
+        "name" : "Nervus Kranialis",
+        "localizedName" : "Nervus Kranialis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Nervus Kranialis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nervus_kranialis",
+            "name" : "Nervus Kranialis",
+            "localizedName" : "Nervus Kranialis",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Nervus Kranialis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nervus Kranialis']",
+            "children" : [ {
+              "id" : "pemeriksaan_nervus_kranialis",
+              "name" : "Pemeriksaan Nervus Kranialis",
+              "localizedName" : "Pemeriksaan Nervus Kranialis",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pemeriksaan Nervus Kranialis"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Nervus Kranialis']/items[at0004,'Pemeriksaan Nervus Kranialis']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Nervus Kranialis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "motorik",
+        "name" : "Motorik",
+        "localizedName" : "Motorik",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Motorik"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "tonus_kanan",
+            "name" : "Tonus Kanan",
+            "localizedName" : "Tonus Kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Tonus Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tonus Kanan']",
+            "children" : [ {
+              "id" : "tonus_kanan",
+              "name" : "Tonus Kanan",
+              "localizedName" : "Tonus Kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tonus Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tonus Kanan']/items[at0004,'Tonus Kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "tonus_kiri",
+            "name" : "Tonus Kiri",
+            "localizedName" : "Tonus Kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Tonus Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tonus Kiri']",
+            "children" : [ {
+              "id" : "tonus_kiri",
+              "name" : "Tonus Kiri",
+              "localizedName" : "Tonus Kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tonus Kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tonus Kiri']/items[at0004,'Tonus Kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "trofi_kanan",
+            "name" : "Trofi Kanan",
+            "localizedName" : "Trofi Kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Trofi Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Trofi Kanan']",
+            "children" : [ {
+              "id" : "trofi_kanan",
+              "name" : "Trofi Kanan",
+              "localizedName" : "Trofi Kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Trofi Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Trofi Kanan']/items[at0004,'Trofi Kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "trofi_kiri",
+            "name" : "Trofi Kiri",
+            "localizedName" : "Trofi Kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Trofi Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Trofi Kiri']",
+            "children" : [ {
+              "id" : "trofi_kiri",
+              "name" : "Trofi Kiri",
+              "localizedName" : "Trofi Kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Trofi Kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Trofi Kiri']/items[at0004,'Trofi Kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "kekuatan_kanan",
+            "name" : "Kekuatan Kanan",
+            "localizedName" : "Kekuatan Kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Kekuatan Kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kekuatan Kanan']",
+            "children" : [ {
+              "id" : "kekuatan_kanan",
+              "name" : "Kekuatan Kanan",
+              "localizedName" : "Kekuatan Kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kekuatan Kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kekuatan Kanan']/items[at0004,'Kekuatan Kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "kekuatan_kiri",
+            "name" : "Kekuatan Kiri",
+            "localizedName" : "Kekuatan Kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Kekuatan Kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kekuatan Kiri']",
+            "children" : [ {
+              "id" : "kekuatan_kiri",
+              "name" : "Kekuatan Kiri",
+              "localizedName" : "Kekuatan Kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kekuatan Kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kekuatan Kiri']/items[at0004,'Kekuatan Kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "refleks_fisiologis_kanan",
+            "name" : "Refleks fisiologis kanan",
+            "localizedName" : "Refleks fisiologis kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Refleks fisiologis kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks fisiologis kanan']",
+            "children" : [ {
+              "id" : "refleks_fisiologis_kanan",
+              "name" : "Refleks fisiologis kanan",
+              "localizedName" : "Refleks fisiologis kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Refleks fisiologis kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks fisiologis kanan']/items[at0004,'Refleks fisiologis kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "refleks_fisiologis_kiri",
+            "name" : "Refleks fisiologis kiri",
+            "localizedName" : "Refleks fisiologis kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Refleks fisiologis kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks fisiologis kiri']",
+            "children" : [ {
+              "id" : "refleks_fisiologis_kiri",
+              "name" : "Refleks fisiologis kiri",
+              "localizedName" : "Refleks fisiologis kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Refleks fisiologis kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks fisiologis kiri']/items[at0004,'Refleks fisiologis kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "refleks_patologis_kanan",
+            "name" : "Refleks patologis kanan",
+            "localizedName" : "Refleks patologis kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Refleks patologis kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks patologis kanan']",
+            "children" : [ {
+              "id" : "refleks_patologis_kanan",
+              "name" : "Refleks patologis kanan",
+              "localizedName" : "Refleks patologis kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Refleks patologis kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks patologis kanan']/items[at0004,'Refleks patologis kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "refleks_patologis_kiri",
+            "name" : "Refleks patologis kiri",
+            "localizedName" : "Refleks patologis kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Refleks patologis kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks patologis kiri']",
+            "children" : [ {
+              "id" : "refleks_patologis_kiri",
+              "name" : "Refleks patologis kiri",
+              "localizedName" : "Refleks patologis kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Refleks patologis kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Refleks patologis kiri']/items[at0004,'Refleks patologis kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Motorik']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "sensorik",
+        "name" : "Sensorik",
+        "localizedName" : "Sensorik",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Sensorik"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "eksteroseptif_kanan",
+            "name" : "Eksteroseptif kanan",
+            "localizedName" : "Eksteroseptif kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Eksteroseptif kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Eksteroseptif kanan']",
+            "children" : [ {
+              "id" : "eksteroseptif_kanan",
+              "name" : "Eksteroseptif kanan",
+              "localizedName" : "Eksteroseptif kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Eksteroseptif kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Eksteroseptif kanan']/items[at0004,'Eksteroseptif kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "eksteroseptif_kiri",
+            "name" : "Eksteroseptif kiri",
+            "localizedName" : "Eksteroseptif kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Eksteroseptif kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Eksteroseptif kiri']",
+            "children" : [ {
+              "id" : "eksteroseptif_kiri",
+              "name" : "Eksteroseptif kiri",
+              "localizedName" : "Eksteroseptif kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Eksteroseptif kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Eksteroseptif kiri']/items[at0004,'Eksteroseptif kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "proprioseptif_vibrasi_kanan",
+            "name" : "Proprioseptif vibrasi kanan",
+            "localizedName" : "Proprioseptif vibrasi kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Proprioseptif vibrasi kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif vibrasi kanan']",
+            "children" : [ {
+              "id" : "proprioseptif_vibrasi_kanan",
+              "name" : "Proprioseptif vibrasi kanan",
+              "localizedName" : "Proprioseptif vibrasi kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Proprioseptif vibrasi kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif vibrasi kanan']/items[at0004,'Proprioseptif vibrasi kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "proprioseptif_vibrasi_kiri",
+            "name" : "Proprioseptif vibrasi kiri",
+            "localizedName" : "Proprioseptif vibrasi kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Proprioseptif vibrasi kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif vibrasi kiri']",
+            "children" : [ {
+              "id" : "proprioseptif_vibrasi_kiri",
+              "name" : "Proprioseptif vibrasi kiri",
+              "localizedName" : "Proprioseptif vibrasi kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Proprioseptif vibrasi kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif vibrasi kiri']/items[at0004,'Proprioseptif vibrasi kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "proprioseptif_posisi_kanan",
+            "name" : "Proprioseptif posisi kanan",
+            "localizedName" : "Proprioseptif posisi kanan",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Proprioseptif posisi kanan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif posisi kanan']",
+            "children" : [ {
+              "id" : "proprioseptif_posisi_kanan",
+              "name" : "Proprioseptif posisi kanan",
+              "localizedName" : "Proprioseptif posisi kanan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Proprioseptif posisi kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif posisi kanan']/items[at0004,'Proprioseptif posisi kanan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "proprioseptif_posisi_kiri",
+            "name" : "Proprioseptif posisi kiri",
+            "localizedName" : "Proprioseptif posisi kiri",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Proprioseptif posisi kiri"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif posisi kiri']",
+            "children" : [ {
+              "id" : "proprioseptif_posisi_kiri",
+              "name" : "Proprioseptif posisi kiri",
+              "localizedName" : "Proprioseptif posisi kiri",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Proprioseptif posisi kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Proprioseptif posisi kiri']/items[at0004,'Proprioseptif posisi kiri']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Sensorik']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "saraf_otonom",
+        "name" : "Saraf Otonom",
+        "localizedName" : "Saraf Otonom",
+        "rmType" : "SECTION",
+        "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Saraf Otonom"
+        },
+        "localizedDescriptions" : {
+          "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']",
+        "children" : [ {
+          "id" : "saraf_otonom",
+          "name" : "Saraf Otonom",
+          "localizedName" : "Saraf Otonom",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Saraf Otonom"
+          },
+          "localizedDescriptions" : {
+            "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+          },
+          "annotations" : {
+            "comment" : "The answers may be self-reported."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']",
+          "children" : [ {
+            "id" : "any_event",
+            "name" : "Any event",
+            "localizedName" : "Any event",
+            "rmType" : "EVENT",
+            "nodeId" : "at0002",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Any event"
+            },
+            "localizedDescriptions" : {
+              "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']/data[at0001]/events[at0002]",
+            "children" : [ {
+              "id" : "saraf_otonom",
+              "name" : "Saraf Otonom",
+              "localizedName" : "Saraf Otonom",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saraf Otonom"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Saraf Otonom']",
+              "children" : [ {
+                "id" : "saraf_otonom",
+                "name" : "Saraf Otonom",
+                "localizedName" : "Saraf Otonom",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Saraf Otonom"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Saraf Otonom']/items[at0004,'Saraf Otonom']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "time",
+              "name" : "Time",
+              "rmType" : "DV_DATE_TIME",
+              "min" : 1,
+              "max" : 1,
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']/data[at0001]/events[at0002]/time",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ],
+              "inContext" : true
+            } ]
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Saraf Otonom']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Saraf Otonom']/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        } ]
+      }, {
+        "id" : "tremor",
+        "name" : "Tremor",
+        "localizedName" : "Tremor",
+        "rmType" : "SECTION",
+        "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Tremor"
+        },
+        "localizedDescriptions" : {
+          "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']",
+        "children" : [ {
+          "id" : "tremor",
+          "name" : "Tremor",
+          "localizedName" : "Tremor",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tremor"
+          },
+          "localizedDescriptions" : {
+            "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+          },
+          "annotations" : {
+            "comment" : "The answers may be self-reported."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']",
+          "children" : [ {
+            "id" : "any_event",
+            "name" : "Any event",
+            "localizedName" : "Any event",
+            "rmType" : "EVENT",
+            "nodeId" : "at0002",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Any event"
+            },
+            "localizedDescriptions" : {
+              "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]",
+            "children" : [ {
+              "id" : "tremor_istirahat_kanan",
+              "name" : "Tremor istirahat kanan",
+              "localizedName" : "Tremor istirahat kanan",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Tremor istirahat kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor istirahat kanan']",
+              "children" : [ {
+                "id" : "tremor_istirahat_kanan",
+                "name" : "Tremor istirahat kanan",
+                "localizedName" : "Tremor istirahat kanan",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Tremor istirahat kanan"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor istirahat kanan']/items[at0004,'Tremor istirahat kanan']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "tremor_istirahat_kiri",
+              "name" : "Tremor istirahat kiri",
+              "localizedName" : "Tremor istirahat kiri",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Tremor istirahat kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor istirahat kiri']",
+              "children" : [ {
+                "id" : "tremor_istirahat_kiri",
+                "name" : "Tremor istirahat kiri",
+                "localizedName" : "Tremor istirahat kiri",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Tremor istirahat kiri"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor istirahat kiri']/items[at0004,'Tremor istirahat kiri']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "tremor_postural_kanan",
+              "name" : "Tremor postural kanan",
+              "localizedName" : "Tremor postural kanan",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Tremor postural kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor postural kanan']",
+              "children" : [ {
+                "id" : "tremor_postural_kanan",
+                "name" : "Tremor postural kanan",
+                "localizedName" : "Tremor postural kanan",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Tremor postural kanan"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor postural kanan']/items[at0004,'Tremor postural kanan']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "tremor_postural_kiri",
+              "name" : "Tremor postural kiri",
+              "localizedName" : "Tremor postural kiri",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Tremor postural kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor postural kiri']",
+              "children" : [ {
+                "id" : "tremor_postural_kiri",
+                "name" : "Tremor postural kiri",
+                "localizedName" : "Tremor postural kiri",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Tremor postural kiri"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor postural kiri']/items[at0004,'Tremor postural kiri']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "tremor_intensi_kanan",
+              "name" : "Tremor intensi kanan",
+              "localizedName" : "Tremor intensi kanan",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Tremor intensi kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor intensi kanan']",
+              "children" : [ {
+                "id" : "tremor_intensi_kanan",
+                "name" : "Tremor intensi kanan",
+                "localizedName" : "Tremor intensi kanan",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Tremor intensi kanan"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor intensi kanan']/items[at0004,'Tremor intensi kanan']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "tremor_intensi_kiri",
+              "name" : "Tremor intensi kiri",
+              "localizedName" : "Tremor intensi kiri",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Tremor intensi kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor intensi kiri']",
+              "children" : [ {
+                "id" : "tremor_intensi_kiri",
+                "name" : "Tremor intensi kiri",
+                "localizedName" : "Tremor intensi kiri",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Tremor intensi kiri"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tremor intensi kiri']/items[at0004,'Tremor intensi kiri']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "time",
+              "name" : "Time",
+              "rmType" : "DV_DATE_TIME",
+              "min" : 1,
+              "max" : 1,
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/data[at0001]/events[at0002]/time",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ],
+              "inContext" : true
+            } ]
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Tremor']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Tremor']/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        } ]
+      }, {
+        "id" : "bradikinesia",
+        "name" : "Bradikinesia",
+        "localizedName" : "Bradikinesia",
+        "rmType" : "SECTION",
+        "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Bradikinesia"
+        },
+        "localizedDescriptions" : {
+          "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']",
+        "children" : [ {
+          "id" : "bradikinesia",
+          "name" : "Bradikinesia",
+          "localizedName" : "Bradikinesia",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Bradikinesia"
+          },
+          "localizedDescriptions" : {
+            "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+          },
+          "annotations" : {
+            "comment" : "The answers may be self-reported."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']",
+          "children" : [ {
+            "id" : "any_event",
+            "name" : "Any event",
+            "localizedName" : "Any event",
+            "rmType" : "EVENT",
+            "nodeId" : "at0002",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Any event"
+            },
+            "localizedDescriptions" : {
+              "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]",
+            "children" : [ {
+              "id" : "finger_tapping_test_kanan",
+              "name" : "Finger tapping test kanan",
+              "localizedName" : "Finger tapping test kanan",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Finger tapping test kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Finger tapping test kanan']",
+              "children" : [ {
+                "id" : "finger_tapping_test_kanan",
+                "name" : "Finger tapping test kanan",
+                "localizedName" : "Finger tapping test kanan",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Finger tapping test kanan"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Finger tapping test kanan']/items[at0004,'Finger tapping test kanan']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "finger_tapping_test_kiri",
+              "name" : "Finger tapping test kiri",
+              "localizedName" : "Finger tapping test kiri",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Finger tapping test kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Finger tapping test kiri']",
+              "children" : [ {
+                "id" : "finger_tapping_test_kiri",
+                "name" : "Finger tapping test kiri",
+                "localizedName" : "Finger tapping test kiri",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Finger tapping test kiri"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Finger tapping test kiri']/items[at0004,'Finger tapping test kiri']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "leg_agility_test_kanan",
+              "name" : "Leg agility test kanan",
+              "localizedName" : "Leg agility test kanan",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Leg agility test kanan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Leg agility test kanan']",
+              "children" : [ {
+                "id" : "leg_agility_test_kanan",
+                "name" : "Leg agility test kanan",
+                "localizedName" : "Leg agility test kanan",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Leg agility test kanan"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Leg agility test kanan']/items[at0004,'Leg agility test kanan']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "leg_agility_test_kiri",
+              "name" : "Leg agility test kiri",
+              "localizedName" : "Leg agility test kiri",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0022",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Leg agility test kiri"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Leg agility test kiri']",
+              "children" : [ {
+                "id" : "leg_agility_test_kiri",
+                "name" : "Leg agility test kiri",
+                "localizedName" : "Leg agility test kiri",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0004",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Leg agility test kiri"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Leg agility test kiri']/items[at0004,'Leg agility test kiri']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "time",
+              "name" : "Time",
+              "rmType" : "DV_DATE_TIME",
+              "min" : 1,
+              "max" : 1,
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/data[at0001]/events[at0002]/time",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ],
+              "inContext" : true
+            } ]
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Fisik Neurologis']/items[openEHR-EHR-SECTION.adhoc.v1,'Bradikinesia']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Bradikinesia']/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
