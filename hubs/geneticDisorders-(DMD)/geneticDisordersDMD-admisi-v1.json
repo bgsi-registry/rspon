@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersDMD-admisi-v1",
-  "semVer" : "1.0.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "person",
       "name" : "person",
@@ -62,7 +89,7 @@
           "localizedName" : "Tanggal Lahir Pasien",
           "rmType" : "DV_DATE_TIME",
           "nodeId" : "at0004",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Tanggal Lahir Pasien"
@@ -300,6 +327,7 @@
                     "en" : ""
                   }
                 } ],
+                "defaultValue" : "1",
                 "terminology" : "local_termsgejala"
               } ]
             }, {
@@ -389,7 +417,7 @@
                 "localizedName" : "Usia muncul gejala keterlambatan perkembangan (Tahun)",
                 "rmType" : "DV_TEXT",
                 "nodeId" : "at0028",
-                "min" : 1,
+                "min" : 0,
                 "max" : 1,
                 "localizedNames" : {
                   "en" : "Usia muncul gejala keterlambatan perkembangan (Tahun)"
@@ -657,15 +685,15 @@
                   "terminology" : "local_termsbantuNafas"
                 } ]
               }, {
-                "id" : "jika_menggunakan_alat_bantu_nafas_lama_pemakaian",
-                "name" : "Jika menggunakan alat bantu nafas, Lama pemakaian",
-                "localizedName" : "Jika menggunakan alat bantu nafas, Lama pemakaian",
+                "id" : "jika_menggunakan_alat_bantu_nafas_non-invasif_lama_pemakaian",
+                "name" : "Jika menggunakan alat bantu nafas non-invasif, lama pemakaian",
+                "localizedName" : "Jika menggunakan alat bantu nafas non-invasif, lama pemakaian",
                 "rmType" : "DV_CODED_TEXT",
                 "nodeId" : "at0155",
                 "min" : 0,
                 "max" : -1,
                 "localizedNames" : {
-                  "en" : "Jika menggunakan alat bantu nafas, Lama pemakaian"
+                  "en" : "Jika menggunakan alat bantu nafas non-invasif, lama pemakaian"
                 },
                 "localizedDescriptions" : {
                   "en" : "Description of the impact of this symptom or sign."
@@ -673,7 +701,7 @@
                 "annotations" : {
                   "comment" : "Assessment of impact could consider the severity, duration and frequency of the symptom as well as the type of impact including, but not limited to, functional, social and emotional impact. Occurrences of this data element are set to 0..* to allow multiple types of impact to be separated out in a template if desired. Examples for functional impact from hearing loss may include: 'Difficulty Hearing in Quiet Environment'; 'Difficulty Hearing the TV or Radio'; 'Difficulty Hearing Group Conversation'; and 'Difficulty Hearing on Phone'."
                 },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keterlambatan perkembangan']/items[openEHR-EHR-CLUSTER.symptom_sign.v1]/items[at0155,'Jika menggunakan alat bantu nafas, Lama pemakaian']/value",
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keterlambatan perkembangan']/items[openEHR-EHR-CLUSTER.symptom_sign.v1]/items[at0155,'Jika menggunakan alat bantu nafas non-invasif, lama pemakaian']/value",
                 "inputs" : [ {
                   "suffix" : "code",
                   "type" : "CODED_TEXT",
@@ -1620,6 +1648,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
