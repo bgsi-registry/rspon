@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersDMD-pemeriksaanFisik-v1",
-  "semVer" : "1.0.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "gizi",
       "name" : "Gizi",
@@ -1785,122 +1812,6 @@
           "inContext" : true
         } ]
       }, {
-        "id" : "skoliosis",
-        "name" : "Skoliosis",
-        "localizedName" : "Skoliosis",
-        "rmType" : "OBSERVATION",
-        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
-        "min" : 0,
-        "max" : 1,
-        "localizedNames" : {
-          "en" : "Skoliosis"
-        },
-        "localizedDescriptions" : {
-          "en" : "Findings observed during the physical examination of a subject of care."
-        },
-        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']",
-        "children" : [ {
-          "id" : "any_event",
-          "name" : "Any event",
-          "localizedName" : "Any event",
-          "rmType" : "EVENT",
-          "nodeId" : "at0002",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Any event"
-          },
-          "localizedDescriptions" : {
-            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-          },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]",
-          "children" : [ {
-            "id" : "skoliosis",
-            "name" : "Skoliosis",
-            "localizedName" : "Skoliosis",
-            "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0004",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Skoliosis"
-            },
-            "localizedDescriptions" : {
-              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
-            },
-            "annotations" : {
-              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Skoliosis']/value",
-            "inputs" : [ {
-              "suffix" : "code",
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "10828004",
-                "label" : "Positive",
-                "localizedLabels" : {
-                  "en" : ""
-                }
-              }, {
-                "value" : "260385009",
-                "label" : "Negative",
-                "localizedLabels" : {
-                  "en" : ""
-                }
-              } ],
-              "terminology" : "SNOMED-CT"
-            } ]
-          }, {
-            "id" : "time",
-            "name" : "Time",
-            "rmType" : "DV_DATE_TIME",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]/time",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ],
-            "inContext" : true
-          } ]
-        }, {
-          "id" : "language",
-          "name" : "Language",
-          "rmType" : "CODE_PHRASE",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/language",
-          "inContext" : true
-        }, {
-          "id" : "encoding",
-          "name" : "Encoding",
-          "rmType" : "CODE_PHRASE",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/encoding",
-          "inContext" : true
-        }, {
-          "id" : "subject",
-          "name" : "Subject",
-          "rmType" : "PARTY_PROXY",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/subject",
-          "inputs" : [ {
-            "suffix" : "id",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_scheme",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_namespace",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "name",
-            "type" : "TEXT"
-          } ],
-          "inContext" : true
-        } ]
-      }, {
         "id" : "pseudohipertrofi",
         "name" : "Pseudohipertrofi",
         "localizedName" : "Pseudohipertrofi",
@@ -2001,6 +1912,122 @@
           "min" : 1,
           "max" : 1,
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Pseudohipertrofi']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "skoliosis",
+        "name" : "Skoliosis",
+        "localizedName" : "Skoliosis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Skoliosis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "skoliosis",
+            "name" : "Skoliosis",
+            "localizedName" : "Skoliosis",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Skoliosis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Skoliosis']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "10828004",
+                "label" : "Positive",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "260385009",
+                "label" : "Negative",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kekuatan Otot']/items[openEHR-EHR-OBSERVATION.exam.v1,'Skoliosis']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"
@@ -3088,13 +3115,13 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "373066001",
+                "value" : "31874001",
                 "label" : "Ada (+)",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "373067005",
+                "value" : "64100000",
                 "label" : "Tidak Ada (-)",
                 "localizedLabels" : {
                   "en" : ""
@@ -3151,13 +3178,13 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "373066001",
+                "value" : "31874001",
                 "label" : "Ada (+)",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "373067005",
+                "value" : "64100000",
                 "label" : "Tidak Ada (-)",
                 "localizedLabels" : {
                   "en" : ""
@@ -3214,13 +3241,13 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "373066001",
+                "value" : "31874001",
                 "label" : "Ada (+)",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "373067005",
+                "value" : "64100000",
                 "label" : "Tidak Ada (-)",
                 "localizedLabels" : {
                   "en" : ""
@@ -3277,13 +3304,13 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "373066001",
+                "value" : "31874001",
                 "label" : "Ada (+)",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "373067005",
+                "value" : "64100000",
                 "label" : "Tidak Ada (-)",
                 "localizedLabels" : {
                   "en" : ""
@@ -3360,6 +3387,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
