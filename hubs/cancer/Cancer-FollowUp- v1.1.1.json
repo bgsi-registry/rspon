@@ -1313,6 +1313,27 @@
       },
       "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]",
       "children" : [ {
+        "id" : "penyebab_kematian",
+        "name" : "Penyebab Kematian",
+        "localizedName" : "Penyebab Kematian",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0010",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Penyebab Kematian"
+        },
+        "localizedDescriptions" : {
+          "en" : "Context or setting of the death."
+        },
+        "annotations" : {
+          "comment" : "It is recommended that 'Manner of death' be coded with an external terminology."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0010,'Penyebab Kematian']/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
         "id" : "status_vital_terakhir_diketahui",
         "name" : "Status Vital terakhir diketahui",
         "localizedName" : "Status Vital terakhir diketahui",
@@ -1344,27 +1365,6 @@
             }
           } ],
           "terminology" : "SNOMEDCT"
-        } ]
-      }, {
-        "id" : "penyebab_kematian",
-        "name" : "Penyebab Kematian",
-        "localizedName" : "Penyebab Kematian",
-        "rmType" : "DV_TEXT",
-        "nodeId" : "at0010",
-        "min" : 1,
-        "max" : 1,
-        "localizedNames" : {
-          "en" : "Penyebab Kematian"
-        },
-        "localizedDescriptions" : {
-          "en" : "Context or setting of the death."
-        },
-        "annotations" : {
-          "comment" : "It is recommended that 'Manner of death' be coded with an external terminology."
-        },
-        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0010,'Penyebab Kematian']/value",
-        "inputs" : [ {
-          "type" : "TEXT"
         } ]
       }, {
         "id" : "death_data",
@@ -1487,6 +1487,42 @@
           },
           "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]",
           "children" : [ {
+            "id" : "tempat_kematian_-_negara",
+            "name" : "Tempat Kematian - Negara",
+            "localizedName" : "Tempat Kematian - Negara",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tempat Kematian - Negara"
+            },
+            "localizedDescriptions" : {
+              "en" : "The country where a person  died"
+            },
+            "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0001,'Tempat Kematian - Negara']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "tempat_kematian_-_lokasi",
+            "name" : "Tempat Kematian - Lokasi",
+            "localizedName" : "Tempat Kematian - Lokasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tempat Kematian - Lokasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "The city/town/locality where a person died"
+            },
+            "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0003,'Tempat Kematian - Lokasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
             "id" : "sumber_status_vital_atau_metode_kontak_lainnya",
             "name" : "Sumber Status Vital atau Metode Kontak Lainnya",
             "localizedName" : "Sumber Status Vital atau Metode Kontak Lainnya",
@@ -1502,50 +1538,6 @@
             },
             "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0004,'Sumber Status Vital atau Metode Kontak Lainnya']/value",
             "inputs" : [ {
-              "type" : "TEXT"
-            } ]
-          }, {
-            "id" : "tempat_kematian_-_negara",
-            "name" : "Tempat Kematian - Negara",
-            "localizedName" : "Tempat Kematian - Negara",
-            "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0001",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Tempat Kematian - Negara"
-            },
-            "localizedDescriptions" : {
-              "en" : "The country where a person  died"
-            },
-            "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0001,'Tempat Kematian - Negara']/value",
-            "inputs" : [ {
-              "suffix" : "code",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "value",
-              "type" : "TEXT"
-            } ]
-          }, {
-            "id" : "tempat_kematian_-_lokasi",
-            "name" : "Tempat Kematian - Lokasi",
-            "localizedName" : "Tempat Kematian - Lokasi",
-            "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0003",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Tempat Kematian - Lokasi"
-            },
-            "localizedDescriptions" : {
-              "en" : "The city/town/locality where a person died"
-            },
-            "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0003,'Tempat Kematian - Lokasi']/value",
-            "inputs" : [ {
-              "suffix" : "code",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "value",
               "type" : "TEXT"
             } ]
           } ]
