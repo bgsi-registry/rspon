@@ -1,6 +1,6 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitus)-THT-v2",
-  "semVer" : "1.0.1",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "arthropometri",
       "name" : "Arthropometri",
@@ -894,7 +921,7 @@
                 "id" : "bersin_1_-_10",
                 "name" : "Bersin (1 - 10)",
                 "localizedName" : "Bersin (1 - 10)",
-                "rmType" : "DV_TEXT",
+                "rmType" : "DV_CODED_TEXT",
                 "nodeId" : "at0004",
                 "min" : 1,
                 "max" : 1,
@@ -909,7 +936,70 @@
                 },
                 "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kuisioner TNSS']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Bersin']/items[at0004,'Bersin (1 - 10)']/value",
                 "inputs" : [ {
-                  "type" : "TEXT"
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "1",
+                    "label" : "1",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "2",
+                    "label" : "2",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "3",
+                    "label" : "3",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "4",
+                    "label" : "4",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "5",
+                    "label" : "5",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "6",
+                    "label" : "6",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "7",
+                    "label" : "7",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "8",
+                    "label" : "8",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "9",
+                    "label" : "9",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "10",
+                    "label" : "10",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  } ],
+                  "terminology" : "local_terms110"
                 } ]
               } ]
             }, {
@@ -931,7 +1021,7 @@
                 "id" : "hidung_gatal_1_-_10",
                 "name" : "Hidung gatal (1 - 10)",
                 "localizedName" : "Hidung gatal (1 - 10)",
-                "rmType" : "DV_TEXT",
+                "rmType" : "DV_CODED_TEXT",
                 "nodeId" : "at0004",
                 "min" : 1,
                 "max" : 1,
@@ -946,7 +1036,70 @@
                 },
                 "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kuisioner TNSS']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Hidung gatal']/items[at0004,'Hidung gatal (1 - 10)']/value",
                 "inputs" : [ {
-                  "type" : "TEXT"
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "1",
+                    "label" : "1",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "2",
+                    "label" : "2",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "3",
+                    "label" : "3",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "4",
+                    "label" : "4",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "5",
+                    "label" : "5",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "6",
+                    "label" : "6",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "7",
+                    "label" : "7",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "8",
+                    "label" : "8",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "9",
+                    "label" : "9",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "10",
+                    "label" : "10",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  } ],
+                  "terminology" : "local_terms110"
                 } ]
               } ]
             }, {
@@ -968,7 +1121,7 @@
                 "id" : "ingus_encer_1_-_10",
                 "name" : "Ingus Encer (1 - 10)",
                 "localizedName" : "Ingus Encer (1 - 10)",
-                "rmType" : "DV_TEXT",
+                "rmType" : "DV_CODED_TEXT",
                 "nodeId" : "at0004",
                 "min" : 1,
                 "max" : 1,
@@ -983,7 +1136,70 @@
                 },
                 "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kuisioner TNSS']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Ingus Encer']/items[at0004,'Ingus Encer (1 - 10)']/value",
                 "inputs" : [ {
-                  "type" : "TEXT"
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "1",
+                    "label" : "1",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "2",
+                    "label" : "2",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "3",
+                    "label" : "3",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "4",
+                    "label" : "4",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "5",
+                    "label" : "5",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "6",
+                    "label" : "6",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "7",
+                    "label" : "7",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "8",
+                    "label" : "8",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "9",
+                    "label" : "9",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "10",
+                    "label" : "10",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  } ],
+                  "terminology" : "local_terms110"
                 } ]
               } ]
             }, {
@@ -1005,7 +1221,7 @@
                 "id" : "hidung_tersumbat_1_-_10",
                 "name" : "Hidung tersumbat (1 - 10)",
                 "localizedName" : "Hidung tersumbat (1 - 10)",
-                "rmType" : "DV_TEXT",
+                "rmType" : "DV_CODED_TEXT",
                 "nodeId" : "at0004",
                 "min" : 1,
                 "max" : 1,
@@ -1020,7 +1236,70 @@
                 },
                 "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kuisioner THT']/items[openEHR-EHR-SECTION.adhoc.v1,'Kuesioner TNSS']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kuisioner TNSS']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Hidung tersumbat']/items[at0004,'Hidung tersumbat (1 - 10)']/value",
                 "inputs" : [ {
-                  "type" : "TEXT"
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "1",
+                    "label" : "1",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "2",
+                    "label" : "2",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "3",
+                    "label" : "3",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "4",
+                    "label" : "4",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "5",
+                    "label" : "5",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "6",
+                    "label" : "6",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "7",
+                    "label" : "7",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "8",
+                    "label" : "8",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "9",
+                    "label" : "9",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "10",
+                    "label" : "10",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  } ],
+                  "terminology" : "local_terms110"
                 } ]
               } ]
             }, {
@@ -4163,7 +4442,7 @@
                   }
                 }, {
                   "value" : "1",
-                  "label" : "Defiasi",
+                  "label" : "Deviasi",
                   "localizedLabels" : {
                     "en" : ""
                   }
@@ -4451,6 +4730,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
