@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersDMD-riwayatMedis-v1",
-  "semVer" : "1.1.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "riwayat_penyakit",
       "name" : "Riwayat Penyakit",
@@ -266,15 +293,15 @@
                 } ]
               } ]
             }, {
-              "id" : "riwayat_penyakit_retardasi_mental_pasien",
-              "name" : "Riwayat Penyakit Retardasi Mental Pasien",
-              "localizedName" : "Riwayat Penyakit Retardasi Mental Pasien",
+              "id" : "riwayat_pasien_memiliki_penyakit_retardasi_mental",
+              "name" : "Riwayat pasien memiliki penyakit retardasi mental",
+              "localizedName" : "Riwayat pasien memiliki penyakit retardasi mental",
               "rmType" : "CLUSTER",
               "nodeId" : "at0008",
               "min" : 0,
               "max" : -1,
               "localizedNames" : {
-                "en" : "Riwayat Penyakit Retardasi Mental Pasien"
+                "en" : "Riwayat pasien memiliki penyakit retardasi mental"
               },
               "localizedDescriptions" : {
                 "en" : "Detail about problems or diagnoses for the family member."
@@ -282,17 +309,17 @@
               "annotations" : {
                 "comment" : "If more detail is required, suggest using EVALUATION.problem_diagnosis or the ACTION.procedure archetype and specifying the 'Subject of Care' as the family member, rather than the subject of the health record."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Riwayat Penyakit Retardasi Mental Pasien']",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Riwayat pasien memiliki penyakit retardasi mental']",
               "children" : [ {
-                "id" : "riwayat_penyakit_retardasi_mental_pasien",
-                "name" : "Riwayat Penyakit Retardasi Mental Pasien",
-                "localizedName" : "Riwayat Penyakit Retardasi Mental Pasien",
+                "id" : "riwayat_pasien_memiliki_penyakit_retardasi_mental",
+                "name" : "Riwayat pasien memiliki penyakit retardasi mental",
+                "localizedName" : "Riwayat pasien memiliki penyakit retardasi mental",
                 "rmType" : "DV_CODED_TEXT",
                 "nodeId" : "at0009",
                 "min" : 1,
                 "max" : 1,
                 "localizedNames" : {
-                  "en" : "Riwayat Penyakit Retardasi Mental Pasien"
+                  "en" : "Riwayat pasien memiliki penyakit retardasi mental"
                 },
                 "localizedDescriptions" : {
                   "en" : "Identification of the significant problem or diagnosis in the identified family member."
@@ -300,24 +327,125 @@
                 "annotations" : {
                   "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. May link from this data element to a detailed record of a Problem/Diagnosis using the EVALUATION.problem_diagnosis archetype with the Subject of Care set to the family member, not to the patient."
                 },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Riwayat Penyakit Retardasi Mental Pasien']/items[at0009,'Riwayat Penyakit Retardasi Mental Pasien']/value",
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Riwayat pasien memiliki penyakit retardasi mental']/items[at0009,'Riwayat pasien memiliki penyakit retardasi mental']/value",
                 "inputs" : [ {
                   "suffix" : "code",
                   "type" : "CODED_TEXT",
                   "list" : [ {
-                    "value" : "373066001",
-                    "label" : "Ada",
+                    "value" : "31874001",
+                    "label" : "Punya",
                     "localizedLabels" : {
                       "en" : ""
                     }
                   }, {
-                    "value" : "373067005",
+                    "value" : "64100000",
                     "label" : "Tidak",
                     "localizedLabels" : {
                       "en" : ""
                     }
                   } ],
                   "terminology" : "SNOMED-CT"
+                } ]
+              } ]
+            }, {
+              "id" : "anggota_keluarga_dengan_penyakit_sama",
+              "name" : "Anggota keluarga dengan penyakit sama",
+              "localizedName" : "Anggota keluarga dengan penyakit sama",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0008",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Anggota keluarga dengan penyakit sama"
+              },
+              "localizedDescriptions" : {
+                "en" : "Detail about problems or diagnoses for the family member."
+              },
+              "annotations" : {
+                "comment" : "If more detail is required, suggest using EVALUATION.problem_diagnosis or the ACTION.procedure archetype and specifying the 'Subject of Care' as the family member, rather than the subject of the health record."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Anggota keluarga dengan penyakit sama']",
+              "children" : [ {
+                "id" : "riwayat_anggota_keluarga_pasien_memiliki_penyakit_yang_sama",
+                "name" : "Riwayat anggota keluarga pasien memiliki penyakit yang sama",
+                "localizedName" : "Riwayat anggota keluarga pasien memiliki penyakit yang sama",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0009",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Riwayat anggota keluarga pasien memiliki penyakit yang sama"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of the significant problem or diagnosis in the identified family member."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. May link from this data element to a detailed record of a Problem/Diagnosis using the EVALUATION.problem_diagnosis archetype with the Subject of Care set to the family member, not to the patient."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Anggota keluarga dengan penyakit sama']/items[at0009,'Riwayat anggota keluarga pasien memiliki penyakit yang sama']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "31874001",
+                    "label" : "Punya",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  }, {
+                    "value" : "64100000",
+                    "label" : "Tidak",
+                    "localizedLabels" : {
+                      "en" : ""
+                    }
+                  } ],
+                  "terminology" : "SNOMED-CT"
+                } ]
+              } ]
+            }, {
+              "id" : "jika_anggota_keluarga_dengan_penyakit_sama_ada",
+              "name" : "Jika Anggota keluarga dengan penyakit sama == Ada",
+              "localizedName" : "Jika Anggota keluarga dengan penyakit sama == Ada",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0008",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Jika Anggota keluarga dengan penyakit sama == Ada"
+              },
+              "localizedDescriptions" : {
+                "en" : "Detail about problems or diagnoses for the family member."
+              },
+              "annotations" : {
+                "comment" : "If more detail is required, suggest using EVALUATION.problem_diagnosis or the ACTION.procedure archetype and specifying the 'Subject of Care' as the family member, rather than the subject of the health record."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Jika Anggota keluarga dengan penyakit sama == Ada']",
+              "children" : [ {
+                "id" : "nama_penyakit",
+                "name" : "Nama penyakit",
+                "localizedName" : "Nama penyakit",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0009",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Nama penyakit"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of the significant problem or diagnosis in the identified family member."
+                },
+                "annotations" : {
+                  "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. May link from this data element to a detailed record of a Problem/Diagnosis using the EVALUATION.problem_diagnosis archetype with the Subject of Care set to the family member, not to the patient."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Pasien']/items[at0008,'Jika Anggota keluarga dengan penyakit sama == Ada']/items[at0009,'Nama penyakit']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "TEXT",
+                  "terminology" : "ICD10"
+                }, {
+                  "suffix" : "value",
+                  "type" : "TEXT",
+                  "terminology" : "ICD10"
                 } ]
               } ]
             } ]
@@ -345,7 +473,7 @@
               "localizedName" : "Hubungan Keluarga",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0016",
-              "min" : 1,
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
                 "en" : "Hubungan Keluarga"
@@ -364,159 +492,22 @@
               "id" : "pedigree_3_generasi",
               "name" : "Pedigree 3 generasi",
               "localizedName" : "Pedigree 3 generasi",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0064",
-              "min" : 1,
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0020",
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
                 "en" : "Pedigree 3 generasi"
               },
               "localizedDescriptions" : {
-                "en" : "The degree of relationship between the subject of care and the family member."
+                "en" : "An alternative name or label to uniquely identify a family member, without using a personal name which might publicly identify the individual."
               },
               "annotations" : {
-                "comment" : "If the 'Relationship' data element uses pre-coordinated terms that include the degree of relationship, then this data element is redundant."
+                "comment" : "To be used to assist in distinguishing one individual from multiple family members with identical relationships. For example, the label to distinguish one specific sister from three known sisters might be 'eldest sister' 'sister with the red hair' or 'sister #1'."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Anggota Keluarga Lainnya']/items[at0064,'Pedigree 3 generasi']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Anggota Keluarga Lainnya']/items[at0020,'Pedigree 3 generasi']/value",
               "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0065",
-                  "label" : "First degree relative",
-                  "localizedLabels" : {
-                    "en" : "First degree relative"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : "50% genetic share with the subject - for example, parent, sibling or child."
-                  }
-                }, {
-                  "value" : "at0066",
-                  "label" : "Second degree relative",
-                  "localizedLabels" : {
-                    "en" : "Second degree relative"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : "25% genetic share with the subject - for example, grandparent, aunt, uncle, niece, nephew, grandchildren and half siblings."
-                  }
-                }, {
-                  "value" : "at0067",
-                  "label" : "Third degree relative",
-                  "localizedLabels" : {
-                    "en" : "Third degree relative"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : "12.5% genetic share with the subject - for example, great grandparent, great aunt, great uncle, first cousin, children of nieces and nephews, and great grandchildren."
-                  }
-                } ]
-              } ]
-            }, {
-              "id" : "riwayat_penyakit_retardasi_mental_keluarga",
-              "name" : "Riwayat Penyakit Retardasi Mental Keluarga",
-              "localizedName" : "Riwayat Penyakit Retardasi Mental Keluarga",
-              "rmType" : "CLUSTER",
-              "nodeId" : "at0008",
-              "min" : 0,
-              "max" : -1,
-              "localizedNames" : {
-                "en" : "Riwayat Penyakit Retardasi Mental Keluarga"
-              },
-              "localizedDescriptions" : {
-                "en" : "Detail about problems or diagnoses for the family member."
-              },
-              "annotations" : {
-                "comment" : "If more detail is required, suggest using EVALUATION.problem_diagnosis or the ACTION.procedure archetype and specifying the 'Subject of Care' as the family member, rather than the subject of the health record."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Anggota Keluarga Lainnya']/items[at0008,'Riwayat Penyakit Retardasi Mental Keluarga']",
-              "children" : [ {
-                "id" : "riwayat_penyakit_retardasi_mental_keluarga",
-                "name" : "Riwayat Penyakit Retardasi Mental Keluarga",
-                "localizedName" : "Riwayat Penyakit Retardasi Mental Keluarga",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "at0009",
-                "min" : 1,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Riwayat Penyakit Retardasi Mental Keluarga"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Identification of the significant problem or diagnosis in the identified family member."
-                },
-                "annotations" : {
-                  "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. May link from this data element to a detailed record of a Problem/Diagnosis using the EVALUATION.problem_diagnosis archetype with the Subject of Care set to the family member, not to the patient."
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Anggota Keluarga Lainnya']/items[at0008,'Riwayat Penyakit Retardasi Mental Keluarga']/items[at0009,'Riwayat Penyakit Retardasi Mental Keluarga']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "373066001",
-                    "label" : "Ada",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  }, {
-                    "value" : "373067005",
-                    "label" : "Tidak",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  } ],
-                  "terminology" : "SNOMED-CT"
-                } ]
-              } ]
-            }, {
-              "id" : "jika_anggota_keluarga_dengan_penyakit_sama_ada",
-              "name" : "Jika Anggota keluarga dengan penyakit sama == Ada",
-              "localizedName" : "Jika Anggota keluarga dengan penyakit sama == Ada",
-              "rmType" : "CLUSTER",
-              "nodeId" : "at0008",
-              "min" : 0,
-              "max" : -1,
-              "localizedNames" : {
-                "en" : "Jika Anggota keluarga dengan penyakit sama == Ada"
-              },
-              "localizedDescriptions" : {
-                "en" : "Detail about problems or diagnoses for the family member."
-              },
-              "annotations" : {
-                "comment" : "If more detail is required, suggest using EVALUATION.problem_diagnosis or the ACTION.procedure archetype and specifying the 'Subject of Care' as the family member, rather than the subject of the health record."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Anggota Keluarga Lainnya']/items[at0008,'Jika Anggota keluarga dengan penyakit sama == Ada']",
-              "children" : [ {
-                "id" : "nama_penyakit",
-                "name" : "Nama penyakit",
-                "localizedName" : "Nama penyakit",
-                "rmType" : "DV_CODED_TEXT",
-                "nodeId" : "at0009",
-                "min" : 1,
-                "max" : 1,
-                "localizedNames" : {
-                  "en" : "Nama penyakit"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Identification of the significant problem or diagnosis in the identified family member."
-                },
-                "annotations" : {
-                  "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. May link from this data element to a detailed record of a Problem/Diagnosis using the EVALUATION.problem_diagnosis archetype with the Subject of Care set to the family member, not to the patient."
-                },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-SECTION.family_history.v0]/items[openEHR-EHR-EVALUATION.family_history.v2]/data[at0001]/items[at0003,'Riwayat Penyakit Anggota Keluarga Lainnya']/items[at0008,'Jika Anggota keluarga dengan penyakit sama == Ada']/items[at0009,'Nama penyakit']/value",
-                "inputs" : [ {
-                  "suffix" : "code",
-                  "type" : "CODED_TEXT",
-                  "list" : [ {
-                    "value" : "Z13.3",
-                    "label" : "Mental retardation",
-                    "localizedLabels" : {
-                      "en" : ""
-                    }
-                  } ],
-                  "listOpen" : true,
-                  "terminology" : "ICD10"
-                }, {
-                  "suffix" : "other",
-                  "type" : "TEXT"
-                } ]
+                "type" : "TEXT"
               } ]
             } ]
           }, {
@@ -631,7 +622,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -667,7 +658,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -768,7 +759,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -804,7 +795,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -905,7 +896,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -941,7 +932,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -1042,7 +1033,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -1078,7 +1069,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -1179,7 +1170,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -1215,7 +1206,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -1316,7 +1307,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -1352,7 +1343,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -1453,7 +1444,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -1489,7 +1480,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -1590,7 +1581,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -1626,7 +1617,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -1727,7 +1718,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -1763,7 +1754,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -1864,7 +1855,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -1900,7 +1891,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -2001,7 +1992,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -2037,7 +2028,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -2138,7 +2129,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -2174,7 +2165,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -2275,7 +2266,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -2311,7 +2302,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -2412,7 +2403,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -2448,7 +2439,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -2549,7 +2540,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -2585,7 +2576,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -2686,7 +2677,7 @@
           "localizedName" : "Status pemberian vaksin",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status pemberian vaksin"
@@ -2722,7 +2713,7 @@
           "localizedName" : "Usia diberikan vaksin (Tahun)",
           "rmType" : "DV_TEXT",
           "nodeId" : "at0049",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia diberikan vaksin (Tahun)"
@@ -2822,99 +2813,6 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]",
           "children" : [ {
-            "id" : "riwayat_minum_steroid",
-            "name" : "Riwayat minum steroid",
-            "localizedName" : "Riwayat minum steroid",
-            "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0027",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Riwayat minum steroid"
-            },
-            "localizedDescriptions" : {
-              "en" : "Is there a history of use of any medication related to the screening purpose?"
-            },
-            "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0027,'Riwayat minum steroid']/value",
-            "inputs" : [ {
-              "suffix" : "code",
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "373066001",
-                "label" : "Ya",
-                "localizedLabels" : {
-                  "en" : ""
-                }
-              }, {
-                "value" : "373067005",
-                "label" : "Tidak",
-                "localizedLabels" : {
-                  "en" : ""
-                }
-              } ],
-              "terminology" : "SNOMED-CT"
-            } ]
-          }, {
-            "id" : "riwayat_minum_obat_jantung",
-            "name" : "Riwayat minum obat jantung",
-            "localizedName" : "Riwayat minum obat jantung",
-            "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0027",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Riwayat minum obat jantung"
-            },
-            "localizedDescriptions" : {
-              "en" : "Is there a history of use of any medication related to the screening purpose?"
-            },
-            "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0027,'Riwayat minum obat jantung']/value",
-            "inputs" : [ {
-              "suffix" : "code",
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "373066001",
-                "label" : "Ya",
-                "localizedLabels" : {
-                  "en" : ""
-                }
-              }, {
-                "value" : "373067005",
-                "label" : "Tidak",
-                "localizedLabels" : {
-                  "en" : ""
-                }
-              } ],
-              "terminology" : "SNOMED-CT"
-            } ]
-          }, {
-            "id" : "riwayat_obat_lain",
-            "name" : "Riwayat obat lain",
-            "localizedName" : "Riwayat obat lain",
-            "rmType" : "DV_TEXT",
-            "nodeId" : "at0027",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Riwayat obat lain"
-            },
-            "localizedDescriptions" : {
-              "en" : "Is there a history of use of any medication related to the screening purpose?"
-            },
-            "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0027,'Riwayat obat lain']/value",
-            "inputs" : [ {
-              "type" : "TEXT"
-            } ]
-          }, {
             "id" : "steroid",
             "name" : "Steroid",
             "localizedName" : "Steroid",
@@ -2933,15 +2831,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']",
             "children" : [ {
-              "id" : "nama_obat_steroid",
-              "name" : "Nama Obat Steroid",
-              "localizedName" : "Nama Obat Steroid",
-              "rmType" : "DV_TEXT",
+              "id" : "riwayat_minum_steroid",
+              "name" : "Riwayat minum steroid",
+              "localizedName" : "Riwayat minum steroid",
+              "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0021",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Nama Obat Steroid"
+                "en" : "Riwayat minum steroid"
               },
               "localizedDescriptions" : {
                 "en" : "Name of medication or grouping of medication."
@@ -2949,7 +2847,43 @@
               "annotations" : {
                 "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']/items[at0021,'Nama Obat Steroid']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']/items[at0021,'Riwayat minum steroid']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "31874001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                }, {
+                  "value" : "64100000",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : ""
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "nama_obat_steroid",
+              "name" : "Nama Obat Steroid",
+              "localizedName" : "Nama Obat Steroid",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama Obat Steroid"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']/items[at0024,'Nama Obat Steroid']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -2977,7 +2911,7 @@
                 "localizedName" : "Dosis Obat Steroid",
                 "rmType" : "DV_QUANTITY",
                 "nodeId" : "at0144",
-                "min" : 1,
+                "min" : 0,
                 "max" : 1,
                 "localizedNames" : {
                   "en" : "Dosis Obat Steroid"
@@ -3017,15 +2951,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']",
             "children" : [ {
-              "id" : "nama_obat_jantung",
-              "name" : "Nama Obat jantung",
-              "localizedName" : "Nama Obat jantung",
+              "id" : "riwayat_minum_obat_jantung",
+              "name" : "Riwayat minum obat jantung",
+              "localizedName" : "Riwayat minum obat jantung",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0021",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Nama Obat jantung"
+                "en" : "Riwayat minum obat jantung"
               },
               "localizedDescriptions" : {
                 "en" : "Name of medication or grouping of medication."
@@ -3033,7 +2967,28 @@
               "annotations" : {
                 "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']/items[at0021,'Nama Obat jantung']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']/items[at0021,'Riwayat minum obat jantung']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "nama_obat_jantung",
+              "name" : "Nama Obat jantung",
+              "localizedName" : "Nama Obat jantung",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama Obat jantung"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']/items[at0024,'Nama Obat jantung']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -3061,7 +3016,7 @@
                 "localizedName" : "Dosis Obat Jantung",
                 "rmType" : "DV_QUANTITY",
                 "nodeId" : "at0144",
-                "min" : 1,
+                "min" : 0,
                 "max" : 1,
                 "localizedNames" : {
                   "en" : "Dosis Obat Jantung"
@@ -3081,6 +3036,31 @@
                   "type" : "CODED_TEXT"
                 } ]
               } ]
+            } ]
+          }, {
+            "id" : "riwayat_obat_lain",
+            "name" : "Riwayat obat lain",
+            "localizedName" : "Riwayat obat lain",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0027",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Riwayat obat lain"
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of use of any medication related to the screening purpose?"
+            },
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0027,'Riwayat obat lain']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "value",
+              "type" : "TEXT"
             } ]
           }, {
             "id" : "time",
@@ -3238,7 +3218,7 @@
               "localizedName" : "Tahun operasi",
               "rmType" : "DV_DATE_TIME",
               "nodeId" : "at0037",
-              "min" : 1,
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
                 "en" : "Tahun operasi"
@@ -3262,7 +3242,7 @@
               "localizedName" : "Tempat operasi",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0025",
-              "min" : 1,
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
                 "en" : "Tempat operasi"
@@ -3332,7 +3312,7 @@
               "localizedName" : "Tahun terdiagnosis kardiomiopati",
               "rmType" : "DV_DATE_TIME",
               "nodeId" : "at0037",
-              "min" : 1,
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
                 "en" : "Tahun terdiagnosis kardiomiopati"
@@ -3394,6 +3374,7 @@
                     "en" : ""
                   }
                 } ],
+                "defaultValue" : "722138006",
                 "terminology" : "SNOMED-CT"
               } ]
             }, {
@@ -3476,6 +3457,7 @@
                     "en" : ""
                   }
                 } ],
+                "defaultValue" : "1",
                 "terminology" : "local_termsol"
               } ]
             }, {
@@ -3543,6 +3525,7 @@
                     "en" : ""
                   }
                 } ],
+                "defaultValue" : "1",
                 "terminology" : "local_termsalatbantu"
               } ]
             }, {
@@ -3610,6 +3593,7 @@
                     "en" : ""
                   }
                 } ],
+                "defaultValue" : "1",
                 "terminology" : "local_termsbotot"
               } ]
             }, {
@@ -3764,7 +3748,7 @@
               "localizedName" : "Nama mutasi berdasarkan HGVS",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0005",
-              "min" : 1,
+              "min" : 0,
               "max" : 1,
               "localizedNames" : {
                 "en" : "Nama mutasi berdasarkan HGVS"
@@ -3958,6 +3942,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
