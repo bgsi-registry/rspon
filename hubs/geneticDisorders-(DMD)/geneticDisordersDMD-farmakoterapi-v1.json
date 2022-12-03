@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersDMD-farmakoterapi-v1",
-  "semVer" : "0.1.0",
+  "semVer" : "1.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "farmakoterapi",
       "name" : "Farmakoterapi",
@@ -111,7 +138,13 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Farmakoterapi']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/data[at0022]/events[at0023]/data[at0001]/items[at0026]/items[at0021,'Nama Obat']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "TEXT",
+                "list" : [ {
+                  "value" : "Tidak ada pengobatan",
+                  "label" : "Tidak ada pengobatan"
+                } ],
+                "listOpen" : true,
+                "defaultValue" : "Tidak ada pengobatan"
               } ]
             }, {
               "id" : "mulai_tanggal",
@@ -134,7 +167,7 @@
               "inputs" : [ {
                 "type" : "DATETIME",
                 "validation" : {
-                  "pattern" : "yyyy-mm-ddT??:??:XX"
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
                 }
               } ]
             }, {
@@ -158,7 +191,7 @@
               "inputs" : [ {
                 "type" : "DATETIME",
                 "validation" : {
-                  "pattern" : "yyyy-mm-ddT??:??:XX"
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
                 }
               } ]
             }, {
@@ -311,6 +344,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
