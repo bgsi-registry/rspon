@@ -1,19 +1,19 @@
 {
   "templateId" : "Cancer-FollowUp- v1.1.1",
-  "semVer" : "1.1.1",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
   "tree" : {
-    "id" : "cancer-followup-_v1.1.1",
-    "name" : "Cancer-FollowUp- v1.1.1",
-    "localizedName" : "Cancer-FollowUp- v1.1.1",
+    "id" : "cancer-followup-v1.1.1",
+    "name" : "Cancer-FollowUp-v1.1.1",
+    "localizedName" : "Cancer-FollowUp-v1.1.1",
     "rmType" : "COMPOSITION",
     "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
     "min" : 1,
     "max" : 1,
     "localizedNames" : {
-      "en" : "Cancer-FollowUp- v1.1.1"
+      "en" : "Cancer-FollowUp-v1.1.1"
     },
     "localizedDescriptions" : {
       "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "follow_up_5x_6_bulan_1_tahun_2_tahun_3_tahun_4_tahun",
       "name" : "Follow up (5x; 6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)",
@@ -99,7 +126,92 @@
                   "en" : ""
                 }
               } ],
+              "defaultValue" : "0",
               "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "jumlah_metastasis",
+            "name" : "Jumlah Metastasis",
+            "localizedName" : "Jumlah Metastasis",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0152",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jumlah Metastasis"
+            },
+            "localizedDescriptions" : {
+              "en" : "The clinical reason for the ordered therapy."
+            },
+            "annotations" : {
+              "comment" : "Coding of the clinical indication with a terminology is preferred, where possible. This data element allows multiple occurrences. For example: 'Sprained ankle' or 'Type 1 Diabetes mellitus'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Follow up (5x; 6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001]/description[at0009]/items[at0152,'Jumlah Metastasis']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "5",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "6",
+                "label" : "6",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "7",
+                "label" : "7",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "8",
+                "label" : "8",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "9",
+                "label" : "9",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "10",
+                "label" : "10",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_termsMetas"
             } ]
           }, {
             "id" : "terapi_ke",
@@ -469,19 +581,19 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "31874001",
                 "label" : "Ya",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "1",
+                "value" : "64100000",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "tanggal_kemoterapi_sesuai_jadwal",
@@ -502,7 +614,10 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Kemoterapi']/description[at0009]/items[at0145,'Tanggal Kemoterapi sesuai jadwal']/value",
             "inputs" : [ {
-              "type" : "DATETIME"
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
@@ -568,19 +683,19 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "31874001",
                 "label" : "Ya",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "1",
+                "value" : "64100000",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "tanggal_radiasi_sesuai_jadwal",
@@ -601,7 +716,10 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Radiasi Eksternal']/description[at0009]/items[at0040,'Tanggal Radiasi sesuai jadwal']/value",
             "inputs" : [ {
-              "type" : "DATETIME"
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
@@ -667,19 +785,19 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "31874001",
                 "label" : "Ya",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "1",
+                "value" : "64100000",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "jenis_operasi",
@@ -787,19 +905,19 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "31874001",
                 "label" : "Ya",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "1",
+                "value" : "64100000",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "tanggal_mulai_targeting_terapi",
@@ -820,7 +938,10 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Targeting Terapi']/description[at0009]/items[at0145,'Tanggal mulai targeting terapi']/value",
             "inputs" : [ {
-              "type" : "DATETIME"
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
@@ -886,19 +1007,19 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "31874001",
                 "label" : "Ya",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "1",
+                "value" : "64100000",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "tanggal_mulai_hormonal_terapi",
@@ -919,7 +1040,10 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Hormonal Terapi']/description[at0009]/items[at0145,'Tanggal mulai hormonal terapi']/value",
             "inputs" : [ {
-              "type" : "DATETIME"
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
@@ -985,19 +1109,19 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "31874001",
                 "label" : "Ya",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "1",
+                "value" : "64100000",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "timing",
@@ -1081,7 +1205,10 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Terapi Kuratif lainnya']/description[at0009]/items[at0145,'Tanggal mulai terapi']/value",
             "inputs" : [ {
-              "type" : "DATETIME"
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
@@ -1225,19 +1352,19 @@
           "suffix" : "code",
           "type" : "CODED_TEXT",
           "list" : [ {
-            "value" : "0",
+            "value" : "419620001",
             "label" : "Meninggal",
             "localizedLabels" : {
               "en" : ""
             }
           }, {
-            "value" : "1",
+            "value" : "438949009",
             "label" : "Hidup",
             "localizedLabels" : {
               "en" : ""
             }
           } ],
-          "terminology" : "local_terms"
+          "terminology" : "SNOMEDCT"
         } ]
       }, {
         "id" : "death_data",
@@ -1270,7 +1397,10 @@
           },
           "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[at0001,'Tanggal Meninggal']/value",
           "inputs" : [ {
-            "type" : "DATE"
+            "type" : "DATE",
+            "validation" : {
+              "pattern" : "yyyy-mm-dd"
+            }
           } ]
         }, {
           "id" : "sumber_status_vital_atau_metode_kontak",
@@ -1360,7 +1490,7 @@
             "id" : "tempat_kematian_-_negara",
             "name" : "Tempat Kematian - Negara",
             "localizedName" : "Tempat Kematian - Negara",
-            "rmType" : "DV_CODED_TEXT",
+            "rmType" : "DV_TEXT",
             "nodeId" : "at0001",
             "min" : 1,
             "max" : 1,
@@ -1372,17 +1502,13 @@
             },
             "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0001,'Tempat Kematian - Negara']/value",
             "inputs" : [ {
-              "suffix" : "code",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "value",
               "type" : "TEXT"
             } ]
           }, {
             "id" : "tempat_kematian_-_lokasi",
             "name" : "Tempat Kematian - Lokasi",
             "localizedName" : "Tempat Kematian - Lokasi",
-            "rmType" : "DV_CODED_TEXT",
+            "rmType" : "DV_TEXT",
             "nodeId" : "at0003",
             "min" : 1,
             "max" : 1,
@@ -1394,10 +1520,24 @@
             },
             "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0003,'Tempat Kematian - Lokasi']/value",
             "inputs" : [ {
-              "suffix" : "code",
               "type" : "TEXT"
-            }, {
-              "suffix" : "value",
+            } ]
+          }, {
+            "id" : "sumber_status_vital_atau_metode_kontak_lainnya",
+            "name" : "Sumber Status Vital atau Metode Kontak Lainnya",
+            "localizedName" : "Sumber Status Vital atau Metode Kontak Lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Sumber Status Vital atau Metode Kontak Lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "The number of the death certificate"
+            },
+            "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0004,'Sumber Status Vital atau Metode Kontak Lainnya']/value",
+            "inputs" : [ {
               "type" : "TEXT"
             } ]
           } ]
@@ -1439,19 +1579,19 @@
             "suffix" : "code",
             "type" : "CODED_TEXT",
             "list" : [ {
-              "value" : "0",
+              "value" : "31874001",
               "label" : "Ya",
               "localizedLabels" : {
                 "en" : ""
               }
             }, {
-              "value" : "1",
+              "value" : "64100000",
               "label" : "Tidak",
               "localizedLabels" : {
                 "en" : ""
               }
             } ],
-            "terminology" : "local_terms"
+            "terminology" : "SNOMEDCT"
           } ]
         }, {
           "id" : "informasi_kontak_terbaru_alamat",
@@ -1726,6 +1866,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
