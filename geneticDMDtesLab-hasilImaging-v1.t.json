@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "e96e395aa940346b622b2d3de5a0f9b0",
+      "MD5-CAM-1.0.1" : "21667417999cccb50b20f953e3ec314f",
       "PARENT:MD5-CAM-1.0.1" : "60DD7069B50AAF5B394E3F246F80BCB5",
-      "sem_ver" : "0.1.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "3df0e08a-1900-4f25-87b5-40f956803658"
     },
     "details" : {
@@ -98,7 +98,7 @@
           "children" : [ {
             "@type" : "C_COMPLEX_OBJECT",
             "rmTypeName" : "EVENT",
-            "nodeId" : "at0002",
+            "nodeId" : "at0002.1",
             "attributes" : [ {
               "@type" : "C_ATTRIBUTE",
               "rmAttributeName" : "data",
@@ -110,6 +110,52 @@
                   "@type" : "C_ATTRIBUTE",
                   "rmAttributeName" : "items",
                   "children" : [ {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0004.1",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_CODED_TEXT",
+                        "occurrences" : "1..1",
+                        "defaultValue" : {
+                          "defining_code" : {
+                            "terminology_id" : {
+                              "value" : "SNOMEDCT",
+                              "@type" : "TERMINOLOGY_ID"
+                            },
+                            "code_string" : "52250000",
+                            "@type" : "CODE_PHRASE"
+                          },
+                          "value" : "X-Ray",
+                          "@type" : "DV_CODED_TEXT"
+                        },
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "defining_code",
+                          "children" : [ {
+                            "@type" : "C_TERMINOLOGY_CODE",
+                            "rmTypeName" : "TERMINOLOGY_CODE",
+                            "occurrences" : "0..1",
+                            "terminologyId" : {
+                              "value" : "SNOMEDCT"
+                            },
+                            "constraint" : [ ],
+                            "selectedTerminologies" : [ "SNOMEDCT" ],
+                            "includedExternalTerminologyCodes" : [ {
+                              "terminologyId" : "SNOMEDCT",
+                              "code" : "52250000",
+                              "value" : "X-Ray"
+                            } ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
                     "@type" : "C_COMPLEX_OBJECT",
                     "rmTypeName" : "ELEMENT",
                     "occurrences" : "0..0",
@@ -127,35 +173,49 @@
                     "@type" : "C_COMPLEX_OBJECT",
                     "rmTypeName" : "ELEMENT",
                     "nodeId" : "at0070.1",
-                    "attributes" : [ ],
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_DATE_TIME",
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "value",
+                          "children" : [ {
+                            "@type" : "C_DATE_TIME",
+                            "rmTypeName" : "DATE_TIME",
+                            "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                            "constraint" : [ ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
                     "attributeTuples" : [ ]
                   }, {
                     "@type" : "C_COMPLEX_OBJECT",
                     "rmTypeName" : "ELEMENT",
-                    "occurrences" : "0..0",
                     "nodeId" : "at0072.1",
                     "attributes" : [ {
                       "@type" : "C_ATTRIBUTE",
                       "rmAttributeName" : "value",
                       "children" : [ {
                         "@type" : "C_COMPLEX_OBJECT",
-                        "rmTypeName" : "DV_CODED_TEXT",
-                        "attributes" : [ {
-                          "@type" : "C_ATTRIBUTE",
-                          "rmAttributeName" : "defining_code",
-                          "children" : [ {
-                            "@type" : "C_TERMINOLOGY_CODE",
-                            "rmTypeName" : "TERMINOLOGY_CODE",
-                            "occurrences" : "1..1",
-                            "terminologyId" : {
-                              "value" : "local"
-                            },
-                            "constraint" : [ "ac0.4" ],
-                            "selectedTerminologies" : [ ]
-                          } ]
-                        } ],
+                        "rmTypeName" : "DV_TEXT",
+                        "attributes" : [ ],
                         "attributeTuples" : [ ]
-                      }, {
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0072.2",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
                         "@type" : "C_COMPLEX_OBJECT",
                         "rmTypeName" : "DV_TEXT",
                         "attributes" : [ ],
@@ -273,6 +333,548 @@
                     "rmTypeName" : "ELEMENT",
                     "occurrences" : "0..0",
                     "nodeId" : "at0108.1",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  } ]
+                } ],
+                "attributeTuples" : [ ]
+              } ]
+            } ],
+            "attributeTuples" : [ ]
+          }, {
+            "@type" : "C_COMPLEX_OBJECT",
+            "rmTypeName" : "EVENT",
+            "nodeId" : "at0002.2",
+            "attributes" : [ {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "data",
+              "children" : [ {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "ITEM_TREE",
+                "nodeId" : "at0003",
+                "attributes" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "items",
+                  "children" : [ {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0004.2",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_CODED_TEXT",
+                        "occurrences" : "1..1",
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "defining_code",
+                          "children" : [ {
+                            "@type" : "C_TERMINOLOGY_CODE",
+                            "rmTypeName" : "TERMINOLOGY_CODE",
+                            "occurrences" : "0..1",
+                            "terminologyId" : {
+                              "value" : "SNOMEDCT"
+                            },
+                            "constraint" : [ ],
+                            "selectedTerminologies" : [ "SNOMEDCT" ],
+                            "includedExternalTerminologyCodes" : [ {
+                              "terminologyId" : "SNOMEDCT",
+                              "code" : "77477000",
+                              "value" : "CT Scan"
+                            }, {
+                              "terminologyId" : "SNOMEDCT",
+                              "code" : "113091000",
+                              "value" : "MRI"
+                            } ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0091.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0055.2",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_CODED_TEXT",
+                        "occurrences" : "1..1",
+                        "defaultValue" : {
+                          "defining_code" : {
+                            "terminology_id" : {
+                              "value" : "SNOMEDCT",
+                              "@type" : "TERMINOLOGY_ID"
+                            },
+                            "code_string" : "12738006",
+                            "@type" : "CODE_PHRASE"
+                          },
+                          "value" : "Otak",
+                          "@type" : "DV_CODED_TEXT"
+                        },
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "defining_code",
+                          "children" : [ {
+                            "@type" : "C_TERMINOLOGY_CODE",
+                            "rmTypeName" : "TERMINOLOGY_CODE",
+                            "occurrences" : "0..1",
+                            "terminologyId" : {
+                              "value" : "SNOMEDCT"
+                            },
+                            "constraint" : [ ],
+                            "selectedTerminologies" : [ "SNOMEDCT" ],
+                            "includedExternalTerminologyCodes" : [ {
+                              "terminologyId" : "SNOMEDCT",
+                              "code" : "12738006",
+                              "value" : "Otak"
+                            } ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0070.2",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_DATE_TIME",
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "value",
+                          "children" : [ {
+                            "@type" : "C_DATE_TIME",
+                            "rmTypeName" : "DATE_TIME",
+                            "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                            "constraint" : [ ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0072.3",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_TEXT",
+                        "attributes" : [ ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0072.4",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_TEXT",
+                        "attributes" : [ ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0071.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0061.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0014.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0008.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0056.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0063.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0057.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0021.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0058.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0020.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0059.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0023.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  } ]
+                } ],
+                "attributeTuples" : [ ]
+              } ]
+            }, {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "state",
+              "children" : [ {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "ITEM_TREE",
+                "nodeId" : "at0047",
+                "attributes" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "items",
+                  "children" : [ {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0048.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0108.2",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  } ]
+                } ],
+                "attributeTuples" : [ ]
+              } ]
+            } ],
+            "attributeTuples" : [ ]
+          }, {
+            "@type" : "C_COMPLEX_OBJECT",
+            "rmTypeName" : "EVENT",
+            "nodeId" : "at0002.3",
+            "attributes" : [ {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "data",
+              "children" : [ {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "ITEM_TREE",
+                "nodeId" : "at0003",
+                "attributes" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "items",
+                  "children" : [ {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0004.3",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_CODED_TEXT",
+                        "occurrences" : "1..1",
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "defining_code",
+                          "children" : [ {
+                            "@type" : "C_TERMINOLOGY_CODE",
+                            "rmTypeName" : "TERMINOLOGY_CODE",
+                            "occurrences" : "0..1",
+                            "terminologyId" : {
+                              "value" : "SNOMEDCT"
+                            },
+                            "constraint" : [ ],
+                            "selectedTerminologies" : [ "SNOMEDCT" ],
+                            "includedExternalTerminologyCodes" : [ {
+                              "terminologyId" : "SNOMEDCT",
+                              "code" : "77477000",
+                              "value" : "CT Scan"
+                            }, {
+                              "terminologyId" : "SNOMEDCT",
+                              "code" : "113091000",
+                              "value" : "MRI"
+                            } ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0091.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0055.3",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_CODED_TEXT",
+                        "occurrences" : "1..1",
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "defining_code",
+                          "children" : [ {
+                            "@type" : "C_TERMINOLOGY_CODE",
+                            "rmTypeName" : "TERMINOLOGY_CODE",
+                            "occurrences" : "0..1",
+                            "terminologyId" : {
+                              "value" : "SNOMEDCT"
+                            },
+                            "constraint" : [ ],
+                            "selectedTerminologies" : [ "SNOMEDCT" ],
+                            "includedExternalTerminologyCodes" : [ {
+                              "terminologyId" : "SNOMEDCT",
+                              "code" : "71616004",
+                              "value" : "Otot"
+                            } ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0070.3",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_DATE_TIME",
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "value",
+                          "children" : [ {
+                            "@type" : "C_DATE_TIME",
+                            "rmTypeName" : "DATE_TIME",
+                            "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                            "constraint" : [ ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0072.5",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_TEXT",
+                        "attributes" : [ ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "nodeId" : "at0072.6",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_TEXT",
+                        "attributes" : [ ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0071.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0061.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0014.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0008.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0056.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0063.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0057.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0021.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0058.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0020.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0059.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0023.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  } ]
+                } ],
+                "attributeTuples" : [ ]
+              } ]
+            }, {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "state",
+              "children" : [ {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "ITEM_TREE",
+                "nodeId" : "at0047",
+                "attributes" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "items",
+                  "children" : [ {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0048.3",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0108.3",
                     "attributes" : [ ],
                     "attributeTuples" : [ ]
                   } ]
@@ -517,6 +1119,9 @@
                   "children" : [ {
                     "@type" : "C_COMPLEX_OBJECT",
                     "rmTypeName" : "DV_IDENTIFIER",
+                    "defaultValue" : {
+                      "@type" : "DV_IDENTIFIER"
+                    },
                     "attributes" : [ ],
                     "attributeTuples" : [ ]
                   }, {
@@ -576,11 +1181,121 @@
           "text" : "Hasil Imaging",
           "description" : "The result of an imaging examination performed on an individual, using radiological techniques."
         },
-        "ac0.4" : {
+        "at0070.1" : {
           "@type" : "ARCHETYPE_TERM",
-          "text" : "(Synthesized)",
-          "code" : "ac0.4",
-          "description" : ""
+          "code" : "at0070.1",
+          "text" : "Tanggal pemeriksaan",
+          "description" : "Date/time when the imaging started.",
+          "comment" : "Equivalent to ImagingStudy.started in FHIR."
+        },
+        "at0072.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072.1",
+          "text" : "Nomor Rontgen",
+          "description" : "The status of the imaging examination result as a whole.",
+          "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+        },
+        "at0004.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0004.1",
+          "text" : "Jenis pemeriksaan",
+          "description" : "The name of the imaging examination performed.",
+          "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+        },
+        "at0072.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072.2",
+          "text" : "Hasil",
+          "description" : "The status of the imaging examination result as a whole.",
+          "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+        },
+        "at0002.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.1",
+          "text" : "X-Ray",
+          "description" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "at0002.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.2",
+          "text" : "CT Scan/ MRI Otak",
+          "description" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "at0004.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0004.2",
+          "text" : "Jenis pemeriksaan",
+          "description" : "The name of the imaging examination performed.",
+          "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+        },
+        "at0055.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0055.2",
+          "text" : "Organ yang diperiksa",
+          "description" : "Description of the simple body site or region targetted for imaging.",
+          "comment" : "If the body site is specified within the text or code for 'Study name', then this field may be redundant. Coding of 'Target body site' with a terminology, such as SNOMED CT, is desirable. Equivalent to ImagingStudy.series.bodySite in FHIR."
+        },
+        "at0070.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0070.1",
+          "text" : "Tanggal pemeriksaan",
+          "description" : "Date/time when the imaging started.",
+          "comment" : "Equivalent to ImagingStudy.started in FHIR."
+        },
+        "at0072.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072.3",
+          "text" : "Nomor pemeriksaan",
+          "description" : "The status of the imaging examination result as a whole.",
+          "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+        },
+        "at0072.4" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072.4",
+          "text" : "Hasil pemeriksaan",
+          "description" : "The status of the imaging examination result as a whole.",
+          "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+        },
+        "at0002.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.3",
+          "text" : "CT Scan/ MRI Otot",
+          "description" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "at0004.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0004.2",
+          "text" : "Jenis pemeriksaan",
+          "description" : "The name of the imaging examination performed.",
+          "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+        },
+        "at0055.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0055.2",
+          "text" : "Organ yang diperiksa",
+          "description" : "Description of the simple body site or region targetted for imaging.",
+          "comment" : "If the body site is specified within the text or code for 'Study name', then this field may be redundant. Coding of 'Target body site' with a terminology, such as SNOMED CT, is desirable. Equivalent to ImagingStudy.series.bodySite in FHIR."
+        },
+        "at0070.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0070.1",
+          "text" : "Tanggal pemeriksaan",
+          "description" : "Date/time when the imaging started.",
+          "comment" : "Equivalent to ImagingStudy.started in FHIR."
+        },
+        "at0072.5" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072.3",
+          "text" : "Nomor pemeriksaan",
+          "description" : "The status of the imaging examination result as a whole.",
+          "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+        },
+        "at0072.6" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072.4",
+          "text" : "Hasil pemeriksaan",
+          "description" : "The status of the imaging examination result as a whole.",
+          "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
         }
       },
       "nb" : {
@@ -590,11 +1305,38 @@
           "text" : "Bildediagnostisk svar (5)",
           "description" : "Resultatet av en bildediagnostisk undersøkelse av et individ, og som er gjort ved radiologiske metoder."
         },
-        "ac0.4" : {
+        "at0072.2" : {
           "@type" : "ARCHETYPE_TERM",
-          "text" : "*(Synthesized) (en)",
-          "code" : "ac0.4",
-          "description" : ""
+          "code" : "at0072",
+          "text" : "Status på undersøkelsesresultatet (2)",
+          "description" : "Den overordnede statusen for hele undersøkelsesresultatet.",
+          "comment" : "Verdisetettet her er samordnet med FHIR Diagnostic report status, med unntak av koden \"Entered in error\" som bare er relevant i et meldingsorientert paradigme. Andre lokale koder eller termer kan brukes ved å bruke datatypen \"Fri eller kodet tekst\". I de fleste tilfellene er det bare passende å bruke en statuskode. Dataelementet er imidlertid åpent for flere forekomster for å understøtte bruksområdene der statuser for forskjellige aspekter av resultatet er delt opp i flere elementer. Et eksempel på dette er de norske standard svarrapport av medisinske tjenester v1.4 (HIS 80822:2014), der status for undersøkelsesresultat (Tjenestetype) og status/steg i arbeidsflyt håndteres separat.\r\n\r\nDette elementet tilsvarer FHIR Diagnostic report status."
+        },
+        "at0002.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.1",
+          "text" : "Uspesifisert hendelse (2)",
+          "description" : "Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon."
+        },
+        "at0072.4" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072",
+          "text" : "Status på undersøkelsesresultatet (2)",
+          "description" : "Den overordnede statusen for hele undersøkelsesresultatet.",
+          "comment" : "Verdisetettet her er samordnet med FHIR Diagnostic report status, med unntak av koden \"Entered in error\" som bare er relevant i et meldingsorientert paradigme. Andre lokale koder eller termer kan brukes ved å bruke datatypen \"Fri eller kodet tekst\". I de fleste tilfellene er det bare passende å bruke en statuskode. Dataelementet er imidlertid åpent for flere forekomster for å understøtte bruksområdene der statuser for forskjellige aspekter av resultatet er delt opp i flere elementer. Et eksempel på dette er de norske standard svarrapport av medisinske tjenester v1.4 (HIS 80822:2014), der status for undersøkelsesresultat (Tjenestetype) og status/steg i arbeidsflyt håndteres separat.\r\n\r\nDette elementet tilsvarer FHIR Diagnostic report status."
+        },
+        "at0002.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.1",
+          "text" : "Uspesifisert hendelse (3)",
+          "description" : "Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon."
+        },
+        "at0072.6" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072",
+          "text" : "Status på undersøkelsesresultatet (2)",
+          "description" : "Den overordnede statusen for hele undersøkelsesresultatet.",
+          "comment" : "Verdisetettet her er samordnet med FHIR Diagnostic report status, med unntak av koden \"Entered in error\" som bare er relevant i et meldingsorientert paradigme. Andre lokale koder eller termer kan brukes ved å bruke datatypen \"Fri eller kodet tekst\". I de fleste tilfellene er det bare passende å bruke en statuskode. Dataelementet er imidlertid åpent for flere forekomster for å understøtte bruksområdene der statuser for forskjellige aspekter av resultatet er delt opp i flere elementer. Et eksempel på dette er de norske standard svarrapport av medisinske tjenester v1.4 (HIS 80822:2014), der status for undersøkelsesresultat (Tjenestetype) og status/steg i arbeidsflyt håndteres separat.\r\n\r\nDette elementet tilsvarer FHIR Diagnostic report status."
         }
       },
       "de" : {
@@ -604,11 +1346,38 @@
           "text" : "Bildgebendes Untersuchungsergebnis (5)",
           "description" : "Ergebnis einer bildgebenden Untersuchung, die an einer Person mit radiologischen Verfahren durchgeführt wird."
         },
-        "ac0.4" : {
+        "at0072.2" : {
           "@type" : "ARCHETYPE_TERM",
-          "text" : "*(Synthesized) (en)",
-          "code" : "ac0.4",
-          "description" : ""
+          "code" : "at0072",
+          "text" : "Status des Gesamtergebnisses (2)",
+          "description" : "Der Status des Ergebnisses der bildgebenden Untersuchung als Ganzes.",
+          "comment" : "Die Werte wurden mit dem Status von Diagnostic report im FHIR abgeglichen, mit Ausnahme von „Entered in error“, das nur für ein datenaustausch-orientiertes Paradigma relevant ist. Andere lokale Codes/Begriffe können über die \"Choice of\" vom Text-Datentyp verwendet werden. In den meisten Anwendungsfällen ist jeweils nur ein Status anwendbar, jedoch erlaubt dieses Datenelement mehrere Vorkommen für die Anwendungsfälle, in denen eine Vielzahl von Status-Typen angegeben werden müssen, normalerweise innerhalb eines Templates. Entspricht DiagnosticReport.status in FHIR."
+        },
+        "at0002.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.1",
+          "text" : "Beliebiges Ereignis (2)",
+          "description" : "Standardwert, ein undefinierter/s Zeitpunkt oder Intervallereignis, das explizit im Template oder zur Laufzeit der Anwendung definiert werden kann."
+        },
+        "at0072.4" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072",
+          "text" : "Status des Gesamtergebnisses (2)",
+          "description" : "Der Status des Ergebnisses der bildgebenden Untersuchung als Ganzes.",
+          "comment" : "Die Werte wurden mit dem Status von Diagnostic report im FHIR abgeglichen, mit Ausnahme von „Entered in error“, das nur für ein datenaustausch-orientiertes Paradigma relevant ist. Andere lokale Codes/Begriffe können über die \"Choice of\" vom Text-Datentyp verwendet werden. In den meisten Anwendungsfällen ist jeweils nur ein Status anwendbar, jedoch erlaubt dieses Datenelement mehrere Vorkommen für die Anwendungsfälle, in denen eine Vielzahl von Status-Typen angegeben werden müssen, normalerweise innerhalb eines Templates. Entspricht DiagnosticReport.status in FHIR."
+        },
+        "at0002.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.1",
+          "text" : "Beliebiges Ereignis (3)",
+          "description" : "Standardwert, ein undefinierter/s Zeitpunkt oder Intervallereignis, das explizit im Template oder zur Laufzeit der Anwendung definiert werden kann."
+        },
+        "at0072.6" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072",
+          "text" : "Status des Gesamtergebnisses (2)",
+          "description" : "Der Status des Ergebnisses der bildgebenden Untersuchung als Ganzes.",
+          "comment" : "Die Werte wurden mit dem Status von Diagnostic report im FHIR abgeglichen, mit Ausnahme von „Entered in error“, das nur für ein datenaustausch-orientiertes Paradigma relevant ist. Andere lokale Codes/Begriffe können über die \"Choice of\" vom Text-Datentyp verwendet werden. In den meisten Anwendungsfällen ist jeweils nur ein Status anwendbar, jedoch erlaubt dieses Datenelement mehrere Vorkommen für die Anwendungsfälle, in denen eine Vielzahl von Status-Typen angegeben werden müssen, normalerweise innerhalb eines Templates. Entspricht DiagnosticReport.status in FHIR."
         }
       },
       "sv" : {
@@ -618,11 +1387,38 @@
           "text" : "Bilddiagnostiskt resultat (5)",
           "description" : "*The result of an imaging examination performed on an individual, using radiological techniques. (en)"
         },
-        "ac0.4" : {
+        "at0072.2" : {
           "@type" : "ARCHETYPE_TERM",
-          "text" : "*(Synthesized) (en)",
-          "code" : "ac0.4",
-          "description" : ""
+          "code" : "at0072",
+          "text" : "*Overall result status (en) (2)",
+          "description" : "*The status of the imaging examination result as a whole. (en)",
+          "comment" : "*The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR.  (en)"
+        },
+        "at0002.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.1",
+          "text" : "Ospecificerad händelse (2)",
+          "description" : "Förinställd, ospecificerad tidpunkt eller tidsintervall som kan definieras mer uttryckligen i en mall (template) eller i en applikation.\r\n"
+        },
+        "at0072.4" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072",
+          "text" : "*Overall result status (en) (2)",
+          "description" : "*The status of the imaging examination result as a whole. (en)",
+          "comment" : "*The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR.  (en)"
+        },
+        "at0002.3" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0002.1",
+          "text" : "Ospecificerad händelse (3)",
+          "description" : "Förinställd, ospecificerad tidpunkt eller tidsintervall som kan definieras mer uttryckligen i en mall (template) eller i en applikation.\r\n"
+        },
+        "at0072.6" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0072",
+          "text" : "*Overall result status (en) (2)",
+          "description" : "*The status of the imaging examination result as a whole. (en)",
+          "comment" : "*The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR.  (en)"
         }
       }
     },
@@ -647,6 +1443,11 @@
       "ac0.4" : {
         "@type" : "VALUE_SET",
         "id" : "ac0.4",
+        "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
+      },
+      "ac0.5" : {
+        "@type" : "VALUE_SET",
+        "id" : "ac0.5",
         "members" : [ "at0073", "at0074", "at0075", "at0076", "at0077", "at0078", "at0079", "at0080", "at0090" ]
       }
     }
