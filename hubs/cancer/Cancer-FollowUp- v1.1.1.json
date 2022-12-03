@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "follow_up_5x_6_bulan_1_tahun_2_tahun_3_tahun_4_tahun",
       "name" : "Follow up (5x; 6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)",
@@ -1286,6 +1313,39 @@
       },
       "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]",
       "children" : [ {
+        "id" : "status_vital_terakhir_diketahui",
+        "name" : "Status Vital terakhir diketahui",
+        "localizedName" : "Status Vital terakhir diketahui",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0093",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Status Vital terakhir diketahui"
+        },
+        "localizedDescriptions" : {
+          "en" : "Narrative description about the context or setting of the death."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0093,'Status Vital terakhir diketahui']/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "419620001",
+            "label" : "Meninggal",
+            "localizedLabels" : {
+              "en" : ""
+            }
+          }, {
+            "value" : "438949009",
+            "label" : "Hidup",
+            "localizedLabels" : {
+              "en" : ""
+            }
+          } ],
+          "terminology" : "SNOMEDCT"
+        } ]
+      }, {
         "id" : "penyebab_kematian",
         "name" : "Penyebab Kematian",
         "localizedName" : "Penyebab Kematian",
@@ -1305,39 +1365,6 @@
         "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0010,'Penyebab Kematian']/value",
         "inputs" : [ {
           "type" : "TEXT"
-        } ]
-      }, {
-        "id" : "status_vital_terakhir_diketahui",
-        "name" : "Status Vital terakhir diketahui",
-        "localizedName" : "Status Vital terakhir diketahui",
-        "rmType" : "DV_CODED_TEXT",
-        "nodeId" : "at0093",
-        "min" : 1,
-        "max" : 1,
-        "localizedNames" : {
-          "en" : "Status Vital terakhir diketahui"
-        },
-        "localizedDescriptions" : {
-          "en" : "Narrative description about the context or setting of the death."
-        },
-        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0093,'Status Vital terakhir diketahui']/value",
-        "inputs" : [ {
-          "suffix" : "code",
-          "type" : "CODED_TEXT",
-          "list" : [ {
-            "value" : "0",
-            "label" : "Meninggal",
-            "localizedLabels" : {
-              "en" : ""
-            }
-          }, {
-            "value" : "1",
-            "label" : "Hidup",
-            "localizedLabels" : {
-              "en" : ""
-            }
-          } ],
-          "terminology" : "local_terms"
         } ]
       }, {
         "id" : "death_data",
@@ -1460,6 +1487,24 @@
           },
           "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]",
           "children" : [ {
+            "id" : "sumber_status_vital_atau_metode_kontak_lainnya",
+            "name" : "Sumber Status Vital atau Metode Kontak Lainnya",
+            "localizedName" : "Sumber Status Vital atau Metode Kontak Lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Sumber Status Vital atau Metode Kontak Lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "The number of the death certificate"
+            },
+            "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0004,'Sumber Status Vital atau Metode Kontak Lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
             "id" : "tempat_kematian_-_negara",
             "name" : "Tempat Kematian - Negara",
             "localizedName" : "Tempat Kematian - Negara",
@@ -1503,24 +1548,6 @@
               "suffix" : "value",
               "type" : "TEXT"
             } ]
-          }, {
-            "id" : "sumber_status_vital_atau_metode_kontak_lainnya",
-            "name" : "Sumber Status Vital atau Metode Kontak Lainnya",
-            "localizedName" : "Sumber Status Vital atau Metode Kontak Lainnya",
-            "rmType" : "DV_TEXT",
-            "nodeId" : "at0004",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Sumber Status Vital atau Metode Kontak Lainnya"
-            },
-            "localizedDescriptions" : {
-              "en" : "The number of the death certificate"
-            },
-            "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0004,'Sumber Status Vital atau Metode Kontak Lainnya']/value",
-            "inputs" : [ {
-              "type" : "TEXT"
-            } ]
           } ]
         } ]
       }, {
@@ -1560,19 +1587,19 @@
             "suffix" : "code",
             "type" : "CODED_TEXT",
             "list" : [ {
-              "value" : "0",
+              "value" : "31874001",
               "label" : "Ya",
               "localizedLabels" : {
                 "en" : ""
               }
             }, {
-              "value" : "1",
+              "value" : "64100000",
               "label" : "Tidak",
               "localizedLabels" : {
                 "en" : ""
               }
             } ],
-            "terminology" : "local_terms"
+            "terminology" : "SNOMEDCT"
           } ]
         }, {
           "id" : "informasi_kontak_terbaru_alamat",
@@ -1847,6 +1874,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
