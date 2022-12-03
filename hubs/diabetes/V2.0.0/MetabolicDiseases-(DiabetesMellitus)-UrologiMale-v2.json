@@ -25,7 +25,226 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "data_yang_memeriksa",
+      "name" : "Data yang memeriksa",
+      "localizedName" : "Data yang memeriksa",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.procedure_screening.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Data yang memeriksa"
+      },
+      "localizedDescriptions" : {
+        "en" : "Series of questions and associated answers used to screen for procedures that has been carried out in the past."
+      },
+      "annotations" : {
+        "comment" : "The answers may be self-reported."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "specific_procedure",
+          "name" : "Specific procedure",
+          "localizedName" : "Specific procedure",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Specific procedure"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/data[at0001]/events[at0002]/data[at0003]/items[at0022]",
+          "children" : [ {
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of a procedure or grouping of procedures."
+            },
+            "annotations" : {
+              "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "243066006",
+                "label" : "Wawancara Disfungsi Seksual Pria",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "defaultValue" : "243066006",
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "tanggal_pemeriksaan",
+            "name" : "Tanggal pemeriksaan",
+            "localizedName" : "Tanggal pemeriksaan",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0037",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tanggal pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Timing of the procedure."
+            },
+            "annotations" : {
+              "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0037,'Tanggal pemeriksaan']/value",
+            "inputs" : [ {
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddT??:??:XX"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "person",
+        "name" : "Person",
+        "localizedName" : "Person",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "any_event" ],
+        "localizedNames" : {
+          "en" : "Person"
+        },
+        "localizedDescriptions" : {
+          "en" : "An individual human being."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/protocol[at0007]/items[openEHR-EHR-CLUSTER.person.v1]",
+        "children" : [ {
+          "id" : "nama_pemeriksa",
+          "name" : "Nama pemeriksa",
+          "localizedName" : "Nama pemeriksa",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0001",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nama pemeriksa"
+          },
+          "localizedDescriptions" : {
+            "en" : "The unstructured name for the individual."
+          },
+          "annotations" : {
+            "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/protocol[at0007]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0001,'Nama pemeriksa']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Data yang memeriksa']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "wawancara_disfungsi_seksual_pria",
       "name" : "Wawancara Disfungsi Seksual Pria",
@@ -4860,6 +5079,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
