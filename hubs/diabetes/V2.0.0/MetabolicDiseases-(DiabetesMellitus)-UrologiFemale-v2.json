@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "indeks_fungsi_seksual_perempuan",
       "name" : "Indeks Fungsi Seksual Perempuan",
@@ -297,30 +324,30 @@
               } ]
             } ]
           }, {
-            "id" : "seberapa_sering_anda_mengalami_orgasme_klimaks_selama_aktivitas_seksual_senggama",
-            "name" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?",
-            "localizedName" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?",
+            "id" : "orgasme",
+            "name" : "Orgasme",
+            "localizedName" : "Orgasme",
             "rmType" : "CLUSTER",
             "nodeId" : "at0022",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?"
+              "en" : "Orgasme"
             },
             "localizedDescriptions" : {
               "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?']",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Orgasme']",
             "children" : [ {
-              "id" : "seberapa_sering_anda_merasa_basah_di_daerah_vagina_selama_aktivitas_seksual_senggama",
-              "name" : "Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?",
-              "localizedName" : "Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?",
+              "id" : "seberapa_sering_anda_mengalami_orgasme_klimaks_selama_aktivitas_seksual_senggama",
+              "name" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?",
+              "localizedName" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?",
               "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?"
+                "en" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -328,7 +355,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?']/items[at0004,'Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Orgasme']/items[at0004,'Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
@@ -587,6 +614,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
