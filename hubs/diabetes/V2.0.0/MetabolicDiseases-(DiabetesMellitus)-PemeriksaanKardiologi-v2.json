@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "echocardiography",
       "name" : "Echocardiography",
@@ -1421,20 +1448,20 @@
             "terminology" : "local_termsKM"
           } ]
         }, {
-          "id" : "valve",
-          "name" : "VALVE",
-          "localizedName" : "VALVE",
+          "id" : "valve_mitral",
+          "name" : "VALVE Mitral",
+          "localizedName" : "VALVE Mitral",
           "rmType" : "CLUSTER",
           "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
           "min" : 1,
           "max" : 1,
           "localizedNames" : {
-            "en" : "VALVE"
+            "en" : "VALVE Mitral"
           },
           "localizedDescriptions" : {
             "en" : "A significant clinical finding identified by radiological imaging techniques."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE Mitral']",
           "children" : [ {
             "id" : "ukuran_valve_mitral",
             "name" : "Ukuran Valve Mitral",
@@ -1452,7 +1479,7 @@
             "annotations" : {
               "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0024,'Ukuran Valve Mitral']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE Mitral']/items[at0024,'Ukuran Valve Mitral']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
@@ -1485,7 +1512,7 @@
             "localizedDescriptions" : {
               "en" : "Additional narrative about the clinical finding, not captured in other fields."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Mitral']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE Mitral']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1591,20 +1618,20 @@
             "terminology" : "local_termsKT"
           } ]
         }, {
-          "id" : "valve",
-          "name" : "VALVE",
-          "localizedName" : "VALVE",
+          "id" : "valve_trikuspid",
+          "name" : "VALVE Trikuspid",
+          "localizedName" : "VALVE Trikuspid",
           "rmType" : "CLUSTER",
           "nodeId" : "openEHR-EHR-CLUSTER.imaging_finding.v0",
           "min" : 1,
           "max" : 1,
           "localizedNames" : {
-            "en" : "VALVE"
+            "en" : "VALVE Trikuspid"
           },
           "localizedDescriptions" : {
             "en" : "A significant clinical finding identified by radiological imaging techniques."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE Trikuspid']",
           "children" : [ {
             "id" : "ukuran_valve_trikuspid",
             "name" : "Ukuran Valve Trikuspid",
@@ -1622,7 +1649,7 @@
             "annotations" : {
               "comment" : "Coding with an external terminology is strongly recommended. For example: free fluid; or abscess."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0024,'Ukuran Valve Trikuspid']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE Trikuspid']/items[at0024,'Ukuran Valve Trikuspid']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
@@ -1655,7 +1682,7 @@
             "localizedDescriptions" : {
               "en" : "Additional narrative about the clinical finding, not captured in other fields."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Echocardiography']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Katup Trikuspid']/description[at0001]/items[openEHR-EHR-CLUSTER.imaging_finding.v0,'VALVE Trikuspid']/items[at0003,'Ukuran Valve dalam cm/s apabila tidak normal']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -2836,19 +2863,19 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "31874001",
                 "label" : "Ya",
                 "localizedLabels" : {
                   "en" : ""
                 }
               }, {
-                "value" : "1",
+                "value" : "64100000",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_termsQT"
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "pada_leads_berapa_q_pathologic",
@@ -3028,7 +3055,7 @@
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_termsBL"
+              "terminology" : "local_termsBlock"
             } ]
           }, {
             "id" : "abnormalitas_block_lainnya",
@@ -3162,6 +3189,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
