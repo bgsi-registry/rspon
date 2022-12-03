@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersDMD-indeksBarthel-v1",
-  "semVer" : "1.0.0",
+  "semVer" : "3.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,621 +25,812 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
-      "id" : "indeks_barthel",
-      "name" : "Indeks Barthel",
-      "localizedName" : "Indeks Barthel",
-      "rmType" : "SECTION",
-      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "id" : "adl_assessment",
+      "name" : "ADL assessment",
+      "localizedName" : "ADL assessment",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.adl.v0",
       "min" : 0,
       "max" : 1,
       "localizedNames" : {
-        "en" : "Indeks Barthel"
+        "en" : "ADL assessment"
       },
       "localizedDescriptions" : {
-        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+        "en" : "Details about an individual's ability to perform an identified activity of daily living."
       },
-      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']",
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]",
       "children" : [ {
-        "id" : "modified_barthel_index",
-        "name" : "Modified Barthel index",
-        "localizedName" : "Modified Barthel index",
-        "rmType" : "OBSERVATION",
-        "nodeId" : "openEHR-EHR-OBSERVATION.modified_barthel_index.v0",
+        "id" : "mengendalikan_rangsang_defekasi",
+        "name" : "Mengendalikan rangsang defekasi",
+        "localizedName" : "Mengendalikan rangsang defekasi",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
         "min" : 0,
-        "max" : 1,
+        "max" : -1,
         "localizedNames" : {
-          "en" : "Modified Barthel index"
+          "en" : "Mengendalikan rangsang defekasi"
         },
         "localizedDescriptions" : {
-          "en" : "Modification of the Barthel index, used as a functional assessment for activities of daily living (ADL)."
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
         },
-        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mengendalikan rangsang defekasi']",
         "children" : [ {
-          "id" : "any_event",
-          "name" : "Any event",
-          "localizedName" : "Any event",
-          "rmType" : "EVENT",
-          "nodeId" : "at0003",
-          "min" : 0,
-          "max" : -1,
+          "id" : "mengendalikan_rangsang_defekasi",
+          "name" : "Mengendalikan rangsang defekasi",
+          "localizedName" : "Mengendalikan rangsang defekasi",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
           "localizedNames" : {
-            "en" : "Any event"
+            "en" : "Mengendalikan rangsang defekasi"
           },
           "localizedDescriptions" : {
-            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+            "en" : "The name of the activity of daily living."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]",
-          "children" : [ {
-            "id" : "mengendalikan_rangsang_defekasi",
-            "name" : "Mengendalikan rangsang defekasi",
-            "localizedName" : "Mengendalikan rangsang defekasi",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0008",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Mengendalikan rangsang defekasi"
-            },
-            "localizedDescriptions" : {
-              "en" : "Over the previous week, occasional accident is once per week."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0008,'Mengendalikan rangsang defekasi']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0037",
-                "label" : "Incontinent (or requires enemas)",
-                "localizedLabels" : {
-                  "en" : "Incontinent (or requires enemas)"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Incontinent of faeces or requires enemas."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0044",
-                "label" : "Occasional accident",
-                "localizedLabels" : {
-                  "en" : "Occasional accident"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Less than or equal to once per week."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0038",
-                "label" : "Continent",
-                "localizedLabels" : {
-                  "en" : "Continent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Continent of faeces."
-                },
-                "ordinal" : 2
-              } ]
-            } ]
-          }, {
-            "id" : "mengendalikan_rangsang_berkemih",
-            "name" : "Mengendalikan rangsang berkemih",
-            "localizedName" : "Mengendalikan rangsang berkemih",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0004",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Mengendalikan rangsang berkemih"
-            },
-            "localizedDescriptions" : {
-              "en" : "Assessment of urinary control over the previous week, occasional accident <= 1 time per week."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0004,'Mengendalikan rangsang berkemih']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0005",
-                "label" : "Incontinent (or unable to manage catheter)",
-                "localizedLabels" : {
-                  "en" : "Incontinent (or unable to manage catheter)"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Incontinent of urine or catheterised."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0006",
-                "label" : "Occasional accident",
-                "localizedLabels" : {
-                  "en" : "Occasional accident"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Less than or equal to once per week."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0007",
-                "label" : "Continent (manages catheter alone)",
-                "localizedLabels" : {
-                  "en" : "Continent (manages catheter alone)"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Continent includes self management of catheter."
-                },
-                "ordinal" : 2
-              } ]
-            } ]
-          }, {
-            "id" : "membersihkan_diri_cucimuka_sisir_rambut_sikat_gigi",
-            "name" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
-            "localizedName" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0034",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)"
-            },
-            "localizedDescriptions" : {
-              "en" : "Ability over the previous 24-48 hours to attend to personal hygiene such as brushing teeth, shaving and washing."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0034,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0035",
-                "label" : "Needs help",
-                "localizedLabels" : {
-                  "en" : "Needs help"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Needs help with personal care."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0036",
-                "label" : "Independent",
-                "localizedLabels" : {
-                  "en" : "Independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Able to brush teeth, hair, wash face, shave."
-                },
-                "ordinal" : 1
-              } ]
-            } ]
-          }, {
-            "id" : "penggunaan_jamban_masuk_dan_keluar_melepaskan_memakai_celana_membersihkan_dan_menyiram_kotoran",
-            "name" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
-            "localizedName" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0030",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)"
-            },
-            "localizedDescriptions" : {
-              "en" : "Ability to use toilet over the previous 48 hours."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0030,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0031",
-                "label" : "Dependent",
-                "localizedLabels" : {
-                  "en" : "Dependent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Person is completely dependent of others to use the toilet."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0032",
-                "label" : "Needs some help but can do some tasks alone",
-                "localizedLabels" : {
-                  "en" : "Needs some help but can do some tasks alone"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Person is self-supporting in some toileting tasks."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0033",
-                "label" : "Independent (on & off, dressing, wiping)",
-                "localizedLabels" : {
-                  "en" : "Independent (on & off, dressing, wiping)"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Person is fully self-supporting in all toileting tasks."
-                },
-                "ordinal" : 2
-              } ]
-            } ]
-          }, {
-            "id" : "makan",
-            "name" : "Makan",
-            "localizedName" : "Makan",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0026",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Makan"
-            },
-            "localizedDescriptions" : {
-              "en" : "Ability to eat food."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0026,'Makan']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0027",
-                "label" : "Unable to eat unassisted",
-                "localizedLabels" : {
-                  "en" : "Unable to eat unassisted"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Requires manual feeding."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0028",
-                "label" : "Needs help",
-                "localizedLabels" : {
-                  "en" : "Needs help"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Requires help cutting, spreading butter or requires modified diet - able to eat alone."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0029",
-                "label" : "Independent",
-                "localizedLabels" : {
-                  "en" : "Independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Able to eat alone."
-                },
-                "ordinal" : 2
-              } ]
-            } ]
-          }, {
-            "id" : "berubah_sikap_dari_berbaring_ke_duduk",
-            "name" : "Berubah sikap dari berbaring ke duduk",
-            "localizedName" : "Berubah sikap dari berbaring ke duduk",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0021",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Berubah sikap dari berbaring ke duduk"
-            },
-            "localizedDescriptions" : {
-              "en" : "Transfer from bed to chair and back."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0021,'Berubah sikap dari berbaring ke duduk']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0022",
-                "label" : "Unable, no sitting balance",
-                "localizedLabels" : {
-                  "en" : "Unable, no sitting balance"
-                },
-                "localizedDescriptions" : {
-                  "en" : "No sitting balance, a lifting device is used."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0023",
-                "label" : "Major help, can sit",
-                "localizedLabels" : {
-                  "en" : "Major help, can sit"
-                },
-                "localizedDescriptions" : {
-                  "en" : "A strong trained person or 2 people required, patient can sit straight."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0024",
-                "label" : "Minor help",
-                "localizedLabels" : {
-                  "en" : "Minor help"
-                },
-                "localizedDescriptions" : {
-                  "en" : "A person is required for supervision or some help."
-                },
-                "ordinal" : 2
-              }, {
-                "value" : "at0025",
-                "label" : "Independent",
-                "localizedLabels" : {
-                  "en" : "Independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Person can move from bed to chair independently."
-                },
-                "ordinal" : 3
-              } ]
-            } ]
-          }, {
-            "id" : "berpindah_berjalan",
-            "name" : "Berpindah/ berjalan",
-            "localizedName" : "Berpindah/ berjalan",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0017",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Berpindah/ berjalan"
-            },
-            "localizedDescriptions" : {
-              "en" : "Ability to get about the house or institution."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0017,'Berpindah/ berjalan']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0018",
-                "label" : "Immobile",
-                "localizedLabels" : {
-                  "en" : "Immobile"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Person can get less than 50 metres in wheelchair."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0019",
-                "label" : "Wheel chair independent",
-                "localizedLabels" : {
-                  "en" : "Wheel chair independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Wheelchair independent (including corners)."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0020",
-                "label" : "Walks with help",
-                "localizedLabels" : {
-                  "en" : "Walks with help"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Person walks with assistance of one person, with physical or verbal assistance."
-                },
-                "ordinal" : 2
-              }, {
-                "value" : "at0039",
-                "label" : "Independent",
-                "localizedLabels" : {
-                  "en" : "Independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Person can use any aid (not wheelchair) around the house or ward."
-                },
-                "ordinal" : 3
-              } ]
-            } ]
-          }, {
-            "id" : "memakai_baju",
-            "name" : "Memakai baju",
-            "localizedName" : "Memakai baju",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0012",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Memakai baju"
-            },
-            "localizedDescriptions" : {
-              "en" : "Ability to choose clothes, put them on and fasten them."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0012,'Memakai baju']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0013",
-                "label" : "Dependent",
-                "localizedLabels" : {
-                  "en" : "Dependent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Requires assistance choosing and putting on clothes."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0014",
-                "label" : "Needs help but can do about half unaided",
-                "localizedLabels" : {
-                  "en" : "Needs help but can do about half unaided"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Needs help only with buttons, zippers but can put on clothes unaided."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0011",
-                "label" : "Independent",
-                "localizedLabels" : {
-                  "en" : "Independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "No help required when getting in and out of the bath or when washing."
-                },
-                "ordinal" : 2
-              } ]
-            } ]
-          }, {
-            "id" : "naik_turun_tangga",
-            "name" : "Naik turun tangga",
-            "localizedName" : "Naik turun tangga",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0040",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Naik turun tangga"
-            },
-            "localizedDescriptions" : {
-              "en" : "Ability to negotiate stairs."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0040,'Naik turun tangga']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0041",
-                "label" : "Unable",
-                "localizedLabels" : {
-                  "en" : "Unable"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Unable to use stairs."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0042",
-                "label" : "Needs help",
-                "localizedLabels" : {
-                  "en" : "Needs help"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Verbal, physical or other assistance."
-                },
-                "ordinal" : 1
-              }, {
-                "value" : "at0043",
-                "label" : "Independent",
-                "localizedLabels" : {
-                  "en" : "Independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Can carry aid alone if required."
-                },
-                "ordinal" : 2
-              } ]
-            } ]
-          }, {
-            "id" : "mandi",
-            "name" : "Mandi",
-            "localizedName" : "Mandi",
-            "rmType" : "DV_ORDINAL",
-            "nodeId" : "at0009",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Mandi"
-            },
-            "localizedDescriptions" : {
-              "en" : "Independent = without supervision or help when getting in and out of the bath and when washing."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0009,'Mandi']/value",
-            "inputs" : [ {
-              "type" : "CODED_TEXT",
-              "list" : [ {
-                "value" : "at0010",
-                "label" : "Dependent",
-                "localizedLabels" : {
-                  "en" : "Dependent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Needs assistance with baths or showers."
-                },
-                "ordinal" : 0
-              }, {
-                "value" : "at0011",
-                "label" : "Independent",
-                "localizedLabels" : {
-                  "en" : "Independent"
-                },
-                "localizedDescriptions" : {
-                  "en" : "No help required when getting in and out of the bath or when washing."
-                },
-                "ordinal" : 1
-              } ]
-            } ]
-          }, {
-            "id" : "total_skor",
-            "name" : "Total skor",
-            "localizedName" : "Total skor",
-            "rmType" : "DV_COUNT",
-            "nodeId" : "at0016",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Total skor"
-            },
-            "localizedDescriptions" : {
-              "en" : "Sum of the individual scores assigned for each of the contributing variables."
-            },
-            "annotations" : {
-              "comment" : "A score of 0-9 indicates high dependency, 10-19 moderate dependency and 20 is independent."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/data[at0001]/items[at0016,'Total skor']/value",
-            "inputs" : [ {
-              "type" : "INTEGER",
-              "validation" : {
-                "range" : {
-                  "minOp" : ">=",
-                  "min" : 0,
-                  "maxOp" : "<=",
-                  "max" : 20
-                }
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mengendalikan rangsang defekasi']/data[at0003]/items[at0004,'Mengendalikan rangsang defekasi']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tak terkendali/ tak teratur (perlu pencahar)",
+              "localizedLabels" : {
+                "en" : ""
               }
-            } ]
-          }, {
-            "id" : "time",
-            "name" : "Time",
-            "rmType" : "DV_DATE_TIME",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/data[at0002]/events[at0003]/time",
-            "inputs" : [ {
-              "type" : "DATETIME"
+            }, {
+              "value" : "5",
+              "label" : "Kadang-kadang tak terkendali",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Terkendali teratur",
+              "localizedLabels" : {
+                "en" : ""
+              }
             } ],
-            "inContext" : true
+            "terminology" : "local_termsRd"
           } ]
         }, {
-          "id" : "language",
-          "name" : "Language",
-          "rmType" : "CODE_PHRASE",
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/language",
-          "inContext" : true
-        }, {
-          "id" : "encoding",
-          "name" : "Encoding",
-          "rmType" : "CODE_PHRASE",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/encoding",
-          "inContext" : true
-        }, {
-          "id" : "subject",
-          "name" : "Subject",
-          "rmType" : "PARTY_PROXY",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Barthel']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0]/subject",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mengendalikan rangsang defekasi']/time",
           "inputs" : [ {
-            "suffix" : "id",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_scheme",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_namespace",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "name",
-            "type" : "TEXT"
+            "type" : "DATETIME"
           } ],
           "inContext" : true
         } ]
+      }, {
+        "id" : "mengendalikan_rangsang_berkemih",
+        "name" : "Mengendalikan rangsang berkemih",
+        "localizedName" : "Mengendalikan rangsang berkemih",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Mengendalikan rangsang berkemih"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mengendalikan rangsang berkemih']",
+        "children" : [ {
+          "id" : "mengendalikan_rangsang_berkemih",
+          "name" : "Mengendalikan rangsang berkemih",
+          "localizedName" : "Mengendalikan rangsang berkemih",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Mengendalikan rangsang berkemih"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mengendalikan rangsang berkemih']/data[at0003]/items[at0004,'Mengendalikan rangsang berkemih']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tak terkendali/ pakai kateter",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Kadang-kadang tak terkendali (1x24 jam)",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsRb"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mengendalikan rangsang berkemih']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "membersihkan_diri_cucimuka_sisir_rambut_sikat_gigi",
+        "name" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+        "localizedName" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']",
+        "children" : [ {
+          "id" : "membersihkan_diri_cucimuka_sisir_rambut_sikat_gigi",
+          "name" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+          "localizedName" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']/data[at0003]/items[at0004,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Butuh pertolongan orang lain",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsCucimuka"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "penggunaan_jamban_masuk_dan_keluar_melepaskan_memakai_celana_membersihkan_dan_menyiram_kotoran",
+        "name" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+        "localizedName" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']",
+        "children" : [ {
+          "id" : "penggunaan_jamban_masuk_dan_keluar_melepaskan_memakai_celana_membersihkan_dan_menyiram_kotoran",
+          "name" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+          "localizedName" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']/data[at0003]/items[at0004,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tergantung pertolongan orang lain",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Perlu pertolongan pada beberapa kegiatan tetapi dapat mengerjakan sendiri kegiatan yang lain",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsJamban"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "makan",
+        "name" : "Makan",
+        "localizedName" : "Makan",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Makan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Makan']",
+        "children" : [ {
+          "id" : "makan",
+          "name" : "Makan",
+          "localizedName" : "Makan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Makan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Makan']/data[at0003]/items[at0004,'Makan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Perlu ditolong memotong makanan",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsMakan"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Makan']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "berubah_sikap_dari_berbaring_ke_duduk",
+        "name" : "Berubah sikap dari berbaring ke duduk",
+        "localizedName" : "Berubah sikap dari berbaring ke duduk",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Berubah sikap dari berbaring ke duduk"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Berubah sikap dari berbaring ke duduk']",
+        "children" : [ {
+          "id" : "berubah_sikap_dari_berbaring_ke_duduk",
+          "name" : "Berubah sikap dari berbaring ke duduk",
+          "localizedName" : "Berubah sikap dari berbaring ke duduk",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Berubah sikap dari berbaring ke duduk"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Berubah sikap dari berbaring ke duduk']/data[at0003]/items[at0004,'Berubah sikap dari berbaring ke duduk']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Perlu banyak bantuan untuk bisa duduk (1 atau 2 orang secara fisik)",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Bantuan minimal (hanya diarahkan secara verbal)",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsBaringduduk"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Berubah sikap dari berbaring ke duduk']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "berpindah_berjalan",
+        "name" : "Berpindah/ berjalan",
+        "localizedName" : "Berpindah/ berjalan",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Berpindah/ berjalan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Berpindah/ berjalan']",
+        "children" : [ {
+          "id" : "berpindah_berjalan",
+          "name" : "Berpindah/ berjalan",
+          "localizedName" : "Berpindah/ berjalan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Berpindah/ berjalan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Berpindah/ berjalan']/data[at0003]/items[at0004,'Berpindah/ berjalan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Bisa (pindah) dengan kursi roda",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Berjalan dengan bantuan 1 orang",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsPindahjalan"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Berpindah/ berjalan']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "memakai_baju",
+        "name" : "Memakai baju",
+        "localizedName" : "Memakai baju",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Memakai baju"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Memakai baju']",
+        "children" : [ {
+          "id" : "memakai_baju",
+          "name" : "Memakai baju",
+          "localizedName" : "Memakai baju",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Memakai baju"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Memakai baju']/data[at0003]/items[at0004,'Memakai baju']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tergantung orang lain",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Sebagian dibantu (misalnya mengancing baju)",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsBaju"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Memakai baju']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "naik_turun_tangga",
+        "name" : "Naik turun tangga",
+        "localizedName" : "Naik turun tangga",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Naik turun tangga"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Naik turun tangga']",
+        "children" : [ {
+          "id" : "naik_turun_tangga",
+          "name" : "Naik turun tangga",
+          "localizedName" : "Naik turun tangga",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Naik turun tangga"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Naik turun tangga']/data[at0003]/items[at0004,'Naik turun tangga']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Butuh pertolongan",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsTuruntangga"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Naik turun tangga']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "mandi",
+        "name" : "Mandi",
+        "localizedName" : "Mandi",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Mandi"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mandi']",
+        "children" : [ {
+          "id" : "mandi",
+          "name" : "Mandi",
+          "localizedName" : "Mandi",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Mandi"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mandi']/data[at0003]/items[at0004,'Mandi']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tergantung orang lain",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            }, {
+              "value" : "5",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "terminology" : "local_termsMandi"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Mandi']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "skor_total",
+        "name" : "Skor Total",
+        "localizedName" : "Skor Total",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Skor Total"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Skor Total']",
+        "children" : [ {
+          "id" : "skor_total",
+          "name" : "Skor Total",
+          "localizedName" : "Skor Total",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Skor Total"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Skor Total']/data[at0003]/items[at0004,'Skor Total']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/data[at0001]/events[at0002,'Skor Total']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
       } ]
     }, {
       "id" : "category",
@@ -659,6 +850,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
