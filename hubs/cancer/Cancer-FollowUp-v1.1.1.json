@@ -60,7 +60,7 @@
       "rmType" : "SECTION",
       "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
       "min" : 0,
-      "max" : 1,
+      "max" : -1,
       "localizedNames" : {
         "en" : "Follow up (5x; 6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)"
       },
@@ -120,14 +120,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "0",
+                "value" : "308273005",
                 "label" : "Follow Up",
                 "localizedLabels" : {
                   "en" : ""
                 }
               } ],
-              "defaultValue" : "0",
-              "terminology" : "local_terms"
+              "defaultValue" : "308273005",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "jumlah_metastasis",
@@ -236,7 +236,7 @@
               "type" : "CODED_TEXT",
               "list" : [ {
                 "value" : "0",
-                "label" : "Follow Up",
+                "label" : "6 bulan",
                 "localizedLabels" : {
                   "en" : ""
                 }
@@ -265,7 +265,7 @@
                   "en" : ""
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsBulan"
             } ]
           }, {
             "id" : "tnm_clinical_classification",
@@ -403,7 +403,7 @@
                     "en" : ""
                   }
                 } ],
-                "terminology" : "local_terms"
+                "terminology" : "local_termsTNM"
               } ]
             }, {
               "id" : "metastasis_ke_organ_lainnya_sebutkan",
@@ -839,7 +839,10 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Operasi Kanker']/description[at0009]/items[at0145,'Tanggal Operasi']/value",
             "inputs" : [ {
-              "type" : "DATETIME"
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
@@ -1469,7 +1472,7 @@
                 "en" : ""
               }
             } ],
-            "terminology" : "local_terms"
+            "terminology" : "local_termsVital"
           } ]
         }, {
           "id" : "death_additional_data",
