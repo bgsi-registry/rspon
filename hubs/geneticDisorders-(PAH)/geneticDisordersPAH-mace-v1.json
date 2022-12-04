@@ -1,0 +1,415 @@
+{
+  "templateId" : "geneticDisordersPAH-mace",
+  "semVer" : "0.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisorderspah-mace",
+    "name" : "geneticDisordersPAH-mace",
+    "localizedName" : "geneticDisordersPAH-mace",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.report.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersPAH-mace"
+    },
+    "localizedDescriptions" : {
+      "en" : "Document to communicate information to others, commonly in response to a request from another party."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "report_id",
+        "name" : "Report ID",
+        "localizedName" : "Report ID",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Report ID"
+        },
+        "localizedDescriptions" : {
+          "en" : "Identification information about the report."
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0002]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "status",
+        "name" : "Status",
+        "localizedName" : "Status",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0005",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Status"
+        },
+        "localizedDescriptions" : {
+          "en" : "The status of the entire report. Note: This is not the status of any of the report components."
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0005]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "mace",
+      "name" : "MACE",
+      "localizedName" : "MACE",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "MACE"
+      },
+      "localizedDescriptions" : {
+        "en" : "Information about the outcome of monitoring after administration of a substance."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']",
+      "children" : [ {
+        "id" : "mace",
+        "name" : "MACE",
+        "localizedName" : "MACE",
+        "rmType" : "INTERVAL_EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "MACE"
+        },
+        "localizedDescriptions" : {
+          "en" : "The time from onset of monitoring to end of monitoring."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']",
+        "children" : [ {
+          "id" : "penyebab_kematian",
+          "name" : "Penyebab kematian",
+          "localizedName" : "Penyebab kematian",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Penyebab kematian"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of a substance administered to the individual."
+          },
+          "annotations" : {
+            "comment" : "For example, an agent that has previously triggered an adverse reaction or a vaccination."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/data[at0003]/items[at0004,'Penyebab kematian']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "status_rehospitalisasi",
+          "name" : "Status Rehospitalisasi",
+          "localizedName" : "Status Rehospitalisasi",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.adverse_reaction_event_summary.v0",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status Rehospitalisasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Summary information about a specific adverse reaction event."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/data[at0003]/items[openEHR-EHR-CLUSTER.adverse_reaction_event_summary.v0,'Status Rehospitalisasi']",
+          "children" : [ {
+            "id" : "jumlah_rehospitalisasi",
+            "name" : "Jumlah Rehospitalisasi",
+            "localizedName" : "Jumlah Rehospitalisasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jumlah Rehospitalisasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the substance considered to be responsible for the specific adverse reaction event."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Amoxycillin'. Only an individual substance is a valid entry in 'Specific substance'. A substance may be a compound of simpler substances, for example a medicinal product. If the value in 'Substance' recorded in the parent archetype is an individual substance and not a substance class, then it may be duplicated in this data element, or this element may be redundant. It is strongly recommended that 'Specific substance' be coded with a terminology."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/data[at0003]/items[openEHR-EHR-CLUSTER.adverse_reaction_event_summary.v0,'Status Rehospitalisasi']/items[at0001,'Jumlah Rehospitalisasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "penyebab_rehospitalisasi",
+            "name" : "Penyebab rehospitalisasi",
+            "localizedName" : "Penyebab rehospitalisasi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0006",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Penyebab rehospitalisasi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Clinical symptoms and/or signs that are observed or associated with the adverse reaction."
+            },
+            "annotations" : {
+              "comment" : "Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash.  'No reaction'may be appropriate where a previous reaction has been noted but the reaction did not re-occur after further exposure. It is preferable that 'Manifestation' should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.\r\n\r\n\r\n\r\nTerminologies commonly used include, but are not limited to, SNOMED-CT or ICD10."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/data[at0003]/items[openEHR-EHR-CLUSTER.adverse_reaction_event_summary.v0,'Status Rehospitalisasi']/items[at0006,'Penyebab rehospitalisasi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "comment",
+          "name" : "Comment",
+          "localizedName" : "Comment",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0008",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Comment"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about the monitoring, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/data[at0003]/items[at0008]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "width",
+          "name" : "Width",
+          "rmType" : "DV_DURATION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/width",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "day",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "week",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "hour",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "minute",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "second",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "math_function",
+          "name" : "Math_function",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/math_function",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "value",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/data[at0001]/events[at0002,'MACE']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adverse_reaction_monitoring.v0,'MACE']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

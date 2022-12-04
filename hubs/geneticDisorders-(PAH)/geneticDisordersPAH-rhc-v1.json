@@ -1,0 +1,3088 @@
+{
+  "templateId" : "geneticDisordersPAH-rhc",
+  "semVer" : "0.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisorderspah-rhc",
+    "name" : "geneticDisordersPAH-rhc",
+    "localizedName" : "geneticDisordersPAH-rhc",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.report.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersPAH-rhc"
+    },
+    "localizedDescriptions" : {
+      "en" : "Document to communicate information to others, commonly in response to a request from another party."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "report_id",
+        "name" : "Report ID",
+        "localizedName" : "Report ID",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Report ID"
+        },
+        "localizedDescriptions" : {
+          "en" : "Identification information about the report."
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0002]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "status",
+        "name" : "Status",
+        "localizedName" : "Status",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0005",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Status"
+        },
+        "localizedDescriptions" : {
+          "en" : "The status of the entire report. Note: This is not the status of any of the report components."
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0005]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "right_heart_catheterization_rhc",
+      "name" : "Right Heart Catheterization (RHC)",
+      "localizedName" : "Right Heart Catheterization (RHC)",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Right Heart Catheterization (RHC)"
+      },
+      "localizedDescriptions" : {
+        "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "right_heart_catheterization_rhc",
+          "name" : "Right Heart Catheterization (RHC)",
+          "localizedName" : "Right Heart Catheterization (RHC)",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0005",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Right Heart Catheterization (RHC)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the laboratory investigation performed on the specimen(s)."
+          },
+          "annotations" : {
+            "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Right Heart Catheterization (RHC)']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Right Heart Catheterization",
+              "localizedLabels" : {
+                "en" : ""
+              }
+            } ],
+            "defaultValue" : "1",
+            "terminology" : "local_rhc"
+          } ]
+        }, {
+          "id" : "tanggal_kateterisasi",
+          "name" : "Tanggal kateterisasi",
+          "localizedName" : "Tanggal kateterisasi",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0075",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal kateterisasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date and/or time that ‘Overall test status’ was issued."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[at0075,'Tanggal kateterisasi']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "laboratory_analyte_result",
+          "name" : "Laboratory analyte result",
+          "localizedName" : "Laboratory analyte result",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Laboratory analyte result"
+          },
+          "localizedDescriptions" : {
+            "en" : "The result of a laboratory test for a single analyte value."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']",
+          "children" : [ {
+            "id" : "body_surface_area",
+            "name" : "Body Surface Area",
+            "localizedName" : "Body Surface Area",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Body Surface Area"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Body Surface Area']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "heart_rate_rhc",
+            "name" : "Heart Rate RHC",
+            "localizedName" : "Heart Rate RHC",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Heart Rate RHC"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Heart Rate RHC']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "vo2_max.",
+            "name" : "VO2 Max.",
+            "localizedName" : "VO2 Max.",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "VO2 Max."
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'VO2 Max.']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "pulmonary_vascular_resistance",
+            "name" : "Pulmonary Vascular Resistance",
+            "localizedName" : "Pulmonary Vascular Resistance",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Vascular Resistance"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Pulmonary Vascular Resistance']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "mean_pulmonary_arterial_pressure",
+            "name" : "Mean Pulmonary Arterial Pressure",
+            "localizedName" : "Mean Pulmonary Arterial Pressure",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Mean Pulmonary Arterial Pressure"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Mean Pulmonary Arterial Pressure']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "pulmonary_vascular_resistance_index",
+            "name" : "Pulmonary Vascular Resistance Index",
+            "localizedName" : "Pulmonary Vascular Resistance Index",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Vascular Resistance Index"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Pulmonary Vascular Resistance Index']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "flow_ratio_qp_qs",
+            "name" : "Flow Ratio/(Qp/Qs)",
+            "localizedName" : "Flow Ratio/(Qp/Qs)",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Flow Ratio/(Qp/Qs)"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Flow Ratio/(Qp/Qs)']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "pulmonary_capillary_wedge_pressure",
+            "name" : "Pulmonary Capillary Wedge Pressure",
+            "localizedName" : "Pulmonary Capillary Wedge Pressure",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Capillary Wedge Pressure"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Pulmonary Capillary Wedge Pressure']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "cardiac_index",
+            "name" : "Cardiac Index",
+            "localizedName" : "Cardiac Index",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Cardiac Index"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Cardiac Index']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "cardiac_output",
+            "name" : "Cardiac Output",
+            "localizedName" : "Cardiac Output",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Cardiac Output"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Cardiac Output']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "systemic_vascular_resistance_index",
+            "name" : "Systemic Vascular Resistance Index",
+            "localizedName" : "Systemic Vascular Resistance Index",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Systemic Vascular Resistance Index"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Systemic Vascular Resistance Index']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "pulmonary_stenosis",
+            "name" : "Pulmonary Stenosis",
+            "localizedName" : "Pulmonary Stenosis",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Stenosis"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[at0001,'Pulmonary Stenosis']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
+          }, {
+            "id" : "r-r_ratio_systemic_vascular_nan",
+            "name" : "R-R Ratio Systemic Vascular: NaN",
+            "localizedName" : "R-R Ratio Systemic Vascular: NaN",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "R-R Ratio Systemic Vascular: NaN"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']",
+            "children" : [ {
+              "id" : "ao_systolic_pressure",
+              "name" : "Ao Systolic Pressure",
+              "localizedName" : "Ao Systolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Ao Systolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Ao Systolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ao_diastolic_pressure",
+              "name" : "Ao Diastolic Pressure",
+              "localizedName" : "Ao Diastolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Ao Diastolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Ao Diastolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ao_mean_pressure",
+              "name" : "Ao Mean Pressure",
+              "localizedName" : "Ao Mean Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Ao Mean Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Ao Mean Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "la_systolic_pressure",
+              "name" : "LA Systolic Pressure",
+              "localizedName" : "LA Systolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LA Systolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'LA Systolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "la_diastolic_pressure",
+              "name" : "LA Diastolic Pressure",
+              "localizedName" : "LA Diastolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LA Diastolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'LA Diastolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "la_mean_pressure",
+              "name" : "LA Mean Pressure",
+              "localizedName" : "LA Mean Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LA Mean Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'LA Mean Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ra_systolic_pressure",
+              "name" : "RA Systolic Pressure",
+              "localizedName" : "RA Systolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RA Systolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'RA Systolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ra_diastolic_pressure",
+              "name" : "RA Diastolic Pressure",
+              "localizedName" : "RA Diastolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RA Diastolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'RA Diastolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ra_edp",
+              "name" : "RA EDP",
+              "localizedName" : "RA EDP",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RA EDP"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'RA EDP']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "rv_systolic_pressure",
+              "name" : "RV Systolic Pressure",
+              "localizedName" : "RV Systolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RV Systolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'RV Systolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "rv_diastolic_pressure",
+              "name" : "RV Diastolic Pressure",
+              "localizedName" : "RV Diastolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RV Diastolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'RV Diastolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "rv_mean_pressure",
+              "name" : "RV Mean Pressure",
+              "localizedName" : "RV Mean Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RV Mean Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'RV Mean Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pa_systolic_pressure",
+              "name" : "PA Systolic Pressure",
+              "localizedName" : "PA Systolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PA Systolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'PA Systolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pa_diastolic_pressure",
+              "name" : "PA Diastolic Pressure",
+              "localizedName" : "PA Diastolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PA Diastolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'PA Diastolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pa_mean_pressure",
+              "name" : "PA Mean Pressure",
+              "localizedName" : "PA Mean Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PA Mean Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'PA Mean Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pv_pressure",
+              "name" : "PV Pressure",
+              "localizedName" : "PV Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PV Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'PV Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "lv_systolic_pressure",
+              "name" : "LV Systolic Pressure",
+              "localizedName" : "LV Systolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LV Systolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'LV Systolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "lv_diastolic_pressure",
+              "name" : "LV Diastolic Pressure",
+              "localizedName" : "LV Diastolic Pressure",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LV Diastolic Pressure"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'LV Diastolic Pressure']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "lv_edp",
+              "name" : "LV EDP",
+              "localizedName" : "LV EDP",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LV EDP"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'LV EDP']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_ao",
+              "name" : "Saturasi Ao",
+              "localizedName" : "Saturasi Ao",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi Ao"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Saturasi Ao']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_svc",
+              "name" : "Saturasi SVC",
+              "localizedName" : "Saturasi SVC",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi SVC"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Saturasi SVC']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_ivc",
+              "name" : "Saturasi IVC",
+              "localizedName" : "Saturasi IVC",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi IVC"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Saturasi IVC']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_ra",
+              "name" : "Saturasi RA",
+              "localizedName" : "Saturasi RA",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi RA"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Saturasi RA']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_rv",
+              "name" : "Saturasi RV",
+              "localizedName" : "Saturasi RV",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi RV"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Saturasi RV']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_pa",
+              "name" : "Saturasi PA",
+              "localizedName" : "Saturasi PA",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi PA"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Saturasi PA']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_lv",
+              "name" : "Saturasi LV",
+              "localizedName" : "Saturasi LV",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi LV"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Saturasi LV']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "oksigen_tes",
+              "name" : "Oksigen Tes",
+              "localizedName" : "Oksigen Tes",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0001,'Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN"
+              } ]
+            }, {
+              "id" : "reference_range_guidance",
+              "name" : "Reference range guidance",
+              "localizedName" : "Reference range guidance",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Reference range guidance"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional advice on the applicability of the reference range to this result or may carry text or coded textual guidance as to whether the result is within the normal range."
+              },
+              "annotations" : {
+                "comment" : "For example, 'within normal limits for age and sex'."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0004]/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "test_method",
+              "name" : "Test method",
+              "localizedName" : "Test method",
+              "rmType" : "ELEMENT",
+              "nodeId" : "at0028",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Test method"
+              },
+              "localizedDescriptions" : {
+                "en" : "Description about the method used to perform the test on this analyte only."
+              },
+              "annotations" : {
+                "comment" : "If the test method applies to an entire panel, the test method can be captured using the 'Test method' data element within the OBSERVATION.laboratory_test_result"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]",
+              "children" : [ {
+                "id" : "coded_text_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_CODED_TEXT",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "value",
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "text_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_TEXT",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "multimedia_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_MULTIMEDIA",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "parsable_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_PARSABLE",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "suffix" : "value",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "formalism",
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "state_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_STATE",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "value",
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "boolean_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_BOOLEAN",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "BOOLEAN"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "identifier_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_IDENTIFIER",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "suffix" : "id",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "type",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "issuer",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "assigner",
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "uri_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_URI",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "ehr_uri_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_EHR_URI",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "duration_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_DURATION",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "suffix" : "year",
+                  "type" : "INTEGER",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0
+                    }
+                  }
+                }, {
+                  "suffix" : "month",
+                  "type" : "INTEGER",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0
+                    }
+                  }
+                }, {
+                  "suffix" : "day",
+                  "type" : "INTEGER",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0
+                    }
+                  }
+                }, {
+                  "suffix" : "week",
+                  "type" : "INTEGER",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0
+                    }
+                  }
+                }, {
+                  "suffix" : "hour",
+                  "type" : "INTEGER",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0
+                    }
+                  }
+                }, {
+                  "suffix" : "minute",
+                  "type" : "INTEGER",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0
+                    }
+                  }
+                }, {
+                  "suffix" : "second",
+                  "type" : "INTEGER",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0
+                    }
+                  }
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "quantity_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_QUANTITY",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "suffix" : "magnitude",
+                  "type" : "DECIMAL"
+                }, {
+                  "suffix" : "unit",
+                  "type" : "TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "count_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_COUNT",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "INTEGER"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "proportion_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_PROPORTION",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "proportionTypes" : [ "integer_fraction", "unitary", "percent", "ratio", "fraction" ],
+                "inputs" : [ {
+                  "suffix" : "numerator",
+                  "type" : "DECIMAL"
+                }, {
+                  "suffix" : "denominator",
+                  "type" : "DECIMAL"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "date_time_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_DATE_TIME",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "DATETIME"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "date_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_DATE",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "DATE"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "time_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_TIME",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "TIME"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "ordinal_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_ORDINAL",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "CODED_TEXT"
+                } ],
+                "inContext" : true
+              }, {
+                "id" : "scale_value",
+                "name" : "Test method",
+                "localizedName" : "Test method",
+                "rmType" : "DV_SCALE",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Test method"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Description about the method used to perform the test on this analyte only."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0028]/Test method",
+                "inputs" : [ {
+                  "type" : "CODED_TEXT"
+                } ],
+                "inContext" : true
+              } ]
+            }, {
+              "id" : "validation_time",
+              "name" : "Validation time",
+              "localizedName" : "Validation time",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0025",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Validation time"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was validated in the laboratory by a healthcare practitioner."
+              },
+              "annotations" : {
+                "comment" : "In many jurisdictions the 'Result status' is assumed to include medical validation i.e. a 'final' result will be assumed to be medically validated, but in others this will be recorded and reported separately using this data element."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0025]/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            }, {
+              "id" : "result_status",
+              "name" : "Result status",
+              "localizedName" : "Result status",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Result status"
+              },
+              "localizedDescriptions" : {
+                "en" : "The status of the analyte result value."
+              },
+              "annotations" : {
+                "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element allows multiple occurrences to support use cases where more than one type of status need to be implemented.",
+                "hl7v2_mapping" : "OBX.11",
+                "fhir_mapping" : "Observation.status"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0005]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0015",
+                  "label" : "Registered",
+                  "localizedLabels" : {
+                    "en" : "Registered"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "The existence of the test is registered in the Laboratory Information System, but there is nothing yet available."
+                  }
+                }, {
+                  "value" : "at0016",
+                  "label" : "Partial",
+                  "localizedLabels" : {
+                    "en" : "Partial"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "This is a partial (e.g. initial, interim or preliminary) Test Result: data in the Test Result may be incomplete or unverified."
+                  }
+                }, {
+                  "value" : "at0017",
+                  "label" : "Preliminary",
+                  "localizedLabels" : {
+                    "en" : "Preliminary"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "Verified early results are available, but not all results are final. This is a sub-category of 'Partial'."
+                  }
+                }, {
+                  "value" : "at0018",
+                  "label" : "Final",
+                  "localizedLabels" : {
+                    "en" : "Final"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "The Test result is complete and verified by an authorised person."
+                  }
+                }, {
+                  "value" : "at0020",
+                  "label" : "Amended",
+                  "localizedLabels" : {
+                    "en" : "Amended"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "The result has been modified subsequent to being Final, and is complete and verified by an authorised person, and result data has been changed."
+                  }
+                }, {
+                  "value" : "at0019",
+                  "label" : "Corrected",
+                  "localizedLabels" : {
+                    "en" : "Corrected"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "The result has been modified subsequent to being Final, and is complete and verified by an authorised person. This is a sub-category of 'Amended'."
+                  }
+                }, {
+                  "value" : "at0021",
+                  "label" : "Appended",
+                  "localizedLabels" : {
+                    "en" : "Appended"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "Subsequent to being final, the report has been modified by adding new content. The existing content is unchanged. This is a sub-category of 'Amended'."
+                  }
+                }, {
+                  "value" : "at0023",
+                  "label" : "Cancelled",
+                  "localizedLabels" : {
+                    "en" : "Cancelled"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "The result is unavailable because the test was not started or not completed (also sometimes called 'aborted')."
+                  }
+                }, {
+                  "value" : "at0022",
+                  "label" : "Entered in error",
+                  "localizedLabels" : {
+                    "en" : "Entered in error"
+                  },
+                  "localizedDescriptions" : {
+                    "en" : "The Test Result has been withdrawn following previous Final release."
+                  }
+                } ],
+                "listOpen" : true
+              }, {
+                "suffix" : "other",
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "result_status_time",
+              "name" : "Result status time",
+              "localizedName" : "Result status time",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0006",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Result status time"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "OBX.19",
+                "fhir_mapping" : "Observation.issued"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0006]/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            }, {
+              "id" : "specimen",
+              "name" : "Specimen",
+              "localizedName" : "Specimen",
+              "rmType" : "ELEMENT",
+              "nodeId" : "at0026",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Specimen"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of the specimen used for the analyte result."
+              },
+              "annotations" : {
+                "comment" : "In some situations, a single Laboratory test result archetype will contain multiple Specimen archetypes and multiple Analyte result archetypes. In these situations, this 'Specimen' data element is needed to be able to connect the results with the correct specimens."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0026]",
+              "children" : [ {
+                "id" : "identifier_value",
+                "localizedName" : "Specimen",
+                "rmType" : "DV_IDENTIFIER",
+                "nodeId" : "",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Specimen"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of the specimen used for the analyte result."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0026]/value",
+                "inputs" : [ {
+                  "suffix" : "id",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "type",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "issuer",
+                  "type" : "TEXT"
+                }, {
+                  "suffix" : "assigner",
+                  "type" : "TEXT"
+                } ]
+              }, {
+                "id" : "uri_value",
+                "localizedName" : "Specimen",
+                "rmType" : "DV_URI",
+                "nodeId" : "",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Specimen"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Identification of the specimen used for the analyte result."
+                },
+                "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0026]/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "comment",
+              "name" : "Comment",
+              "localizedName" : "Comment",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0003",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Comment"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the analyte result, not captured in other fields."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "NTE.3",
+                "fhir_mapping" : "Observation.note"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN']/items[at0003]/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "jika_oksigen_tes_ya",
+          "name" : "Jika Oksigen Tes = Ya",
+          "localizedName" : "Jika Oksigen Tes = Ya",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Jika Oksigen Tes = Ya"
+          },
+          "localizedDescriptions" : {
+            "en" : "The result of a laboratory test for a single analyte value."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']",
+          "children" : [ {
+            "id" : "pulmonary_vascular_resistance_-_oksigen_tes",
+            "name" : "Pulmonary Vascular Resistance - Oksigen Tes",
+            "localizedName" : "Pulmonary Vascular Resistance - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Vascular Resistance - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Pulmonary Vascular Resistance - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "mean_pulmonary_arterial_pressure_-_oksigen_tes",
+            "name" : "Mean Pulmonary Arterial Pressure - Oksigen Tes",
+            "localizedName" : "Mean Pulmonary Arterial Pressure - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Mean Pulmonary Arterial Pressure - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Mean Pulmonary Arterial Pressure - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "pulmonary_vascular_resistance_index_-_oksigen_tes",
+            "name" : "Pulmonary Vascular Resistance Index  - Oksigen Tes",
+            "localizedName" : "Pulmonary Vascular Resistance Index  - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Vascular Resistance Index  - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Pulmonary Vascular Resistance Index  - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "flow_ratio_qp_qs_-_oksigen_tes",
+            "name" : "Flow Ratio/(Qp/Qs) - Oksigen Tes",
+            "localizedName" : "Flow Ratio/(Qp/Qs) - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Flow Ratio/(Qp/Qs) - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Flow Ratio/(Qp/Qs) - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "pulmonary_capillary_wedge_pressure_-_oksigen_tes",
+            "name" : "Pulmonary Capillary Wedge Pressure - Oksigen Tes",
+            "localizedName" : "Pulmonary Capillary Wedge Pressure - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Capillary Wedge Pressure - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Pulmonary Capillary Wedge Pressure - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "cardiac_index_-_oksigen_tes",
+            "name" : "Cardiac Index - Oksigen Tes",
+            "localizedName" : "Cardiac Index - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Cardiac Index - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Cardiac Index - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "cardiac_output_-_oksigen_tes",
+            "name" : "Cardiac Output - Oksigen Tes",
+            "localizedName" : "Cardiac Output - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Cardiac Output - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Cardiac Output - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "systemic_vascular_resistance_index_-_oksigen_tes",
+            "name" : "Systemic Vascular Resistance Index - Oksigen Tes",
+            "localizedName" : "Systemic Vascular Resistance Index - Oksigen Tes",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Systemic Vascular Resistance Index - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Systemic Vascular Resistance Index - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "pulmonary_stenosis_-_oksigen_tes",
+            "name" : "Pulmonary Stenosis - Oksigen Tes",
+            "localizedName" : "Pulmonary Stenosis - Oksigen Tes",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pulmonary Stenosis - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[at0001,'Pulmonary Stenosis - Oksigen Tes']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
+          }, {
+            "id" : "r-r_ratio_systemic_vascular_nan_-_oksigen_tes",
+            "name" : "R-R Ratio Systemic Vascular: NaN - Oksigen Tes",
+            "localizedName" : "R-R Ratio Systemic Vascular: NaN - Oksigen Tes",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "R-R Ratio Systemic Vascular: NaN - Oksigen Tes"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']",
+            "children" : [ {
+              "id" : "ao_systolic_pressure_-_oksigen_tes",
+              "name" : "Ao Systolic Pressure - Oksigen Tes",
+              "localizedName" : "Ao Systolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Ao Systolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Ao Systolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ao_diastolic_pressure_-_oksigen_tes",
+              "name" : "Ao Diastolic Pressure - Oksigen Tes",
+              "localizedName" : "Ao Diastolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Ao Diastolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Ao Diastolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ao_mean_pressure_-_oksigen_tes",
+              "name" : "Ao Mean Pressure - Oksigen Tes",
+              "localizedName" : "Ao Mean Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Ao Mean Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Ao Mean Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "la_systolic_pressure_-_oksigen_tes",
+              "name" : "LA Systolic Pressure - Oksigen Tes",
+              "localizedName" : "LA Systolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LA Systolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'LA Systolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "la_diastolic_pressure_-_oksigen_tes",
+              "name" : "LA Diastolic Pressure - Oksigen Tes",
+              "localizedName" : "LA Diastolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LA Diastolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'LA Diastolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "la_mean_pressure_-_oksigen_tes",
+              "name" : "LA Mean Pressure - Oksigen Tes",
+              "localizedName" : "LA Mean Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LA Mean Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'LA Mean Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ra_systolic_pressure_-_oksigen_tes",
+              "name" : "RA Systolic Pressure - Oksigen Tes",
+              "localizedName" : "RA Systolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RA Systolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'RA Systolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ra_diastolic_pressure_-_oksigen_tes",
+              "name" : "RA Diastolic Pressure - Oksigen Tes",
+              "localizedName" : "RA Diastolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RA Diastolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'RA Diastolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ra_edp_-_oksigen_tes",
+              "name" : "RA EDP - Oksigen Tes",
+              "localizedName" : "RA EDP - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RA EDP - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'RA EDP - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "rv_systolic_pressure_-_oksigen_tes",
+              "name" : "RV Systolic Pressure - Oksigen Tes",
+              "localizedName" : "RV Systolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RV Systolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'RV Systolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "rv_diastolic_pressure_-_oksigen_tes",
+              "name" : "RV Diastolic Pressure - Oksigen Tes",
+              "localizedName" : "RV Diastolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RV Diastolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'RV Diastolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "rv_mean_pressure_-_oksigen_tes",
+              "name" : "RV Mean Pressure - Oksigen Tes",
+              "localizedName" : "RV Mean Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "RV Mean Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'RV Mean Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pa_systolic_pressure_-_oksigen_tes",
+              "name" : "PA Systolic Pressure - Oksigen Tes",
+              "localizedName" : "PA Systolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PA Systolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'PA Systolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pa_diastolic_pressure_-_oksigen_tes",
+              "name" : "PA Diastolic Pressure - Oksigen Tes",
+              "localizedName" : "PA Diastolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PA Diastolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'PA Diastolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pa_mean_pressure_-_oksigen_tes",
+              "name" : "PA Mean Pressure - Oksigen Tes",
+              "localizedName" : "PA Mean Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PA Mean Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'PA Mean Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "pv_pressure_-_oksigen_tes",
+              "name" : "PV Pressure - Oksigen Tes",
+              "localizedName" : "PV Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "PV Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'PV Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "lv_systolic_pressure_-_oksigen_tes",
+              "name" : "LV Systolic Pressure - Oksigen Tes",
+              "localizedName" : "LV Systolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LV Systolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'LV Systolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "lv_diastolic_pressure_-_oksigen_tes",
+              "name" : "LV Diastolic Pressure - Oksigen Tes",
+              "localizedName" : "LV Diastolic Pressure - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LV Diastolic Pressure - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'LV Diastolic Pressure - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "lv_edp_-_oksigen_tes",
+              "name" : "LV EDP - Oksigen Tes",
+              "localizedName" : "LV EDP - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "LV EDP - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'LV EDP - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_ao_-_oksigen_tes",
+              "name" : "Saturasi Ao - Oksigen Tes",
+              "localizedName" : "Saturasi Ao - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi Ao - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Saturasi Ao - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_svc_-_oksigen_tes",
+              "name" : "Saturasi SVC - Oksigen Tes",
+              "localizedName" : "Saturasi SVC - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi SVC - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Saturasi SVC - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_ivc_-_oksigen_tes",
+              "name" : "Saturasi IVC - Oksigen Tes",
+              "localizedName" : "Saturasi IVC - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi IVC - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Saturasi IVC - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_ra_-_oksigen_tes",
+              "name" : "Saturasi RA - Oksigen Tes",
+              "localizedName" : "Saturasi RA - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi RA - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Saturasi RA - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_rv_-_oksigen_tes",
+              "name" : "Saturasi RV - Oksigen Tes",
+              "localizedName" : "Saturasi RV - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi RV - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Saturasi RV - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_pa_-_oksigen_tes",
+              "name" : "Saturasi PA - Oksigen Tes",
+              "localizedName" : "Saturasi PA - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi PA - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Saturasi PA - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "saturasi_lv_-_oksigen_tes",
+              "name" : "Saturasi LV - Oksigen Tes",
+              "localizedName" : "Saturasi LV - Oksigen Tes",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Saturasi LV - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Saturasi LV - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "oksigen_tes_-_oksigen_tes",
+              "name" : "Oksigen Tes - Oksigen Tes",
+              "localizedName" : "Oksigen Tes - Oksigen Tes",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Oksigen Tes - Oksigen Tes"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jika Oksigen Tes = Ya']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'R-R Ratio Systemic Vascular: NaN - Oksigen Tes']/items[at0001,'Oksigen Tes - Oksigen Tes']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN"
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "kesimpulan",
+          "name" : "Kesimpulan",
+          "localizedName" : "Kesimpulan",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0057",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Kesimpulan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description of the key findings."
+          },
+          "annotations" : {
+            "comment" : "For example: 'Pattern suggests significant renal impairment'. The content of the conclusion will vary, depending on the investigation performed. This conclusion should be aligned with the coded 'Test diagnosis'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[at0057,'Kesimpulan']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "laboratory_analyte_result_2",
+          "name" : "Laboratory analyte result (2)",
+          "localizedName" : "Laboratory analyte result (2)",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Laboratory analyte result (2)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The result of a laboratory test for a single analyte value."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result (2)']",
+          "children" : [ {
+            "id" : "derajat_flow",
+            "name" : "Derajat Flow",
+            "localizedName" : "Derajat Flow",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Derajat Flow"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result (2)']/items[at0001,'Derajat Flow']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "High",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Flow",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_derajatflow"
+            } ]
+          }, {
+            "id" : "derajat_resistance",
+            "name" : "Derajat Resistance",
+            "localizedName" : "Derajat Resistance",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Derajat Resistance"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result (2)']/items[at0001,'Derajat Resistance']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "High",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Flow",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_derajatresistance"
+            } ]
+          }, {
+            "id" : "hasil_oxygen_test",
+            "name" : "Hasil Oxygen Test",
+            "localizedName" : "Hasil Oxygen Test",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Hasil Oxygen Test"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result (2)']/items[at0001,'Hasil Oxygen Test']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Not conducted",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Non reactive",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "Reactive",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_hasilo2test"
+            } ]
+          }, {
+            "id" : "kelas_pah",
+            "name" : "Kelas PAH",
+            "localizedName" : "Kelas PAH",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Kelas PAH"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result (2)']/items[at0001,'Kelas PAH']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "PAH",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "PH",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "None",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_kelaspah"
+            } ]
+          }, {
+            "id" : "pah",
+            "name" : "PAH",
+            "localizedName" : "PAH",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "PAH"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result (2)']/items[at0001,'PAH']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Primer",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "Herediter",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "Drugs",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "CHD",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "4",
+                "label" : "Others",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_pah"
+            } ]
+          }, {
+            "id" : "ph",
+            "name" : "PH",
+            "localizedName" : "PH",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "PH"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratory analyte result (2)']/items[at0001,'PH']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "2",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "1",
+                "label" : "3",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "2",
+                "label" : "4",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              }, {
+                "value" : "3",
+                "label" : "5",
+                "localizedLabels" : {
+                  "en" : ""
+                }
+              } ],
+              "terminology" : "local_ph"
+            } ]
+          } ]
+        }, {
+          "id" : "keterangan_tambahan",
+          "name" : "Keterangan Tambahan",
+          "localizedName" : "Keterangan Tambahan",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0101",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Keterangan Tambahan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about the test result not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/data[at0003]/items[at0101,'Keterangan Tambahan']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Right Heart Catheterization (RHC)']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
