@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "4beb295ae2a6977012c4e8a10288ce45",
+      "MD5-CAM-1.0.1" : "ea58fbc7d7e4aba010f6dc4d5848d9de",
       "PARENT:MD5-CAM-1.0.1" : "D02DE57ACD4A04C1ADAE1F8B28197890",
-      "sem_ver" : "2.1.0",
+      "sem_ver" : "2.2.0",
       "build_uid" : ""
     },
     "details" : {
@@ -253,6 +253,64 @@
                     "@type" : "C_COMPLEX_OBJECT",
                     "rmTypeName" : "ELEMENT",
                     "occurrences" : "1..1",
+                    "nodeId" : "at0073.2",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "value",
+                      "children" : [ {
+                        "@type" : "C_COMPLEX_OBJECT",
+                        "rmTypeName" : "DV_CODED_TEXT",
+                        "attributes" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "defining_code",
+                          "children" : [ {
+                            "@type" : "C_TERMINOLOGY_CODE",
+                            "rmTypeName" : "TERMINOLOGY_CODE",
+                            "occurrences" : "1..1",
+                            "terminologyId" : {
+                              "value" : "genexpert_hasil"
+                            },
+                            "constraint" : [ ],
+                            "selectedTerminologies" : [ "genexpert_hasil" ],
+                            "includedExternalTerminologyCodes" : [ {
+                              "terminologyId" : "genexpert_hasil",
+                              "code" : "0",
+                              "value" : "Negative"
+                            }, {
+                              "terminologyId" : "genexpert_hasil",
+                              "code" : "1",
+                              "value" : "Positive"
+                            }, {
+                              "terminologyId" : "genexpert_hasil",
+                              "code" : "2",
+                              "value" : "Rifampicin sensitive"
+                            }, {
+                              "terminologyId" : "genexpert_hasil",
+                              "code" : "3",
+                              "value" : "Rifampicin resistant"
+                            }, {
+                              "terminologyId" : "genexpert_hasil",
+                              "code" : "4",
+                              "value" : "Invalid"
+                            }, {
+                              "terminologyId" : "genexpert_hasil",
+                              "code" : "5",
+                              "value" : "Error"
+                            }, {
+                              "terminologyId" : "genexpert_hasil",
+                              "code" : "6",
+                              "value" : "No result"
+                            } ]
+                          } ]
+                        } ],
+                        "attributeTuples" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "1..1",
                     "nodeId" : "at0073.1",
                     "attributes" : [ {
                       "@type" : "C_ATTRIBUTE",
@@ -268,24 +326,24 @@
                             "rmTypeName" : "TERMINOLOGY_CODE",
                             "occurrences" : "1..1",
                             "terminologyId" : {
-                              "value" : "local_terms"
+                              "value" : "genexpert_status"
                             },
                             "constraint" : [ ],
-                            "selectedTerminologies" : [ "local_terms" ],
+                            "selectedTerminologies" : [ "genexpert_status" ],
                             "includedExternalTerminologyCodes" : [ {
-                              "terminologyId" : "local_terms",
+                              "terminologyId" : "genexpert_status",
                               "code" : "0",
                               "value" : "Valid"
                             }, {
-                              "terminologyId" : "local_terms",
+                              "terminologyId" : "genexpert_status",
                               "code" : "1",
                               "value" : "Invalid"
                             }, {
-                              "terminologyId" : "local_terms",
+                              "terminologyId" : "genexpert_status",
                               "code" : "2",
                               "value" : "No result"
                             }, {
-                              "terminologyId" : "local_terms",
+                              "terminologyId" : "genexpert_status",
                               "code" : "3",
                               "value" : "Error"
                             } ]
@@ -314,6 +372,13 @@
                     "rmTypeName" : "ELEMENT",
                     "occurrences" : "0..0",
                     "nodeId" : "at0100.1",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "ELEMENT",
+                    "occurrences" : "0..0",
+                    "nodeId" : "at0057.1",
                     "attributes" : [ ],
                     "attributeTuples" : [ ]
                   }, {
@@ -354,13 +419,6 @@
                         "attributeTuples" : [ ]
                       } ]
                     } ],
-                    "attributeTuples" : [ ]
-                  }, {
-                    "@type" : "C_COMPLEX_OBJECT",
-                    "rmTypeName" : "ELEMENT",
-                    "occurrences" : "0..0",
-                    "nodeId" : "at0057.1",
-                    "attributes" : [ ],
                     "attributeTuples" : [ ]
                   }, {
                     "@type" : "C_COMPLEX_OBJECT",
@@ -538,6 +596,13 @@
           "code" : "at0000.1",
           "text" : "*Laboratory test result(en) (4)",
           "description" : "*The result, including findings and interpretation, of a laboratory investigation performed on specimens from individuals or related materials(en)"
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "*Overall test status(en) (2)",
+          "description" : "*The status of the laboratory test result as a whole.(en)",
+          "comment" : "*The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements. (en)"
         }
       },
       "en" : {
@@ -567,6 +632,13 @@
           "text" : "Terdapat MTB XDR?",
           "description" : "Single word, phrase or brief description that represents the clinical meaning and significance of the laboratory test result.",
           "comment" : "For example: 'Severe hepatic impairment', 'Salmonella contamination'. Coding of the diagnosis with a terminology is strongly recommended, where possible. This diagnosis should be aligned with the narrative in the 'Conclusion'."
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073.2",
+          "text" : "Hasil GeneXpert (TCM)",
+          "description" : "The status of the laboratory test result as a whole.",
+          "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements."
         }
       },
       "nb" : {
@@ -575,6 +647,13 @@
           "code" : "at0000.1",
           "text" : "Laboratorieresultat (4)",
           "description" : "Resultat, inkludert funn og laboratoriets tolkning, av en laboratorieundersøkelse utført på prøvemateriale fra et individ eller relatert til individet."
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "Overordnet resultatstatus (2)",
+          "description" : "Den overordnede statusen for hele laboratorieresultatet/prøven.",
+          "comment" : "Verdiene er valgt spesifikt for å samsvare med verdiene i HL7 FHIR-ressursen \"Diagnostic report\", som historisk sett kommer fra HL7 v2. Andre lokale koder eller termer kan brukes ved å bruke datatypen \"Fri eller kodet tekst.\r\n\r\nDette elementet kan repeteres for å understøtte bruksområdene der statuser for forskjellige aspekter av resultatet er delt opp i flere elementer. Et eksempel på dette er de norske standard labsvarmeldingene i HIS 1.4-standarden, der status for svaret og status for laboratorieprosessen håndteres separat."
         }
       },
       "zh-cn" : {
@@ -583,6 +662,13 @@
           "code" : "at0000.1",
           "text" : "*Laboratory test result(en) (4)",
           "description" : "*The result, including findings and interpretation, of a laboratory investigation performed on specimens from individuals or related materials(en)"
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "*Overall test status(en) (2)",
+          "description" : "*The status of the laboratory test result as a whole.(en)",
+          "comment" : "*The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements. (en)"
         }
       },
       "de" : {
@@ -591,6 +677,13 @@
           "code" : "at0000.1",
           "text" : "Laborergebnis (4)",
           "description" : "Das Ergebnis - einschließlich der Befunde und der Interpretation des Labors - einer Untersuchung, die an Proben durchgeführt wurde, die von einer Einzelperson stammen oder mit dieser Person zusammenhängen."
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "Gesamtteststatus (2)",
+          "description" : "Der Status des gesamten Laborprüfergebnisses.",
+          "comment" : "Die Werte wurden so ausgewählt, dass sie mit denen im HL7 FHIR Diagnosebericht übereinstimmen, der historisch aus der HL7v2Praxis stammt. Andere lokale Codes/Begriffe können über den Text \"Auswahl\" verwendet werden. \r\n\r\nDieses Element kann mehrfach vorkommen, um Fälle abzudecken, bei denen der Status für verschiedene Aspekte des Ergebnisses in mehrere Elemente unterteilt wurde.\r\n"
         }
       },
       "it" : {
@@ -599,6 +692,13 @@
           "code" : "at0000.1",
           "text" : "Risultato di esame di laboratorio (4)",
           "description" : "L'esito, inclusi i risultati e l'interpretazione, di una indagine di laboratorio effettuata su campioni provenienti da individui o relativi materiali."
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "Stato complessivo dell'esame (2)",
+          "description" : "Lo stato relativo all'esame di laboratorio nel suo complesso. ",
+          "comment" : "I valori sono stati specificatamente scelti in moto tale da corrispondere a quelli del \"FHIR Diagnostic Report\" di HL7, a loro volta storicamente derivanti dal HL7 v2. Altre codifiche/terminologie locali possono essere utilizzare tramite la scelta \"Text\". Questo elemento ha occorrenze multiple al fine di soddisfare le esigenze di quegli use case in cui gli stati relativi a differenti aspetti del risultato sono stati divisi in più componenti."
         }
       },
       "nl" : {
@@ -607,6 +707,12 @@
           "code" : "at0000.1",
           "text" : "*Laboratory test result(en) (4)",
           "description" : "*The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual.(en)"
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "*Overall test status(en) (2)",
+          "description" : "*The status of the laboratory test result as a whole.(en)"
         }
       },
       "sv" : {
@@ -615,6 +721,13 @@
           "code" : "at0000.1",
           "text" : "Laboratorieresultat (4)",
           "description" : "Resultatet, inklusive fynd och laboratoriets tolkning, av en undersökning utförd på provmaterial från en individ eller relaterad till individen."
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "Status svarsrapport (2)",
+          "description" : "Status för undersökningsresultatet som helhet.",
+          "comment" : "Värdena har valts specifikt för att motsvara värdena i HL7 FHIR-resursen \"Diagnostic Report\", som historiskt kommer från HL7 v2. Andra lokala koder eller termer kan användas med datatypen \"Fri eller kodad text.\r\n\r\nDetta element kan upprepas för att stödja applikationer där status för olika aspekter av resultatet delas in i flera element."
         }
       },
       "pt-br" : {
@@ -623,6 +736,13 @@
           "code" : "at0000.1",
           "text" : "Resultado de exame de laboratório (4)",
           "description" : "O resultado, incluindo achados e a interpretação do laboratório, de uma investigação realizada em amostras coletadas de um indivíduo ou relacionadas a esse indivíduo."
+        },
+        "at0073.2" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0073",
+          "text" : "*Overall test status(en) (2)",
+          "description" : "*The status of the laboratory test result as a whole.(en)",
+          "comment" : "*The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements.(en)"
         }
       }
     },
