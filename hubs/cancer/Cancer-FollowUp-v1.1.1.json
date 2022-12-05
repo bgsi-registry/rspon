@@ -130,6 +130,27 @@
               "terminology" : "SNOMEDCT"
             } ]
           }, {
+            "id" : "terapi_ke_berapa_6_bulan_1_tahun_2_tahun_3_tahun_4_tahun",
+            "name" : "Terapi ke berapa (6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)",
+            "localizedName" : "Terapi ke berapa (6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0065",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Terapi ke berapa (6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Description of the intent for the order."
+            },
+            "annotations" : {
+              "comment" : "Coding of the 'Intent' with a coding system is desirable, if available. This data element allows multiple occurrences to enable the user to record a multiple responses, if required."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Follow up (5x; 6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001]/description[at0009]/items[at0065,'Terapi ke berapa (6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
             "id" : "jumlah_metastasis",
             "name" : "Jumlah Metastasis",
             "localizedName" : "Jumlah Metastasis",
@@ -212,27 +233,6 @@
                 }
               } ],
               "terminology" : "local_termsMetas"
-            } ]
-          }, {
-            "id" : "terapi_ke_berapa",
-            "name" : "Terapi ke berapa",
-            "localizedName" : "Terapi ke berapa",
-            "rmType" : "DV_TEXT",
-            "nodeId" : "at0065",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Terapi ke berapa"
-            },
-            "localizedDescriptions" : {
-              "en" : "Description of the intent for the order."
-            },
-            "annotations" : {
-              "comment" : "Coding of the 'Intent' with a coding system is desirable, if available. This data element allows multiple occurrences to enable the user to record a multiple responses, if required."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Follow up (5x; 6 bulan, 1 tahun, 2 tahun, 3 tahun, 4 tahun)']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001]/description[at0009]/items[at0065,'Terapi ke berapa']/value",
-            "inputs" : [ {
-              "type" : "TEXT"
             } ]
           }, {
             "id" : "tnm_clinical_classification",
@@ -1460,7 +1460,7 @@
             "id" : "tempat_kematian_-_negara",
             "name" : "Tempat Kematian - Negara",
             "localizedName" : "Tempat Kematian - Negara",
-            "rmType" : "DV_TEXT",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0001",
             "min" : 1,
             "max" : 1,
@@ -1472,13 +1472,17 @@
             },
             "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0001,'Tempat Kematian - Negara']/value",
             "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "value",
               "type" : "TEXT"
             } ]
           }, {
             "id" : "tempat_kematian_-_lokasi",
             "name" : "Tempat Kematian - Lokasi",
             "localizedName" : "Tempat Kematian - Lokasi",
-            "rmType" : "DV_TEXT",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0003",
             "min" : 1,
             "max" : 1,
@@ -1490,6 +1494,10 @@
             },
             "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v0]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v0]/items[at0003,'Tempat Kematian - Lokasi']/value",
             "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "value",
               "type" : "TEXT"
             } ]
           }, {
