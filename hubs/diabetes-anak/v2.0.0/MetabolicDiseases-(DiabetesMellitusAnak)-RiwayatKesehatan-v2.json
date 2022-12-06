@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "kelahiran",
       "name" : "Kelahiran",
@@ -114,13 +141,13 @@
                   "value" : "282020008",
                   "label" : "Premature",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Premature"
                   }
                 }, {
                   "value" : "373067005",
                   "label" : "Tidak Premature",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Premature"
                   }
                 } ],
                 "terminology" : "SNOMEDCT"
@@ -573,13 +600,13 @@
               "value" : "248153007",
               "label" : "Laki-laki",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Laki-laki"
               }
             }, {
               "value" : "248152002",
               "label" : "Perempuan",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Perempuan"
               }
             } ],
             "terminology" : "SNOMEDCT"
@@ -643,7 +670,7 @@
           "localizedName" : "Status Menstruasi",
           "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0003",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Status Menstruasi"
@@ -662,16 +689,16 @@
               "value" : "20016009",
               "label" : "Sudah",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Sudah"
               }
             }, {
               "value" : "64100000",
               "label" : "Belum",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Belum"
               }
             } ],
-            "terminology" : "local_terms"
+            "terminology" : "SNOMED_CT"
           } ]
         }, {
           "id" : "usia_menarche",
@@ -679,7 +706,7 @@
           "localizedName" : "Usia menarche",
           "rmType" : "DV_DURATION",
           "nodeId" : "at0002",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
             "en" : "Usia menarche"
@@ -795,19 +822,19 @@
               "value" : "373066001",
               "label" : "Ya",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Ya"
               }
             }, {
               "value" : "373067005",
               "label" : "Tidak",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak"
               }
             }, {
               "value" : "261665006",
               "label" : "Tidak Tahu",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak Tahu"
               }
             } ],
             "terminology" : "SNOMEDCT"
@@ -859,7 +886,7 @@
             "rmType" : "DV_COUNT",
             "nodeId" : "at0001",
             "min" : 0,
-            "max" : -1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Hasil HbA1c %"
             },
@@ -913,7 +940,15 @@
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pengaturan makan']/items[at0001,'RDA (kkal)']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
-              "type" : "DECIMAL"
+              "type" : "DECIMAL",
+              "validation" : {
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 2,
+                  "maxOp" : "<=",
+                  "max" : 2
+                }
+              }
             }, {
               "suffix" : "unit",
               "type" : "CODED_TEXT",
@@ -922,6 +957,14 @@
                 "label" : "kcal",
                 "localizedLabels" : {
                   "en" : "kcal"
+                },
+                "validation" : {
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 2,
+                    "maxOp" : "<=",
+                    "max" : 2
+                  }
                 }
               } ]
             } ]
@@ -955,8 +998,8 @@
           "localizedName" : "Riwayat Pengobatan Obat Diabetes",
           "rmType" : "CLUSTER",
           "nodeId" : "openEHR-EHR-CLUSTER.medication.v2",
-          "min" : 1,
-          "max" : 1,
+          "min" : 0,
+          "max" : -1,
           "localizedNames" : {
             "en" : "Riwayat Pengobatan Obat Diabetes"
           },
@@ -965,15 +1008,15 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes']",
           "children" : [ {
-            "id" : "riwayat_obat_oral",
-            "name" : "Riwayat obat oral",
-            "localizedName" : "Riwayat obat oral",
+            "id" : "obat_diabetes_oral",
+            "name" : "Obat diabetes oral",
+            "localizedName" : "Obat diabetes oral",
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0132",
-            "min" : 1,
+            "min" : 0,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Riwayat obat oral"
+              "en" : "Obat diabetes oral"
             },
             "localizedDescriptions" : {
               "en" : "The name of the medication or medication component."
@@ -981,7 +1024,7 @@
             "annotations" : {
               "comment" : "For example: 'Zinacef 750 mg powder' or 'cefuroxim'. This item should be coded if possible, using for example, RxNorm, DM+D, Australian Medicines Terminology or FEST. Usage of this element will vary according to context of use. This element may be omitted where the name of the medication is recorded in the parent INSTRUCTION or ACTION archetype, and this archetype is only used to record that the form must be or was 'liquid'."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes']/items[at0132,'Riwayat obat oral']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes']/items[at0132,'Obat diabetes oral']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
@@ -989,27 +1032,27 @@
                 "value" : "373066001",
                 "label" : "Ada penggunaan",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Ada penggunaan"
                 }
               }, {
                 "value" : "373067005",
                 "label" : "Tidak ada",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Tidak ada"
                 }
               } ],
               "terminology" : "local_termsOBTDM"
             } ]
           }, {
-            "id" : "nama_obat",
-            "name" : "Nama obat",
-            "localizedName" : "Nama obat",
+            "id" : "riwayat_obat_oral",
+            "name" : "Riwayat obat oral",
+            "localizedName" : "Riwayat obat oral",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0151",
             "min" : 0,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Nama obat"
+              "en" : "Riwayat obat oral"
             },
             "localizedDescriptions" : {
               "en" : "The manufacturer of the medication or medication component."
@@ -1017,7 +1060,7 @@
             "annotations" : {
               "comment" : "For example: 'Abbott'."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes']/items[at0151,'Nama obat']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes']/items[at0151,'Riwayat obat oral']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1070,15 +1113,15 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes Lainnya']",
           "children" : [ {
-            "id" : "nama_obat",
-            "name" : "Nama obat",
-            "localizedName" : "Nama obat",
+            "id" : "riwayat_obat_diabetes_lainnya",
+            "name" : "Riwayat obat diabetes lainnya",
+            "localizedName" : "Riwayat obat diabetes lainnya",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0151",
             "min" : 0,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Nama obat"
+              "en" : "Riwayat obat diabetes lainnya"
             },
             "localizedDescriptions" : {
               "en" : "The manufacturer of the medication or medication component."
@@ -1086,7 +1129,7 @@
             "annotations" : {
               "comment" : "For example: 'Abbott'."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes Lainnya']/items[at0151,'Nama obat']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Obat Diabetes Lainnya']/items[at0151,'Riwayat obat diabetes lainnya']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1221,7 +1264,7 @@
             "localizedName" : "Terapi insulin",
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0027",
-            "min" : 1,
+            "min" : 0,
             "max" : 1,
             "localizedNames" : {
               "en" : "Terapi insulin"
@@ -1240,25 +1283,43 @@
                 "value" : "0",
                 "label" : "Tanpa Insulin",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Tanpa Insulin"
                 }
               }, {
                 "value" : "1",
                 "label" : "Basal Bolus",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Basal Bolus"
                 }
               }, {
                 "value" : "2",
                 "label" : "Konvensional",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Konvensional"
                 }
               }, {
                 "value" : "3",
-                "label" : "Basal saja",
+                "label" : "Basal Saja",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Basal Saja"
+                }
+              }, {
+                "value" : "4",
+                "label" : "Basal Bolus dan Konvensional",
+                "localizedLabels" : {
+                  "en" : "Basal Bolus dan Konvensional"
+                }
+              }, {
+                "value" : "5",
+                "label" : "Basal Bolus dan Basal Saja",
+                "localizedLabels" : {
+                  "en" : "Basal Bolus dan Basal Saja"
+                }
+              }, {
+                "value" : "6",
+                "label" : "Konvensional dan Basal Saja",
+                "localizedLabels" : {
+                  "en" : "Konvensional dan Basal Saja"
                 }
               } ],
               "terminology" : "local_termsINS"
@@ -1282,15 +1343,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Basal']",
             "children" : [ {
-              "id" : "nama_obat_berikan_-_bila_tidak_ada",
-              "name" : "Nama obat (berikan \"-\" bila tidak ada)",
-              "localizedName" : "Nama obat (berikan \"-\" bila tidak ada)",
+              "id" : "nama_obat_insulin_basal_berikan_-_bila_tidak_ada",
+              "name" : "Nama obat Insulin Basal (berikan \"-\" bila tidak ada)",
+              "localizedName" : "Nama obat Insulin Basal (berikan \"-\" bila tidak ada)",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0021",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Nama obat (berikan \"-\" bila tidak ada)"
+                "en" : "Nama obat Insulin Basal (berikan \"-\" bila tidak ada)"
               },
               "localizedDescriptions" : {
                 "en" : "Name of medication or grouping of medication."
@@ -1298,7 +1359,7 @@
               "annotations" : {
                 "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Basal']/items[at0021,'Nama obat (berikan \"-\" bila tidak ada)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Basal']/items[at0021,'Nama obat Insulin Basal (berikan \"-\" bila tidak ada)']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -1321,15 +1382,15 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Basal']/items[openEHR-EHR-CLUSTER.dosage.v2]",
               "children" : [ {
-                "id" : "dosis",
-                "name" : "Dosis",
-                "localizedName" : "Dosis",
+                "id" : "dosis_insulin_basal",
+                "name" : "Dosis Insulin Basal",
+                "localizedName" : "Dosis Insulin Basal",
                 "rmType" : "DV_QUANTITY",
                 "nodeId" : "at0144",
                 "min" : 0,
                 "max" : 1,
                 "localizedNames" : {
-                  "en" : "Dosis"
+                  "en" : "Dosis Insulin Basal"
                 },
                 "localizedDescriptions" : {
                   "en" : "The amount of medication administered at one time."
@@ -1337,7 +1398,7 @@
                 "annotations" : {
                   "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
                 },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Basal']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis']/value",
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Basal']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis Insulin Basal']/value",
                 "inputs" : [ {
                   "suffix" : "magnitude",
                   "type" : "DECIMAL"
@@ -1384,15 +1445,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Bolus']",
             "children" : [ {
-              "id" : "nama_obat_berikan_-_bila_tidak_ada",
-              "name" : "Nama obat (berikan \"-\" bila tidak ada)",
-              "localizedName" : "Nama obat (berikan \"-\" bila tidak ada)",
+              "id" : "nama_obat_insulin_bolus_berikan_-_bila_tidak_ada",
+              "name" : "Nama obat Insulin Bolus (berikan \"-\" bila tidak ada)",
+              "localizedName" : "Nama obat Insulin Bolus (berikan \"-\" bila tidak ada)",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0021",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Nama obat (berikan \"-\" bila tidak ada)"
+                "en" : "Nama obat Insulin Bolus (berikan \"-\" bila tidak ada)"
               },
               "localizedDescriptions" : {
                 "en" : "Name of medication or grouping of medication."
@@ -1400,7 +1461,7 @@
               "annotations" : {
                 "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Bolus']/items[at0021,'Nama obat (berikan \"-\" bila tidak ada)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Bolus']/items[at0021,'Nama obat Insulin Bolus (berikan \"-\" bila tidak ada)']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -1423,15 +1484,15 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Bolus']/items[openEHR-EHR-CLUSTER.dosage.v2]",
               "children" : [ {
-                "id" : "dosis",
-                "name" : "Dosis",
-                "localizedName" : "Dosis",
+                "id" : "dosis_insulin_bolus",
+                "name" : "Dosis Insulin Bolus",
+                "localizedName" : "Dosis Insulin Bolus",
                 "rmType" : "DV_QUANTITY",
                 "nodeId" : "at0144",
                 "min" : 0,
                 "max" : 1,
                 "localizedNames" : {
-                  "en" : "Dosis"
+                  "en" : "Dosis Insulin Bolus"
                 },
                 "localizedDescriptions" : {
                   "en" : "The amount of medication administered at one time."
@@ -1439,7 +1500,7 @@
                 "annotations" : {
                   "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
                 },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Bolus']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis']/value",
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Bolus']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis Insulin Bolus']/value",
                 "inputs" : [ {
                   "suffix" : "magnitude",
                   "type" : "DECIMAL"
@@ -1486,15 +1547,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Campuran']",
             "children" : [ {
-              "id" : "nama_obat_berikan_-_bila_tidak_ada",
-              "name" : "Nama obat (berikan \"-\" bila tidak ada)",
-              "localizedName" : "Nama obat (berikan \"-\" bila tidak ada)",
+              "id" : "nama_obat_insulin_campuran_berikan_-_bila_tidak_ada",
+              "name" : "Nama obat Insulin Campuran (berikan \"-\" bila tidak ada)",
+              "localizedName" : "Nama obat Insulin Campuran (berikan \"-\" bila tidak ada)",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0021",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Nama obat (berikan \"-\" bila tidak ada)"
+                "en" : "Nama obat Insulin Campuran (berikan \"-\" bila tidak ada)"
               },
               "localizedDescriptions" : {
                 "en" : "Name of medication or grouping of medication."
@@ -1502,7 +1563,7 @@
               "annotations" : {
                 "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Campuran']/items[at0021,'Nama obat (berikan \"-\" bila tidak ada)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Campuran']/items[at0021,'Nama obat Insulin Campuran (berikan \"-\" bila tidak ada)']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -1525,15 +1586,15 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Campuran']/items[openEHR-EHR-CLUSTER.dosage.v2]",
               "children" : [ {
-                "id" : "dosis",
-                "name" : "Dosis",
-                "localizedName" : "Dosis",
+                "id" : "dosis_insulin_campuran",
+                "name" : "Dosis Insulin Campuran",
+                "localizedName" : "Dosis Insulin Campuran",
                 "rmType" : "DV_QUANTITY",
                 "nodeId" : "at0144",
                 "min" : 0,
                 "max" : 1,
                 "localizedNames" : {
-                  "en" : "Dosis"
+                  "en" : "Dosis Insulin Campuran"
                 },
                 "localizedDescriptions" : {
                   "en" : "The amount of medication administered at one time."
@@ -1541,7 +1602,7 @@
                 "annotations" : {
                   "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
                 },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Campuran']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis']/value",
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Regimen Insulin']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat Insulin Campuran']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis Insulin Campuran']/value",
                 "inputs" : [ {
                   "suffix" : "magnitude",
                   "type" : "DECIMAL"
@@ -1662,22 +1723,22 @@
               "value" : "373066001",
               "label" : "Ya",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Ya"
               }
             }, {
               "value" : "373067005",
               "label" : "Tidak",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak"
               }
             }, {
               "value" : "261665006",
               "label" : "Tidak Tahu",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak Tahu"
               }
             } ],
-            "terminology" : "local_termsHT"
+            "terminology" : "SNOMED_CT"
           } ]
         }, {
           "id" : "riwayat_pengobatan_hipertensi",
@@ -1695,15 +1756,15 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Hipertensi']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Hipertensi']",
           "children" : [ {
-            "id" : "nama_obat",
-            "name" : "Nama Obat",
-            "localizedName" : "Nama Obat",
+            "id" : "nama_obat_hipertensi",
+            "name" : "Nama Obat Hipertensi",
+            "localizedName" : "Nama Obat Hipertensi",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0132",
-            "min" : 1,
+            "min" : 0,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Nama Obat"
+              "en" : "Nama Obat Hipertensi"
             },
             "localizedDescriptions" : {
               "en" : "The name of the medication or medication component."
@@ -1711,7 +1772,7 @@
             "annotations" : {
               "comment" : "For example: 'Zinacef 750 mg powder' or 'cefuroxim'. This item should be coded if possible, using for example, RxNorm, DM+D, Australian Medicines Terminology or FEST. Usage of this element will vary according to context of use. This element may be omitted where the name of the medication is recorded in the parent INSTRUCTION or ACTION archetype, and this archetype is only used to record that the form must be or was 'liquid'."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Hipertensi']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Hipertensi']/items[at0132,'Nama Obat']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Hipertensi']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Hipertensi']/items[at0132,'Nama Obat Hipertensi']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1721,7 +1782,7 @@
             "localizedName" : "Dosis Obat",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0139",
-            "min" : 1,
+            "min" : 0,
             "max" : 1,
             "localizedNames" : {
               "en" : "Dosis Obat"
@@ -1822,22 +1883,22 @@
               "value" : "373066001",
               "label" : "Ya",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Ya"
               }
             }, {
               "value" : "373067005",
               "label" : "Tidak",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak"
               }
             }, {
               "value" : "261665006",
               "label" : "Tidak Tahu",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak Tahu"
               }
             } ],
-            "terminology" : "local_termsST"
+            "terminology" : "SNOMED_CT"
           } ]
         }, {
           "id" : "riwayat_pengobatan_statin",
@@ -1855,15 +1916,15 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Statin']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Statin']",
           "children" : [ {
-            "id" : "nama_obat",
-            "name" : "Nama Obat",
-            "localizedName" : "Nama Obat",
+            "id" : "nama_obat_statin",
+            "name" : "Nama Obat Statin",
+            "localizedName" : "Nama Obat Statin",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0132",
-            "min" : 1,
+            "min" : 0,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Nama Obat"
+              "en" : "Nama Obat Statin"
             },
             "localizedDescriptions" : {
               "en" : "The name of the medication or medication component."
@@ -1871,20 +1932,20 @@
             "annotations" : {
               "comment" : "For example: 'Zinacef 750 mg powder' or 'cefuroxim'. This item should be coded if possible, using for example, RxNorm, DM+D, Australian Medicines Terminology or FEST. Usage of this element will vary according to context of use. This element may be omitted where the name of the medication is recorded in the parent INSTRUCTION or ACTION archetype, and this archetype is only used to record that the form must be or was 'liquid'."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Statin']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Statin']/items[at0132,'Nama Obat']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Statin']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Statin']/items[at0132,'Nama Obat Statin']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "dosis_obat",
-            "name" : "Dosis Obat",
-            "localizedName" : "Dosis Obat",
+            "id" : "dosis_obat_statin",
+            "name" : "Dosis Obat Statin",
+            "localizedName" : "Dosis Obat Statin",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0139",
-            "min" : 1,
+            "min" : 0,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Dosis Obat"
+              "en" : "Dosis Obat Statin"
             },
             "localizedDescriptions" : {
               "en" : "The amount of medication or medication component."
@@ -1892,7 +1953,7 @@
             "annotations" : {
               "comment" : "For example: '1 ml', '1.5 mg', '1000 ml'."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Statin']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Statin']/items[at0139,'Dosis Obat']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Statin']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat Pengobatan Statin']/items[at0139,'Dosis Obat Statin']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -1924,6 +1985,166 @@
           "min" : 1,
           "max" : 1,
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Statin']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "obat_pengencer_darah",
+        "name" : "Obat Pengencer Darah",
+        "localizedName" : "Obat Pengencer Darah",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Obat Pengencer Darah"
+        },
+        "localizedDescriptions" : {
+          "en" : "Details about a single identified health condition, injury, disability or any other issue which impacts on the physical, mental and/or social well-being of an individual."
+        },
+        "annotations" : {
+          "comment" : "Clear delineation between the scope of a problem versus a diagnosis is not easy to achieve in practice. For the purposes of clinical documentation with this archetype, problem and diagnosis are regarded as a continuum, with increasing levels of detail and supportive evidence usually providing weight towards the label of 'diagnosis'."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']",
+        "children" : [ {
+          "id" : "konsumsi_obat_pengencer_darah_cth_aspirin_clopidogrel",
+          "name" : "Konsumsi obat pengencer darah (cth: aspirin, clopidogrel)",
+          "localizedName" : "Konsumsi obat pengencer darah (cth: aspirin, clopidogrel)",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Konsumsi obat pengencer darah (cth: aspirin, clopidogrel)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the problem or diagnosis, by name."
+          },
+          "annotations" : {
+            "comment" : "Coding of the name of the problem or diagnosis with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']/data[at0001]/items[at0002,'Konsumsi obat pengencer darah (cth: aspirin, clopidogrel)']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : "Ya"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            }, {
+              "value" : "261665006",
+              "label" : "Tidak Tahu",
+              "localizedLabels" : {
+                "en" : "Tidak Tahu"
+              }
+            } ],
+            "terminology" : "SNOMED_CT"
+          } ]
+        }, {
+          "id" : "riwayat_obat_pengencer_darah",
+          "name" : "Riwayat obat pengencer darah",
+          "localizedName" : "Riwayat obat pengencer darah",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.medication.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Riwayat obat pengencer darah"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about a medication or component of a medication, including strength, form and details of any specific constituents."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat obat pengencer darah']",
+          "children" : [ {
+            "id" : "nama_obat_pengencer_darah",
+            "name" : "Nama obat pengencer darah",
+            "localizedName" : "Nama obat pengencer darah",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0132",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama obat pengencer darah"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the medication or medication component."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Zinacef 750 mg powder' or 'cefuroxim'. This item should be coded if possible, using for example, RxNorm, DM+D, Australian Medicines Terminology or FEST. Usage of this element will vary according to context of use. This element may be omitted where the name of the medication is recorded in the parent INSTRUCTION or ACTION archetype, and this archetype is only used to record that the form must be or was 'liquid'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat obat pengencer darah']/items[at0132,'Nama obat pengencer darah']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "dosis_obat_pengencer_darah",
+            "name" : "Dosis obat pengencer darah",
+            "localizedName" : "Dosis obat pengencer darah",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0139",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Dosis obat pengencer darah"
+            },
+            "localizedDescriptions" : {
+              "en" : "The amount of medication or medication component."
+            },
+            "annotations" : {
+              "comment" : "For example: '1 ml', '1.5 mg', '1000 ml'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']/data[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'Riwayat obat pengencer darah']/items[at0139,'Dosis obat pengencer darah']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL"
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Obat Pengencer Darah']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"
@@ -2010,9 +2231,10 @@
                 "value" : "1",
                 "label" : "Komorbiditas/ kompleksitas",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Komorbiditas/ kompleksitas"
                 }
               } ],
+              "defaultValue" : "1",
               "terminology" : "local_termsMorbid"
             } ]
           }, {
@@ -2231,6 +2453,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
