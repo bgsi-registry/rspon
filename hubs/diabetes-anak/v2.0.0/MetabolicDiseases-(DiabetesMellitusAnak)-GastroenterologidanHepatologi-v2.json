@@ -1,6 +1,6 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-GastroenterologidanHepatologi-v2",
-  "semVer" : "2.3.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "usg_abdomen",
       "name" : "USG Abdomen",
@@ -96,7 +123,7 @@
                 "value" : "1",
                 "label" : "Pemeriksaan USG Abdomen",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Pemeriksaan USG Abdomen"
                 }
               } ],
               "defaultValue" : "1",
@@ -142,7 +169,7 @@
                   "value" : "1",
                   "label" : "Hati",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Hati"
                   }
                 } ],
                 "defaultValue" : "1",
@@ -173,19 +200,19 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Mengecil",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Mengecil"
                   }
                 }, {
                   "value" : "2",
                   "label" : "Membesar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Membesar"
                   }
                 } ],
                 "terminology" : "local_termsUkuranL"
@@ -215,13 +242,13 @@
                   "value" : "0",
                   "label" : "Reguler",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Reguler"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Irreguler",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Irreguler"
                   }
                 } ],
                 "terminology" : "local_termsPermukaanL"
@@ -251,13 +278,13 @@
                   "value" : "0",
                   "label" : "Tajam",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tajam"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tumpul",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tumpul"
                   }
                 } ],
                 "terminology" : "local_termsTepiL"
@@ -287,13 +314,13 @@
                   "value" : "0",
                   "label" : "Homogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Homogen"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Inhomogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Inhomogen"
                   }
                 } ],
                 "terminology" : "local_termsEcho"
@@ -323,13 +350,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsSOL"
@@ -359,13 +386,13 @@
                   "value" : "0",
                   "label" : "Terputus-putus",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Terputus-putus"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Terputus-putus",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Terputus-putus"
                   }
                 } ],
                 "terminology" : "local_termsVH"
@@ -395,13 +422,13 @@
                   "value" : "0",
                   "label" : "Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Melebar"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Melebar"
                   }
                 } ],
                 "terminology" : "local_termsVP"
@@ -447,7 +474,7 @@
                   "value" : "1",
                   "label" : "Hati",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Hati"
                   }
                 } ],
                 "defaultValue" : "1",
@@ -478,19 +505,19 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Mengecil",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Mengecil"
                   }
                 }, {
                   "value" : "2",
                   "label" : "Membesar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Membesar"
                   }
                 } ],
                 "terminology" : "local_termsUkuranL"
@@ -520,13 +547,13 @@
                   "value" : "0",
                   "label" : "Reguler",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Reguler"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Irreguler",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Irreguler"
                   }
                 } ],
                 "terminology" : "local_termsPermukaan"
@@ -556,13 +583,13 @@
                   "value" : "0",
                   "label" : "Tajam",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tajam"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tumpul",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tumpul"
                   }
                 } ],
                 "terminology" : "local_termsTepi"
@@ -592,13 +619,13 @@
                   "value" : "0",
                   "label" : "Homogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Homogen"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Inhomogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Inhomogen"
                   }
                 } ],
                 "terminology" : "local_termsEcho"
@@ -628,13 +655,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsSOL"
@@ -664,13 +691,13 @@
                   "value" : "0",
                   "label" : "Terputus-putus",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Terputus-putus"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Terputus-putus",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Terputus-putus"
                   }
                 } ],
                 "terminology" : "local_termsVH"
@@ -700,13 +727,13 @@
                   "value" : "0",
                   "label" : "Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Melebar"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Melebar"
                   }
                 } ],
                 "terminology" : "local_termsVP"
@@ -752,7 +779,7 @@
                   "value" : "2",
                   "label" : "Limpa",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Limpa"
                   }
                 } ],
                 "defaultValue" : "2",
@@ -783,13 +810,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Membesar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Membesar"
                   }
                 } ],
                 "terminology" : "local_termsBentuk"
@@ -819,13 +846,13 @@
                   "value" : "0",
                   "label" : "Homogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Homogen"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Inhomogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Inhomogen"
                   }
                 } ],
                 "terminology" : "local_termsEcho"
@@ -855,13 +882,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsSOL"
@@ -891,13 +918,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Melebar"
                   }
                 } ],
                 "terminology" : "local_termsVL"
@@ -943,7 +970,7 @@
                   "value" : "3",
                   "label" : "Empedu",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Empedu"
                   }
                 } ],
                 "defaultValue" : "3",
@@ -974,13 +1001,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Abnormal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Abnormal"
                   }
                 } ],
                 "terminology" : "local_termsUkuranEmpedu"
@@ -1010,13 +1037,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Abnormal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Abnormal"
                   }
                 } ],
                 "terminology" : "local_termsBentukE"
@@ -1046,13 +1073,13 @@
                   "value" : "0",
                   "label" : "Menebal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Menebal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Menebal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Menebal"
                   }
                 } ],
                 "terminology" : "local_termsDindingE"
@@ -1082,13 +1109,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsBatuE"
@@ -1118,13 +1145,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsSludgeE"
@@ -1154,13 +1181,13 @@
                   "value" : "0",
                   "label" : "Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Melebar"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Melebar"
                   }
                 } ],
                 "terminology" : "local_termsIHE"
@@ -1190,13 +1217,13 @@
                   "value" : "0",
                   "label" : "Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Melebar"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Melebar"
                   }
                 } ],
                 "terminology" : "local_termsCBDE"
@@ -1242,7 +1269,7 @@
                   "value" : "4",
                   "label" : "Pankreas",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Pankreas"
                   }
                 } ],
                 "defaultValue" : "4",
@@ -1273,13 +1300,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Membesar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Membesar"
                   }
                 } ],
                 "terminology" : "local_termsBentukP"
@@ -1309,13 +1336,13 @@
                   "value" : "0",
                   "label" : "Homogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Homogen"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Inhomogen",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Inhomogen"
                   }
                 } ],
                 "terminology" : "local_termsEcho"
@@ -1345,13 +1372,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsSOL"
@@ -1444,19 +1471,19 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Meningkat",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Meningkat"
                   }
                 }, {
                   "value" : "2",
                   "label" : "Menurun",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Menurun"
                   }
                 } ],
                 "terminology" : "local_terms"
@@ -1486,13 +1513,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsSOL"
@@ -1522,13 +1549,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Melebar"
                   }
                 } ],
                 "terminology" : "local_termsDuktusP"
@@ -1574,7 +1601,7 @@
                   "value" : "5",
                   "label" : "Ginjal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ginjal"
                   }
                 } ],
                 "defaultValue" : "5",
@@ -1605,13 +1632,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Abnormal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Abnormal"
                   }
                 } ],
                 "terminology" : "local_termsGinjal"
@@ -1641,13 +1668,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Abnormal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Abnormal"
                   }
                 } ],
                 "terminology" : "local_termsGinjal"
@@ -1698,13 +1725,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Abnormal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Abnormal"
                   }
                 } ],
                 "terminology" : "local_termsGinjal"
@@ -1734,13 +1761,13 @@
                   "value" : "0",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Melebar",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Melebar"
                   }
                 } ],
                 "terminology" : "local_termsLebarG"
@@ -1770,13 +1797,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsBatuG"
@@ -1806,13 +1833,13 @@
                   "value" : "0",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Tidak Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak Ada"
                   }
                 } ],
                 "terminology" : "local_termsSOL"
@@ -1858,7 +1885,7 @@
                   "value" : "1",
                   "label" : "Fibroscan",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Fibroscan"
                   }
                 } ],
                 "defaultValue" : "1",
@@ -1997,6 +2024,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]

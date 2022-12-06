@@ -1,6 +1,6 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-BedahVaskular-v2",
-  "semVer" : "0.2.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "doppler_vascular",
       "name" : "Doppler vascular",
@@ -93,13 +120,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -123,13 +151,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "181347005",
                 "label" : "Esktremitas Inferior Dekstra, Common Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Common Femoral Artery"
                 }
               } ],
-              "terminology" : "local_termsEID"
+              "defaultValue" : "181347005",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -177,28 +206,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -222,15 +251,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -238,7 +267,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Common Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Common Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -365,13 +394,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -395,13 +425,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "31677005",
                 "label" : "Esktremitas Inferior Dekstra, Deep Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Deep Femoral Artery"
                 }
               } ],
-              "terminology" : "local_terms2"
+              "defaultValue" : "31677005",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -449,28 +480,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -494,15 +525,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -510,7 +541,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Deep Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Deep Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -637,13 +668,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -667,13 +699,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "181349008",
                 "label" : "Esktremitas Inferior Dekstra, Proximal Superficial Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Proximal Superficial Femoral Artery"
                 }
               } ],
-              "terminology" : "local_terms3"
+              "defaultValue" : "181349008",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -721,28 +754,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -766,15 +799,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -782,7 +815,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Proximal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Proximal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -909,13 +942,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -939,13 +973,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "181349008",
                 "label" : "Esktremitas Inferior Dekstra, Distal Superficial Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Distal Superficial Femoral Artery"
                 }
               } ],
-              "terminology" : "local_terms4"
+              "defaultValue" : "181349008",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -993,28 +1028,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -1038,15 +1073,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -1054,7 +1089,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Distal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Distal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1181,13 +1216,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -1211,13 +1247,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "43899006",
                 "label" : "Esktremitas Inferior Dekstra, Popliteal Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Popliteal Artery"
                 }
               } ],
-              "terminology" : "local_terms5"
+              "defaultValue" : "43899006",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -1265,28 +1302,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -1310,15 +1347,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -1326,7 +1363,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Popliteal Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Popliteal Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1453,13 +1490,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -1483,13 +1521,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "68053000",
                 "label" : "Esktremitas Inferior Dekstra, Proximal Anterior Tibial Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Proximal Anterior Tibial Artery"
                 }
               } ],
-              "terminology" : "local_terms6"
+              "defaultValue" : "68053000",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -1537,28 +1576,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -1582,15 +1621,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -1598,7 +1637,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Proximal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Proximal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1725,13 +1764,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -1755,13 +1795,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "68053000",
                 "label" : "Esktremitas Inferior Dekstra, Distal Anterior Tibial Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Distal Anterior Tibial Artery"
                 }
               } ],
-              "terminology" : "local_terms7"
+              "defaultValue" : "68053000",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -1809,28 +1850,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -1854,15 +1895,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -1870,7 +1911,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Distal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Distal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -1997,13 +2038,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -2027,13 +2069,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "13363002",
                 "label" : "Esktremitas Inferior Dekstra, Posterior Tibial Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Posterior Tibial Artery"
                 }
               } ],
-              "terminology" : "local_terms8"
+              "defaultValue" : "13363002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -2081,28 +2124,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -2126,15 +2169,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -2142,7 +2185,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Posterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Posterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -2269,13 +2312,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -2299,13 +2343,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "86547008",
                 "label" : "Esktremitas Inferior Dekstra, Dorsalis Pedis Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Dekstra, Dorsalis Pedis Artery"
                 }
               } ],
-              "terminology" : "local_terms9"
+              "defaultValue" : "86547008",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -2353,28 +2398,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -2398,15 +2443,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -2414,7 +2459,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Dorsalis Pedis Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Dekstra, Dorsalis Pedis Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -2541,13 +2586,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -2571,13 +2617,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "181347005",
                 "label" : "Esktremitas Inferior Sinistra, Common Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Common Femoral Artery"
                 }
               } ],
-              "terminology" : "local_terms10"
+              "defaultValue" : "181347005",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -2625,28 +2672,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -2670,15 +2717,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -2686,7 +2733,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Common Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Common Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -2813,13 +2860,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -2843,13 +2891,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "31677005",
                 "label" : "Esktremitas Inferior Sinistra, Deep Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Deep Femoral Artery"
                 }
               } ],
-              "terminology" : "local_terms11"
+              "defaultValue" : "31677005",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -2897,28 +2946,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -2942,15 +2991,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -2958,7 +3007,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Deep Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Deep Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -3085,13 +3134,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -3115,13 +3165,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "181349008",
                 "label" : "Esktremitas Inferior Sinistra, Proximal Superficial Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Proximal Superficial Femoral Artery"
                 }
               } ],
-              "terminology" : "local_terms12"
+              "defaultValue" : "181349008",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -3169,28 +3220,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -3214,15 +3265,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -3230,7 +3281,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Proximal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Proximal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -3357,13 +3408,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -3387,13 +3439,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "181349008",
                 "label" : "Esktremitas Inferior Sinistra, Distal Superficial Femoral Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Distal Superficial Femoral Artery"
                 }
               } ],
-              "terminology" : "local_terms13"
+              "defaultValue" : "181349008",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -3441,28 +3494,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -3486,15 +3539,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -3502,7 +3555,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Distal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Distal Superficial Femoral Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -3629,13 +3682,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -3659,13 +3713,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "43899006",
                 "label" : "Esktremitas Inferior Sinistra, Popliteal Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Popliteal Artery"
                 }
               } ],
-              "terminology" : "local_terms14"
+              "defaultValue" : "43899006",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -3713,28 +3768,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -3758,15 +3813,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -3774,7 +3829,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Popliteal Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Popliteal Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -3901,13 +3956,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -3931,13 +3987,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "68053000",
                 "label" : "Esktremitas Inferior Sinistra, Proximal Anterior Tibial Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Proximal Anterior Tibial Artery"
                 }
               } ],
-              "terminology" : "local_terms15"
+              "defaultValue" : "68053000",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -3985,28 +4042,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -4030,15 +4087,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -4046,7 +4103,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Proximal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Proximal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -4173,13 +4230,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -4203,13 +4261,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "68053000",
                 "label" : "Esktremitas Inferior Sinistra, Distal Anterior Tibial Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Distal Anterior Tibial Artery"
                 }
               } ],
-              "terminology" : "local_terms16"
+              "defaultValue" : "68053000",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -4257,28 +4316,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -4302,15 +4361,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -4318,7 +4377,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Distal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Distal Anterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -4445,13 +4504,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -4475,13 +4535,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "13363002",
                 "label" : "Esktremitas Inferior Sinistra, Posterior Tibial Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Posterior Tibial Artery"
                 }
               } ],
-              "terminology" : "local_terms17"
+              "defaultValue" : "13363002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -4529,28 +4590,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -4574,15 +4635,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -4590,7 +4651,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Posterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Posterior Tibial Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -4717,13 +4778,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "709638002",
                 "label" : "Doppler vascular",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Doppler vascular"
                 }
               } ],
-              "terminology" : "local_terms"
+              "defaultValue" : "709638002",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "bagian_organ",
@@ -4747,13 +4809,14 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "1",
+                "value" : "86547008",
                 "label" : "Esktremitas Inferior Sinistra, Dorsalis Pedis Artery",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Esktremitas Inferior Sinistra, Dorsalis Pedis Artery"
                 }
               } ],
-              "terminology" : "local_terms18"
+              "defaultValue" : "86547008",
+              "terminology" : "SNOMEDCT"
             } ]
           }, {
             "id" : "diameter_mm",
@@ -4801,28 +4864,28 @@
                 "value" : "0",
                 "label" : "No flow",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "No flow"
                 }
               }, {
                 "value" : "1",
-                "label" : "Doppler vascular",
+                "label" : "Monofasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Monofasik"
                 }
               }, {
                 "value" : "2",
                 "label" : "Bifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Bifasik"
                 }
               }, {
                 "value" : "3",
                 "label" : "Trifasik",
                 "localizedLabels" : {
-                  "en" : ""
+                  "en" : "Trifasik"
                 }
               } ],
-              "terminology" : "local_terms"
+              "terminology" : "local_termsGelombang"
             } ]
           }, {
             "id" : "peak_systolic_velocity_cm_s",
@@ -4846,15 +4909,15 @@
               "type" : "TEXT"
             } ]
           }, {
-            "id" : "end_diastolic_velocity",
-            "name" : "End Diastolic Velocity",
-            "localizedName" : "End Diastolic Velocity",
+            "id" : "end_diastolic_velocity_cm_s",
+            "name" : "End Diastolic Velocity (cm/s)",
+            "localizedName" : "End Diastolic Velocity (cm/s)",
             "rmType" : "DV_TEXT",
             "nodeId" : "at0072",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "End Diastolic Velocity"
+              "en" : "End Diastolic Velocity (cm/s)"
             },
             "localizedDescriptions" : {
               "en" : "The status of the imaging examination result as a whole."
@@ -4862,7 +4925,7 @@
             "annotations" : {
               "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Dorsalis Pedis Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Doppler vascular']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Esktremitas Inferior Sinistra, Dorsalis Pedis Artery']/data[at0001]/events[at0002]/data[at0003]/items[at0072,'End Diastolic Velocity (cm/s)']/value",
             "inputs" : [ {
               "type" : "TEXT"
             } ]
@@ -4956,6 +5019,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
