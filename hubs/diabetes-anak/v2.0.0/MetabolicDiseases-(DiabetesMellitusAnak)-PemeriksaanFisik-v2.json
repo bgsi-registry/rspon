@@ -1,6 +1,6 @@
 {
   "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-PemeriksaanFisik-v2",
-  "semVer" : "2.1.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -25,7 +25,34 @@
       "nodeId" : "",
       "min" : 1,
       "max" : 1,
-      "aqlPath" : "/context"
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
     }, {
       "id" : "analisis_bioimpedansi",
       "name" : "Analisis Bioimpedansi",
@@ -87,6 +114,45 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0,'Analisis Bioimpedansi']/data[at0001]/events[at0002]/data[at0003]/items[at0120]",
             "children" : [ {
+              "id" : "persentase_lemak",
+              "name" : "Persentase Lemak",
+              "localizedName" : "Persentase Lemak",
+              "rmType" : "DV_PROPORTION",
+              "nodeId" : "at0124",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Persentase Lemak"
+              },
+              "localizedDescriptions" : {
+                "en" : "Body fat measurement in percentage."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0,'Analisis Bioimpedansi']/data[at0001]/events[at0002]/data[at0003]/items[at0120]/items[at0124,'Persentase Lemak']/value",
+              "proportionTypes" : [ "percent" ],
+              "inputs" : [ {
+                "suffix" : "numerator",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "denominator",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 100.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              } ]
+            }, {
               "id" : "massa_lemak",
               "name" : "Massa Lemak",
               "localizedName" : "Massa Lemak",
@@ -138,45 +204,6 @@
                     }
                   }
                 } ]
-              } ]
-            }, {
-              "id" : "persentase_lemak",
-              "name" : "Persentase Lemak",
-              "localizedName" : "Persentase Lemak",
-              "rmType" : "DV_PROPORTION",
-              "nodeId" : "at0124",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Persentase Lemak"
-              },
-              "localizedDescriptions" : {
-                "en" : "Body fat measurement in percentage."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.body_composition.v0,'Analisis Bioimpedansi']/data[at0001]/events[at0002]/data[at0003]/items[at0120]/items[at0124,'Persentase Lemak']/value",
-              "proportionTypes" : [ "percent" ],
-              "inputs" : [ {
-                "suffix" : "numerator",
-                "type" : "DECIMAL",
-                "validation" : {
-                  "range" : {
-                    "minOp" : ">=",
-                    "min" : 0.0,
-                    "maxOp" : "<=",
-                    "max" : 100.0
-                  }
-                }
-              }, {
-                "suffix" : "denominator",
-                "type" : "DECIMAL",
-                "validation" : {
-                  "range" : {
-                    "minOp" : ">=",
-                    "min" : 100.0,
-                    "maxOp" : "<=",
-                    "max" : 100.0
-                  }
-                }
               } ]
             } ]
           }, {
@@ -429,15 +456,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Metabolic Age']",
             "children" : [ {
-              "id" : "nilai_metabolic_age_day_hari",
-              "name" : "Nilai Metabolic Age (day/hari)",
-              "localizedName" : "Nilai Metabolic Age (day/hari)",
+              "id" : "nilai_metabolic_age_day",
+              "name" : "Nilai Metabolic Age (day)",
+              "localizedName" : "Nilai Metabolic Age (day)",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Nilai Metabolic Age (day/hari)"
+                "en" : "Nilai Metabolic Age (day)"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -445,7 +472,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Metabolic Age']/items[at0004,'Nilai Metabolic Age (day/hari)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Analisis Bioimpedansi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Metabolic Age']/items[at0004,'Nilai Metabolic Age (day)']/value",
               "inputs" : [ {
                 "type" : "TEXT"
               } ]
@@ -626,19 +653,19 @@
                   "value" : "0",
                   "label" : "Kurang",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Kurang"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Baik",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Baik"
                   }
                 }, {
                   "value" : "2",
                   "label" : "Lebih",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Lebih"
                   }
                 } ],
                 "terminology" : "local_termsgz"
@@ -758,127 +785,22 @@
                   "value" : "0",
                   "label" : "Pendek",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Pendek"
                   }
                 }, {
                   "value" : "1",
                   "label" : "Normal",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Normal"
                   }
                 }, {
                   "value" : "2",
                   "label" : "Tinggi",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tinggi"
                   }
                 } ],
                 "terminology" : "local_termspr"
-              } ]
-            } ]
-          }, {
-            "id" : "z-score_mph",
-            "name" : "Z-score MPH",
-            "localizedName" : "Z-score MPH",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Z-score MPH"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Z-score MPH']",
-            "children" : [ {
-              "id" : "nilai",
-              "name" : "Nilai",
-              "localizedName" : "Nilai",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Nilai"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Z-score MPH']/items[at0004,'Nilai']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "1",
-                  "label" : "Z-score MPH",
-                  "localizedLabels" : {
-                    "en" : ""
-                  }
-                } ],
-                "defaultValue" : "1",
-                "terminology" : "local_termsZscore"
-              } ]
-            }, {
-              "id" : "nilai_z-score_mph",
-              "name" : "Nilai Z-score MPH",
-              "localizedName" : "Nilai Z-score MPH",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0005",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Nilai Z-score MPH"
-              },
-              "localizedDescriptions" : {
-                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
-              },
-              "annotations" : {
-                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Z-score MPH']/items[at0005,'Nilai Z-score MPH']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "persentil_imt",
-            "name" : "Persentil IMT",
-            "localizedName" : "Persentil IMT",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Persentil IMT"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Persentil IMT']",
-            "children" : [ {
-              "id" : "nilai_persentil_imt",
-              "name" : "Nilai Persentil IMT",
-              "localizedName" : "Nilai Persentil IMT",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Nilai Persentil IMT"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Persentil IMT']/items[at0004,'Nilai Persentil IMT']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
               } ]
             } ]
           }, {
@@ -932,6 +854,131 @@
           "inContext" : true
         } ]
       }, {
+        "id" : "antropometri_lanjutan",
+        "name" : "Antropometri Lanjutan",
+        "localizedName" : "Antropometri Lanjutan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Antropometri Lanjutan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nilai_z-score_mph",
+            "name" : "Nilai Z-score MPH",
+            "localizedName" : "Nilai Z-score MPH",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0028",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai Z-score MPH"
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+            },
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Nilai Z-score MPH']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "nilai_persentil_imt",
+            "name" : "Nilai Persentil IMT",
+            "localizedName" : "Nilai Persentil IMT",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0028",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nilai Persentil IMT"
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+            },
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Nilai Persentil IMT']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Antropometri Lanjutan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
         "id" : "tinggi_badan_orang_tua",
         "name" : "Tinggi Badan Orang Tua",
         "localizedName" : "Tinggi Badan Orang Tua",
@@ -950,20 +997,20 @@
         },
         "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']",
         "children" : [ {
-          "id" : "ibu",
-          "name" : "Ibu",
-          "localizedName" : "Ibu",
+          "id" : "tb_ibu",
+          "name" : "TB Ibu",
+          "localizedName" : "TB Ibu",
           "rmType" : "EVENT",
           "nodeId" : "at0002",
           "min" : 0,
           "max" : -1,
           "localizedNames" : {
-            "en" : "Ibu"
+            "en" : "TB Ibu"
           },
           "localizedDescriptions" : {
             "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'Ibu']",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'TB Ibu']",
           "children" : [ {
             "id" : "tinggi_badan_ibu",
             "name" : "Tinggi badan Ibu",
@@ -978,7 +1025,7 @@
             "localizedDescriptions" : {
               "en" : "The length of the body from crown of head to sole of foot."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'Ibu']/data[at0003]/items[at0004,'Tinggi badan Ibu']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'TB Ibu']/data[at0003]/items[at0004,'Tinggi badan Ibu']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL",
@@ -1021,27 +1068,27 @@
             "rmType" : "DV_DATE_TIME",
             "min" : 1,
             "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'Ibu']/time",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'TB Ibu']/time",
             "inputs" : [ {
               "type" : "DATETIME"
             } ],
             "inContext" : true
           } ]
         }, {
-          "id" : "ayah",
-          "name" : "Ayah",
-          "localizedName" : "Ayah",
+          "id" : "tb_ayah",
+          "name" : "TB Ayah",
+          "localizedName" : "TB Ayah",
           "rmType" : "EVENT",
           "nodeId" : "at0002",
           "min" : 0,
           "max" : -1,
           "localizedNames" : {
-            "en" : "Ayah"
+            "en" : "TB Ayah"
           },
           "localizedDescriptions" : {
             "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'Ayah']",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'TB Ayah']",
           "children" : [ {
             "id" : "tinggi_badan_ayah",
             "name" : "Tinggi badan Ayah",
@@ -1056,7 +1103,7 @@
             "localizedDescriptions" : {
               "en" : "The length of the body from crown of head to sole of foot."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'Ayah']/data[at0003]/items[at0004,'Tinggi badan Ayah']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'TB Ayah']/data[at0003]/items[at0004,'Tinggi badan Ayah']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL",
@@ -1099,7 +1146,7 @@
             "rmType" : "DV_DATE_TIME",
             "min" : 1,
             "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'Ayah']/time",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Antropometri']/items[openEHR-EHR-OBSERVATION.height.v2,'Tinggi Badan Orang Tua']/data[at0001]/events[at0002,'TB Ayah']/time",
             "inputs" : [ {
               "type" : "DATETIME"
             } ],
@@ -1307,25 +1354,18 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "373066001",
+                  "value" : "31874001",
                   "label" : "Ada",
                   "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Ada"
                   }
                 }, {
-                  "value" : "373067005",
+                  "value" : "64100000",
                   "label" : "Tidak",
                   "localizedLabels" : {
-                    "en" : ""
-                  }
-                }, {
-                  "value" : "261665006",
-                  "label" : "Tidak Diketahui",
-                  "localizedLabels" : {
-                    "en" : ""
+                    "en" : "Tidak"
                   }
                 } ],
-                "defaultValue" : "261665006",
                 "terminology" : "SNOMEDCT"
               } ]
             } ]
@@ -1444,51 +1484,37 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "at0007",
-                "label" : "Stage 1",
+                "value" : "251806008",
+                "label" : "G1",
                 "localizedLabels" : {
-                  "en" : "Stage 1"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Prepubertal."
+                  "en" : "G1"
                 }
               }, {
-                "value" : "at0008",
-                "label" : "Stage 2",
+                "value" : "251807004",
+                "label" : "G2",
                 "localizedLabels" : {
-                  "en" : "Stage 2"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Enlargement of scrotum and testes; scrotal skin reddens and changes in texture."
+                  "en" : "G2"
                 }
               }, {
-                "value" : "at0009",
-                "label" : "Stage 3",
+                "value" : "251808009",
+                "label" : "G3",
                 "localizedLabels" : {
-                  "en" : "Stage 3"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Enlargement of penis (length at first); further growth of testes."
+                  "en" : "G3"
                 }
               }, {
-                "value" : "at0010",
-                "label" : "Stage 4",
+                "value" : "251809001",
+                "label" : "G4",
                 "localizedLabels" : {
-                  "en" : "Stage 4"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Increased size of penis with growth in breadth and development of glans; testes and scrotum larger, scrotal skin darker."
+                  "en" : "G4"
                 }
               }, {
-                "value" : "at0011",
-                "label" : "Stage 5",
+                "value" : "251810006",
+                "label" : "G5",
                 "localizedLabels" : {
-                  "en" : "Stage 5"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Adult genitalia."
+                  "en" : "G5"
                 }
-              } ]
+              } ],
+              "terminology" : "SNOMED_CT"
             } ]
           }, {
             "id" : "tanner_mammae",
@@ -1509,51 +1535,37 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "at0012",
-                "label" : "Stage 1",
+                "value" : "251812003",
+                "label" : "B1",
                 "localizedLabels" : {
-                  "en" : "Stage 1"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Prepubertal."
+                  "en" : "B1"
                 }
               }, {
-                "value" : "at0013",
-                "label" : "Stage 2",
+                "value" : "251813008",
+                "label" : "B2",
                 "localizedLabels" : {
-                  "en" : "Stage 2"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Breast bud stage with elevation of breast and papilla; enlargement of areola."
+                  "en" : "B2"
                 }
               }, {
-                "value" : "at0014",
-                "label" : "Stage 3",
+                "value" : "251814002",
+                "label" : "B3",
                 "localizedLabels" : {
-                  "en" : "Stage 3"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Further enlargement of breast and areola; no separation of their contour."
+                  "en" : "B3"
                 }
               }, {
-                "value" : "at0015",
-                "label" : "Stage 4",
+                "value" : "251815001",
+                "label" : "B4",
                 "localizedLabels" : {
-                  "en" : "Stage 4"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Areola and papilla form a secondary mound above level of breast."
+                  "en" : "B4"
                 }
               }, {
-                "value" : "at0016",
-                "label" : "Stage 5",
+                "value" : "251816000",
+                "label" : "B5",
                 "localizedLabels" : {
-                  "en" : "Stage 5"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Mature stage: projection of papilla only, related to recession of areola."
+                  "en" : "B5"
                 }
-              } ]
+              } ],
+              "terminology" : "SNOMED_CT"
             } ]
           }, {
             "id" : "tanner_stage_pubic_hair",
@@ -1574,51 +1586,37 @@
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "at0017",
-                "label" : "Stage 1",
+                "value" : "251825006",
+                "label" : "Ax1",
                 "localizedLabels" : {
-                  "en" : "Stage 1"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Prepubertal (the pubic area may have vellus hair, similar to that of forearms)."
+                  "en" : "Ax1"
                 }
               }, {
-                "value" : "at0018",
-                "label" : "Stage 2",
+                "value" : "251826007",
+                "label" : "Ax2",
                 "localizedLabels" : {
-                  "en" : "Stage 2"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Sparse growth of long, slightly pigmented hair, straight or curled, at base of penis or along labia."
+                  "en" : "Ax2"
                 }
               }, {
-                "value" : "at0019",
-                "label" : "Stage 3",
+                "value" : "251827003",
+                "label" : "Ax3",
                 "localizedLabels" : {
-                  "en" : "Stage 3"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Darker, coarser and more curled hair, spreading sparsely over junction of pubes."
+                  "en" : "Ax3"
                 }
               }, {
-                "value" : "at0020",
-                "label" : "Stage 4",
+                "value" : "302086000",
+                "label" : "Ax4",
                 "localizedLabels" : {
-                  "en" : "Stage 4"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Hair adult in type, but covering smaller area than in adult; no spread to medial surface of thighs."
+                  "en" : "Ax4"
                 }
               }, {
-                "value" : "at0021",
-                "label" : "Stage 5",
+                "value" : "302087009",
+                "label" : "Ax5",
                 "localizedLabels" : {
-                  "en" : "Stage 5"
-                },
-                "localizedDescriptions" : {
-                  "en" : "Adult in type and quantity, with horizontal upper border."
+                  "en" : "Ax5"
                 }
-              } ]
+              } ],
+              "terminology" : "SNOMED_CT"
             } ]
           }, {
             "id" : "time",
@@ -1689,6 +1687,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
