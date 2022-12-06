@@ -1,0 +1,1570 @@
+{
+  "templateId" : "psoriasis-riwayat-keluarga.v1",
+  "semVer" : "0.6.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "psoriasis-riwayat-keluarga.v1",
+    "name" : "psoriasis-riwayat-keluarga.v1",
+    "localizedName" : "psoriasis-riwayat-keluarga.v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "psoriasis-riwayat-keluarga.v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "riwayat_keluarga",
+      "name" : "Riwayat Keluarga",
+      "localizedName" : "Riwayat Keluarga",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat Keluarga"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']",
+      "children" : [ {
+        "id" : "ethnic_identity",
+        "name" : "Ethnic identity",
+        "localizedName" : "Ethnic identity",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.ethnicity.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Ethnic identity"
+        },
+        "localizedDescriptions" : {
+          "en" : "Affiliation, kinship or connection with one or more groupings of people, according to common origins or background."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]",
+        "children" : [ {
+          "id" : "etnis_kakek_dari_pihak_ayah",
+          "name" : "Etnis kakek dari pihak ayah",
+          "localizedName" : "Etnis kakek dari pihak ayah",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis kakek dari pihak ayah"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis kakek dari pihak ayah']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Suku asal Aceh",
+              "localizedLabels" : {
+                "en" : "Suku asal Aceh"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Batak",
+              "localizedLabels" : {
+                "en" : "Batak"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Nias",
+              "localizedLabels" : {
+                "en" : "Nias"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Melayu",
+              "localizedLabels" : {
+                "en" : "Melayu"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Minangkabau",
+              "localizedLabels" : {
+                "en" : "Minangkabau"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Suku asal Jambi",
+              "localizedLabels" : {
+                "en" : "Suku asal Jambi"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Suku Asal Sumatra Selatan",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Selatan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Suku Asal Lampung",
+              "localizedLabels" : {
+                "en" : "Suku Asal Lampung"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Suku Asal Sumatra Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Lainnya"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Betawi",
+              "localizedLabels" : {
+                "en" : "Betawi"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Suku Asal Banten",
+              "localizedLabels" : {
+                "en" : "Suku Asal Banten"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Sunda",
+              "localizedLabels" : {
+                "en" : "Sunda"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Jawa",
+              "localizedLabels" : {
+                "en" : "Jawa"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Cirebon",
+              "localizedLabels" : {
+                "en" : "Cirebon"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Madura",
+              "localizedLabels" : {
+                "en" : "Madura"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Bali",
+              "localizedLabels" : {
+                "en" : "Bali"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Sasak",
+              "localizedLabels" : {
+                "en" : "Sasak"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Suku Asal NTB Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTB Lainnya"
+              }
+            }, {
+              "value" : "18",
+              "label" : "Suku Asal NTT",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTT"
+              }
+            }, {
+              "value" : "19",
+              "label" : "Dayak",
+              "localizedLabels" : {
+                "en" : "Dayak"
+              }
+            }, {
+              "value" : "20",
+              "label" : "Banjar",
+              "localizedLabels" : {
+                "en" : "Banjar"
+              }
+            }, {
+              "value" : "21",
+              "label" : "Suku Asal Kalimantan Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Kalimantan Lainnya"
+              }
+            }, {
+              "value" : "22",
+              "label" : "Makassar",
+              "localizedLabels" : {
+                "en" : "Makassar"
+              }
+            }, {
+              "value" : "23",
+              "label" : "Bugis",
+              "localizedLabels" : {
+                "en" : "Bugis"
+              }
+            }, {
+              "value" : "24",
+              "label" : "Minahasa",
+              "localizedLabels" : {
+                "en" : "Minahasa"
+              }
+            }, {
+              "value" : "25",
+              "label" : "Gorontalo",
+              "localizedLabels" : {
+                "en" : "Gorontalo"
+              }
+            }, {
+              "value" : "26",
+              "label" : "Suku Asal Sulawesi Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sulawesi Lainnya"
+              }
+            }, {
+              "value" : "27",
+              "label" : "Suku Asal Maluku",
+              "localizedLabels" : {
+                "en" : "Suku Asal Maluku"
+              }
+            }, {
+              "value" : "28",
+              "label" : "Suku Asal Papua",
+              "localizedLabels" : {
+                "en" : "Suku Asal Papua"
+              }
+            }, {
+              "value" : "29",
+              "label" : "Cina",
+              "localizedLabels" : {
+                "en" : "Cina"
+              }
+            }, {
+              "value" : "30",
+              "label" : "Luar Negeri",
+              "localizedLabels" : {
+                "en" : "Luar Negeri"
+              }
+            } ],
+            "terminology" : "Ethnicity"
+          } ]
+        }, {
+          "id" : "etnis_kakek_dari_pihak_ayah_lainnya",
+          "name" : "Etnis kakek dari pihak ayah (lainnya)",
+          "localizedName" : "Etnis kakek dari pihak ayah (lainnya)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis kakek dari pihak ayah (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis kakek dari pihak ayah (lainnya)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "etnis_nenek_dari_pihak_ayah",
+          "name" : "Etnis nenek dari pihak ayah",
+          "localizedName" : "Etnis nenek dari pihak ayah",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis nenek dari pihak ayah"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis nenek dari pihak ayah']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Suku asal Aceh",
+              "localizedLabels" : {
+                "en" : "Suku asal Aceh"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Batak",
+              "localizedLabels" : {
+                "en" : "Batak"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Nias",
+              "localizedLabels" : {
+                "en" : "Nias"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Melayu",
+              "localizedLabels" : {
+                "en" : "Melayu"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Minangkabau",
+              "localizedLabels" : {
+                "en" : "Minangkabau"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Suku asal Jambi",
+              "localizedLabels" : {
+                "en" : "Suku asal Jambi"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Suku Asal Sumatra Selatan",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Selatan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Suku Asal Lampung",
+              "localizedLabels" : {
+                "en" : "Suku Asal Lampung"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Suku Asal Sumatra Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Lainnya"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Betawi",
+              "localizedLabels" : {
+                "en" : "Betawi"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Suku Asal Banten",
+              "localizedLabels" : {
+                "en" : "Suku Asal Banten"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Sunda",
+              "localizedLabels" : {
+                "en" : "Sunda"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Jawa",
+              "localizedLabels" : {
+                "en" : "Jawa"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Cirebon",
+              "localizedLabels" : {
+                "en" : "Cirebon"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Madura",
+              "localizedLabels" : {
+                "en" : "Madura"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Bali",
+              "localizedLabels" : {
+                "en" : "Bali"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Sasak",
+              "localizedLabels" : {
+                "en" : "Sasak"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Suku Asal NTB Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTB Lainnya"
+              }
+            }, {
+              "value" : "18",
+              "label" : "Suku Asal NTT",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTT"
+              }
+            }, {
+              "value" : "19",
+              "label" : "Dayak",
+              "localizedLabels" : {
+                "en" : "Dayak"
+              }
+            }, {
+              "value" : "20",
+              "label" : "Banjar",
+              "localizedLabels" : {
+                "en" : "Banjar"
+              }
+            }, {
+              "value" : "21",
+              "label" : "Suku Asal Kalimantan Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Kalimantan Lainnya"
+              }
+            }, {
+              "value" : "22",
+              "label" : "Makassar",
+              "localizedLabels" : {
+                "en" : "Makassar"
+              }
+            }, {
+              "value" : "23",
+              "label" : "Bugis",
+              "localizedLabels" : {
+                "en" : "Bugis"
+              }
+            }, {
+              "value" : "24",
+              "label" : "Minahasa",
+              "localizedLabels" : {
+                "en" : "Minahasa"
+              }
+            }, {
+              "value" : "25",
+              "label" : "Gorontalo",
+              "localizedLabels" : {
+                "en" : "Gorontalo"
+              }
+            }, {
+              "value" : "26",
+              "label" : "Suku Asal Sulawesi Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sulawesi Lainnya"
+              }
+            }, {
+              "value" : "27",
+              "label" : "Suku Asal Maluku",
+              "localizedLabels" : {
+                "en" : "Suku Asal Maluku"
+              }
+            }, {
+              "value" : "28",
+              "label" : "Suku Asal Papua",
+              "localizedLabels" : {
+                "en" : "Suku Asal Papua"
+              }
+            }, {
+              "value" : "29",
+              "label" : "Cina",
+              "localizedLabels" : {
+                "en" : "Cina"
+              }
+            }, {
+              "value" : "30",
+              "label" : "Luar Negeri",
+              "localizedLabels" : {
+                "en" : "Luar Negeri"
+              }
+            } ],
+            "terminology" : "Ethnicity"
+          } ]
+        }, {
+          "id" : "etnis_nenek_dari_pihak_ayah_lainnya",
+          "name" : "Etnis nenek dari pihak ayah (lainnya)",
+          "localizedName" : "Etnis nenek dari pihak ayah (lainnya)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis nenek dari pihak ayah (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis nenek dari pihak ayah (lainnya)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "etnis_kakek_dari_pihak_ibu",
+          "name" : "Etnis kakek dari pihak ibu",
+          "localizedName" : "Etnis kakek dari pihak ibu",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis kakek dari pihak ibu"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis kakek dari pihak ibu']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Suku asal Aceh",
+              "localizedLabels" : {
+                "en" : "Suku asal Aceh"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Batak",
+              "localizedLabels" : {
+                "en" : "Batak"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Nias",
+              "localizedLabels" : {
+                "en" : "Nias"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Melayu",
+              "localizedLabels" : {
+                "en" : "Melayu"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Minangkabau",
+              "localizedLabels" : {
+                "en" : "Minangkabau"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Suku asal Jambi",
+              "localizedLabels" : {
+                "en" : "Suku asal Jambi"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Suku Asal Sumatra Selatan",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Selatan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Suku Asal Lampung",
+              "localizedLabels" : {
+                "en" : "Suku Asal Lampung"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Suku Asal Sumatra Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Lainnya"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Betawi",
+              "localizedLabels" : {
+                "en" : "Betawi"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Suku Asal Banten",
+              "localizedLabels" : {
+                "en" : "Suku Asal Banten"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Sunda",
+              "localizedLabels" : {
+                "en" : "Sunda"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Jawa",
+              "localizedLabels" : {
+                "en" : "Jawa"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Cirebon",
+              "localizedLabels" : {
+                "en" : "Cirebon"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Madura",
+              "localizedLabels" : {
+                "en" : "Madura"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Bali",
+              "localizedLabels" : {
+                "en" : "Bali"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Sasak",
+              "localizedLabels" : {
+                "en" : "Sasak"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Suku Asal NTB Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTB Lainnya"
+              }
+            }, {
+              "value" : "18",
+              "label" : "Suku Asal NTT",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTT"
+              }
+            }, {
+              "value" : "19",
+              "label" : "Dayak",
+              "localizedLabels" : {
+                "en" : "Dayak"
+              }
+            }, {
+              "value" : "20",
+              "label" : "Banjar",
+              "localizedLabels" : {
+                "en" : "Banjar"
+              }
+            }, {
+              "value" : "21",
+              "label" : "Suku Asal Kalimantan Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Kalimantan Lainnya"
+              }
+            }, {
+              "value" : "22",
+              "label" : "Makassar",
+              "localizedLabels" : {
+                "en" : "Makassar"
+              }
+            }, {
+              "value" : "23",
+              "label" : "Bugis",
+              "localizedLabels" : {
+                "en" : "Bugis"
+              }
+            }, {
+              "value" : "24",
+              "label" : "Minahasa",
+              "localizedLabels" : {
+                "en" : "Minahasa"
+              }
+            }, {
+              "value" : "25",
+              "label" : "Gorontalo",
+              "localizedLabels" : {
+                "en" : "Gorontalo"
+              }
+            }, {
+              "value" : "26",
+              "label" : "Suku Asal Sulawesi Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sulawesi Lainnya"
+              }
+            }, {
+              "value" : "27",
+              "label" : "Suku Asal Maluku",
+              "localizedLabels" : {
+                "en" : "Suku Asal Maluku"
+              }
+            }, {
+              "value" : "28",
+              "label" : "Suku Asal Papua",
+              "localizedLabels" : {
+                "en" : "Suku Asal Papua"
+              }
+            }, {
+              "value" : "29",
+              "label" : "Cina",
+              "localizedLabels" : {
+                "en" : "Cina"
+              }
+            }, {
+              "value" : "30",
+              "label" : "Luar Negeri",
+              "localizedLabels" : {
+                "en" : "Luar Negeri"
+              }
+            } ],
+            "terminology" : "Ethnicity"
+          } ]
+        }, {
+          "id" : "etnis_kakek_dari_pihak_ibu_lainnya",
+          "name" : "Etnis kakek dari pihak ibu (lainnya)",
+          "localizedName" : "Etnis kakek dari pihak ibu (lainnya)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis kakek dari pihak ibu (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis kakek dari pihak ibu (lainnya)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "etnis_nenek_dari_pihak_ibu",
+          "name" : "Etnis nenek dari pihak ibu",
+          "localizedName" : "Etnis nenek dari pihak ibu",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis nenek dari pihak ibu"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis nenek dari pihak ibu']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Suku asal Aceh",
+              "localizedLabels" : {
+                "en" : "Suku asal Aceh"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Batak",
+              "localizedLabels" : {
+                "en" : "Batak"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Nias",
+              "localizedLabels" : {
+                "en" : "Nias"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Melayu",
+              "localizedLabels" : {
+                "en" : "Melayu"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Minangkabau",
+              "localizedLabels" : {
+                "en" : "Minangkabau"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Suku asal Jambi",
+              "localizedLabels" : {
+                "en" : "Suku asal Jambi"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Suku Asal Sumatra Selatan",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Selatan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Suku Asal Lampung",
+              "localizedLabels" : {
+                "en" : "Suku Asal Lampung"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Suku Asal Sumatra Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Lainnya"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Betawi",
+              "localizedLabels" : {
+                "en" : "Betawi"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Suku Asal Banten",
+              "localizedLabels" : {
+                "en" : "Suku Asal Banten"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Sunda",
+              "localizedLabels" : {
+                "en" : "Sunda"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Jawa",
+              "localizedLabels" : {
+                "en" : "Jawa"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Cirebon",
+              "localizedLabels" : {
+                "en" : "Cirebon"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Madura",
+              "localizedLabels" : {
+                "en" : "Madura"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Bali",
+              "localizedLabels" : {
+                "en" : "Bali"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Sasak",
+              "localizedLabels" : {
+                "en" : "Sasak"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Suku Asal NTB Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTB Lainnya"
+              }
+            }, {
+              "value" : "18",
+              "label" : "Suku Asal NTT",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTT"
+              }
+            }, {
+              "value" : "19",
+              "label" : "Dayak",
+              "localizedLabels" : {
+                "en" : "Dayak"
+              }
+            }, {
+              "value" : "20",
+              "label" : "Banjar",
+              "localizedLabels" : {
+                "en" : "Banjar"
+              }
+            }, {
+              "value" : "21",
+              "label" : "Suku Asal Kalimantan Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Kalimantan Lainnya"
+              }
+            }, {
+              "value" : "22",
+              "label" : "Makassar",
+              "localizedLabels" : {
+                "en" : "Makassar"
+              }
+            }, {
+              "value" : "23",
+              "label" : "Bugis",
+              "localizedLabels" : {
+                "en" : "Bugis"
+              }
+            }, {
+              "value" : "24",
+              "label" : "Minahasa",
+              "localizedLabels" : {
+                "en" : "Minahasa"
+              }
+            }, {
+              "value" : "25",
+              "label" : "Gorontalo",
+              "localizedLabels" : {
+                "en" : "Gorontalo"
+              }
+            }, {
+              "value" : "26",
+              "label" : "Suku Asal Sulawesi Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sulawesi Lainnya"
+              }
+            }, {
+              "value" : "27",
+              "label" : "Suku Asal Maluku",
+              "localizedLabels" : {
+                "en" : "Suku Asal Maluku"
+              }
+            }, {
+              "value" : "28",
+              "label" : "Suku Asal Papua",
+              "localizedLabels" : {
+                "en" : "Suku Asal Papua"
+              }
+            }, {
+              "value" : "29",
+              "label" : "Cina",
+              "localizedLabels" : {
+                "en" : "Cina"
+              }
+            }, {
+              "value" : "30",
+              "label" : "Luar Negeri",
+              "localizedLabels" : {
+                "en" : "Luar Negeri"
+              }
+            } ],
+            "terminology" : "Ethnicity"
+          } ]
+        }, {
+          "id" : "etnis_nenek_dari_pihak_ibu_lainnya",
+          "name" : "Etnis nenek dari pihak ibu (lainnya)",
+          "localizedName" : "Etnis nenek dari pihak ibu (lainnya)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis nenek dari pihak ibu (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis nenek dari pihak ibu (lainnya)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "etnis_ayah",
+          "name" : "Etnis ayah",
+          "localizedName" : "Etnis ayah",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis ayah"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis ayah']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Suku asal Aceh",
+              "localizedLabels" : {
+                "en" : "Suku asal Aceh"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Batak",
+              "localizedLabels" : {
+                "en" : "Batak"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Nias",
+              "localizedLabels" : {
+                "en" : "Nias"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Melayu",
+              "localizedLabels" : {
+                "en" : "Melayu"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Minangkabau",
+              "localizedLabels" : {
+                "en" : "Minangkabau"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Suku asal Jambi",
+              "localizedLabels" : {
+                "en" : "Suku asal Jambi"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Suku Asal Sumatra Selatan",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Selatan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Suku Asal Lampung",
+              "localizedLabels" : {
+                "en" : "Suku Asal Lampung"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Suku Asal Sumatra Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Lainnya"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Betawi",
+              "localizedLabels" : {
+                "en" : "Betawi"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Suku Asal Banten",
+              "localizedLabels" : {
+                "en" : "Suku Asal Banten"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Sunda",
+              "localizedLabels" : {
+                "en" : "Sunda"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Jawa",
+              "localizedLabels" : {
+                "en" : "Jawa"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Cirebon",
+              "localizedLabels" : {
+                "en" : "Cirebon"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Madura",
+              "localizedLabels" : {
+                "en" : "Madura"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Bali",
+              "localizedLabels" : {
+                "en" : "Bali"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Sasak",
+              "localizedLabels" : {
+                "en" : "Sasak"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Suku Asal NTB Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTB Lainnya"
+              }
+            }, {
+              "value" : "18",
+              "label" : "Suku Asal NTT",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTT"
+              }
+            }, {
+              "value" : "19",
+              "label" : "Dayak",
+              "localizedLabels" : {
+                "en" : "Dayak"
+              }
+            }, {
+              "value" : "20",
+              "label" : "Banjar",
+              "localizedLabels" : {
+                "en" : "Banjar"
+              }
+            }, {
+              "value" : "21",
+              "label" : "Suku Asal Kalimantan Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Kalimantan Lainnya"
+              }
+            }, {
+              "value" : "22",
+              "label" : "Makassar",
+              "localizedLabels" : {
+                "en" : "Makassar"
+              }
+            }, {
+              "value" : "23",
+              "label" : "Bugis",
+              "localizedLabels" : {
+                "en" : "Bugis"
+              }
+            }, {
+              "value" : "24",
+              "label" : "Minahasa",
+              "localizedLabels" : {
+                "en" : "Minahasa"
+              }
+            }, {
+              "value" : "25",
+              "label" : "Gorontalo",
+              "localizedLabels" : {
+                "en" : "Gorontalo"
+              }
+            }, {
+              "value" : "26",
+              "label" : "Suku Asal Sulawesi Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sulawesi Lainnya"
+              }
+            }, {
+              "value" : "27",
+              "label" : "Suku Asal Maluku",
+              "localizedLabels" : {
+                "en" : "Suku Asal Maluku"
+              }
+            }, {
+              "value" : "28",
+              "label" : "Suku Asal Papua",
+              "localizedLabels" : {
+                "en" : "Suku Asal Papua"
+              }
+            }, {
+              "value" : "29",
+              "label" : "Cina",
+              "localizedLabels" : {
+                "en" : "Cina"
+              }
+            }, {
+              "value" : "30",
+              "label" : "Luar Negeri",
+              "localizedLabels" : {
+                "en" : "Luar Negeri"
+              }
+            } ],
+            "terminology" : "Ethnicity"
+          } ]
+        }, {
+          "id" : "etnis_ayah_lainnya",
+          "name" : "Etnis ayah (lainnya)",
+          "localizedName" : "Etnis ayah (lainnya)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis ayah (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis ayah (lainnya)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "etnis_ibu",
+          "name" : "Etnis ibu",
+          "localizedName" : "Etnis ibu",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis ibu"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis ibu']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Suku asal Aceh",
+              "localizedLabels" : {
+                "en" : "Suku asal Aceh"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Batak",
+              "localizedLabels" : {
+                "en" : "Batak"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Nias",
+              "localizedLabels" : {
+                "en" : "Nias"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Melayu",
+              "localizedLabels" : {
+                "en" : "Melayu"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Minangkabau",
+              "localizedLabels" : {
+                "en" : "Minangkabau"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Suku asal Jambi",
+              "localizedLabels" : {
+                "en" : "Suku asal Jambi"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Suku Asal Sumatra Selatan",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Selatan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Suku Asal Lampung",
+              "localizedLabels" : {
+                "en" : "Suku Asal Lampung"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Suku Asal Sumatra Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Lainnya"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Betawi",
+              "localizedLabels" : {
+                "en" : "Betawi"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Suku Asal Banten",
+              "localizedLabels" : {
+                "en" : "Suku Asal Banten"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Sunda",
+              "localizedLabels" : {
+                "en" : "Sunda"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Jawa",
+              "localizedLabels" : {
+                "en" : "Jawa"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Cirebon",
+              "localizedLabels" : {
+                "en" : "Cirebon"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Madura",
+              "localizedLabels" : {
+                "en" : "Madura"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Bali",
+              "localizedLabels" : {
+                "en" : "Bali"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Sasak",
+              "localizedLabels" : {
+                "en" : "Sasak"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Suku Asal NTB Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTB Lainnya"
+              }
+            }, {
+              "value" : "18",
+              "label" : "Suku Asal NTT",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTT"
+              }
+            }, {
+              "value" : "19",
+              "label" : "Dayak",
+              "localizedLabels" : {
+                "en" : "Dayak"
+              }
+            }, {
+              "value" : "20",
+              "label" : "Banjar",
+              "localizedLabels" : {
+                "en" : "Banjar"
+              }
+            }, {
+              "value" : "21",
+              "label" : "Suku Asal Kalimantan Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Kalimantan Lainnya"
+              }
+            }, {
+              "value" : "22",
+              "label" : "Makassar",
+              "localizedLabels" : {
+                "en" : "Makassar"
+              }
+            }, {
+              "value" : "23",
+              "label" : "Bugis",
+              "localizedLabels" : {
+                "en" : "Bugis"
+              }
+            }, {
+              "value" : "24",
+              "label" : "Minahasa",
+              "localizedLabels" : {
+                "en" : "Minahasa"
+              }
+            }, {
+              "value" : "25",
+              "label" : "Gorontalo",
+              "localizedLabels" : {
+                "en" : "Gorontalo"
+              }
+            }, {
+              "value" : "26",
+              "label" : "Suku Asal Sulawesi Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sulawesi Lainnya"
+              }
+            }, {
+              "value" : "27",
+              "label" : "Suku Asal Maluku",
+              "localizedLabels" : {
+                "en" : "Suku Asal Maluku"
+              }
+            }, {
+              "value" : "28",
+              "label" : "Suku Asal Papua",
+              "localizedLabels" : {
+                "en" : "Suku Asal Papua"
+              }
+            }, {
+              "value" : "29",
+              "label" : "Cina",
+              "localizedLabels" : {
+                "en" : "Cina"
+              }
+            }, {
+              "value" : "30",
+              "label" : "Luar Negeri",
+              "localizedLabels" : {
+                "en" : "Luar Negeri"
+              }
+            } ],
+            "terminology" : "Ethnicity"
+          } ]
+        }, {
+          "id" : "etnis_ibu_lainnya",
+          "name" : "Etnis ibu (lainnya)",
+          "localizedName" : "Etnis ibu (lainnya)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Etnis ibu (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The hereditary or genetic line origins of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: English; Irish; Chinese; Italian; Aboriginal; Torres Strait Islander; Maori; Inuit or Ashkenazi Jew. Coding with a terminology is preferred, where possible. The occurrences for this data element is set to multiple occurrences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/data[at0001]/items[at0004,'Etnis ibu (lainnya)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-EVALUATION.ethnicity.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
