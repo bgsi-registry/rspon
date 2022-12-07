@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "3.1.6",
+      "sem_ver" : "3.1.7",
       "build_uid" : "2bdd5fd5-9339-4bbd-9888-16f1ccd0ac1e",
-      "MD5-CAM-1.0.1" : "522e45337bf55446236c67881362333f",
+      "MD5-CAM-1.0.1" : "ccd740d3e29e48801eed107ad091966e",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -1137,6 +1137,24 @@
           "attributes" : [ ],
           "attributeTuples" : [ ],
           "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-ethnicity-001.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "EVALUATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.39",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-social_network-001.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "EVALUATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.43",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-occupation_summary-001.v1",
           "referenceType" : "archetypeOverlay"
         } ]
       } ],
@@ -4867,7 +4885,23 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "B2439FE7CDCBBB0532C37A0F15FE82CD"
       },
-      "details" : { }
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To contain demographic-related EHR CLUSTER archetypes when they are to be used standalone within a template, such as when they are used as a proxy for the review of demographic data in the header of a form or document template.",
+          "keywords" : [ ],
+          "use" : "Use within a template to contain demographic-related EHR CLUSTER archetypes to be modelled standalone in a template, such as when they are used as a proxy for the review of demographic data in the header of a form or document template.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-ADMIN_ENTRY.demographics.v0",
     "differential" : true,
@@ -4948,7 +4982,84 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "F1B417CBAE0A0D6B70856C5909865044"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung von Informationen zu einer Person, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden.",
+          "keywords" : [ "Anbieter, Dienstleister, Betreuer, Personal, medizinisches Fachpersonal, Verwandter, Angehöriger, Hausarzt, Zeuge, Freund, Nachbar, Kind, Familie, Geschwister, Elternteil, Einzelperson" ],
+          "use" : "Der Archetyp wird verwendet, um Informationen zur einer Person darzustellen, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden, oft ad hoc oder wenn die Verwendung von einem formellen demografischen Register oder einem Index nicht angemessen oder nicht möglich ist.\r\nBeispiele beinhalten:\r\n- der Inhaber einer Patientenverfügung unter Verwendung des SLOT „Inhaber der Kopie“ innerhalb des Archetyps EVALUATION.advance_care_directive;\r\n- die Rolle und Kontaktdaten eines benannten Ansprechpartners in einer Organisation, unter Verwendung des SLOT „Kontaktperson“ innerhalb des Archetyps CLUSTER.organisation;\r\n- Angaben zu einem Verwandten in einer Familienanamnese unter Verwendung des SLOT „Angaben zum Familienmitglied“ innerhalb des Archetyps openEHR-EHR-EVALUATION.family_history;\r\n- der Name der Person, die eine Laborprobe von einem Patienten entnommen hat, unter Verwendung der „Angaben zum Probennehmer“ innerhalb des Archetyps CLUSTER.specimen oder\r\n- ein Zeuge eines Sturzes oder Unfalls, unter Verwendung des SLOT \"Zeuge\" innerhalb des Archetyps CLUSTER.health_event.\r\n\r\nIn den meisten einfachen Anwendungsfällen reicht das unstrukturierte Element „Name“ innerhalb des Archetyps CLUSTER.person aus, um den Namen einer Person als Teil einer Gesundheitsakte darzustellen. In Fällen, in denen ein strukturierter Name für klinische Aufzeichnungszwecke erforderlich oder wünschenswert ist, verschachteln Sie diesen Archetyp jedoch im SLOT „Name strukturiert“ im Archetyp CLUSTER.person. Wenn der Archetyp CLUSTER.structured_name in den SLOT „Name strukturiert“ eingebettet ist, können beliebige oder alle Datenelemente als Textzeichenfolge kombiniert und im Element „Name“ dargestellt werden, solange sie konsistent sind.\r\n\r\nDieser Archetyp könnte auch stellvertretend für formale demografische Daten verwendet werden, wenn ein Template mit Domänenexperten überprüft wird – beispielsweise eine Bewertung, bei der Prüfer erwarten würden, dass die Details einer Person oben im Bewertungsformular angezeigt werden.",
+          "misuse" : "Der Archetyp darf nicht verwendet werden, um das formelle Identifikationsmanagement darzustellen oder zu ersetzen oder um ein offizielles demografisches Register oder einen Index zu führen. Verwenden Sie zu diesem Zweck einen formellen Master Patient Index oder Health Provider Index oder Archetypen, die auf dem demografischen Informationsmodell von openEHR basieren.\r\n\r\nDarf nicht verwendet werden, um den Patienten, die Teilnehmer oder den Verfasser der Akte und ähnliche Datenelemente darzustellen, die formal in der Patientenakte unter Verwendung der Referenzmodellattribute dargestellt werden sollten.\r\n\r\nDarf nicht verwendet werden, um das Geburtsdatum einer Person darzustellen – verwenden Sie zu diesem Zweck das Datenelement „Geburtsdatum“ im Archetyp EVALUATION.birth_summary.\r\n\r\nDarf nicht verwendet werden, um biometrische Details oder Biomarker über eine Person darzustellen – verwenden Sie zu diesem Zweck einen speziellen ENTRY-Archetyp.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Används för att registrera information om en person som behöver representeras i patientjournalen.",
+          "keywords" : [ "Leverantör, vårdare, vårdgivare, personal, vårdpersonal, släkting, anhöriga, läkare, vittne, vän, granne, barn, familj, syskon, förälder, individ" ],
+          "use" : "Används för att registrera uppgifter om en person i den elektroniska journalen, när det inte är lämpligt eller möjligt att använda ett formellt demografiskt register eller index. Exempelvis:\r\n- Namn och kontaktuppgifter för en person som innehar en fysisk kopia av ett dokument om framtida behandlingsval eller behandlingsreservationer; exempelvis 'Copyholder'-attributet i arketypen EVALUATION.advance_care_directive;\r\n- Namn och kontaktuppgifter för en vårdgivare i en remiss;\r\n- Namn, roll och kontaktuppgifter för en medlem av ett vårdgivarteam;\r\n- Rollen och kontaktuppgifterna för en namngiven kontaktperson inom en organisation;\r\n- uppgifter om en släkting i en släkthistoria; eller\r\n- ett vittne till ett epileptisk anfall.\r\n\r\nI de flesta vanliga användningsfallen där ett namn måste inkluderas i en journal räcker det med fritextinmatning inom elementet 'Ostrukturerat namn'. I situationer när det krävs mer detaljerade detaljer om en eller flera namnkomponenter, använd de ytterligare strukturerade dataelementen i arketypen CLUSTER.structured_name. I denna arketyp finns en SLOT kapslade i \"Structured name\" . Om arketypen CLUSTER.structured name är kapslad i 'Structured name' SLOT, kan något eller alla av de strukturerade namnelementen sammanfogas och representeras i elementet 'Ostrukturerat namn'.\r\n\r\nDenna arketyp kan också användas som en proxy för formella demografiska data när man granskar en mall med domänexperter – till exempel en bedömning där granskare förväntar sig att se patientens uppgifter högst upp i bedömningsformuläret.",
+          "misuse" : "Får inte användas för att representera eller ersätta formell identifieringshantering eller i syfte att upprätthålla ett officiellt demografiskt register eller index. Använd ett formellt Master Patient Index eller Vårdgivare Index för detta ändamål, eller arketyper baserade på openEHR Demographic Information Model.\r\n\r\nFår inte användas för att representera patienten, deltagare eller författare till journalen och liknande dataelement som bör representeras formellt i journalen med hjälp av Referensmodellens attribut.\r\n\r\nFår inte användas för att registrera en individs födelsedatum - använd istället dataelementet \"Födelsedatum\" i EVALUATION.birth_summary för detta ändamål\r\n\r\nFår inte användas för att registrera biometriska detaljer eller biomarkörer om en individ - använd en specifik ENTRY-arketyp för detta ändamål.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om en person i en pasientjournal.",
+          "keywords" : [ "tjenesteyter, omsorgsperson, helsepersonell, slektning, pårørende, vitne, venn, nabo, barn, familie, søsken, forelder, arbeidsgiver, rekvirent, henviser, ektefelle, verge, samboer, kjæreste" ],
+          "use" : "Brukes for å registrere detaljer om en person i en pasientjournal, når det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.\r\n\r\nFor eksempel:\r\n- navn og kontaktdetaljer til en person som har en kopi av et fremtidig behandlingsvalg, i SLOTet \"Kopiholder\" i arketypen EVALUATION.advance_care_directive (Fremtidig behandlingsvalg).\r\n- navn og kontaktdetaljer til en omsorgsperson eller helsepersonell i en organisasjon, i SLOTet \"Kontaktperson\" i arketypen CLUSTER.organisation (Organisasjon).\r\n- detaljer om en slektning i en familieanamnese, I SLOTet \"Detaljer om familiemedlem\" i arketypen EVALUATION.family_history (Familieanamnese).\r\n- navnet på en person som gjennomførte prøvetakning på en pasient, i SLOTet \"Detaljer om prøvetaker\" i arketypen CLUSTER.specimen (Prøvemateriale).\r\n- et vitne til et fall eller en ulykke, i SLOTet \"Witness\" i arketypen CLUSTER.health_event.\r\n\r\nI de mest vanlige brukscasene der navn skal registreres i pasientjournalen, vil dataelementet \"Navn\" i denne arketypen være tilstrekkelig. I tilfeller der det er nødvendig eller ønskelig med detaljer om en eller flere navnekomponenter, bruk arketypen CLUSTER.structured_name i SLOTet \"Strukturert navn\" i denne arketypen. \r\nOm det er gjort, kan noen eller alle de strukturerte navnelementene slås sammen av programvaren man benytter, og lagres i dataelementet \"Navn\".\r\n\r\nDenne arketypen kan også brukes som en midlertidig erstatning for formelle demografiske data når man gjennomgår et templat med domeneeksperter - for eksempel en vurdering der man i templatet forventer å se detaljer om en person på toppen av vurderingsskjema.",
+          "misuse" : "Brukes ikke til å representere eller erstatte de formelle demografiske opplysninger for formell identitetsforvaltning eller for å opprettholde et demografisk register eller en indeks. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.\r\n\r\nBrukes ikke for å representere pasient, deltakere eller forfatter av skjema eller lignende, som skal representeres formelt i pasientjournalen. Bruk attributter fra Referansemodellen for dette formålet.\r\n\r\nBrukes ikke for å registrere fødselsdato for individet - bruk dataelementet \"Fødselsdato\" i arketypen EVALUATION.birth_summary for dette formålet.\r\n\r\nBrukes ikke for å registrere detaljer om biometri eller biomarkører for personen - bruk en spesifikk ENTRY-arketype for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about a person as they are known or understood in the course of clinical documentation.",
+          "keywords" : [ "provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual" ],
+          "use" : "Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form.",
+          "misuse" : "Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh"
+          },
+          "purpose" : "*To record details about a person as they are known or understood in the course of clinical documentation. (en)",
+          "keywords" : [ "*provider, carer, staff, healthcare professional, relative, next-of-kin, practitioner, witness, friend, neighbour, child, family, sibling, parent, individual (en)" ],
+          "use" : "*Use to record details of a person as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype;\r\n- the role and contact details of a named contact person within an organisation, using the 'Contact person' SLOT within the CLUSTER.organisation archetype;\r\n- details about a relative in a family history record, using the 'Family member details' SLOT within the openEHR-EHR-EVALUATION.family_history archetype; \r\n- the name of the person who collected a laboratory specimen from a patient, using the 'Specimen collector details' within the CLUSTER.specimen archetype; or\r\n- a witness to a fall or accident, using the 'Witness' SLOT within the CLUSTER.health_event archetype.\r\n\r\nIn most simple clinical recording use cases, the unstructured 'Name' element within the CLUSTER.person archetype will be sufficient to record the name of a person as part of a health record. However, in circumstances where a structured name is necessary or desirable for clinical recording purposes, nest this archetype within the 'Structured name' SLOT in CLUSTER.person archetype. If the CLUSTER.structured_name archetype is nested within the 'Structured name' SLOT, any or all of the data elements can be combined together as a text string and represented in the 'Name' element, as long as they are consistent.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see a person's details at the top of the assessment form. (en)",
+          "misuse" : "*Not to be used to represent or replace formal identification management or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index or Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the subject of care, participants or author of the record and similar data elements that should be represented formally in the health record using the Reference Model attributes.\r\n\r\nNot to be used to record the date of birth of an individual - use the 'Date of birth' data element within the EVALUATION.birth_summary for this purpose\r\n\r\nNot to be used to record biometric detail or biomarkers about an individual - use a specific ENTRY archetype for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.person.v1",
     "differential" : true,
@@ -5121,7 +5232,40 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "51835D3E2EEFFCA0AEF6953E6314BDF6"
       },
-      "details" : { }
+      "details" : {
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et individs livssyn og/eller religiøs eller ikke-religiøs praksis som kan ha betydning for utføring av helsetjenester eller andre tjenester.",
+          "keywords" : [ "religion", "åndelig", "tro", "religiøs", "ateisme", "ateist", "agnostisisme", "agnostiker", "holdning", "hellig", "profan", "sekulær", "verdisyn", "overbevisning", "humanisme" ],
+          "use" : "Brukes for å registrere et individs livssyn og/eller religiøs eller ikke-religiøs praksis og en overordnet beskrivelse om hvordan livssynet kan ha betydning for utføringen av helsetjenester eller andre tjenester. \r\n\r\nBrukes denne arketypen i et EPJ som benytter seg av et sentralt demografiregister, kan relevante demografiske data fra registeret benyttes for å populere dataelementer i denne arketypen. \r\n\r\nArketypen er ment brukt i arketypen EVALUATION.social_summary (Sosialanamnese) eller i andre relevante arketyper.\r\n\r\nHar man behov for å registrere livssynet til noen andre enn individet som dokumentasjonen omhandler, for eksempel individets foreldre, settes begrensinger på referansemodellelementet \"Subject\" for å spesifisere rollen.",
+          "misuse" : "Brukes ikke for å registrere pasientens behandlingsønsker som kan være knyttet til et livssyn, særlig de som kan benyttes ved beslutningsstøtte. For eksempel skal ønsker knyttet til ernæring registreres i arketyper som omhandler ernæringsbehov. Behandlingsønsker registreres i arketyper som omhandler pasientens behandlingsønsker.",
+          "copyright" : "© Australian Digital Health Agency, Nasjonal IKT HF, openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the identification of the individual's religious or non-religious beliefs and/or practices which may be used for purposes related to provision of healthcare or other services.",
+          "keywords" : [ "religion", "spiritual", "belief", "religious", "atheism", "agnosticism", "attitude", "sacred", "profane", "secular", "atheist", "agnostic", "faith", "creed", "practice" ],
+          "use" : "Use to record the identification of the individual's religious or non-religious beliefs and/or practices and a general description about the impact of the individual's identified religious affiliation on the delivery of health services.\r\n\r\nIf this archetype is being used within a health record context where a demographic server is deployed, then the relevant demographic data may be used to populate the data elements in this archetype.\r\n\r\nThis archetype has been designed to be used within the EVALUATION.social_summary or other archetypes where clinically relevant.\r\n\r\nIf the religion of someone other than the subject of care, such as their parents, needs to be recorded, restrict the \"Subject\" reference model element to specify the role.",
+          "misuse" : "Not to be used to record the specific preferences for care that may be related to a religious affiliation, especially those that might drive decision support. For example, record a dietary preference within archetypes recording diet requirements or a treatment preference within archetypes recording patient preferences.",
+          "copyright" : "© Australian Digital Health Agency, Nasjonal IKT HF, openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.religion.v1",
     "differential" : true,
@@ -5275,7 +5419,53 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "1A7E18A2E424897742958EFA0951AEAD"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der Zugehörigkeit, Verwandtschaft oder Verbindung einer Person zu einer oder mehreren Personengruppen, die normalerweise durch die Person selbst identifiziert werden.",
+          "keywords" : [ "Ethnizität", "Kultur", "Sprache", "Rasse", "Stamm", "Zugehörigkeit", "Glauben", "Verwandtschaft", "Identität", "Clan", "Gruppe", "Staatsangehörigkeit", "Staatsbürgerschaft", "Nation", "politisch" ],
+          "use" : "Wird verwendet, um die Zugehörigkeit, Verwandtschaft oder Verbindung einer Person zu einer oder mehreren Personengruppen darzustellen, die normalerweise selbst identifiziert werden.\r\n\r\nEthnizität ist ein Konzept, das häufig uneinheitlich verwendet wird, sodass vorhandene oder ältere Daten inhaltlich sehr unterschiedlich sein können, einschließlich, aber nicht beschränkt auf:\r\n- Eine lange gemeinsame Geschichte (schriftlich oder mündlich);\r\n- Eine kulturelle Tradition, einschließlich familiärer, sozialer und religiöser Bräuche;\r\n- Ein gemeinsamer geografischer Ursprung;\r\n- Eine gemeinsame Sprache oder\r\n- Eine Minderheit oder eigenständige Gruppe innerhalb des lokalen Gemeindekontexts.\r\n\r\nBei der Gestaltung dieses Archetyps wurde die Struktur bewusst einfach gehalten, um alle Anforderungen an die Repräsentation von Ethnizität zu unterstützen. Wenn das Verständnis für ethnische Zugehörigkeit und angemessene Wertesätze identifiziert und vereinbart wird, kann dieser Archetyp wachsen, um die sich entwickelnde Klarheit der Anforderungen zu unterstützen. Das Datenelement „Ethnizität“ ermöglicht Mehrfachvorkommen, sodass mehr als eine ethnische und kulturelle Identität für die Person aus einem einzigen Wertesatz erfasst werden kann, und dass auch mehr als eine Darstellung von „Ethnizität“ erfasst werden kann, z. B. explizite Erfassung First People-Status.\r\n\r\nDas Datenelement „Herkunft“ wurde ebenfalls aufgenommen, um die Bewertung des Gesundheitsrisikos in Bezug auf die Familiengeschichte und Erbkrankheiten zu unterstützen, wie z. B. genetische Variationen, die das Risiko für Morbus Crohn bei aschkenasischen Juden erhöhen.\r\n\r\nDas Ausmaß der Überschneidung zwischen „Ethnizität“ und „Herkunft“ kann von Person zu Person sehr unterschiedlich sein, aber die Aufteilung in einzelne Datenelemente ermöglicht eine angemessene Verwendung im klinischen Kontext zur Entscheidungsunterstützung und Bereitstellung von Gesundheitsleistungen.\r\n\r\nDieser Archetyp wurde so konzipiert, dass er als einzelne Instanz in einer Gesundheitsakte aufgezeichnet und im Laufe der Zeit als neue Version beibehalten, aktualisiert und überarbeitet werden kann.\r\n\r\nEthnizität wird oft als Bestandteil einer demografischen Aufzeichnung einer Person angesehen, wurde jedoch innerhalb dieses klinischen Archetyps für Situationen dargestellt, in denen sie in einer klinischen Datensammlung dargestellt werden muss oder beispielsweise zur Unterstützung einer kultursensiblen und angemessenen Gesundheitsversorgung erforderlich ist in Gemeinschaften der First Nations.\r\n\r\nDas Konzept der Kategorisierung nach Rasse oder Hautfarbe ist umstritten. An einigen Stellen mag der Begriff „Rasse“ als akzeptabel und austauschbar mit „Ethnizität“ angesehen werden, an anderen ist er jedoch illegal. Um zur Verwirrung beizutragen, enthalten viele Wertesätze für ethnische Zugehörigkeit auch Werte, die körperliche Merkmale wie Hautfarbe oder geografische Herkunft beschreiben. Das Konzept „Rasse“ kann manchmal als unbeholfener Proxy zur Identifizierung von Risikofaktoren im Zusammenhang mit sozialen Determinanten der Gesundheit (SDOH) verwendet werden, es wird jedoch dringend empfohlen, Archetypen zu verwenden, die SDOH-Konzepte für eine genauere Datenerfassung darstellen.",
+          "misuse" : "Darf nicht verwendet werden, um das „Geburtsland“ einer Person darzustellen. Verwenden Sie zu diesem Zweck das Datenelement „Geburtsland“ innerhalb des Archetyps EVALUATION.birth_details.\r\n\r\nNicht zur Darstellung einer Religionszugehörigkeit verwenden. Verwenden Sie dazu den Archetyp CLUSTER.religion.\r\n\r\nDarf nicht verwendet werden, um das selbst identifizierte Geschlecht darzustellen. Verwenden Sie zu diesem Zweck das Datenelement „Geschlechtsidentität“ innerhalb des Archetyps EVALUATION.gender.\r\n\r\nNicht zur Darstellung von Sprachanforderungen für Übersetzungszwecke verwenden. Verwenden Sie dazu die CLUSTER.language.\r\n\r\nDarf nicht verwendet werden, um formelle Aufzeichnungen über den ethnischen Hintergrund darzustellen oder zu ersetzen oder um ein offizielles demografisches Register oder einen Index zu führen. Verwenden Sie zu diesem Zweck einen formellen Master Patient Index oder Archetypen, die auf dem demografischen Informationsmodell von openEHR basieren.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et individs selvopplevde og vanligvis selvrapporterte tilknytning, likhet eller forbindelse med en eller flere grupperinger av mennesker.",
+          "keywords" : [ "etnisitet", "kultur", "språk", "nasjon", "stamme", "rase", "tilknytning", "tro", "slektskap", "nasjonalitet", "statsborgerskap", "identitet", "klan", "gruppe" ],
+          "use" : "Bruk for å registrere et individs selvopplevde og vanligvis selvrapporterte tilknytning, likhet eller forbindelse med en eller flere grupperinger av mennesker.\r\n\r\nEtnisitet er et konsept som ofte brukes inkonsekvent, som gjør at eksisterende eller historiske data kan variere voldsomt i innhold. Dette inkluderer, men er ikke begrenset til:\r\n\r\n- Langvarig og delt historie (muntlig eller skriftlig)\r\n- Kulturelle tradisjoner, inkludert familiære, sosiale og religiøse skikker\r\n- Delt geografisk opphav\r\n- Felles språk\r\n- En minoritet eller særskilt gruppe innenfor lokalsamfunnet\r\n\r\nI utarbeidelsen av denne arketypen har strukturen bevisst blitt laget enkel, for å kunne støtte hvilket som helst krav for å representere etnisitet. Når det er en allmenn og omforent forståelse av etnisitet og tilhørende verdisett, kan denne arketypen utvides for å dekke de kravene som utkrystalliserer seg. Dataelementet \"Etnisitet\" er åpen for å kunne repeteres, slik at mer enn én etnisk og kulturell identitet kan lagres, enten i form av et flervalg i et verdisett, eller ved at flere forekomster av \"Etnisitet\" blir registrert. For eksempel hvis man skal registrere eksplisitt tilhørighet til en urbefolkningsgruppe.\r\n\r\nDataelementet \"Opphav\" er også lagt til, for å legge til rette for å registrere tilhørighet til grupper som kan ha familiær og arvelig sykdom, slik som genetiske variasjoner som øker sannsynligheten for Crohns sykdom hos askenasiske jøder.\r\n\r\nAndel av overlapp mellom \"Etnisitet\" og \"Avstamning\" kan variere veldig mellom individer, men å separere disse to til distinkte dataelementer vil øke muligheten til å bruke dem til beslutningsstøtte og tilpasning av helsetjenester på en god måte.\r\n\r\nArketypen er utformet for å kunne fungere som en enkeltstående forekomst i en pasientjournal og som blir oppdatert som en ny versjon når den blir revidert.\r\n\r\nEtnisitet er ofte ansett som en del av de demografiske oppføringene i en journal. Likevel er etnisitet tatt inn som del av denne kliniske arketypen i de tilfellene en trenger å samle data som kan støtte kulturelt tilpasset og hensiktsmessige helsetjenester, for eksempel for urbefolkningsgrupper.\r\n\r\nKonseptet med kategorisering etter rase eller hudfarge er kontroversielt. Noen steder kan begrepet \"rase\" være akseptabelt og anses å være synonymt med \"etnisitet\", mens det er ulovlig andre steder. Noe som øker forvirring er at mange verdisett for etnisitet også inneholder verdier som beskriver fysiske karaktertrekk som hudfarge eller geografisk opprinnelse. \"Rase\" også er i noen myndighetsområder brukt som et klossete stedfortredende begrep for sosiale determinanter for helse. Vi anbefaler imidlertid sterkt å bruke arketyper som er laget spesielt for sosiale determinanter for helse for å få mer presis datafangst.",
+          "misuse" : "Skal ikke brukes for å registrere fødeland til et individ. Bruk elementet \"Country of birth\" i arketypen EVALUATION.birth_details til dette.\r\n\r\nSkal ikke brukes for å registrere religiøs tilknytning. Bruk arketypen CLUSTER.religion (Livssyn) til dette.\r\n\r\nSkal ikke brukes for å registrere den selvopplevde kjønnsidentiteten til et individ. Bruk elementet \"Kjønnsidentitet\" i arketypen EVALUATION.gender til dette.\r\n\r\nSkal ikke brukes for å registrere individets språk i forbindelse med behov for tolking. Bruk arketypen CLUSTER.language til dette.\r\n\r\nSkal ikke brukes for å representere eller erstatte formelle registreringer av etnisk bakgrunn eller for å vedlikeholde et offisielt demografisk register eller indeks. Bruk en formell Master Pasient Indeks for dette, eller arketyper som er basert på openEHR Demographic Information Model.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the affiliation, kinship or connection of an individual with one or more groupings of people, usually self-identified.",
+          "keywords" : [ "ethnicity", "culture", "language", "race", "tribe", "affiliation", "belief", "kinship", "identity", "clan", "group", "nationality", "citizenship", "nation", "political" ],
+          "use" : "Use to record the affiliation, kinship or connection of an individual with one or more groupings of people, usually self-identified.\r\n\r\nEthnicity is a concept that is frequently used inconsistently, such that existing or legacy data may be quite varied in content, including but not limited to:\r\n- A long-shared history (written or oral);\r\n- A cultural tradition, including family, social and religious customs;\r\n- A common geographic origin;\r\n- A common language; or\r\n- A minority or distinct group within the local community context.\r\n\r\nIn designing this archetype, the structure has deliberately been kept simple, to support any and all requirements for representing ethnicity. As the understanding around ethnicity and appropriate value sets are identified and agreed upon, this archetype may grow to support evolving clarity of requirements. The data element 'Ethnicity' allows multiple occurrences so that more than one ethnic and cultural identity to be recorded for the individual from a single value set, and also so that more than one representation of 'Ethnicity' can be recorded, for example explicitly recording First People status.\r\n\r\nThe 'Ancestry' data element has also been included to support health risk assessment related to family history and inherited disease, such as a genetic variations that increase the risk of Crohn's disease in Ashkenazi Jews. \r\n\r\nThe amount of overlap between 'Ethnicity' and 'Ancestry may vary enormously between individuals, but separating each into distinct data elements will allow appropriate usage within the clinical context for decision support and provision of healthcare.\r\n\r\nThis archetype has been designed to be recorded as a single instance within a health record, persisted, updated and revised over time as a new version.\r\n\r\nEthnicity is often considered as a component of a demographic record for an individual however it has been represented within this clinical archetype for situations when it needs to be represented in a clinical data collection or is required to support culturally sensitive and appropriate healthcare delivery, for example in First Nations communities.\r\n\r\nThe concept of categorisation by race or skin colour is controversial. In some places, the term 'race' may be considered acceptable and interchangeable with 'ethnicity', yet is illegal in others. Contributing to the confusion, many value sets for ethnicity also contain values that describe physical characteristics such as skin colour or geographical origin. The concept of 'Race' may sometimes be used as a clumsy proxy for identifying risk factors related to social determinants of health (SDOH), however it is strongly recommended that archetypes that represent SDOH concepts be used for more accurate data capture.",
+          "misuse" : "Not to be used to represent the 'Country of birth' of an individual. Use the 'Country of birth' data element within the EVALUATION.birth_details archetype for this purpose.\r\n\r\nNot to be used to record a religious affiliation. Use the CLUSTER.religion archetype for this purpose.\r\n\r\nNot to be used to record self-identified gender. Use the 'Gender identity' data element within the EVALUATION.gender archetype for this purpose. \r\n\r\nNot to be used to record language requirements for translation purposes. Use the CLUSTER.language for this purpose.\r\n\r\nNot to be used to represent or replace formal records of ethnic background or for the purposes of maintaining an official demographic register or index. Use a formal Master Patient Index for this purpose, or archetypes based on the openEHR Demographic Information Model.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.ethnicity.v1",
     "differential" : true,
@@ -5606,6 +5796,451 @@
         "name" : "Vebjørn Arntzen",
         "organisation" : "Oslo University Hospital",
         "email" : "varntzen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "4e3c7e8b-d139-46df-bf1e-d9c24c0e350b",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "DB7D4B698449B0D99CB352CDB935B693"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-EVALUATION.social_network.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-EVALUATION.ovl-social_network-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "EVALUATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0015.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0002.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "occurrences" : "1..1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
+                      "terminologyId" : {
+                        "value" : "local_terms"
+                      },
+                      "constraint" : [ ],
+                      "selectedTerminologies" : [ "local_terms" ],
+                      "includedExternalTerminologyCodes" : [ {
+                        "terminologyId" : "local_terms",
+                        "code" : "160787000",
+                        "value" : "Menikah"
+                      }, {
+                        "terminologyId" : "local_terms",
+                        "code" : "125725006",
+                        "value" : "Belum Menikah"
+                      }, {
+                        "terminologyId" : "local_terms",
+                        "code" : "63234004",
+                        "value" : "Cerai Hidup"
+                      }, {
+                        "terminologyId" : "local_terms",
+                        "code" : "33553000",
+                        "value" : "Cerai Mati"
+                      } ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0018.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      }, {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "protocol",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0010",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0011.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Status Pernikahan",
+            "description" : "Group of individuals connected by social interactions and personal relationships."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Status Pernikahan",
+            "description" : "Single word or phrase that describes an individual's current relationship with a life partner.",
+            "comment" : "Coding of the partnership status with a terminology is preferred, where possible. There is a huge variation in the value sets used across jurisdictions. Many have local, government-mandated value sets rather than using SNOMED CT or similar. For example: a 'marital status' value set including 'never married' or 'single'; 'married'; 'divorced'; or 'widowed'. Also known as 'civil status', 'union status', or 'relationship status'."
+          }
+        },
+        "fr" : { },
+        "nb" : { },
+        "de" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "3c8f2ace-cc4d-4429-aaef-b98662e8d218",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Darin Leonhardt",
+        "organisation" : "PLRI",
+        "email" : "leonhardt.darin@mh-hannover.de"
+      },
+      "accreditation" : "-",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Vebjørn Arntzen, John Tore Valand, Liv Laugen",
+        "organisation" : "Oslo University Hospital, Helse Vest IKT AS, Helse Bergen, ​Oslo University Hospital, Norway",
+        "email" : "varntzen@ous-hf.no, john.tore.valand@helse-vest-ikt.no, liv.laugen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fr"
+      },
+      "author" : {
+        "name" : "Vanessa Pereira",
+        "organisation" : "Better - Pathfinder",
+        "email" : "vanessapereira@protonmail.com"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "c0dab249-57fe-47ac-a385-4ff94ba50580",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "37053661135B974855AAA356073EA23A"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-EVALUATION.occupation_summary.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-EVALUATION.ovl-occupation_summary-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "EVALUATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0002.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "occurrences" : "1..1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
+                      "terminologyId" : {
+                        "value" : "local_termsKerja"
+                      },
+                      "constraint" : [ ],
+                      "selectedTerminologies" : [ "local_termsKerja" ],
+                      "includedExternalTerminologyCodes" : [ {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "0",
+                        "value" : "Tidak bekerja"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "1",
+                        "value" : "PNS"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "2",
+                        "value" : "Pegawai Swasta/ BUMN/ BUMD"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "3",
+                        "value" : "TNI/ Polisi"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "4",
+                        "value" : "Wiraswasta"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "5",
+                        "value" : "Ibu Rumah Tangga"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "6",
+                        "value" : "Pensiunan"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "7",
+                        "value" : "Pelajar/ Mahasiswa"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "8",
+                        "value" : "Petani/ Peternak/ Nelayan"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "9",
+                        "value" : "Guru/ Dosen"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "10",
+                        "value" : "Buruh/ Pegawai Outsourcing"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "11",
+                        "value" : "Pegawai Lepas"
+                      }, {
+                        "terminologyId" : "local_termsKerja",
+                        "code" : "12",
+                        "value" : "Lainnya (isi dibawah)"
+                      } ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0004.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0006.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      }, {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "protocol",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0007",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0009.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Pekerjaan",
+            "description" : "Narrative description about the entire occupation history of the individual."
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Pekerjaan Lain lain",
+            "description" : "Statement about the individual's current employment.",
+            "comment" : "For example: employed; unemployed; or not in labour force. Coding with a terminology is desirable, where possible. Detail about each occupation can be recorded within the CLUSTER.occupation_record archetype."
+          }
+        },
+        "nb" : { },
+        "it" : { },
+        "de" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "806bc0d0-1ad8-4686-93a9-b424423c91f5",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Silje Ljosland Bakke",
+        "organisation" : "Nasjonal IKT HF"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "it"
+      },
+      "author" : {
+        "name" : "Cecilia Mascia",
+        "organisation" : "CRS4 - Center for advanced studies, research and development in Sardinia, Pula (Cagliari), Italy",
+        "email" : "cecilia.mascia@crs4.it"
       },
       "otherDetails" : { }
     } ]
