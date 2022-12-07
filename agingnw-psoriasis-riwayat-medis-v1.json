@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-riwayat-medis-v1",
-  "semVer" : "0.2.0",
+  "semVer" : "0.10.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -54,30 +54,30 @@
         "inContext" : true
       } ]
     }, {
-      "id" : "riwayat_penyakit",
-      "name" : "Riwayat Penyakit",
-      "localizedName" : "Riwayat Penyakit",
+      "id" : "riwayat_alergi",
+      "name" : "Riwayat alergi",
+      "localizedName" : "Riwayat alergi",
       "rmType" : "SECTION",
       "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
       "min" : 0,
       "max" : 1,
       "localizedNames" : {
-        "en" : "Riwayat Penyakit"
+        "en" : "Riwayat alergi"
       },
       "localizedDescriptions" : {
         "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
       },
-      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']",
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']",
       "children" : [ {
-        "id" : "riwayat_alergi",
-        "name" : "Riwayat Alergi",
-        "localizedName" : "Riwayat Alergi",
+        "id" : "riwayat_alergi_screening_questionnaire",
+        "name" : "Riwayat alergi screening questionnaire",
+        "localizedName" : "Riwayat alergi screening questionnaire",
         "rmType" : "OBSERVATION",
         "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
         "min" : 0,
         "max" : 1,
         "localizedNames" : {
-          "en" : "Riwayat Alergi"
+          "en" : "Riwayat alergi screening questionnaire"
         },
         "localizedDescriptions" : {
           "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
@@ -85,7 +85,7 @@
         "annotations" : {
           "comment" : "The answers may be self-reported."
         },
-        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']",
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']",
         "children" : [ {
           "id" : "any_event",
           "name" : "Any event",
@@ -100,17 +100,17 @@
           "localizedDescriptions" : {
             "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/data[at0001]/events[at0002]",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "apakah_terdapat_riwayat_alergi_obat",
-            "name" : "Apakah terdapat riwayat alergi obat?",
-            "localizedName" : "Apakah terdapat riwayat alergi obat?",
+            "id" : "apakah_memiliki_riwayat_alergi",
+            "name" : "Apakah memiliki riwayat alergi?",
+            "localizedName" : "Apakah memiliki riwayat alergi?",
             "rmType" : "DV_BOOLEAN",
             "nodeId" : "at0028",
             "min" : 1,
             "max" : 1,
             "localizedNames" : {
-              "en" : "Apakah terdapat riwayat alergi obat?"
+              "en" : "Apakah memiliki riwayat alergi?"
             },
             "localizedDescriptions" : {
               "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
@@ -118,35 +118,35 @@
             "annotations" : {
               "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah terdapat riwayat alergi obat?']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah memiliki riwayat alergi?']/value",
             "inputs" : [ {
               "type" : "BOOLEAN"
             } ]
           }, {
-            "id" : "riwayat_alergi_obat",
-            "name" : "Riwayat Alergi Obat",
-            "localizedName" : "Riwayat Alergi Obat",
+            "id" : "riwayat_alergi",
+            "name" : "Riwayat alergi",
+            "localizedName" : "Riwayat alergi",
             "rmType" : "CLUSTER",
             "nodeId" : "at0022",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Riwayat Alergi Obat"
+              "en" : "Riwayat alergi"
             },
             "localizedDescriptions" : {
               "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Alergi Obat']",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat alergi']",
             "children" : [ {
-              "id" : "jika_iya_sebutkan_riwayat_alergi_obat_yang_anda_miliki_multiselect",
-              "name" : "Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (multiselect)",
-              "localizedName" : "Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (multiselect)",
+              "id" : "riwayat_alergi_obat_yang_dimiliki",
+              "name" : "Riwayat alergi obat yang dimiliki",
+              "localizedName" : "Riwayat alergi obat yang dimiliki",
               "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (multiselect)"
+                "en" : "Riwayat alergi obat yang dimiliki"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -154,7 +154,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Alergi Obat']/items[at0004,'Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (multiselect)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat alergi']/items[at0004,'Riwayat alergi obat yang dimiliki']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
@@ -183,34 +183,34 @@
                     "en" : "Analgesik"
                   }
                 } ],
-                "terminology" : "Riwayat Alergi Obat"
+                "terminology" : "local_riwayatalergiobat"
               } ]
             } ]
           }, {
-            "id" : "riwayat_alergi_obat_lainnya",
-            "name" : "Riwayat Alergi Obat (Lainnya)",
-            "localizedName" : "Riwayat Alergi Obat (Lainnya)",
+            "id" : "riwayat_alergi_lainnya",
+            "name" : "Riwayat alergi (lainnya)",
+            "localizedName" : "Riwayat alergi (lainnya)",
             "rmType" : "CLUSTER",
             "nodeId" : "at0022",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Riwayat Alergi Obat (Lainnya)"
+              "en" : "Riwayat alergi (lainnya)"
             },
             "localizedDescriptions" : {
               "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Alergi Obat (Lainnya)']",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat alergi (lainnya)']",
             "children" : [ {
-              "id" : "jika_iya_sebutkan_riwayat_alergi_obat_yang_anda_miliki_lainnya",
-              "name" : "Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (lainnya)",
-              "localizedName" : "Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (lainnya)",
+              "id" : "riwayat_alergi_obat_yang_dimiliki_lainnya",
+              "name" : "Riwayat alergi obat yang dimiliki (lainnya)",
+              "localizedName" : "Riwayat alergi obat yang dimiliki (lainnya)",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (lainnya)"
+                "en" : "Riwayat alergi obat yang dimiliki (lainnya)"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -218,9 +218,10 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Alergi Obat (Lainnya)']/items[at0004,'Jika iya, sebutkan riwayat alergi obat yang Anda miliki! (lainnya)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat alergi (lainnya)']/items[at0004,'Riwayat alergi obat yang dimiliki (lainnya)']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "TEXT",
+                "defaultValue" : "-"
               } ]
             } ]
           }, {
@@ -229,7 +230,7 @@
             "rmType" : "DV_DATE_TIME",
             "min" : 1,
             "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/data[at0001]/events[at0002]/time",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/data[at0001]/events[at0002]/time",
             "inputs" : [ {
               "type" : "DATETIME"
             } ],
@@ -241,7 +242,7 @@
           "rmType" : "CODE_PHRASE",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/language",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/language",
           "inContext" : true
         }, {
           "id" : "encoding",
@@ -249,7 +250,7 @@
           "rmType" : "CODE_PHRASE",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/encoding",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/encoding",
           "inContext" : true
         }, {
           "id" : "subject",
@@ -257,7 +258,7 @@
           "rmType" : "PARTY_PROXY",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Alergi']/subject",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat alergi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat alergi screening questionnaire']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"
@@ -273,16 +274,32 @@
           } ],
           "inContext" : true
         } ]
-      }, {
-        "id" : "riwayat_penyakit_kulit",
-        "name" : "Riwayat Penyakit Kulit",
-        "localizedName" : "Riwayat Penyakit Kulit",
+      } ]
+    }, {
+      "id" : "riwayat_penyakit",
+      "name" : "Riwayat penyakit",
+      "localizedName" : "Riwayat penyakit",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat penyakit"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']",
+      "children" : [ {
+        "id" : "riwayat_penyakit_screening_questionnaire",
+        "name" : "Riwayat penyakit screening questionnaire",
+        "localizedName" : "Riwayat penyakit screening questionnaire",
         "rmType" : "OBSERVATION",
         "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
         "min" : 0,
         "max" : 1,
         "localizedNames" : {
-          "en" : "Riwayat Penyakit Kulit"
+          "en" : "Riwayat penyakit screening questionnaire"
         },
         "localizedDescriptions" : {
           "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
@@ -290,7 +307,7 @@
         "annotations" : {
           "comment" : "The answers may be self-reported."
         },
-        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']",
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']",
         "children" : [ {
           "id" : "any_event",
           "name" : "Any event",
@@ -305,53 +322,32 @@
           "localizedDescriptions" : {
             "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/data[at0001]/events[at0002]",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "apakah_terdapat_riwayat_penyakit_kulit",
-            "name" : "Apakah terdapat riwayat penyakit kulit?",
-            "localizedName" : "Apakah terdapat riwayat penyakit kulit?",
-            "rmType" : "DV_BOOLEAN",
-            "nodeId" : "at0028",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Apakah terdapat riwayat penyakit kulit?"
-            },
-            "localizedDescriptions" : {
-              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
-            },
-            "annotations" : {
-              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah terdapat riwayat penyakit kulit?']/value",
-            "inputs" : [ {
-              "type" : "BOOLEAN"
-            } ]
-          }, {
             "id" : "riwayat_penyakit_kulit",
-            "name" : "Riwayat Penyakit Kulit",
-            "localizedName" : "Riwayat Penyakit Kulit",
+            "name" : "Riwayat penyakit kulit",
+            "localizedName" : "Riwayat penyakit kulit",
             "rmType" : "CLUSTER",
             "nodeId" : "at0022",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Riwayat Penyakit Kulit"
+              "en" : "Riwayat penyakit kulit"
             },
             "localizedDescriptions" : {
               "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Penyakit Kulit']",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit kulit']",
             "children" : [ {
-              "id" : "jika_iya_sebutkan_riwayat_penyakit_kulit_yang_pernah_anda_alami_multiselect",
-              "name" : "Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (multiselect)",
-              "localizedName" : "Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (multiselect)",
+              "id" : "apakah_memiliki_riwayat_penyakit_kulit",
+              "name" : "Apakah memiliki riwayat penyakit kulit?",
+              "localizedName" : "Apakah memiliki riwayat penyakit kulit?",
               "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (multiselect)"
+                "en" : "Apakah memiliki riwayat penyakit kulit?"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -359,7 +355,40 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Penyakit Kulit']/items[at0004,'Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (multiselect)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit kulit']/items[at0004,'Apakah memiliki riwayat penyakit kulit?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            }, {
+              "id" : "riwayat_penyakit_kulit_mana_yang_pernah_dialami",
+              "name" : "Riwayat penyakit kulit mana yang pernah dialami?",
+              "localizedName" : "Riwayat penyakit kulit mana yang pernah dialami?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0025",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat penyakit kulit mana yang pernah dialami?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit kulit']/items[at0025,'Riwayat penyakit kulit mana yang pernah dialami?']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
@@ -377,9 +406,9 @@
                   }
                 }, {
                   "value" : "2",
-                  "label" : "Tine korporis",
+                  "label" : "Tinea korporis",
                   "localizedLabels" : {
-                    "en" : "Tine korporis"
+                    "en" : "Tinea korporis"
                   }
                 }, {
                   "value" : "3",
@@ -388,34 +417,34 @@
                     "en" : "Pityriasis rosea"
                   }
                 } ],
-                "terminology" : "Riwayat Penyakit Kulit"
+                "terminology" : "local_riwayatpenyakitkulit"
               } ]
             } ]
           }, {
             "id" : "riwayat_penyakit_kulit_lainnya",
-            "name" : "Riwayat Penyakit Kulit (Lainnya)",
-            "localizedName" : "Riwayat Penyakit Kulit (Lainnya)",
+            "name" : "Riwayat penyakit kulit (lainnya)",
+            "localizedName" : "Riwayat penyakit kulit (lainnya)",
             "rmType" : "CLUSTER",
             "nodeId" : "at0022",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Riwayat Penyakit Kulit (Lainnya)"
+              "en" : "Riwayat penyakit kulit (lainnya)"
             },
             "localizedDescriptions" : {
               "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Penyakit Kulit (Lainnya)']",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit kulit (lainnya)']",
             "children" : [ {
-              "id" : "jika_iya_sebutkan_riwayat_penyakit_kulit_yang_pernah_anda_alami_lainnya",
-              "name" : "Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (lainnya)",
-              "localizedName" : "Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (lainnya)",
+              "id" : "apakah_memiliki_riwayat_penyakit_kulit_lainnya",
+              "name" : "Apakah memiliki riwayat penyakit kulit? (lainnya)",
+              "localizedName" : "Apakah memiliki riwayat penyakit kulit? (lainnya)",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (lainnya)"
+                "en" : "Apakah memiliki riwayat penyakit kulit? (lainnya)"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -423,9 +452,532 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Penyakit Kulit (Lainnya)']/items[at0004,'Jika iya, sebutkan riwayat penyakit kulit yang pernah Anda alami! (lainnya)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit kulit (lainnya)']/items[at0004,'Apakah memiliki riwayat penyakit kulit? (lainnya)']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "TEXT",
+                "defaultValue" : "-"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_diabetes_melitus",
+            "name" : "Riwayat diabetes melitus",
+            "localizedName" : "Riwayat diabetes melitus",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat diabetes melitus"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat diabetes melitus']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_diabetes_melitus",
+              "name" : "Apakah memiliki riwayat diabetes melitus?",
+              "localizedName" : "Apakah memiliki riwayat diabetes melitus?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat diabetes melitus?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat diabetes melitus']/items[at0004,'Apakah memiliki riwayat diabetes melitus?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_penyakit_ginjal",
+            "name" : "Riwayat penyakit ginjal",
+            "localizedName" : "Riwayat penyakit ginjal",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat penyakit ginjal"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit ginjal']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_penyakit_ginjal",
+              "name" : "Apakah memiliki riwayat penyakit ginjal?",
+              "localizedName" : "Apakah memiliki riwayat penyakit ginjal?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat penyakit ginjal?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit ginjal']/items[at0004,'Apakah memiliki riwayat penyakit ginjal?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_penyakit_hati",
+            "name" : "Riwayat penyakit hati",
+            "localizedName" : "Riwayat penyakit hati",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat penyakit hati"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit hati']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_penyakit_hati",
+              "name" : "Apakah memiliki riwayat penyakit hati?",
+              "localizedName" : "Apakah memiliki riwayat penyakit hati?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat penyakit hati?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penyakit hati']/items[at0004,'Apakah memiliki riwayat penyakit hati?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_hipertensi",
+            "name" : "Riwayat hipertensi",
+            "localizedName" : "Riwayat hipertensi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat hipertensi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat hipertensi']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_hipertensi",
+              "name" : "Apakah memiliki riwayat hipertensi?",
+              "localizedName" : "Apakah memiliki riwayat hipertensi?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat hipertensi?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat hipertensi']/items[at0004,'Apakah memiliki riwayat hipertensi?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_psoriasis_artritis",
+            "name" : "Riwayat psoriasis artritis",
+            "localizedName" : "Riwayat psoriasis artritis",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat psoriasis artritis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat psoriasis artritis']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_psoriasis_artritis",
+              "name" : "Apakah memiliki riwayat psoriasis artritis?",
+              "localizedName" : "Apakah memiliki riwayat psoriasis artritis?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat psoriasis artritis?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat psoriasis artritis']/items[at0004,'Apakah memiliki riwayat psoriasis artritis?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_artritis_reumatoid",
+            "name" : "Riwayat artritis reumatoid",
+            "localizedName" : "Riwayat artritis reumatoid",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat artritis reumatoid"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat artritis reumatoid']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_artritis_reumatoid",
+              "name" : "Apakah memiliki riwayat artritis reumatoid?",
+              "localizedName" : "Apakah memiliki riwayat artritis reumatoid?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat artritis reumatoid?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat artritis reumatoid']/items[at0004,'Apakah memiliki riwayat artritis reumatoid?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_lupus_eritematosus_sistemik",
+            "name" : "Riwayat lupus eritematosus sistemik",
+            "localizedName" : "Riwayat lupus eritematosus sistemik",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat lupus eritematosus sistemik"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat lupus eritematosus sistemik']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_lupus_eritematosus_sistemik",
+              "name" : "Apakah memiliki riwayat lupus eritematosus sistemik?",
+              "localizedName" : "Apakah memiliki riwayat lupus eritematosus sistemik?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat lupus eritematosus sistemik?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat lupus eritematosus sistemik']/items[at0004,'Apakah memiliki riwayat lupus eritematosus sistemik?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_hiperkolesterolemia",
+            "name" : "Riwayat hiperkolesterolemia",
+            "localizedName" : "Riwayat hiperkolesterolemia",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat hiperkolesterolemia"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat hiperkolesterolemia']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_hiperkolesterolemia",
+              "name" : "Apakah memiliki riwayat hiperkolesterolemia?",
+              "localizedName" : "Apakah memiliki riwayat hiperkolesterolemia?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat hiperkolesterolemia?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat hiperkolesterolemia']/items[at0004,'Apakah memiliki riwayat hiperkolesterolemia?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_covid-19",
+            "name" : "Riwayat COVID-19",
+            "localizedName" : "Riwayat COVID-19",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat COVID-19"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat COVID-19']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_terkonfirmasi_covid-19",
+              "name" : "Apakah memiliki riwayat terkonfirmasi COVID-19?",
+              "localizedName" : "Apakah memiliki riwayat terkonfirmasi COVID-19?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat terkonfirmasi COVID-19?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat COVID-19']/items[at0004,'Apakah memiliki riwayat terkonfirmasi COVID-19?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            }, {
+              "id" : "terkonfirmasi_pada_tanggal",
+              "name" : "Terkonfirmasi pada tanggal",
+              "localizedName" : "Terkonfirmasi pada tanggal",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0040",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Terkonfirmasi pada tanggal"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the initial recognition of the issue, problem or diagnosis."
+              },
+              "annotations" : {
+                "comment" : "The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of a problem or the timing of a diagnosis. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date of diagnosis. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat COVID-19']/items[at0040,'Terkonfirmasi pada tanggal']/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            }, {
+              "id" : "terkonfirmasi_dengan",
+              "name" : "Terkonfirmasi dengan",
+              "localizedName" : "Terkonfirmasi dengan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0025",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Terkonfirmasi dengan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat COVID-19']/items[at0025,'Terkonfirmasi dengan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Antigen",
+                  "localizedLabels" : {
+                    "en" : "Antigen"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "PCR",
+                  "localizedLabels" : {
+                    "en" : "PCR"
+                  }
+                } ],
+                "terminology" : "local_covid19terkonfirmasidengan"
               } ]
             } ]
           }, {
@@ -434,7 +986,7 @@
             "rmType" : "DV_DATE_TIME",
             "min" : 1,
             "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/data[at0001]/events[at0002]/time",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/data[at0001]/events[at0002]/time",
             "inputs" : [ {
               "type" : "DATETIME"
             } ],
@@ -446,7 +998,7 @@
           "rmType" : "CODE_PHRASE",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/language",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/language",
           "inContext" : true
         }, {
           "id" : "encoding",
@@ -454,7 +1006,7 @@
           "rmType" : "CODE_PHRASE",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/encoding",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/encoding",
           "inContext" : true
         }, {
           "id" : "subject",
@@ -462,7 +1014,1819 @@
           "rmType" : "PARTY_PROXY",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat Penyakit Kulit']/subject",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit screening questionnaire']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "gaya_hidup",
+      "name" : "Gaya hidup",
+      "localizedName" : "Gaya hidup",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Gaya hidup"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']",
+      "children" : [ {
+        "id" : "gaya_hidup_screening_questionnaire",
+        "name" : "Gaya hidup screening questionnaire",
+        "localizedName" : "Gaya hidup screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Gaya hidup screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "riwayat_merokok",
+            "name" : "Riwayat merokok",
+            "localizedName" : "Riwayat merokok",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat merokok"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat merokok']",
+            "children" : [ {
+              "id" : "riwayat_merokok_dalam_sehari",
+              "name" : "Riwayat merokok dalam sehari",
+              "localizedName" : "Riwayat merokok dalam sehari",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat merokok dalam sehari"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat merokok']/items[at0004,'Riwayat merokok dalam sehari']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak merokok",
+                  "localizedLabels" : {
+                    "en" : "Tidak merokok"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "1-10 batang per hari",
+                  "localizedLabels" : {
+                    "en" : "1-10 batang per hari"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "11-19 batang per hari",
+                  "localizedLabels" : {
+                    "en" : "11-19 batang per hari"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : ">= 20 batang per hari",
+                  "localizedLabels" : {
+                    "en" : ">= 20 batang per hari"
+                  }
+                } ],
+                "terminology" : "local_riwayatmerokok"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_minum_alkohol",
+            "name" : "Riwayat minum alkohol",
+            "localizedName" : "Riwayat minum alkohol",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat minum alkohol"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat minum alkohol']",
+            "children" : [ {
+              "id" : "riwayat_minum_alkohol",
+              "name" : "Riwayat minum alkohol",
+              "localizedName" : "Riwayat minum alkohol",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat minum alkohol"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat minum alkohol']/items[at0004,'Riwayat minum alkohol']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_stress",
+            "name" : "Riwayat stress",
+            "localizedName" : "Riwayat stress",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat stress"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat stress']",
+            "children" : [ {
+              "id" : "riwayat_stress",
+              "name" : "Riwayat stress",
+              "localizedName" : "Riwayat stress",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat stress"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat stress']/items[at0004,'Riwayat stress']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gaya hidup']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Gaya hidup screening questionnaire']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "riwayat_penggunaan_obat",
+      "name" : "Riwayat penggunaan obat",
+      "localizedName" : "Riwayat penggunaan obat",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat penggunaan obat"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']",
+      "children" : [ {
+        "id" : "riwayat_penggunaan_obat_screening_questionnaire",
+        "name" : "Riwayat penggunaan obat screening questionnaire",
+        "localizedName" : "Riwayat penggunaan obat screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.medication_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Riwayat penggunaan obat screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for the use of medications."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0023",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]",
+          "children" : [ {
+            "id" : "riwayat_metotreksat",
+            "name" : "Riwayat metotreksat",
+            "localizedName" : "Riwayat metotreksat",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat metotreksat"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']",
+            "children" : [ {
+              "id" : "apakah_terdapat_riwayat_penggunaan_metotreksat",
+              "name" : "Apakah terdapat riwayat penggunaan metotreksat?",
+              "localizedName" : "Apakah terdapat riwayat penggunaan metotreksat?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah terdapat riwayat penggunaan metotreksat?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']/items[at0021,'Apakah terdapat riwayat penggunaan metotreksat?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            }, {
+              "id" : "tanggal",
+              "name" : "Tanggal",
+              "localizedName" : "Tanggal",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal"
+              },
+              "localizedDescriptions" : {
+                "en" : "The onset, cessation or duration of use of the medication or grouping of medications."
+              },
+              "annotations" : {
+                "comment" : "The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medication was used. The specific and intended semantics can be further clarified in a template. For example: \r\nClone and rename the element in a template to 'Start' and 'Stopped' to record the Date/time when the individual started using a medication. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset of duration OR the length of time during which the individual has been using the medication. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']/items[at0002,'Tanggal']/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            }, {
+              "id" : "selama",
+              "name" : "Selama",
+              "localizedName" : "Selama",
+              "rmType" : "DV_DURATION",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Selama"
+              },
+              "localizedDescriptions" : {
+                "en" : "The onset, cessation or duration of use of the medication or grouping of medications."
+              },
+              "annotations" : {
+                "comment" : "The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medication was used. The specific and intended semantics can be further clarified in a template. For example: \r\nClone and rename the element in a template to 'Start' and 'Stopped' to record the Date/time when the individual started using a medication. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset of duration OR the length of time during which the individual has been using the medication. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']/items[at0002,'Selama']/value",
+              "inputs" : [ {
+                "suffix" : "year",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "month",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "day",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "week",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "hour",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "minute",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "second",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            }, {
+              "id" : "dosage",
+              "name" : "Dosage",
+              "localizedName" : "Dosage",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.dosage.v2",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Dosage"
+              },
+              "localizedDescriptions" : {
+                "en" : "The combination of a medication amount and administration timing for a single day, in the context of a medication order or medication management."
+              },
+              "annotations" : {
+                "comment" : "For example: '2 tablets at 6pm' or '20 mg three times per day'. Please note: this cluster allows multiple occurrences to enable representation of a complete set of dose patterns for a single dose direction."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']/items[openEHR-EHR-CLUSTER.dosage.v2]",
+              "children" : [ {
+                "id" : "dosis_kumulatif",
+                "name" : "Dosis kumulatif",
+                "localizedName" : "Dosis kumulatif",
+                "rmType" : "DV_QUANTITY",
+                "nodeId" : "at0144",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Dosis kumulatif"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The amount of medication administered at one time."
+                },
+                "annotations" : {
+                  "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis kumulatif']/value",
+                "inputs" : [ {
+                  "suffix" : "magnitude",
+                  "type" : "DECIMAL"
+                }, {
+                  "suffix" : "unit",
+                  "type" : "CODED_TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "respons_pasi",
+              "name" : "Respons PASI",
+              "localizedName" : "Respons PASI",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0025",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Respons PASI"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific medication question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']/items[at0025,'Respons PASI']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "< 75",
+                  "localizedLabels" : {
+                    "en" : "< 75"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : ">= 75",
+                  "localizedLabels" : {
+                    "en" : ">= 75"
+                  }
+                } ],
+                "terminology" : "local_responspasi"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_secukinumab",
+            "name" : "Riwayat secukinumab",
+            "localizedName" : "Riwayat secukinumab",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat secukinumab"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']",
+            "children" : [ {
+              "id" : "apakah_terdapat_riwayat_penggunaan_secukinumab",
+              "name" : "Apakah terdapat riwayat penggunaan secukinumab?",
+              "localizedName" : "Apakah terdapat riwayat penggunaan secukinumab?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah terdapat riwayat penggunaan secukinumab?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']/items[at0021,'Apakah terdapat riwayat penggunaan secukinumab?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_bool"
+              } ]
+            }, {
+              "id" : "tanggal",
+              "name" : "Tanggal",
+              "localizedName" : "Tanggal",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal"
+              },
+              "localizedDescriptions" : {
+                "en" : "The onset, cessation or duration of use of the medication or grouping of medications."
+              },
+              "annotations" : {
+                "comment" : "The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medication was used. The specific and intended semantics can be further clarified in a template. For example: \r\nClone and rename the element in a template to 'Start' and 'Stopped' to record the Date/time when the individual started using a medication. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset of duration OR the length of time during which the individual has been using the medication. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']/items[at0002,'Tanggal']/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            }, {
+              "id" : "selama",
+              "name" : "Selama",
+              "localizedName" : "Selama",
+              "rmType" : "DV_DURATION",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Selama"
+              },
+              "localizedDescriptions" : {
+                "en" : "The onset, cessation or duration of use of the medication or grouping of medications."
+              },
+              "annotations" : {
+                "comment" : "The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medication was used. The specific and intended semantics can be further clarified in a template. For example: \r\nClone and rename the element in a template to 'Start' and 'Stopped' to record the Date/time when the individual started using a medication. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset of duration OR the length of time during which the individual has been using the medication. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']/items[at0002,'Selama']/value",
+              "inputs" : [ {
+                "suffix" : "year",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "month",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "day",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "week",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "hour",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "minute",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "second",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            }, {
+              "id" : "dosage",
+              "name" : "Dosage",
+              "localizedName" : "Dosage",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.dosage.v2",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Dosage"
+              },
+              "localizedDescriptions" : {
+                "en" : "The combination of a medication amount and administration timing for a single day, in the context of a medication order or medication management."
+              },
+              "annotations" : {
+                "comment" : "For example: '2 tablets at 6pm' or '20 mg three times per day'. Please note: this cluster allows multiple occurrences to enable representation of a complete set of dose patterns for a single dose direction."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']/items[openEHR-EHR-CLUSTER.dosage.v2]",
+              "children" : [ {
+                "id" : "dosis_kumulatif",
+                "name" : "Dosis kumulatif",
+                "localizedName" : "Dosis kumulatif",
+                "rmType" : "DV_QUANTITY",
+                "nodeId" : "at0144",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Dosis kumulatif"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The amount of medication administered at one time."
+                },
+                "annotations" : {
+                  "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis kumulatif']/value",
+                "inputs" : [ {
+                  "suffix" : "magnitude",
+                  "type" : "DECIMAL"
+                }, {
+                  "suffix" : "unit",
+                  "type" : "CODED_TEXT"
+                } ]
+              } ]
+            }, {
+              "id" : "respons_pasi",
+              "name" : "Respons PASI",
+              "localizedName" : "Respons PASI",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0025",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Respons PASI"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific medication question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']/items[at0025,'Respons PASI']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "< 75",
+                  "localizedLabels" : {
+                    "en" : "< 75"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : ">= 75",
+                  "localizedLabels" : {
+                    "en" : ">= 75"
+                  }
+                } ],
+                "terminology" : "local_responspasi"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_penggunaan_obat_lain",
+            "name" : "Riwayat penggunaan obat lain",
+            "localizedName" : "Riwayat penggunaan obat lain",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat penggunaan obat lain"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat penggunaan obat lain']",
+            "children" : [ {
+              "id" : "apakah_terdapat_riwayat_penggunaan_obat_lain",
+              "name" : "Apakah terdapat riwayat penggunaan obat lain?",
+              "localizedName" : "Apakah terdapat riwayat penggunaan obat lain?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah terdapat riwayat penggunaan obat lain?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat penggunaan obat lain']/items[at0021,'Apakah terdapat riwayat penggunaan obat lain?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak ada",
+                  "localizedLabels" : {
+                    "en" : "Tidak ada"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Siklosporin",
+                  "localizedLabels" : {
+                    "en" : "Siklosporin"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Kortikosteroid",
+                  "localizedLabels" : {
+                    "en" : "Kortikosteroid"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Asam folat",
+                  "localizedLabels" : {
+                    "en" : "Asam folat"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Antihistamin",
+                  "localizedLabels" : {
+                    "en" : "Antihistamin"
+                  }
+                } ],
+                "terminology" : "local_riwayatpenggunaanobatlain"
+              } ]
+            }, {
+              "id" : "jika_siklosporin_selama",
+              "name" : "Jika siklosporin, selama",
+              "localizedName" : "Jika siklosporin, selama",
+              "rmType" : "DV_DURATION",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Jika siklosporin, selama"
+              },
+              "localizedDescriptions" : {
+                "en" : "The onset, cessation or duration of use of the medication or grouping of medications."
+              },
+              "annotations" : {
+                "comment" : "The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medication was used. The specific and intended semantics can be further clarified in a template. For example: \r\nClone and rename the element in a template to 'Start' and 'Stopped' to record the Date/time when the individual started using a medication. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset of duration OR the length of time during which the individual has been using the medication. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat penggunaan obat lain']/items[at0002,'Jika siklosporin, selama']/value",
+              "inputs" : [ {
+                "suffix" : "year",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "month",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "day",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "week",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "hour",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "minute",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "second",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            }, {
+              "id" : "jika_kortikosteroid_selama",
+              "name" : "Jika kortikosteroid, selama",
+              "localizedName" : "Jika kortikosteroid, selama",
+              "rmType" : "DV_DURATION",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Jika kortikosteroid, selama"
+              },
+              "localizedDescriptions" : {
+                "en" : "The onset, cessation or duration of use of the medication or grouping of medications."
+              },
+              "annotations" : {
+                "comment" : "The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medication was used. The specific and intended semantics can be further clarified in a template. For example: \r\nClone and rename the element in a template to 'Start' and 'Stopped' to record the Date/time when the individual started using a medication. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset of duration OR the length of time during which the individual has been using the medication. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat penggunaan obat lain']/items[at0002,'Jika kortikosteroid, selama']/value",
+              "inputs" : [ {
+                "suffix" : "year",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "month",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "day",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "week",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "hour",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "minute",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "second",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            }, {
+              "id" : "jika_asam_folat_selama",
+              "name" : "Jika asam folat, selama",
+              "localizedName" : "Jika asam folat, selama",
+              "rmType" : "DV_DURATION",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Jika asam folat, selama"
+              },
+              "localizedDescriptions" : {
+                "en" : "The onset, cessation or duration of use of the medication or grouping of medications."
+              },
+              "annotations" : {
+                "comment" : "The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medication was used. The specific and intended semantics can be further clarified in a template. For example: \r\nClone and rename the element in a template to 'Start' and 'Stopped' to record the Date/time when the individual started using a medication. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset of duration OR the length of time during which the individual has been using the medication. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat penggunaan obat lain']/items[at0002,'Jika asam folat, selama']/value",
+              "inputs" : [ {
+                "suffix" : "year",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "month",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "day",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "week",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "hour",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "minute",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              }, {
+                "suffix" : "second",
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            }, {
+              "id" : "dosage",
+              "name" : "Dosage",
+              "localizedName" : "Dosage",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.dosage.v2",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Dosage"
+              },
+              "localizedDescriptions" : {
+                "en" : "The combination of a medication amount and administration timing for a single day, in the context of a medication order or medication management."
+              },
+              "annotations" : {
+                "comment" : "For example: '2 tablets at 6pm' or '20 mg three times per day'. Please note: this cluster allows multiple occurrences to enable representation of a complete set of dose patterns for a single dose direction."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat penggunaan obat lain']/items[openEHR-EHR-CLUSTER.dosage.v2]",
+              "children" : [ {
+                "id" : "dosis_kumulatif",
+                "name" : "Dosis kumulatif",
+                "localizedName" : "Dosis kumulatif",
+                "rmType" : "DV_QUANTITY",
+                "nodeId" : "at0144",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Dosis kumulatif"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The amount of medication administered at one time."
+                },
+                "annotations" : {
+                  "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat penggunaan obat lain']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis kumulatif']/value",
+                "inputs" : [ {
+                  "suffix" : "magnitude",
+                  "type" : "DECIMAL"
+                }, {
+                  "suffix" : "unit",
+                  "type" : "CODED_TEXT"
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/data[at0022]/events[at0023]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat screening questionnaire']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "riwayat_penyakit_pada_keluarga",
+      "name" : "Riwayat penyakit pada keluarga",
+      "localizedName" : "Riwayat penyakit pada keluarga",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat penyakit pada keluarga"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']",
+      "children" : [ {
+        "id" : "riwayat_keluarga",
+        "name" : "Riwayat keluarga",
+        "localizedName" : "Riwayat keluarga",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.family_history.v2",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Riwayat keluarga"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary information about the significant health-related problems found in family members."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']",
+        "children" : [ {
+          "id" : "riwayat_penyakit_psoriasis",
+          "name" : "Riwayat penyakit psoriasis",
+          "localizedName" : "Riwayat penyakit psoriasis",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Riwayat penyakit psoriasis"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about the presence of a specific problem or diagnosis in family members."
+          },
+          "annotations" : {
+            "comment" : "If the problem has a genetic predisposition within families, then only genetic relatives should be considered as part of this data. If the problem has psychosocial or environmental effects then non-genetic family members may also be included."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat penyakit psoriasis']",
+          "children" : [ {
+            "id" : "apakah_terdapat_riwayat_penyakit_psoriasis_dalam_keluarga",
+            "name" : "Apakah terdapat riwayat penyakit psoriasis dalam keluarga?",
+            "localizedName" : "Apakah terdapat riwayat penyakit psoriasis dalam keluarga?",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Apakah terdapat riwayat penyakit psoriasis dalam keluarga?"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the family overall."
+            },
+            "annotations" : {
+              "comment" : "This is the problem for which aggregated data involving all family members will be collected. Coding of the index problem with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat penyakit psoriasis']/items[at0029,'Apakah terdapat riwayat penyakit psoriasis dalam keluarga?']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              } ],
+              "terminology" : "local_bool"
+            } ]
+          } ]
+        }, {
+          "id" : "riwayat_alergi",
+          "name" : "Riwayat alergi",
+          "localizedName" : "Riwayat alergi",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Riwayat alergi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about the presence of a specific problem or diagnosis in family members."
+          },
+          "annotations" : {
+            "comment" : "If the problem has a genetic predisposition within families, then only genetic relatives should be considered as part of this data. If the problem has psychosocial or environmental effects then non-genetic family members may also be included."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat alergi']",
+          "children" : [ {
+            "id" : "apakah_terdapat_riwayat_alergi_dalam_keluarga",
+            "name" : "Apakah terdapat riwayat alergi dalam keluarga?",
+            "localizedName" : "Apakah terdapat riwayat alergi dalam keluarga?",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Apakah terdapat riwayat alergi dalam keluarga?"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the family overall."
+            },
+            "annotations" : {
+              "comment" : "This is the problem for which aggregated data involving all family members will be collected. Coding of the index problem with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat alergi']/items[at0029,'Apakah terdapat riwayat alergi dalam keluarga?']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              } ],
+              "terminology" : "local_bool"
+            } ]
+          }, {
+            "id" : "jika_iya_apa_riwayat_alergi_dalam_keluarga",
+            "name" : "Jika iya, apa riwayat alergi dalam keluarga",
+            "localizedName" : "Jika iya, apa riwayat alergi dalam keluarga",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0030",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jika iya, apa riwayat alergi dalam keluarga"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description about occurrence of the problem or diagnosis in family members."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat alergi']/items[at0030,'Jika iya, apa riwayat alergi dalam keluarga']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Alergi obat",
+                "localizedLabels" : {
+                  "en" : "Alergi obat"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Alergi makanan/ minuman",
+                "localizedLabels" : {
+                  "en" : "Alergi makanan/ minuman"
+                }
+              }, {
+                "value" : "2",
+                "label" : "Dermatitis",
+                "localizedLabels" : {
+                  "en" : "Dermatitis"
+                }
+              } ],
+              "terminology" : "local_riwayatalergidalamkeluarga"
+            } ]
+          } ]
+        }, {
+          "id" : "riwayat_alergi_lainnya",
+          "name" : "Riwayat alergi (lainnya)",
+          "localizedName" : "Riwayat alergi (lainnya)",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Riwayat alergi (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about the presence of a specific problem or diagnosis in family members."
+          },
+          "annotations" : {
+            "comment" : "If the problem has a genetic predisposition within families, then only genetic relatives should be considered as part of this data. If the problem has psychosocial or environmental effects then non-genetic family members may also be included."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat alergi (lainnya)']",
+          "children" : [ {
+            "id" : "apakah_terdapat_riwayat_alergi_dalam_keluarga_lainnya",
+            "name" : "Apakah terdapat riwayat alergi dalam keluarga? (lainnya)",
+            "localizedName" : "Apakah terdapat riwayat alergi dalam keluarga? (lainnya)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Apakah terdapat riwayat alergi dalam keluarga? (lainnya)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the family overall."
+            },
+            "annotations" : {
+              "comment" : "This is the problem for which aggregated data involving all family members will be collected. Coding of the index problem with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat alergi (lainnya)']/items[at0029,'Apakah terdapat riwayat alergi dalam keluarga? (lainnya)']/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "defaultValue" : "-"
+            } ]
+          } ]
+        }, {
+          "id" : "riwayat_penyakit_lain",
+          "name" : "Riwayat penyakit lain",
+          "localizedName" : "Riwayat penyakit lain",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Riwayat penyakit lain"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about the presence of a specific problem or diagnosis in family members."
+          },
+          "annotations" : {
+            "comment" : "If the problem has a genetic predisposition within families, then only genetic relatives should be considered as part of this data. If the problem has psychosocial or environmental effects then non-genetic family members may also be included."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat penyakit lain']",
+          "children" : [ {
+            "id" : "riwayat_penyakit_lain_dalam_keluarga",
+            "name" : "Riwayat penyakit lain dalam keluarga",
+            "localizedName" : "Riwayat penyakit lain dalam keluarga",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Riwayat penyakit lain dalam keluarga"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the family overall."
+            },
+            "annotations" : {
+              "comment" : "This is the problem for which aggregated data involving all family members will be collected. Coding of the index problem with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat penyakit lain']/items[at0029,'Riwayat penyakit lain dalam keluarga']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Hipertensi",
+                "localizedLabels" : {
+                  "en" : "Hipertensi"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Diabetes mellitus",
+                "localizedLabels" : {
+                  "en" : "Diabetes mellitus"
+                }
+              }, {
+                "value" : "2",
+                "label" : "Penyakit ginjal",
+                "localizedLabels" : {
+                  "en" : "Penyakit ginjal"
+                }
+              }, {
+                "value" : "3",
+                "label" : "Penyakit hati",
+                "localizedLabels" : {
+                  "en" : "Penyakit hati"
+                }
+              }, {
+                "value" : "4",
+                "label" : "Hiperkolesterolemia",
+                "localizedLabels" : {
+                  "en" : "Hiperkolesterolemia"
+                }
+              }, {
+                "value" : "5",
+                "label" : "Reumatoid artritis",
+                "localizedLabels" : {
+                  "en" : "Reumatoid artritis"
+                }
+              }, {
+                "value" : "6",
+                "label" : "Psoriasis artritis",
+                "localizedLabels" : {
+                  "en" : "Psoriasis artritis"
+                }
+              }, {
+                "value" : "7",
+                "label" : "Sistemik lupus eritematosus",
+                "localizedLabels" : {
+                  "en" : "Sistemik lupus eritematosus"
+                }
+              } ],
+              "terminology" : "local_riwayatpenyakitlaindalamkeluarga"
+            } ]
+          } ]
+        }, {
+          "id" : "riwayat_penyakit_lain_lainnya",
+          "name" : "Riwayat penyakit lain (lainnya)",
+          "localizedName" : "Riwayat penyakit lain (lainnya)",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Riwayat penyakit lain (lainnya)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about the presence of a specific problem or diagnosis in family members."
+          },
+          "annotations" : {
+            "comment" : "If the problem has a genetic predisposition within families, then only genetic relatives should be considered as part of this data. If the problem has psychosocial or environmental effects then non-genetic family members may also be included."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat penyakit lain (lainnya)']",
+          "children" : [ {
+            "id" : "riwayat_penyakit_lain_dalam_keluarga_lainnya",
+            "name" : "Riwayat penyakit lain dalam keluarga (lainnya)",
+            "localizedName" : "Riwayat penyakit lain dalam keluarga (lainnya)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Riwayat penyakit lain dalam keluarga (lainnya)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the family overall."
+            },
+            "annotations" : {
+              "comment" : "This is the problem for which aggregated data involving all family members will be collected. Coding of the index problem with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/data[at0001]/items[at0028,'Riwayat penyakit lain (lainnya)']/items[at0029,'Riwayat penyakit lain dalam keluarga (lainnya)']/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "defaultValue" : "-"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit pada keluarga']/items[openEHR-EHR-EVALUATION.family_history.v2,'Riwayat keluarga']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ],
+        "termBindings" : {
+          "SNOMED-CT" : {
+            "value" : "[SNOMED-CT(20160131)::57177007]",
+            "terminologyId" : "SNOMED-CT"
+          }
+        }
+      } ]
+    }, {
+      "id" : "riwayat_vaksinasi",
+      "name" : "Riwayat vaksinasi",
+      "localizedName" : "Riwayat vaksinasi",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat vaksinasi"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']",
+      "children" : [ {
+        "id" : "vaksinasi_covid-19",
+        "name" : "Vaksinasi COVID-19",
+        "localizedName" : "Vaksinasi COVID-19",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksinasi COVID-19"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']",
+        "children" : [ {
+          "id" : "apakah_sudah_pernah_dilakukan_vaksinasi_covid-19",
+          "name" : "Apakah sudah pernah dilakukan vaksinasi COVID-19?",
+          "localizedName" : "Apakah sudah pernah dilakukan vaksinasi COVID-19?",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Apakah sudah pernah dilakukan vaksinasi COVID-19?"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/data[at0001]/items[at0003,'Apakah sudah pernah dilakukan vaksinasi COVID-19?']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Sudah",
+              "localizedLabels" : {
+                "en" : "Sudah"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Belum pernah divaksin",
+              "localizedLabels" : {
+                "en" : "Belum pernah divaksin"
+              }
+            } ],
+            "terminology" : "local_statusvaksinasicovid19"
+          } ]
+        }, {
+          "id" : "vaksin_i",
+          "name" : "Vaksin I",
+          "localizedName" : "Vaksin I",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Vaksin I"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about a specific vaccine administration."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/data[at0001]/items[at0022,'Vaksin I']",
+          "children" : [ {
+            "id" : "tanggal_vaksin",
+            "name" : "Tanggal vaksin",
+            "localizedName" : "Tanggal vaksin",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0024",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tanggal vaksin"
+            },
+            "localizedDescriptions" : {
+              "en" : "Date of administration of the specified vaccine."
+            },
+            "annotations" : {
+              "comment" : "Can be a partial date, for example, only a year."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/data[at0001]/items[at0022,'Vaksin I']/items[at0024,'Tanggal vaksin']/value",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ]
+          } ]
+        }, {
+          "id" : "vaksin_ii",
+          "name" : "Vaksin II",
+          "localizedName" : "Vaksin II",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Vaksin II"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about a specific vaccine administration."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/data[at0001]/items[at0022,'Vaksin II']",
+          "children" : [ {
+            "id" : "tanggal_vaksin",
+            "name" : "Tanggal vaksin",
+            "localizedName" : "Tanggal vaksin",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0024",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tanggal vaksin"
+            },
+            "localizedDescriptions" : {
+              "en" : "Date of administration of the specified vaccine."
+            },
+            "annotations" : {
+              "comment" : "Can be a partial date, for example, only a year."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/data[at0001]/items[at0022,'Vaksin II']/items[at0024,'Tanggal vaksin']/value",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ]
+          } ]
+        }, {
+          "id" : "vaksin_iii",
+          "name" : "Vaksin III",
+          "localizedName" : "Vaksin III",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Vaksin III"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about a specific vaccine administration."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/data[at0001]/items[at0022,'Vaksin III']",
+          "children" : [ {
+            "id" : "tanggal_vaksin",
+            "name" : "Tanggal vaksin",
+            "localizedName" : "Tanggal vaksin",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0024",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tanggal vaksin"
+            },
+            "localizedDescriptions" : {
+              "en" : "Date of administration of the specified vaccine."
+            },
+            "annotations" : {
+              "comment" : "Can be a partial date, for example, only a year."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/data[at0001]/items[at0022,'Vaksin III']/items[at0024,'Tanggal vaksin']/value",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat vaksinasi']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksinasi COVID-19']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"
