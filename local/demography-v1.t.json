@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "2.0.1",
       "build_uid" : "2bdd5fd5-9339-4bbd-9888-16f1ccd0ac1e",
-      "MD5-CAM-1.0.1" : "5f0ae928382c2e69e2a0387565a4dfda",
+      "MD5-CAM-1.0.1" : "875a509c3abba990411339b125b3f1e4",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -9801,17 +9801,12 @@
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
+              "occurrences" : "1..1",
               "nodeId" : "at0016.1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
                 "rmAttributeName" : "value",
                 "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_IDENTIFIER",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                }, {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "DV_TEXT",
                   "attributes" : [ ],
@@ -9822,15 +9817,24 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0014.1",
-              "attributes" : [ ],
+              "occurrences" : "1..1",
+              "nodeId" : "at0004.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE_TIME",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
-              "nodeId" : "at0004.1",
+              "nodeId" : "at0014.1",
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
@@ -9857,8 +9861,55 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
+              "occurrences" : "1..1",
               "nodeId" : "at0026.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "occurrences" : "1..1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
+                      "terminologyId" : {
+                        "value" : "local_termsBiaya"
+                      },
+                      "constraint" : [ ],
+                      "selectedTerminologies" : [ "local_termsBiaya" ],
+                      "includedExternalTerminologyCodes" : [ {
+                        "terminologyId" : "local_termsBiaya",
+                        "code" : "0",
+                        "value" : "Perusahaan /asuransi"
+                      }, {
+                        "terminologyId" : "local_termsBiaya",
+                        "code" : "1",
+                        "value" : "Pribadi"
+                      }, {
+                        "terminologyId" : "local_termsBiaya",
+                        "code" : "2",
+                        "value" : "JKN / KIS / BPJS Kesehatan (input nomor BPJS dibawah)"
+                      }, {
+                        "terminologyId" : "local_termsBiaya",
+                        "code" : "3",
+                        "value" : "Lain-lain (free text)"
+                      } ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0021.2",
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
@@ -9965,10 +10016,51 @@
             "code" : "at0000.1",
             "text" : "Admisi Pasien",
             "description" : "Administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution."
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Tgl. Registrasi",
+            "description" : "The date and/or time of the formal or statistical admission to the institution."
+          },
+          "at0016.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0016.1",
+            "text" : "No. Rekam Medik",
+            "description" : "Identification of the medical record number."
+          },
+          "at0026.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0026.1",
+            "text" : "Pembiayaan",
+            "description" : "The type of health insurance applicable for the episode."
+          },
+          "at0021.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0021.2",
+            "text" : "Attending unit (2)",
+            "description" : "The clinical service unit assigned for care of the individual.",
+            "comment" : "For example: Orthopaedic A unit."
           }
         },
-        "nb" : { },
-        "it" : { }
+        "nb" : {
+          "at0021.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0021.1",
+            "text" : "*Attending unit (en) (2)",
+            "description" : "*The clinical service unit assigned for care of the individual. (en)",
+            "comment" : "*For example: Orthopaedic A unit. (en)"
+          }
+        },
+        "it" : {
+          "at0021.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0021.1",
+            "text" : "*Attending unit (en) (2)",
+            "description" : "*The clinical service unit assigned for care of the individual. (en)",
+            "comment" : "*For example: Orthopaedic A unit. (en)"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
