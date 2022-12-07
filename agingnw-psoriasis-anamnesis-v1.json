@@ -1,0 +1,1034 @@
+{
+  "templateId" : "agingnw-psoriasis-anamnesis-v1",
+  "semVer" : "0.4.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "agingnw-psoriasis-anamnesis-v1",
+    "name" : "agingnw-psoriasis-anamnesis-v1",
+    "localizedName" : "agingnw-psoriasis-anamnesis-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "agingnw-psoriasis-anamnesis-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "keluhan_utama",
+      "name" : "Keluhan utama",
+      "localizedName" : "Keluhan utama",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Keluhan utama"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']",
+      "children" : [ {
+        "id" : "keluhan_utama_screening_questionnaire",
+        "name" : "Keluhan utama screening questionnaire",
+        "localizedName" : "Keluhan utama screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Keluhan utama screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "keluhan_utama",
+            "name" : "Keluhan utama",
+            "localizedName" : "Keluhan utama",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan utama"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama']",
+            "children" : [ {
+              "id" : "pilih_keluhan_utama_multiselect",
+              "name" : "Pilih keluhan utama (multiselect)",
+              "localizedName" : "Pilih keluhan utama (multiselect)",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pilih keluhan utama (multiselect)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama']/items[at0004,'Pilih keluhan utama (multiselect)']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Bercak kemerahan dengan sisik tebal",
+                  "localizedLabels" : {
+                    "en" : "Bercak kemerahan dengan sisik tebal"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Sendi bengkak dan nyeri",
+                  "localizedLabels" : {
+                    "en" : "Sendi bengkak dan nyeri"
+                  }
+                } ],
+                "terminology" : "local_keluhanutama"
+              } ]
+            } ]
+          }, {
+            "id" : "keluhan_utama_lainnya",
+            "name" : "Keluhan utama (lainnya)",
+            "localizedName" : "Keluhan utama (lainnya)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan utama (lainnya)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama (lainnya)']",
+            "children" : [ {
+              "id" : "pilih_keluhan_utama_lainnya",
+              "name" : "Pilih keluhan utama (lainnya)",
+              "localizedName" : "Pilih keluhan utama (lainnya)",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pilih keluhan utama (lainnya)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama (lainnya)']/items[at0004,'Pilih keluhan utama (lainnya)']/value",
+              "inputs" : [ {
+                "type" : "TEXT",
+                "defaultValue" : "-"
+              } ]
+            } ]
+          }, {
+            "id" : "keluhan_utama_pertama_kali",
+            "name" : "Keluhan utama, pertama kali?",
+            "localizedName" : "Keluhan utama, pertama kali?",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan utama, pertama kali?"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama, pertama kali?']",
+            "children" : [ {
+              "id" : "apakah_keluhan_utama_tersebut_merupakan_keluhan_pertama_kali",
+              "name" : "Apakah keluhan utama tersebut merupakan keluhan pertama kali?",
+              "localizedName" : "Apakah keluhan utama tersebut merupakan keluhan pertama kali?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah keluhan utama tersebut merupakan keluhan pertama kali?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama, pertama kali?']/items[at0004,'Apakah keluhan utama tersebut merupakan keluhan pertama kali?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_keluhanutamapertamakali"
+              } ]
+            }, {
+              "id" : "jika_bukan_keluhan_utama_saat_ini_kumat-kumatan_yang_ke_berapa",
+              "name" : "Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?",
+              "localizedName" : "Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0025",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama, pertama kali?']/items[at0025,'Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?']/value",
+              "inputs" : [ {
+                "type" : "TEXT",
+                "defaultValue" : "-"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "kondisi_saat_ini",
+      "name" : "Kondisi saat ini",
+      "localizedName" : "Kondisi saat ini",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Kondisi saat ini"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']",
+      "children" : [ {
+        "id" : "kondisi_saat_ini_screening_questionnaire",
+        "name" : "Kondisi saat ini screening questionnaire",
+        "localizedName" : "Kondisi saat ini screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Kondisi saat ini screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "kondisi_keluhan_saat_ini",
+            "name" : "Kondisi keluhan saat ini",
+            "localizedName" : "Kondisi keluhan saat ini",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Kondisi keluhan saat ini"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kondisi keluhan saat ini']",
+            "children" : [ {
+              "id" : "kronologis_penyakit",
+              "name" : "Kronologis penyakit",
+              "localizedName" : "Kronologis penyakit",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kronologis penyakit"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kondisi keluhan saat ini']/items[at0004,'Kronologis penyakit']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "onset_saat_terjadi_keluhan",
+              "name" : "Onset saat terjadi keluhan",
+              "localizedName" : "Onset saat terjadi keluhan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0040",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Onset saat terjadi keluhan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the initial recognition of the issue, problem or diagnosis."
+              },
+              "annotations" : {
+                "comment" : "The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of a problem or the timing of a diagnosis. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date of diagnosis. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kondisi keluhan saat ini']/items[at0040,'Onset saat terjadi keluhan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Usia <40 tahun",
+                  "localizedLabels" : {
+                    "en" : "Usia <40 tahun"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Usia >=40 tahun",
+                  "localizedLabels" : {
+                    "en" : "Usia >=40 tahun"
+                  }
+                } ],
+                "terminology" : "local_onsetkejadiankeluhan"
+              } ]
+            }, {
+              "id" : "lokasi_timbulnya_keluhan_pertama_kali",
+              "name" : "Lokasi timbulnya keluhan pertama kali",
+              "localizedName" : "Lokasi timbulnya keluhan pertama kali",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0025",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Lokasi timbulnya keluhan pertama kali"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kondisi keluhan saat ini']/items[at0025,'Lokasi timbulnya keluhan pertama kali']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Leher dan kepala",
+                  "localizedLabels" : {
+                    "en" : "Leher dan kepala"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ekstremitas atas",
+                  "localizedLabels" : {
+                    "en" : "Ekstremitas atas"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Batang tubuh",
+                  "localizedLabels" : {
+                    "en" : "Batang tubuh"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Ekstremitas bawah",
+                  "localizedLabels" : {
+                    "en" : "Ekstremitas bawah"
+                  }
+                } ],
+                "terminology" : "local_lokasikeluhan"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "keluhan_lain_screening_questionnaire",
+        "name" : "Keluhan lain screening questionnaire",
+        "localizedName" : "Keluhan lain screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Keluhan lain screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "keluhan_kulit",
+            "name" : "Keluhan kulit",
+            "localizedName" : "Keluhan kulit",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan kulit"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan kulit']",
+            "children" : [ {
+              "id" : "keluhan_kulit",
+              "name" : "Keluhan kulit",
+              "localizedName" : "Keluhan kulit",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Keluhan kulit"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan kulit']/items[at0004,'Keluhan kulit']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Kemerahan",
+                  "localizedLabels" : {
+                    "en" : "Kemerahan"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Gatal",
+                  "localizedLabels" : {
+                    "en" : "Gatal"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Bersisik",
+                  "localizedLabels" : {
+                    "en" : "Bersisik"
+                  }
+                } ],
+                "terminology" : "local_keluhankulit"
+              } ]
+            } ]
+          }, {
+            "id" : "keluhan_sendi",
+            "name" : "Keluhan sendi",
+            "localizedName" : "Keluhan sendi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan sendi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan sendi']",
+            "children" : [ {
+              "id" : "keluhan_sendi",
+              "name" : "Keluhan sendi",
+              "localizedName" : "Keluhan sendi",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Keluhan sendi"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan sendi']/items[at0004,'Keluhan sendi']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Kemerahan",
+                  "localizedLabels" : {
+                    "en" : "Kemerahan"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Bengkak",
+                  "localizedLabels" : {
+                    "en" : "Bengkak"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Nyeri",
+                  "localizedLabels" : {
+                    "en" : "Nyeri"
+                  }
+                } ],
+                "terminology" : "local_keluhansendi"
+              } ]
+            } ]
+          }, {
+            "id" : "keluhan_lainnya",
+            "name" : "Keluhan lainnya",
+            "localizedName" : "Keluhan lainnya",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan lainnya']",
+            "children" : [ {
+              "id" : "keluhannya_lainnya",
+              "name" : "Keluhannya lainnya",
+              "localizedName" : "Keluhannya lainnya",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Keluhannya lainnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan lainnya']/items[at0004,'Keluhannya lainnya']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "keluhan_infeksi",
+            "name" : "Keluhan infeksi",
+            "localizedName" : "Keluhan infeksi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan infeksi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan infeksi']",
+            "children" : [ {
+              "id" : "apakah_memiliki_riwayat_infeksi",
+              "name" : "Apakah memiliki riwayat infeksi?",
+              "localizedName" : "Apakah memiliki riwayat infeksi?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah memiliki riwayat infeksi?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan infeksi']/items[at0004,'Apakah memiliki riwayat infeksi?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_riwayatinfeksi"
+              } ]
+            }, {
+              "id" : "jika_ada_sebutkan_riwayat_infeksi_yang_pernah_anda_miliki",
+              "name" : "Jika ada, sebutkan riwayat infeksi yang pernah Anda miliki!",
+              "localizedName" : "Jika ada, sebutkan riwayat infeksi yang pernah Anda miliki!",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0025",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Jika ada, sebutkan riwayat infeksi yang pernah Anda miliki!"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan infeksi']/items[at0025,'Jika ada, sebutkan riwayat infeksi yang pernah Anda miliki!']/value",
+              "inputs" : [ {
+                "type" : "TEXT",
+                "defaultValue" : "-"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lain screening questionnaire']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "kondisi_lain_screening_questionnaire",
+        "name" : "Kondisi lain screening questionnaire",
+        "localizedName" : "Kondisi lain screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Kondisi lain screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "hamil_atau_menyusui",
+            "name" : "Hamil atau menyusui",
+            "localizedName" : "Hamil atau menyusui",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Hamil atau menyusui"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Hamil atau menyusui']",
+            "children" : [ {
+              "id" : "apakah_saat_ini_sedang_hamil_atau_menyusui",
+              "name" : "Apakah saat ini sedang hamil atau menyusui?",
+              "localizedName" : "Apakah saat ini sedang hamil atau menyusui?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Apakah saat ini sedang hamil atau menyusui?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Hamil atau menyusui']/items[at0004,'Apakah saat ini sedang hamil atau menyusui?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                } ],
+                "terminology" : "local_hamilataumenyusui"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi lain screening questionnaire']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
