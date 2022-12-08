@@ -855,6 +855,29 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Kontrol Glikemik']",
           "children" : [ {
+            "id" : "hasil_hba1c",
+            "name" : "Hasil HbA1c %",
+            "localizedName" : "Hasil HbA1c %",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil HbA1c %"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Kontrol Glikemik']/items[at0001,'Hasil HbA1c %']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
             "id" : "kapan_pemeriksaan_hba1c_terakhir",
             "name" : "Kapan pemeriksaan Hba1c terakhir",
             "localizedName" : "Kapan pemeriksaan Hba1c terakhir",
@@ -878,29 +901,6 @@
               "validation" : {
                 "pattern" : "yyyy-mm-ddTXX:XX:XX"
               }
-            } ]
-          }, {
-            "id" : "hasil_hba1c",
-            "name" : "Hasil HbA1c %",
-            "localizedName" : "Hasil HbA1c %",
-            "rmType" : "DV_COUNT",
-            "nodeId" : "at0001",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Hasil HbA1c %"
-            },
-            "localizedDescriptions" : {
-              "en" : "The value of the analyte result."
-            },
-            "annotations" : {
-              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-              "fhir_mapping" : "Observation.value[x]"
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Penyakit dan Pengobatan']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diabetes']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Kontrol Glikemik']/items[at0001,'Hasil HbA1c %']/value",
-            "inputs" : [ {
-              "type" : "INTEGER"
             } ]
           } ]
         }, {
@@ -1404,7 +1404,14 @@
                   "type" : "DECIMAL"
                 }, {
                   "suffix" : "unit",
-                  "type" : "CODED_TEXT"
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "[iU]",
+                    "label" : "[iU]",
+                    "localizedLabels" : {
+                      "en" : "[iU]"
+                    }
+                  } ]
                 } ]
               } ]
             }, {
@@ -1506,7 +1513,14 @@
                   "type" : "DECIMAL"
                 }, {
                   "suffix" : "unit",
-                  "type" : "CODED_TEXT"
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "[iU]",
+                    "label" : "[iU]",
+                    "localizedLabels" : {
+                      "en" : "[iU]"
+                    }
+                  } ]
                 } ]
               } ]
             }, {
@@ -1608,7 +1622,14 @@
                   "type" : "DECIMAL"
                 }, {
                   "suffix" : "unit",
-                  "type" : "CODED_TEXT"
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "[iU]",
+                    "label" : "[iU]",
+                    "localizedLabels" : {
+                      "en" : "[iU]"
+                    }
+                  } ]
                 } ]
               } ]
             }, {
