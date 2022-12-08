@@ -1,0 +1,3076 @@
+{
+  "templateId" : "demography-v2",
+  "semVer" : "2.1.1",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "demography-v2",
+    "name" : "demography-v2",
+    "localizedName" : "demography-v2",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "demography-v2"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "data_demografis",
+      "name" : "Data Demografis",
+      "localizedName" : "Data Demografis",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Data Demografis"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']",
+      "children" : [ {
+        "id" : "data_orang",
+        "name" : "Data Orang",
+        "localizedName" : "Data Orang",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.demographics.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Data Orang"
+        },
+        "localizedDescriptions" : {
+          "en" : "A container archetype used to hold demographic-related EHR CLUSTER archetypes."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']",
+        "children" : [ {
+          "id" : "data_orang",
+          "name" : "Data Orang",
+          "localizedName" : "Data Orang",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Data Orang"
+          },
+          "localizedDescriptions" : {
+            "en" : "An individual human being."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1,'Data Orang']",
+          "children" : [ {
+            "id" : "nama",
+            "name" : "Nama",
+            "localizedName" : "Nama",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama"
+            },
+            "localizedDescriptions" : {
+              "en" : "The unstructured name for the individual."
+            },
+            "annotations" : {
+              "comment" : "The content of this data element may be derived from one or more components from CLUSTER.structured_name combined together as a text string. For example: 'John Markham', 'Professor Sir John Markham', 'John Markham Jnr MP'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1,'Data Orang']/items[at0001,'Nama']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "jenis_identitas",
+            "name" : "Jenis Identitas",
+            "localizedName" : "Jenis Identitas",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0011",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis Identitas"
+            },
+            "localizedDescriptions" : {
+              "en" : "A label for the individual."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Neighbour in the house with the red door'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1,'Data Orang']/items[at0011,'Jenis Identitas']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "KTP",
+                "localizedLabels" : {
+                  "en" : "KTP"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Paspor",
+                "localizedLabels" : {
+                  "en" : "Paspor"
+                }
+              } ],
+              "terminology" : "local_termsIdentitas"
+            } ]
+          }, {
+            "id" : "nik",
+            "name" : "NIK",
+            "localizedName" : "NIK",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "NIK"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identifier associated with the individual."
+            },
+            "annotations" : {
+              "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the DV_IDENTIFIER data type contains multiple subcomponents for recording the ID value, type, issuer and assigned. For example - social security number; driver's license; or passport number."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1,'Data Orang']/items[at0003,'NIK']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "nomor_identitas_lain",
+            "name" : "Nomor Identitas Lain",
+            "localizedName" : "Nomor Identitas Lain",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nomor Identitas Lain"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identifier associated with the individual."
+            },
+            "annotations" : {
+              "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the DV_IDENTIFIER data type contains multiple subcomponents for recording the ID value, type, issuer and assigned. For example - social security number; driver's license; or passport number."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1,'Data Orang']/items[at0003,'Nomor Identitas Lain']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Data Orang']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "jenis_kelamin",
+        "name" : "Jenis Kelamin",
+        "localizedName" : "Jenis Kelamin",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.gender.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Jenis Kelamin"
+        },
+        "localizedDescriptions" : {
+          "en" : "Details about the gender of an individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']",
+        "children" : [ {
+          "id" : "jenis_kelamin_sesuai_ktp",
+          "name" : "Jenis Kelamin sesuai KTP",
+          "localizedName" : "Jenis Kelamin sesuai KTP",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Jenis Kelamin sesuai KTP"
+          },
+          "localizedDescriptions" : {
+            "en" : "The gender of an individual used for administrative purposes."
+          },
+          "annotations" : {
+            "comment" : "This element is what most systems today describes as 'Sex' or 'Gender'. For example 'Male', 'Female', 'Other'. This aligns with HL7 FHIR 'Person.gender'. Coding with a terminology is recommended, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/data[at0002]/items[at0022,'Jenis Kelamin sesuai KTP']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "1",
+              "label" : "Laki-laki",
+              "localizedLabels" : {
+                "en" : "Laki-laki"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Perempuan",
+              "localizedLabels" : {
+                "en" : "Perempuan"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Lainnya",
+              "localizedLabels" : {
+                "en" : "Lainnya"
+              }
+            }, {
+              "value" : "0",
+              "label" : "Tidak diketahui",
+              "localizedLabels" : {
+                "en" : "Tidak diketahui"
+              }
+            } ],
+            "terminology" : "http://hl7.org/fhir/R4B/valueset-administrative-gender.html"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-EVALUATION.gender.v1,'Jenis Kelamin']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "usia_total",
+        "name" : "Usia Total",
+        "localizedName" : "Usia Total",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.age.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Usia Total"
+        },
+        "localizedDescriptions" : {
+          "en" : "Details about the age of an individual at a specific point in time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Total']",
+        "children" : [ {
+          "id" : "usia_total",
+          "name" : "Usia total",
+          "localizedName" : "Usia total",
+          "rmType" : "DV_DURATION",
+          "nodeId" : "at0005",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia total"
+          },
+          "localizedDescriptions" : {
+            "en" : "Chronological age of an infant, less the number of weeks or months they were born premature."
+          },
+          "annotations" : {
+            "comment" : "Also known as 'Corrected age'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Total']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Usia total']/value",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "day",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Total']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Total']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Total']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Total']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "usia_dalam_tahun",
+        "name" : "Usia Dalam Tahun",
+        "localizedName" : "Usia Dalam Tahun",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.age.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Usia Dalam Tahun"
+        },
+        "localizedDescriptions" : {
+          "en" : "Details about the age of an individual at a specific point in time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Tahun']",
+        "children" : [ {
+          "id" : "usia_dalam_tahun",
+          "name" : "Usia (dalam tahun)",
+          "localizedName" : "Usia (dalam tahun)",
+          "rmType" : "DV_DURATION",
+          "nodeId" : "at0005",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia (dalam tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Chronological age of an infant, less the number of weeks or months they were born premature."
+          },
+          "annotations" : {
+            "comment" : "Also known as 'Corrected age'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Tahun']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Usia (dalam tahun)']/value",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Tahun']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Tahun']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Tahun']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Tahun']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "usia_dalam_bulan",
+        "name" : "Usia Dalam Bulan",
+        "localizedName" : "Usia Dalam Bulan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.age.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Usia Dalam Bulan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Details about the age of an individual at a specific point in time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Bulan']",
+        "children" : [ {
+          "id" : "usia_dalam_bulan",
+          "name" : "Usia (dalam bulan)",
+          "localizedName" : "Usia (dalam bulan)",
+          "rmType" : "DV_DURATION",
+          "nodeId" : "at0005",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia (dalam bulan)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Chronological age of an infant, less the number of weeks or months they were born premature."
+          },
+          "annotations" : {
+            "comment" : "Also known as 'Corrected age'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Bulan']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Usia (dalam bulan)']/value",
+          "inputs" : [ {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Bulan']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Bulan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Bulan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-OBSERVATION.age.v0,'Usia Dalam Bulan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "tempat_tanggal_lahir",
+        "name" : "Tempat tanggal lahir",
+        "localizedName" : "Tempat tanggal lahir",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.demographics.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Tempat tanggal lahir"
+        },
+        "localizedDescriptions" : {
+          "en" : "A container archetype used to hold demographic-related EHR CLUSTER archetypes."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']",
+        "children" : [ {
+          "id" : "person",
+          "name" : "Person",
+          "localizedName" : "Person",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Person"
+          },
+          "localizedDescriptions" : {
+            "en" : "An individual human being."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]",
+          "children" : [ {
+            "id" : "birth_data",
+            "name" : "Birth data",
+            "localizedName" : "Birth data",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v0",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Birth data"
+            },
+            "localizedDescriptions" : {
+              "en" : "Birth demographic data"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v0]",
+            "children" : [ {
+              "id" : "tanggal_lahir",
+              "name" : "Tanggal Lahir",
+              "localizedName" : "Tanggal Lahir",
+              "rmType" : "DV_DATE",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal Lahir"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date of birth of a person"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v0]/items[at0001,'Tanggal Lahir']/value",
+              "inputs" : [ {
+                "type" : "DATE",
+                "validation" : {
+                  "pattern" : "yyyy-mm-dd"
+                }
+              } ]
+            }, {
+              "id" : "tempat_lahir",
+              "name" : "Tempat Lahir",
+              "localizedName" : "Tempat Lahir",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tempat Lahir"
+              },
+              "localizedDescriptions" : {
+                "en" : "The country where a person was born"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v0]/items[at0002,'Tempat Lahir']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "value",
+                "type" : "TEXT"
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Tempat tanggal lahir']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "alamat_ktp",
+        "name" : "Alamat KTP",
+        "localizedName" : "Alamat KTP",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.demographics.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Alamat KTP"
+        },
+        "localizedDescriptions" : {
+          "en" : "A container archetype used to hold demographic-related EHR CLUSTER archetypes."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']",
+        "children" : [ {
+          "id" : "person",
+          "name" : "Person",
+          "localizedName" : "Person",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Person"
+          },
+          "localizedDescriptions" : {
+            "en" : "An individual human being."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]",
+          "children" : [ {
+            "id" : "alamat",
+            "name" : "Alamat",
+            "localizedName" : "Alamat",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.address.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Alamat"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about the location of a person, physical building or landmark."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1,'Alamat']",
+            "children" : [ {
+              "id" : "kecamatan",
+              "name" : "Kecamatan",
+              "localizedName" : "Kecamatan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0002",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kecamatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The name of the suburb, town, city, village, community or lowest level locality that contains the address."
+              },
+              "annotations" : {
+                "comment" : "Coding with an external terminology is preferred, where possible. For example: 'Fitzroy'; 'Manchester'; 'Kingston' or 'Bergen'."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1,'Alamat']/items[at0002,'Kecamatan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "kelurahan",
+              "name" : "Kelurahan",
+              "localizedName" : "Kelurahan",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0002",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kelurahan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The name of the suburb, town, city, village, community or lowest level locality that contains the address."
+              },
+              "annotations" : {
+                "comment" : "Coding with an external terminology is preferred, where possible. For example: 'Fitzroy'; 'Manchester'; 'Kingston' or 'Bergen'."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1,'Alamat']/items[at0002,'Kelurahan']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "kota_kabupaten",
+              "name" : "Kota / Kabupaten",
+              "localizedName" : "Kota / Kabupaten",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0003",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kota / Kabupaten"
+              },
+              "localizedDescriptions" : {
+                "en" : "The name of a local government district or geographical area that contains the address."
+              },
+              "annotations" : {
+                "comment" : "Coding with an external terminology is preferred, where possible. For example: 'Surf Coast' and 'Yarra' local government councils in Victoria, Australia; and the Counties of 'Cornwall', 'Middlesex' & 'Surrey' in Jamaica."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1,'Alamat']/items[at0003,'Kota / Kabupaten']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "provinsi",
+              "name" : "Provinsi",
+              "localizedName" : "Provinsi",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Provinsi"
+              },
+              "localizedDescriptions" : {
+                "en" : "The name of a major government district or geographical area that contains the address."
+              },
+              "annotations" : {
+                "comment" : "Coding with an external terminology is preferred, where possible. For example: 'New South Wales' and 'Queensland' in Australia; 'British Columbia' and 'Nova Scotia' in Canada; and the Parishes of 'St. Andrew' and 'Kingston' in Jamaica."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.address.v1,'Alamat']/items[at0004,'Provinsi']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Demografis']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Alamat KTP']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "data_pelengkap",
+      "name" : "Data Pelengkap",
+      "localizedName" : "Data Pelengkap",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Data Pelengkap"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']",
+      "children" : [ {
+        "id" : "golongan_darah",
+        "name" : "Golongan Darah",
+        "localizedName" : "Golongan Darah",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.blood_group.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Golongan Darah"
+        },
+        "localizedDescriptions" : {
+          "en" : "Identification of the persistent blood group and rhesus status of an individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.blood_group.v0,'Golongan Darah']",
+        "children" : [ {
+          "id" : "golongan_darah",
+          "name" : "Golongan Darah",
+          "localizedName" : "Golongan Darah",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Golongan Darah"
+          },
+          "localizedDescriptions" : {
+            "en" : ""
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.blood_group.v0,'Golongan Darah']/data[at0002]/items[at0003,'Golongan Darah']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "278149003",
+              "label" : "A",
+              "localizedLabels" : {
+                "en" : "A"
+              }
+            }, {
+              "value" : "278150003",
+              "label" : "B",
+              "localizedLabels" : {
+                "en" : "B"
+              }
+            }, {
+              "value" : "278147001",
+              "label" : "O",
+              "localizedLabels" : {
+                "en" : "O"
+              }
+            }, {
+              "value" : "278151004",
+              "label" : "AB",
+              "localizedLabels" : {
+                "en" : "AB"
+              }
+            } ],
+            "terminology" : "SNOMED_CT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.blood_group.v0,'Golongan Darah']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.blood_group.v0,'Golongan Darah']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.blood_group.v0,'Golongan Darah']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "agama",
+        "name" : "Agama",
+        "localizedName" : "Agama",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.demographics.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Agama"
+        },
+        "localizedDescriptions" : {
+          "en" : "A container archetype used to hold demographic-related EHR CLUSTER archetypes."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']",
+        "children" : [ {
+          "id" : "person",
+          "name" : "Person",
+          "localizedName" : "Person",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Person"
+          },
+          "localizedDescriptions" : {
+            "en" : "An individual human being."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]",
+          "children" : [ {
+            "id" : "religious_affiliation",
+            "name" : "Religious affiliation",
+            "localizedName" : "Religious affiliation",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.religion.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Religious affiliation"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the individual's religious or non-religious beliefs and/or practices by which people order the conduct of their lives both practically and in a moral sense."
+            },
+            "annotations" : {
+              "comment" : "For example: Christianity, Catholicism, Islam, Wiccan, Humanism, Animism, Atheism; Agnosticism; or none."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.religion.v1]",
+            "children" : [ {
+              "id" : "agama",
+              "name" : "Agama",
+              "localizedName" : "Agama",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Agama"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of the belief and/or practice to which the individual is affiliated."
+              },
+              "annotations" : {
+                "comment" : "For example: Christianity; Catholicism; Islam; Wiccan; Humanism; Animism; Atheism; Agnosticism; or none. Coding with a terminology is desirable, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.religion.v1]/items[at0001,'Agama']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak Diketahui",
+                  "localizedLabels" : {
+                    "en" : "Tidak Diketahui"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Islam",
+                  "localizedLabels" : {
+                    "en" : "Islam"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Katholik",
+                  "localizedLabels" : {
+                    "en" : "Katholik"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Protestan",
+                  "localizedLabels" : {
+                    "en" : "Protestan"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Hindu",
+                  "localizedLabels" : {
+                    "en" : "Hindu"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "Budha",
+                  "localizedLabels" : {
+                    "en" : "Budha"
+                  }
+                }, {
+                  "value" : "6",
+                  "label" : "Lainnya (tulis dibawah)",
+                  "localizedLabels" : {
+                    "en" : "Lainnya (tulis dibawah)"
+                  }
+                } ],
+                "terminology" : "local_termsAgama"
+              } ]
+            }, {
+              "id" : "agama_lainnya",
+              "name" : "Agama Lainnya",
+              "localizedName" : "Agama Lainnya",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Agama Lainnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the religious affiliation not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[openEHR-EHR-CLUSTER.religion.v1]/items[at0002,'Agama Lainnya']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-ADMIN_ENTRY.demographics.v0,'Agama']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "ras_etnis_suku",
+        "name" : "Ras/ Etnis/ Suku",
+        "localizedName" : "Ras/ Etnis/ Suku",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.ethnicity.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Ras/ Etnis/ Suku"
+        },
+        "localizedDescriptions" : {
+          "en" : "Affiliation, kinship or connection with one or more groupings of people, according to common origins or background."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.ethnicity.v1,'Ras/ Etnis/ Suku']",
+        "children" : [ {
+          "id" : "ras_etnis_suku",
+          "name" : "Ras/ Etnis/ Suku",
+          "localizedName" : "Ras/ Etnis/ Suku",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Ras/ Etnis/ Suku"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the ethnic or cultural grouping with whom the individual identifies an affiliation, kinship or connection."
+          },
+          "annotations" : {
+            "comment" : "For example: Australian; Torres Strait Islander; Maori; Roma Gypsy; Sikh, or Greek.\r\nCoding with a terminology is preferred, where possible - for example ABS 1249.0 - Australian Standard Classification of Cultural and Ethnic Groups (ASCCEG), 2019. The occurrences for this data element is set to multiple occurences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.ethnicity.v1,'Ras/ Etnis/ Suku']/data[at0001]/items[at0003,'Ras/ Etnis/ Suku']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Suku asal Aceh",
+              "localizedLabels" : {
+                "en" : "Suku asal Aceh"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Batak",
+              "localizedLabels" : {
+                "en" : "Batak"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Nias",
+              "localizedLabels" : {
+                "en" : "Nias"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Melayu",
+              "localizedLabels" : {
+                "en" : "Melayu"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Minangkabau",
+              "localizedLabels" : {
+                "en" : "Minangkabau"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Suku asal Jambi",
+              "localizedLabels" : {
+                "en" : "Suku asal Jambi"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Suku Asal Sumatra Selatan",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Selatan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Suku Asal Lampung",
+              "localizedLabels" : {
+                "en" : "Suku Asal Lampung"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Suku Asal Sumatra Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sumatra Lainnya"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Betawi",
+              "localizedLabels" : {
+                "en" : "Betawi"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Suku Asal Banten",
+              "localizedLabels" : {
+                "en" : "Suku Asal Banten"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Sunda",
+              "localizedLabels" : {
+                "en" : "Sunda"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Jawa",
+              "localizedLabels" : {
+                "en" : "Jawa"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Cirebon",
+              "localizedLabels" : {
+                "en" : "Cirebon"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Madura",
+              "localizedLabels" : {
+                "en" : "Madura"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Bali",
+              "localizedLabels" : {
+                "en" : "Bali"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Sasak",
+              "localizedLabels" : {
+                "en" : "Sasak"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Suku Asal NTB Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTB Lainnya"
+              }
+            }, {
+              "value" : "18",
+              "label" : "Suku Asal NTT",
+              "localizedLabels" : {
+                "en" : "Suku Asal NTT"
+              }
+            }, {
+              "value" : "19",
+              "label" : "Dayak",
+              "localizedLabels" : {
+                "en" : "Dayak"
+              }
+            }, {
+              "value" : "20",
+              "label" : "Banjar",
+              "localizedLabels" : {
+                "en" : "Banjar"
+              }
+            }, {
+              "value" : "21",
+              "label" : "Suku Asal Kalimantan Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Kalimantan Lainnya"
+              }
+            }, {
+              "value" : "22",
+              "label" : "Makasar",
+              "localizedLabels" : {
+                "en" : "Makasar"
+              }
+            }, {
+              "value" : "23",
+              "label" : "Bugis",
+              "localizedLabels" : {
+                "en" : "Bugis"
+              }
+            }, {
+              "value" : "24",
+              "label" : "Minahasa",
+              "localizedLabels" : {
+                "en" : "Minahasa"
+              }
+            }, {
+              "value" : "25",
+              "label" : "Gorontalo",
+              "localizedLabels" : {
+                "en" : "Gorontalo"
+              }
+            }, {
+              "value" : "26",
+              "label" : "Suku Asal Sulawesi Lainnya",
+              "localizedLabels" : {
+                "en" : "Suku Asal Sulawesi Lainnya"
+              }
+            }, {
+              "value" : "27",
+              "label" : "Suku Asal Maluku",
+              "localizedLabels" : {
+                "en" : "Suku Asal Maluku"
+              }
+            }, {
+              "value" : "28",
+              "label" : "Suku Asal Papua",
+              "localizedLabels" : {
+                "en" : "Suku Asal Papua"
+              }
+            }, {
+              "value" : "29",
+              "label" : "Cina",
+              "localizedLabels" : {
+                "en" : "Cina"
+              }
+            }, {
+              "value" : "30",
+              "label" : "Luar Negeri",
+              "localizedLabels" : {
+                "en" : "Luar Negeri"
+              }
+            }, {
+              "value" : "31",
+              "label" : "Lain-­lain (isikan dibawah)",
+              "localizedLabels" : {
+                "en" : "Lain-­lain (isikan dibawah)"
+              }
+            } ],
+            "terminology" : "local_termsSuku"
+          } ]
+        }, {
+          "id" : "ras_etnis_suku_lain-lain",
+          "name" : "Ras/ Etnis/ Suku Lain-lain",
+          "localizedName" : "Ras/ Etnis/ Suku Lain-lain",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Ras/ Etnis/ Suku Lain-lain"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the ethnic or cultural grouping with whom the individual identifies an affiliation, kinship or connection."
+          },
+          "annotations" : {
+            "comment" : "For example: Australian; Torres Strait Islander; Maori; Roma Gypsy; Sikh, or Greek.\r\nCoding with a terminology is preferred, where possible - for example ABS 1249.0 - Australian Standard Classification of Cultural and Ethnic Groups (ASCCEG), 2019. The occurrences for this data element is set to multiple occurences to allow for more than one social grouping to be selected."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.ethnicity.v1,'Ras/ Etnis/ Suku']/data[at0001]/items[at0003,'Ras/ Etnis/ Suku Lain-lain']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.ethnicity.v1,'Ras/ Etnis/ Suku']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.ethnicity.v1,'Ras/ Etnis/ Suku']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.ethnicity.v1,'Ras/ Etnis/ Suku']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "status_pernikahan",
+        "name" : "Status Pernikahan",
+        "localizedName" : "Status Pernikahan",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.social_network.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Status Pernikahan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Group of individuals connected by social interactions and personal relationships."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.social_network.v1,'Status Pernikahan']",
+        "children" : [ {
+          "id" : "status_pernikahan",
+          "name" : "Status Pernikahan",
+          "localizedName" : "Status Pernikahan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status Pernikahan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Single word or phrase that describes an individual's current relationship with a life partner."
+          },
+          "annotations" : {
+            "comment" : "Coding of the partnership status with a terminology is preferred, where possible. There is a huge variation in the value sets used across jurisdictions. Many have local, government-mandated value sets rather than using SNOMED CT or similar. For example: a 'marital status' value set including 'never married' or 'single'; 'married'; 'divorced'; or 'widowed'. Also known as 'civil status', 'union status', or 'relationship status'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.social_network.v1,'Status Pernikahan']/data[at0001]/items[at0002,'Status Pernikahan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "160787000",
+              "label" : "Menikah",
+              "localizedLabels" : {
+                "en" : "Menikah"
+              }
+            }, {
+              "value" : "125725006",
+              "label" : "Belum Menikah",
+              "localizedLabels" : {
+                "en" : "Belum Menikah"
+              }
+            }, {
+              "value" : "63234004",
+              "label" : "Cerai Hidup",
+              "localizedLabels" : {
+                "en" : "Cerai Hidup"
+              }
+            }, {
+              "value" : "33553000",
+              "label" : "Cerai Mati",
+              "localizedLabels" : {
+                "en" : "Cerai Mati"
+              }
+            } ],
+            "terminology" : "local_terms"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.social_network.v1,'Status Pernikahan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.social_network.v1,'Status Pernikahan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.social_network.v1,'Status Pernikahan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pekerjaan",
+        "name" : "Pekerjaan",
+        "localizedName" : "Pekerjaan",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.occupation_summary.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pekerjaan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary or persistent information about an individual's current and past jobs and/or roles."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.occupation_summary.v1,'Pekerjaan']",
+        "children" : [ {
+          "id" : "pekerjaan",
+          "name" : "Pekerjaan",
+          "localizedName" : "Pekerjaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pekerjaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description about the entire occupation history of the individual."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.occupation_summary.v1,'Pekerjaan']/data[at0001]/items[at0002,'Pekerjaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak bekerja",
+              "localizedLabels" : {
+                "en" : "Tidak bekerja"
+              }
+            }, {
+              "value" : "1",
+              "label" : "PNS",
+              "localizedLabels" : {
+                "en" : "PNS"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Pegawai Swasta/ BUMN/ BUMD",
+              "localizedLabels" : {
+                "en" : "Pegawai Swasta/ BUMN/ BUMD"
+              }
+            }, {
+              "value" : "3",
+              "label" : "TNI/ Polisi",
+              "localizedLabels" : {
+                "en" : "TNI/ Polisi"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Wiraswasta",
+              "localizedLabels" : {
+                "en" : "Wiraswasta"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Ibu Rumah Tangga",
+              "localizedLabels" : {
+                "en" : "Ibu Rumah Tangga"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Pensiunan",
+              "localizedLabels" : {
+                "en" : "Pensiunan"
+              }
+            }, {
+              "value" : "7",
+              "label" : "Pelajar/ Mahasiswa",
+              "localizedLabels" : {
+                "en" : "Pelajar/ Mahasiswa"
+              }
+            }, {
+              "value" : "8",
+              "label" : "Petani/ Peternak/ Nelayan",
+              "localizedLabels" : {
+                "en" : "Petani/ Peternak/ Nelayan"
+              }
+            }, {
+              "value" : "9",
+              "label" : "Guru/ Dosen",
+              "localizedLabels" : {
+                "en" : "Guru/ Dosen"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Buruh/ Pegawai Outsourcing",
+              "localizedLabels" : {
+                "en" : "Buruh/ Pegawai Outsourcing"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Pegawai Lepas",
+              "localizedLabels" : {
+                "en" : "Pegawai Lepas"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Lainnya (isi dibawah)",
+              "localizedLabels" : {
+                "en" : "Lainnya (isi dibawah)"
+              }
+            } ],
+            "terminology" : "local_termsKerja"
+          } ]
+        }, {
+          "id" : "pekerjaan_lain_lain",
+          "name" : "Pekerjaan Lain lain",
+          "localizedName" : "Pekerjaan Lain lain",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Pekerjaan Lain lain"
+          },
+          "localizedDescriptions" : {
+            "en" : "Statement about the individual's current employment."
+          },
+          "annotations" : {
+            "comment" : "For example: employed; unemployed; or not in labour force. Coding with a terminology is desirable, where possible. Detail about each occupation can be recorded within the CLUSTER.occupation_record archetype."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.occupation_summary.v1,'Pekerjaan']/data[at0001]/items[at0004,'Pekerjaan Lain lain']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.occupation_summary.v1,'Pekerjaan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.occupation_summary.v1,'Pekerjaan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.occupation_summary.v1,'Pekerjaan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pendidikan_tertinggi",
+        "name" : "Pendidikan Tertinggi",
+        "localizedName" : "Pendidikan Tertinggi",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.education_summary.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pendidikan Tertinggi"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary or persistent information about an individual's current and past education or training."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.education_summary.v1,'Pendidikan Tertinggi']",
+        "children" : [ {
+          "id" : "pendidikan_tertinggi",
+          "name" : "Pendidikan Tertinggi",
+          "localizedName" : "Pendidikan Tertinggi",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pendidikan Tertinggi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Description of highest category of education or training completed."
+          },
+          "annotations" : {
+            "comment" : "Coding with a terminology is desirable, where possible. For example: the ISCED classification, such as upper secondary vocational education; post-secondary non-tertiary vocational education; Bachelor’s or equivalent level, professional; Doctoral or equivalent level, academic; post-secondary non-tertiary vocational education; or never attended an educational program."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.education_summary.v1,'Pendidikan Tertinggi']/data[at0001]/items[at0002,'Pendidikan Tertinggi']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak sekolah",
+              "localizedLabels" : {
+                "en" : "Tidak sekolah"
+              }
+            }, {
+              "value" : "1",
+              "label" : "SD/ MI/ Sederajat",
+              "localizedLabels" : {
+                "en" : "SD/ MI/ Sederajat"
+              }
+            }, {
+              "value" : "2",
+              "label" : "SMP/ MTs/ Sederajat",
+              "localizedLabels" : {
+                "en" : "SMP/ MTs/ Sederajat"
+              }
+            }, {
+              "value" : "3",
+              "label" : "SMA/ SMK/ MA/ Sederajat",
+              "localizedLabels" : {
+                "en" : "SMA/ SMK/ MA/ Sederajat"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Akademi",
+              "localizedLabels" : {
+                "en" : "Akademi"
+              }
+            }, {
+              "value" : "5",
+              "label" : "D3",
+              "localizedLabels" : {
+                "en" : "D3"
+              }
+            }, {
+              "value" : "6",
+              "label" : "D4/ S1",
+              "localizedLabels" : {
+                "en" : "D4/ S1"
+              }
+            }, {
+              "value" : "7",
+              "label" : "S2",
+              "localizedLabels" : {
+                "en" : "S2"
+              }
+            }, {
+              "value" : "8",
+              "label" : "S3",
+              "localizedLabels" : {
+                "en" : "S3"
+              }
+            } ],
+            "terminology" : "local_termsSekolah"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.education_summary.v1,'Pendidikan Tertinggi']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.education_summary.v1,'Pendidikan Tertinggi']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.education_summary.v1,'Pendidikan Tertinggi']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "penghasilan",
+        "name" : "Penghasilan",
+        "localizedName" : "Penghasilan",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.financial_summary.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Penghasilan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary information about the financial situation of an individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.financial_summary.v1,'Penghasilan']",
+        "children" : [ {
+          "id" : "penghasilan_per_bulan",
+          "name" : "Penghasilan per bulan",
+          "localizedName" : "Penghasilan per bulan",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.financial_record.v0",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Penghasilan per bulan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about the financial situation of an individual during a specified period of time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.financial_summary.v1,'Penghasilan']/data[at0001]/items[openEHR-EHR-CLUSTER.financial_record.v0,'Penghasilan per bulan']",
+          "children" : [ {
+            "id" : "penghasilan_per_bulan_dalam_rupiah",
+            "name" : "Penghasilan per bulan (dalam rupiah)",
+            "localizedName" : "Penghasilan per bulan (dalam rupiah)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0003",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Penghasilan per bulan (dalam rupiah)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description about the financial situation or context."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.financial_summary.v1,'Penghasilan']/data[at0001]/items[openEHR-EHR-CLUSTER.financial_record.v0,'Penghasilan per bulan']/items[at0003,'Penghasilan per bulan (dalam rupiah)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.financial_summary.v1,'Penghasilan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.financial_summary.v1,'Penghasilan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Pelengkap']/items[openEHR-EHR-EVALUATION.financial_summary.v1,'Penghasilan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "riwayat_keluarga",
+      "name" : "Riwayat Keluarga",
+      "localizedName" : "Riwayat Keluarga",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat Keluarga"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']",
+      "children" : [ {
+        "id" : "family_history_screening_questionnaire",
+        "name" : "Family history screening questionnaire",
+        "localizedName" : "Family history screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Family history screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "An individual- or self-reported questionnaire screening for significant health-related problems found in family members."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "riwayat_keluarga_spesifik",
+            "name" : "Riwayat keluarga spesifik",
+            "localizedName" : "Riwayat keluarga spesifik",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0009",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat keluarga spesifik"
+            },
+            "localizedDescriptions" : {
+              "en" : "Screening details about a specified health problem."
+            },
+            "annotations" : {
+              "comment" : "This grouping is currently  ordered to indicate relationships per problem, but in practice could also be used to capture problems per relationship as Problem/Diagnosis name and Relationship both allow multiple occurrences."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009,'Riwayat keluarga spesifik']",
+            "children" : [ {
+              "id" : "nik_wali",
+              "name" : "NIK Wali",
+              "localizedName" : "NIK Wali",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0035",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "NIK Wali"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of the significant problem or diagnosis in the identified family member."
+              },
+              "annotations" : {
+                "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. "
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009,'Riwayat keluarga spesifik']/items[at0035,'NIK Wali']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "hubungan_dengan_pasien",
+              "name" : "Hubungan dengan pasien",
+              "localizedName" : "Hubungan dengan pasien",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0018",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Hubungan dengan pasien"
+              },
+              "localizedDescriptions" : {
+                "en" : "The relationship of the family member to the individual.\r\n"
+              },
+              "annotations" : {
+                "comment" : "For example: mother, step-father, maternal grandmother, or paternal uncle. Coding of the relationship with a terminology is preferred, where possible and including specification of maternal and paternal as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009,'Riwayat keluarga spesifik']/items[at0018,'Hubungan dengan pasien']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Ayah",
+                  "localizedLabels" : {
+                    "en" : "Ayah"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ibu",
+                  "localizedLabels" : {
+                    "en" : "Ibu"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Kakak",
+                  "localizedLabels" : {
+                    "en" : "Kakak"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Adik",
+                  "localizedLabels" : {
+                    "en" : "Adik"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Saudara lainnya",
+                  "localizedLabels" : {
+                    "en" : "Saudara lainnya"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "Lainnya (isi dibawah)",
+                  "localizedLabels" : {
+                    "en" : "Lainnya (isi dibawah)"
+                  }
+                } ],
+                "terminology" : "local_terms"
+              } ]
+            }, {
+              "id" : "hubungan_lainnya_dengan_pasien",
+              "name" : "Hubungan lainnya dengan pasien",
+              "localizedName" : "Hubungan lainnya dengan pasien",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0018",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Hubungan lainnya dengan pasien"
+              },
+              "localizedDescriptions" : {
+                "en" : "The relationship of the family member to the individual.\r\n"
+              },
+              "annotations" : {
+                "comment" : "For example: mother, step-father, maternal grandmother, or paternal uncle. Coding of the relationship with a terminology is preferred, where possible and including specification of maternal and paternal as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009,'Riwayat keluarga spesifik']/items[at0018,'Hubungan lainnya dengan pasien']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "pendidikan_terakhir",
+              "name" : "Pendidikan terakhir",
+              "localizedName" : "Pendidikan terakhir",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0018",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Pendidikan terakhir"
+              },
+              "localizedDescriptions" : {
+                "en" : "The relationship of the family member to the individual.\r\n"
+              },
+              "annotations" : {
+                "comment" : "For example: mother, step-father, maternal grandmother, or paternal uncle. Coding of the relationship with a terminology is preferred, where possible and including specification of maternal and paternal as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009,'Riwayat keluarga spesifik']/items[at0018,'Pendidikan terakhir']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak sekolah",
+                  "localizedLabels" : {
+                    "en" : "Tidak sekolah"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "SD/ MI/ Sederajat",
+                  "localizedLabels" : {
+                    "en" : "SD/ MI/ Sederajat"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "SMP/ MTs/ Sederajat",
+                  "localizedLabels" : {
+                    "en" : "SMP/ MTs/ Sederajat"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "SMA/ SMK/ MA/ Sederajat",
+                  "localizedLabels" : {
+                    "en" : "SMA/ SMK/ MA/ Sederajat"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Akademi",
+                  "localizedLabels" : {
+                    "en" : "Akademi"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "D3",
+                  "localizedLabels" : {
+                    "en" : "D3"
+                  }
+                }, {
+                  "value" : "6",
+                  "label" : "D4/ S1",
+                  "localizedLabels" : {
+                    "en" : "D4/ S1"
+                  }
+                }, {
+                  "value" : "7",
+                  "label" : "S2",
+                  "localizedLabels" : {
+                    "en" : "S2"
+                  }
+                }, {
+                  "value" : "8",
+                  "label" : "S3",
+                  "localizedLabels" : {
+                    "en" : "S3"
+                  }
+                } ],
+                "terminology" : "local_termsSekolah"
+              } ]
+            }, {
+              "id" : "nomor_kartu_keluarga",
+              "name" : "Nomor Kartu Keluarga",
+              "localizedName" : "Nomor Kartu Keluarga",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0018",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Nomor Kartu Keluarga"
+              },
+              "localizedDescriptions" : {
+                "en" : "The relationship of the family member to the individual.\r\n"
+              },
+              "annotations" : {
+                "comment" : "For example: mother, step-father, maternal grandmother, or paternal uncle. Coding of the relationship with a terminology is preferred, where possible and including specification of maternal and paternal as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009,'Riwayat keluarga spesifik']/items[at0018,'Nomor Kartu Keluarga']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Keluarga']/items[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "data_kematian",
+      "name" : "Data Kematian",
+      "localizedName" : "Data Kematian",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Data Kematian"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']",
+      "children" : [ {
+        "id" : "death_summary",
+        "name" : "Death summary",
+        "localizedName" : "Death summary",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.death_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Death summary"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary information about the death of an individual, excluding the cause(s) of death."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]",
+        "children" : [ {
+          "id" : "tanggal_dan_waktu_kematian",
+          "name" : "Tanggal dan waktu kematian",
+          "localizedName" : "Tanggal dan waktu kematian",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0092",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal dan waktu kematian"
+          },
+          "localizedDescriptions" : {
+            "en" : "Date and/or time of death."
+          },
+          "annotations" : {
+            "comment" : "For example: based on findings pertaining to examination of the corpse and the pathologist's reconstruction of time of death based on post-mortem changes, temperature, etc. May also be known as DOD (date of death). If more than one 'Date of death alternatives' have been proposed, this data element could be renamed in a template as the 'Confirmed/Agreed date of death'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0092,'Tanggal dan waktu kematian']/value",
+          "inputs" : [ {
+            "type" : "DATETIME",
+            "validation" : {
+              "pattern" : "yyyy-mm-??T??:??:XX"
+            }
+          } ]
+        }, {
+          "id" : "penyebab_kematian",
+          "name" : "Penyebab kematian",
+          "localizedName" : "Penyebab kematian",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0010",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Penyebab kematian"
+          },
+          "localizedDescriptions" : {
+            "en" : "Context or setting of the death."
+          },
+          "annotations" : {
+            "comment" : "It is recommended that 'Manner of death' be coded with an external terminology."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0010,'Penyebab kematian']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Stroke",
+              "localizedLabels" : {
+                "en" : "Stroke"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Kanker",
+              "localizedLabels" : {
+                "en" : "Kanker"
+              }
+            }, {
+              "value" : "2",
+              "label" : "DMD",
+              "localizedLabels" : {
+                "en" : "DMD"
+              }
+            }, {
+              "value" : "3",
+              "label" : "PAH",
+              "localizedLabels" : {
+                "en" : "PAH"
+              }
+            }, {
+              "value" : "4",
+              "label" : "Tuberculosis",
+              "localizedLabels" : {
+                "en" : "Tuberculosis"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Komplikasi Diabetes Mellitus",
+              "localizedLabels" : {
+                "en" : "Komplikasi Diabetes Mellitus"
+              }
+            }, {
+              "value" : "6",
+              "label" : "Penyakit lainnya (isi dibawah)",
+              "localizedLabels" : {
+                "en" : "Penyakit lainnya (isi dibawah)"
+              }
+            } ],
+            "terminology" : "local_terms"
+          } ]
+        }, {
+          "id" : "status_kematian",
+          "name" : "Status kematian",
+          "localizedName" : "Status kematian",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0093",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status kematian"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description about the context or setting of the death."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0093,'Status kematian']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "31874001",
+              "label" : "Meninggal",
+              "localizedLabels" : {
+                "en" : "Meninggal"
+              }
+            }, {
+              "value" : "64100000",
+              "label" : "Hidup",
+              "localizedLabels" : {
+                "en" : "Hidup"
+              }
+            } ],
+            "terminology" : "local_termsStatus"
+          } ]
+        }, {
+          "id" : "penyebab_kematian_lainnya",
+          "name" : "Penyebab kematian lainnya",
+          "localizedName" : "Penyebab kematian lainnya",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0021",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Penyebab kematian lainnya"
+          },
+          "localizedDescriptions" : {
+            "en" : "The category of the place where the individual died."
+          },
+          "annotations" : {
+            "comment" : "This data element has multiple occurrences to allow more than one level of category, including subcategories about the place of death. It is recommended that 'Place category' be coded with an external terminology. For example: hospital or home; or, within the context of a hospital: ICU; ward; or operating theatre."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0021,'Penyebab kematian lainnya']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "usia_meninggal",
+          "name" : "Usia meninggal",
+          "localizedName" : "Usia meninggal",
+          "rmType" : "DV_DURATION",
+          "nodeId" : "at0054",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia meninggal"
+          },
+          "localizedDescriptions" : {
+            "en" : "The age of the individual at the time of death."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/data[at0001]/items[at0054,'Usia meninggal']/value",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Kematian']/items[openEHR-EHR-EVALUATION.death_summary.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "registrasi_admisi_pasien",
+      "name" : "Registrasi Admisi Pasien",
+      "localizedName" : "Registrasi Admisi Pasien",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Registrasi Admisi Pasien"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']",
+      "children" : [ {
+        "id" : "admisi_pasien",
+        "name" : "Admisi Pasien",
+        "localizedName" : "Admisi Pasien",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.episode_institution.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Admisi Pasien"
+        },
+        "localizedDescriptions" : {
+          "en" : "Administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien']",
+        "children" : [ {
+          "id" : "tgl._registrasi",
+          "name" : "Tgl. Registrasi",
+          "localizedName" : "Tgl. Registrasi",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tgl. Registrasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date and/or time of the formal or statistical admission to the institution."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien']/data[at0001]/items[at0004,'Tgl. Registrasi']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "no._rekam_medik",
+          "name" : "No. Rekam Medik",
+          "localizedName" : "No. Rekam Medik",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0016",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "No. Rekam Medik"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the medical record number."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien']/data[at0001]/items[at0016,'No. Rekam Medik']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "pembiayaan",
+          "name" : "Pembiayaan",
+          "localizedName" : "Pembiayaan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0026",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pembiayaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of health insurance applicable for the episode."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien']/data[at0001]/items[at0026,'Pembiayaan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Perusahaan /asuransi",
+              "localizedLabels" : {
+                "en" : "Perusahaan /asuransi"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Pribadi",
+              "localizedLabels" : {
+                "en" : "Pribadi"
+              }
+            }, {
+              "value" : "2",
+              "label" : "JKN / KIS / BPJS Kesehatan (input nomor BPJS dibawah)",
+              "localizedLabels" : {
+                "en" : "JKN / KIS / BPJS Kesehatan (input nomor BPJS dibawah)"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Lain-lain (isi dibawah)",
+              "localizedLabels" : {
+                "en" : "Lain-lain (isi dibawah)"
+              }
+            } ],
+            "terminology" : "local_termsBiaya"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "admisi_pasien_lanjutan",
+        "name" : "Admisi Pasien Lanjutan",
+        "localizedName" : "Admisi Pasien Lanjutan",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.episode_institution.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Admisi Pasien Lanjutan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']",
+        "children" : [ {
+          "id" : "nomor_bpjs",
+          "name" : "Nomor BPJS",
+          "localizedName" : "Nomor BPJS",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0016",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nomor BPJS"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the medical record number."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/data[at0001]/items[at0016,'Nomor BPJS']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "pembiayaan_lain-lain_yang_digunakan",
+          "name" : "Pembiayaan Lain-lain yang digunakan",
+          "localizedName" : "Pembiayaan Lain-lain yang digunakan",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0026",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pembiayaan Lain-lain yang digunakan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of health insurance applicable for the episode."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/data[at0001]/items[at0026,'Pembiayaan Lain-lain yang digunakan']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "jenis_sampel_yang_diambil",
+          "name" : "Jenis Sampel yang Diambil",
+          "localizedName" : "Jenis Sampel yang Diambil",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Jenis Sampel yang Diambil"
+          },
+          "localizedDescriptions" : {
+            "en" : "The result of a laboratory test for a single analyte value."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jenis Sampel yang Diambil']",
+          "children" : [ {
+            "id" : "jenis_sampel_yang_diambil",
+            "name" : "Jenis Sampel yang Diambil",
+            "localizedName" : "Jenis Sampel yang Diambil",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Jenis Sampel yang Diambil"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jenis Sampel yang Diambil']/items[at0001,'Jenis Sampel yang Diambil']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Darah",
+                "localizedLabels" : {
+                  "en" : "Darah"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Sputum",
+                "localizedLabels" : {
+                  "en" : "Sputum"
+                }
+              }, {
+                "value" : "2",
+                "label" : "Sel",
+                "localizedLabels" : {
+                  "en" : "Sel"
+                }
+              }, {
+                "value" : "3",
+                "label" : "Jaringan",
+                "localizedLabels" : {
+                  "en" : "Jaringan"
+                }
+              }, {
+                "value" : "4",
+                "label" : "Usap",
+                "localizedLabels" : {
+                  "en" : "Usap"
+                }
+              }, {
+                "value" : "5",
+                "label" : "Bukap",
+                "localizedLabels" : {
+                  "en" : "Bukap"
+                }
+              }, {
+                "value" : "6",
+                "label" : "Saliva",
+                "localizedLabels" : {
+                  "en" : "Saliva"
+                }
+              }, {
+                "value" : "7",
+                "label" : "Aspirasi",
+                "localizedLabels" : {
+                  "en" : "Aspirasi"
+                }
+              }, {
+                "value" : "8",
+                "label" : "Sumsum",
+                "localizedLabels" : {
+                  "en" : "Sumsum"
+                }
+              }, {
+                "value" : "9",
+                "label" : "Tulang",
+                "localizedLabels" : {
+                  "en" : "Tulang"
+                }
+              }, {
+                "value" : "10",
+                "label" : "Urin",
+                "localizedLabels" : {
+                  "en" : "Urin"
+                }
+              }, {
+                "value" : "11",
+                "label" : "Feses",
+                "localizedLabels" : {
+                  "en" : "Feses"
+                }
+              }, {
+                "value" : "12",
+                "label" : "Sampel lainnya (isi dibawah)",
+                "localizedLabels" : {
+                  "en" : "Sampel lainnya (isi dibawah)"
+                }
+              } ],
+              "terminology" : "local_termsSample"
+            } ]
+          }, {
+            "id" : "sumber_sampel_lainnya",
+            "name" : "Sumber sampel lainnya",
+            "localizedName" : "Sumber sampel lainnya",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Sumber sampel lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/data[at0001]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Jenis Sampel yang Diambil']/items[at0001,'Sumber sampel lainnya']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Darah",
+                "localizedLabels" : {
+                  "en" : "Darah"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Sputum",
+                "localizedLabels" : {
+                  "en" : "Sputum"
+                }
+              }, {
+                "value" : "2",
+                "label" : "Sel",
+                "localizedLabels" : {
+                  "en" : "Sel"
+                }
+              }, {
+                "value" : "3",
+                "label" : "Jaringan",
+                "localizedLabels" : {
+                  "en" : "Jaringan"
+                }
+              }, {
+                "value" : "4",
+                "label" : "Usap",
+                "localizedLabels" : {
+                  "en" : "Usap"
+                }
+              }, {
+                "value" : "5",
+                "label" : "Bukap",
+                "localizedLabels" : {
+                  "en" : "Bukap"
+                }
+              }, {
+                "value" : "6",
+                "label" : "Saliva",
+                "localizedLabels" : {
+                  "en" : "Saliva"
+                }
+              }, {
+                "value" : "7",
+                "label" : "Aspirasi",
+                "localizedLabels" : {
+                  "en" : "Aspirasi"
+                }
+              }, {
+                "value" : "8",
+                "label" : "Sumsum",
+                "localizedLabels" : {
+                  "en" : "Sumsum"
+                }
+              }, {
+                "value" : "9",
+                "label" : "Tulang",
+                "localizedLabels" : {
+                  "en" : "Tulang"
+                }
+              }, {
+                "value" : "10",
+                "label" : "Urin",
+                "localizedLabels" : {
+                  "en" : "Urin"
+                }
+              }, {
+                "value" : "11",
+                "label" : "Feses",
+                "localizedLabels" : {
+                  "en" : "Feses"
+                }
+              }, {
+                "value" : "12",
+                "label" : "Sampel lainnya (isi dibawah)",
+                "localizedLabels" : {
+                  "en" : "Sampel lainnya (isi dibawah)"
+                }
+              } ],
+              "terminology" : "local_termsSample"
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Registrasi Admisi Pasien']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0,'Admisi Pasien Lanjutan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
