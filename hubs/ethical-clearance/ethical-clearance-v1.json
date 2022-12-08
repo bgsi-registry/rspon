@@ -1,0 +1,529 @@
+{
+  "templateId" : "ethical-clearance-v1",
+  "semVer" : "0.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "ethical-clearance-v1",
+    "name" : "ethical-clearance-v1",
+    "localizedName" : "ethical-clearance-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "ethical-clearance-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "service_request",
+      "name" : "Service request",
+      "localizedName" : "Service request",
+      "rmType" : "INSTRUCTION",
+      "nodeId" : "openEHR-EHR-INSTRUCTION.service_request.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Service request"
+      },
+      "localizedDescriptions" : {
+        "en" : "Request for a health-related service or activity to be delivered by a clinician, organisation or agency."
+      },
+      "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]",
+      "children" : [ {
+        "id" : "current_activity",
+        "name" : "Current Activity",
+        "localizedName" : "Current Activity",
+        "rmType" : "ACTIVITY",
+        "nodeId" : "at0001",
+        "min" : 1,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Current Activity"
+        },
+        "localizedDescriptions" : {
+          "en" : "Current Activity."
+        },
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]",
+        "children" : [ {
+          "id" : "nomor_ethical_clearance",
+          "name" : "Nomor Ethical Clearance",
+          "localizedName" : "Nomor Ethical Clearance",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0121",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nomor Ethical Clearance"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the single service or activity requested."
+          },
+          "annotations" : {
+            "comment" : "Coding of the 'Service name' with a coding system is desirable, if available. For example: 'referral' to an endocrinologist for diabetes management."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/description[at0009]/items[at0121,'Nomor Ethical Clearance']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "tanggal_dibuat",
+          "name" : "Tanggal dibuat",
+          "localizedName" : "Tanggal dibuat",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0145",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal dibuat"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date/time that marks the beginning of the valid period of time for delivery of this service."
+          },
+          "annotations" : {
+            "comment" : "This date/time is the equivalent to the earliest possible date for service delivery. For example: sometimes a certain amount of time must pass before a service can be performed, for example some procedures can only be performed once the patient has stopped taking medications for a specific amount of time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/description[at0009]/items[at0145,'Tanggal dibuat']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "tanggal_kedaluarsa",
+          "name" : "Tanggal kedaluarsa",
+          "localizedName" : "Tanggal kedaluarsa",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0144",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal kedaluarsa"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date/time that marks the conclusion of the clinically valid period of time for delivery of this service."
+          },
+          "annotations" : {
+            "comment" : "This date/time is the equivalent to the latest possible date for service delivery or to the date of expiry for this request. For example: a service may be required to be completed before another event, such as scheduled surgery."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/description[at0009]/items[at0144,'Tanggal kedaluarsa']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "apakah_ada_judul_penelitian",
+          "name" : "Apakah ada judul penelitian?",
+          "localizedName" : "Apakah ada judul penelitian?",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0147",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Apakah ada judul penelitian?"
+          },
+          "localizedDescriptions" : {
+            "en" : "The valid period for this request is open ended and has no date of expiry."
+          },
+          "annotations" : {
+            "comment" : "Record as TRUE to record explicity that the request has no expiry date. For example: commonly required for a referral to a specialist for long-term or lifelong care."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/description[at0009]/items[at0147,'Apakah ada judul penelitian?']/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN",
+            "list" : [ {
+              "value" : "true",
+              "label" : "true"
+            } ]
+          } ]
+        }, {
+          "id" : "judul_penelitian",
+          "name" : "Judul Penelitian",
+          "localizedName" : "Judul Penelitian",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0068",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Judul Penelitian"
+          },
+          "localizedDescriptions" : {
+            "en" : "Urgency of the request for service."
+          },
+          "annotations" : {
+            "comment" : "Specific definitions of emergency and urgent will vary between clinical contexts, clinical systems and the nature of the request itself, so have not been defined in this archetype. If explicit timing is required then the Service period should be clearly stated."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/description[at0009]/items[at0068,'Judul Penelitian']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "nama_peneliti_pi",
+          "name" : "Nama Peneliti/PI",
+          "localizedName" : "Nama Peneliti/PI",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0078",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nama Peneliti/PI"
+          },
+          "localizedDescriptions" : {
+            "en" : "Description of the supplementary information."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/description[at0009]/items[at0078,'Nama Peneliti/PI']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "deskripsi_penelitian",
+          "name" : "Deskripsi Penelitian",
+          "localizedName" : "Deskripsi Penelitian",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0040",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Deskripsi Penelitian"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date/time, or acceptable interval of date/time, for provision of the service."
+          },
+          "annotations" : {
+            "comment" : "This data element allows for recording of the timing for a single service, either as a date and time, a date ranges or a text descriptor which can allow for 'next available. In practice, clinicians will often think in terms of ordering services as approximate timing, for example: review in 3 months, 6 months or 12 months. As clinical systems need more exact parameters to operate on, this '3 months' will usually be converted to an exact date 3 months from the date of recording and stored using this data element. If complex timing or sequences of timings are required, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT and this data element becomes redundant."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/description[at0009]/items[at0040,'Deskripsi Penelitian']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "timing",
+          "name" : "Timing",
+          "rmType" : "DV_PARSABLE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/timing",
+          "inputs" : [ {
+            "suffix" : "value",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "formalism",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "action_archetype_id",
+          "name" : "Action_archetype_id",
+          "rmType" : "STRING",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/activities[at0001]/action_archetype_id",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "requester_order_identifier",
+        "name" : "Requester order identifier",
+        "localizedName" : "Requester order identifier",
+        "rmType" : "ELEMENT",
+        "nodeId" : "at0010",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "current_activity" ],
+        "localizedNames" : {
+          "en" : "Requester order identifier"
+        },
+        "localizedDescriptions" : {
+          "en" : "The local identifier assigned by the requesting clinical system."
+        },
+        "annotations" : {
+          "comment" : "Usually equivalent to the HL7 Placer Order Identifier."
+        },
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/protocol[at0008]/items[at0010]",
+        "children" : [ {
+          "id" : "text_value",
+          "localizedName" : "Requester order identifier",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Requester order identifier"
+          },
+          "localizedDescriptions" : {
+            "en" : "The local identifier assigned by the requesting clinical system."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/protocol[at0008]/items[at0010]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "identifier_value",
+          "localizedName" : "Requester order identifier",
+          "rmType" : "DV_IDENTIFIER",
+          "nodeId" : "",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Requester order identifier"
+          },
+          "localizedDescriptions" : {
+            "en" : "The local identifier assigned by the requesting clinical system."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/protocol[at0008]/items[at0010]/value",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "type",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "issuer",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "assigner",
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "receiver_order_identifier",
+        "name" : "Receiver order identifier",
+        "localizedName" : "Receiver order identifier",
+        "rmType" : "ELEMENT",
+        "nodeId" : "at0011",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "current_activity" ],
+        "localizedNames" : {
+          "en" : "Receiver order identifier"
+        },
+        "localizedDescriptions" : {
+          "en" : "The local identifier assigned to the request by the clinician or organisation receiving the request for service."
+        },
+        "annotations" : {
+          "comment" : "Usually equivalent to the HL7 Filler Order Identifier."
+        },
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/protocol[at0008]/items[at0011]",
+        "children" : [ {
+          "id" : "text_value",
+          "localizedName" : "Receiver order identifier",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Receiver order identifier"
+          },
+          "localizedDescriptions" : {
+            "en" : "The local identifier assigned to the request by the clinician or organisation receiving the request for service."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/protocol[at0008]/items[at0011]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "identifier_value",
+          "localizedName" : "Receiver order identifier",
+          "rmType" : "DV_IDENTIFIER",
+          "nodeId" : "",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Receiver order identifier"
+          },
+          "localizedDescriptions" : {
+            "en" : "The local identifier assigned to the request by the clinician or organisation receiving the request for service."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/protocol[at0008]/items[at0011]/value",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "type",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "issuer",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "assigner",
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "request_status",
+        "name" : "Request status",
+        "localizedName" : "Request status",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0127",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "current_activity" ],
+        "localizedNames" : {
+          "en" : "Request status"
+        },
+        "localizedDescriptions" : {
+          "en" : "The status of the request for service as indicated by the requester."
+        },
+        "annotations" : {
+          "comment" : "Status is used to denote whether this is the initial request, or a follow-up request to change or provide supplementary information. Coding with a terminology is preferred, where possible."
+        },
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/protocol[at0008]/items[at0127]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "expiry_time",
+        "name" : "expiry_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 0,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/expiry_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ]
+      }, {
+        "id" : "narrative",
+        "name" : "Narrative",
+        "rmType" : "DV_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/narrative",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
