@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-anamnesis-v1",
-  "semVer" : "0.4.0",
+  "semVer" : "0.5.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -105,107 +105,74 @@
             "id" : "keluhan_utama",
             "name" : "Keluhan utama",
             "localizedName" : "Keluhan utama",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0028",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
               "en" : "Keluhan utama"
             },
             "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama']",
-            "children" : [ {
-              "id" : "pilih_keluhan_utama_multiselect",
-              "name" : "Pilih keluhan utama (multiselect)",
-              "localizedName" : "Pilih keluhan utama (multiselect)",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pilih keluhan utama (multiselect)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama']/items[at0004,'Pilih keluhan utama (multiselect)']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "0",
-                  "label" : "Bercak kemerahan dengan sisik tebal",
-                  "localizedLabels" : {
-                    "en" : "Bercak kemerahan dengan sisik tebal"
-                  }
-                }, {
-                  "value" : "1",
-                  "label" : "Sendi bengkak dan nyeri",
-                  "localizedLabels" : {
-                    "en" : "Sendi bengkak dan nyeri"
-                  }
-                } ],
-                "terminology" : "local_keluhanutama"
-              } ]
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Keluhan utama']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Bercak kemerahan dengan sisik tebal",
+                "localizedLabels" : {
+                  "en" : "Bercak kemerahan dengan sisik tebal"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Sendi bengkak dan nyeri",
+                "localizedLabels" : {
+                  "en" : "Sendi bengkak dan nyeri"
+                }
+              } ],
+              "terminology" : "local_keluhanutama"
             } ]
           }, {
             "id" : "keluhan_utama_lainnya",
             "name" : "Keluhan utama (lainnya)",
             "localizedName" : "Keluhan utama (lainnya)",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0028",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
               "en" : "Keluhan utama (lainnya)"
             },
             "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama (lainnya)']",
-            "children" : [ {
-              "id" : "pilih_keluhan_utama_lainnya",
-              "name" : "Pilih keluhan utama (lainnya)",
-              "localizedName" : "Pilih keluhan utama (lainnya)",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Pilih keluhan utama (lainnya)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama (lainnya)']/items[at0004,'Pilih keluhan utama (lainnya)']/value",
-              "inputs" : [ {
-                "type" : "TEXT",
-                "defaultValue" : "-"
-              } ]
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Keluhan utama (lainnya)']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
             } ]
           }, {
-            "id" : "keluhan_utama_pertama_kali",
-            "name" : "Keluhan utama, pertama kali?",
-            "localizedName" : "Keluhan utama, pertama kali?",
+            "id" : "deskripsi_keluhan_utama",
+            "name" : "Deskripsi keluhan utama",
+            "localizedName" : "Deskripsi keluhan utama",
             "rmType" : "CLUSTER",
             "nodeId" : "at0022",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Keluhan utama, pertama kali?"
+              "en" : "Deskripsi keluhan utama"
             },
             "localizedDescriptions" : {
               "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama, pertama kali?']",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Deskripsi keluhan utama']",
             "children" : [ {
               "id" : "apakah_keluhan_utama_tersebut_merupakan_keluhan_pertama_kali",
               "name" : "Apakah keluhan utama tersebut merupakan keluhan pertama kali?",
@@ -223,7 +190,7 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama, pertama kali?']/items[at0004,'Apakah keluhan utama tersebut merupakan keluhan pertama kali?']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Deskripsi keluhan utama']/items[at0004,'Apakah keluhan utama tersebut merupakan keluhan pertama kali?']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
@@ -243,20 +210,20 @@
                 "terminology" : "local_keluhanutamapertamakali"
               } ]
             }, {
-              "id" : "jika_bukan_keluhan_utama_saat_ini_kumat-kumatan_yang_ke_berapa",
-              "name" : "Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?",
-              "localizedName" : "Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?",
+              "id" : "jika_bukan_keluhan_yang_pertama_keluhan_utama_saat_ini_kumat-kumatan_yang_ke_berapa",
+              "name" : "Jika bukan keluhan yang pertama, keluhan utama saat ini kumat-kumatan yang ke berapa?",
+              "localizedName" : "Jika bukan keluhan yang pertama, keluhan utama saat ini kumat-kumatan yang ke berapa?",
               "rmType" : "DV_TEXT",
               "nodeId" : "at0025",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?"
+                "en" : "Jika bukan keluhan yang pertama, keluhan utama saat ini kumat-kumatan yang ke berapa?"
               },
               "localizedDescriptions" : {
                 "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan utama, pertama kali?']/items[at0025,'Jika bukan, keluhan utama saat ini kumat-kumatan yang ke berapa?']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Keluhan utama']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan utama screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Deskripsi keluhan utama']/items[at0025,'Jika bukan keluhan yang pertama, keluhan utama saat ini kumat-kumatan yang ke berapa?']/value",
               "inputs" : [ {
                 "type" : "TEXT",
                 "defaultValue" : "-"
@@ -362,6 +329,103 @@
           },
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]",
           "children" : [ {
+            "id" : "lokasi_timbulnya_keluhan_pertama_kali",
+            "name" : "Lokasi timbulnya keluhan pertama kali?",
+            "localizedName" : "Lokasi timbulnya keluhan pertama kali?",
+            "rmType" : "ELEMENT",
+            "nodeId" : "at0028",
+            "min" : 1,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Lokasi timbulnya keluhan pertama kali?"
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+            },
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Lokasi timbulnya keluhan pertama kali?']",
+            "children" : [ {
+              "id" : "coded_text_value",
+              "localizedName" : "Lokasi timbulnya keluhan pertama kali?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Lokasi timbulnya keluhan pertama kali?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Lokasi timbulnya keluhan pertama kali?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Leher dan kepala",
+                  "localizedLabels" : {
+                    "en" : "Leher dan kepala"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Ekstremitas atas",
+                  "localizedLabels" : {
+                    "en" : "Ekstremitas atas"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Batang tubuh",
+                  "localizedLabels" : {
+                    "en" : "Batang tubuh"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Ekstremitas bawah",
+                  "localizedLabels" : {
+                    "en" : "Ekstremitas bawah"
+                  }
+                } ],
+                "terminology" : "local_lokasikeluhan"
+              } ]
+            }, {
+              "id" : "text_value",
+              "localizedName" : "Lokasi timbulnya keluhan pertama kali?",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Lokasi timbulnya keluhan pertama kali?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Lokasi timbulnya keluhan pertama kali?']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "boolean_value",
+              "localizedName" : "Lokasi timbulnya keluhan pertama kali?",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Lokasi timbulnya keluhan pertama kali?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Lokasi timbulnya keluhan pertama kali?']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN"
+              } ]
+            } ]
+          }, {
             "id" : "kondisi_keluhan_saat_ini",
             "name" : "Kondisi keluhan saat ini",
             "localizedName" : "Kondisi keluhan saat ini",
@@ -432,51 +496,6 @@
                   }
                 } ],
                 "terminology" : "local_onsetkejadiankeluhan"
-              } ]
-            }, {
-              "id" : "lokasi_timbulnya_keluhan_pertama_kali",
-              "name" : "Lokasi timbulnya keluhan pertama kali",
-              "localizedName" : "Lokasi timbulnya keluhan pertama kali",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0025",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Lokasi timbulnya keluhan pertama kali"
-              },
-              "localizedDescriptions" : {
-                "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Kondisi saat ini']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kondisi saat ini screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kondisi keluhan saat ini']/items[at0025,'Lokasi timbulnya keluhan pertama kali']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "0",
-                  "label" : "Leher dan kepala",
-                  "localizedLabels" : {
-                    "en" : "Leher dan kepala"
-                  }
-                }, {
-                  "value" : "1",
-                  "label" : "Ekstremitas atas",
-                  "localizedLabels" : {
-                    "en" : "Ekstremitas atas"
-                  }
-                }, {
-                  "value" : "2",
-                  "label" : "Batang tubuh",
-                  "localizedLabels" : {
-                    "en" : "Batang tubuh"
-                  }
-                }, {
-                  "value" : "3",
-                  "label" : "Ekstremitas bawah",
-                  "localizedLabels" : {
-                    "en" : "Ekstremitas bawah"
-                  }
-                } ],
-                "terminology" : "local_lokasikeluhan"
               } ]
             } ]
           }, {
