@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersPAH-sixMinuteWalkingTest",
-  "semVer" : "0.3.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -27,41 +27,31 @@
       "max" : 1,
       "aqlPath" : "/context",
       "children" : [ {
-        "id" : "report_id",
-        "name" : "Report ID",
-        "localizedName" : "Report ID",
-        "rmType" : "DV_TEXT",
-        "nodeId" : "at0002",
-        "min" : 0,
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
         "max" : 1,
-        "localizedNames" : {
-          "en" : "Report ID"
-        },
-        "localizedDescriptions" : {
-          "en" : "Identification information about the report."
-        },
-        "aqlPath" : "/context/other_context[at0001]/items[at0002]/value",
+        "aqlPath" : "/context/start_time",
         "inputs" : [ {
-          "type" : "TEXT"
-        } ]
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
       }, {
-        "id" : "status",
-        "name" : "Status",
-        "localizedName" : "Status",
-        "rmType" : "DV_TEXT",
-        "nodeId" : "at0005",
-        "min" : 0,
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
         "max" : 1,
-        "localizedNames" : {
-          "en" : "Status"
-        },
-        "localizedDescriptions" : {
-          "en" : "The status of the entire report. Note: This is not the status of any of the report components."
-        },
-        "aqlPath" : "/context/other_context[at0001]/items[at0005]/value",
+        "aqlPath" : "/context/setting",
         "inputs" : [ {
+          "suffix" : "code",
           "type" : "TEXT"
-        } ]
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
       } ]
     }, {
       "id" : "six_minute_walking_test",
@@ -94,15 +84,15 @@
         },
         "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]",
         "children" : [ {
-          "id" : "test_name",
-          "name" : "Test name",
-          "localizedName" : "Test name",
-          "rmType" : "DV_TEXT",
+          "id" : "nama_uji",
+          "name" : "Nama Uji",
+          "localizedName" : "Nama Uji",
+          "rmType" : "DV_CODED_TEXT",
           "nodeId" : "at0005",
           "min" : 1,
           "max" : 1,
           "localizedNames" : {
-            "en" : "Test name"
+            "en" : "Nama Uji"
           },
           "localizedDescriptions" : {
             "en" : "Name of the laboratory investigation performed on the specimen(s)."
@@ -110,177 +100,19 @@
           "annotations" : {
             "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
-          "inputs" : [ {
-            "type" : "TEXT"
-          } ]
-        }, {
-          "id" : "overall_test_status",
-          "name" : "Overall test status",
-          "localizedName" : "Overall test status",
-          "rmType" : "DV_CODED_TEXT",
-          "nodeId" : "at0073",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Overall test status"
-          },
-          "localizedDescriptions" : {
-            "en" : "The status of the laboratory test result as a whole."
-          },
-          "annotations" : {
-            "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[at0073]/value",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Nama Uji']/value",
           "inputs" : [ {
             "suffix" : "code",
             "type" : "CODED_TEXT",
             "list" : [ {
-              "value" : "at0107",
-              "label" : "Registered",
+              "value" : "0",
+              "label" : "Six Minute Walking Test",
               "localizedLabels" : {
-                "en" : "Registered"
-              },
-              "localizedDescriptions" : {
-                "en" : "The existence of the test is registered in the Laboratory Information System, but there is nothing yet available."
-              }
-            }, {
-              "value" : "at0037",
-              "label" : "Partial",
-              "localizedLabels" : {
-                "en" : "Partial"
-              },
-              "localizedDescriptions" : {
-                "en" : "This is a partial (e.g. initial, interim or preliminary) Test Result: data in the Test Result may be incomplete or unverified."
-              }
-            }, {
-              "value" : "at0120",
-              "label" : "Preliminary",
-              "localizedLabels" : {
-                "en" : "Preliminary"
-              },
-              "localizedDescriptions" : {
-                "en" : "Verified early results are available, but not all results are final. This is a sub-category of 'Partial'."
-              }
-            }, {
-              "value" : "at0038",
-              "label" : "Final",
-              "localizedLabels" : {
-                "en" : "Final"
-              },
-              "localizedDescriptions" : {
-                "en" : "The Test result is complete and verified by an authorised person."
-              }
-            }, {
-              "value" : "at0040",
-              "label" : "Amended",
-              "localizedLabels" : {
-                "en" : "Amended"
-              },
-              "localizedDescriptions" : {
-                "en" : "The result has been modified subsequent to being Final, and is complete and verified by the responsible pathologist, and result data has been changed."
-              }
-            }, {
-              "value" : "at0115",
-              "label" : "Corrected",
-              "localizedLabels" : {
-                "en" : "Corrected"
-              },
-              "localizedDescriptions" : {
-                "en" : "The result has been modified subsequent to being Final, and is complete and verified by the responsible pathologist. This is a sub-category of 'Amended'."
-              }
-            }, {
-              "value" : "at0119",
-              "label" : "Appended",
-              "localizedLabels" : {
-                "en" : "Appended"
-              },
-              "localizedDescriptions" : {
-                "en" : "Subsequent to being final, the report has been modified by adding new content. The existing content is unchanged. This is a sub-category of 'Amended'."
-              }
-            }, {
-              "value" : "at0074",
-              "label" : "Cancelled",
-              "localizedLabels" : {
-                "en" : "Cancelled"
-              },
-              "localizedDescriptions" : {
-                "en" : "The result is unavailable because the test was not started or not completed (also sometimes called 'aborted')."
-              }
-            }, {
-              "value" : "at0116",
-              "label" : "Entered in error",
-              "localizedLabels" : {
-                "en" : "Entered in error"
-              },
-              "localizedDescriptions" : {
-                "en" : "The Test Result has been withdrawn following previous Final release."
+                "en" : "Six Minute Walking Test"
               }
             } ],
-            "listOpen" : true
-          }, {
-            "suffix" : "other",
-            "type" : "TEXT"
-          } ]
-        }, {
-          "id" : "overall_test_status_timestamp",
-          "name" : "Overall test status timestamp",
-          "localizedName" : "Overall test status timestamp",
-          "rmType" : "DV_DATE_TIME",
-          "nodeId" : "at0075",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "Overall test status timestamp"
-          },
-          "localizedDescriptions" : {
-            "en" : "The date and/or time that ‘Overall test status’ was issued."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[at0075]/value",
-          "inputs" : [ {
-            "type" : "DATETIME"
-          } ]
-        }, {
-          "id" : "diagnostic_service_category",
-          "name" : "Diagnostic service category",
-          "localizedName" : "Diagnostic service category",
-          "rmType" : "DV_TEXT",
-          "nodeId" : "at0077",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "Diagnostic service category"
-          },
-          "localizedDescriptions" : {
-            "en" : "The diagnostic service or discipline that is responsible for the laboratory test result."
-          },
-          "annotations" : {
-            "comment" : "This is intended to be a general categorisation and not to capture the organisational name of the laboratory. For example: anatomical pathology, immunology and transfusion medicine, medical microbiology, clinical pharmacology, medical genetics, medical biochemistry. Alternatively more granular sub categories or sub disciplines, such as endocrinology, haematology, and allergology services, may be used. This may assist clinicians in filtering between categories of results. Coding with a terminology is desirable, where possible."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[at0077]/value",
-          "inputs" : [ {
-            "type" : "TEXT"
-          } ]
-        }, {
-          "id" : "clinical_information_provided",
-          "name" : "Clinical information provided",
-          "localizedName" : "Clinical information provided",
-          "rmType" : "DV_TEXT",
-          "nodeId" : "at0100",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "Clinical information provided"
-          },
-          "localizedDescriptions" : {
-            "en" : "Description of clinical information available at the time of interpretation of results."
-          },
-          "annotations" : {
-            "comment" : "This data element may include a link to the original clinical information provided in the test request."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[at0100]/value",
-          "inputs" : [ {
-            "type" : "TEXT"
+            "defaultValue" : "0",
+            "terminology" : "6mwt"
           } ]
         }, {
           "id" : "six_minute_walking_test",
@@ -298,28 +130,6 @@
           },
           "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Six Minute Walking Test']",
           "children" : [ {
-            "id" : "tanggal_6mwt",
-            "name" : "Tanggal 6MWT",
-            "localizedName" : "Tanggal 6MWT",
-            "rmType" : "DV_DATE_TIME",
-            "nodeId" : "at0006",
-            "min" : 1,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Tanggal 6MWT"
-            },
-            "localizedDescriptions" : {
-              "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
-            },
-            "annotations" : {
-              "hl7v2_mapping" : "OBX.19",
-              "fhir_mapping" : "Observation.issued"
-            },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Six Minute Walking Test']/items[at0006,'Tanggal 6MWT']/value",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ]
-          }, {
             "id" : "a6_minute_walking_distance",
             "name" : "6 minute walking distance",
             "localizedName" : "6 minute walking distance",
@@ -480,6 +290,28 @@
                 "label" : "%"
               } ]
             } ]
+          }, {
+            "id" : "tanggal_6mwt",
+            "name" : "Tanggal 6MWT",
+            "localizedName" : "Tanggal 6MWT",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0006",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tanggal 6MWT"
+            },
+            "localizedDescriptions" : {
+              "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+            },
+            "annotations" : {
+              "hl7v2_mapping" : "OBX.19",
+              "fhir_mapping" : "Observation.issued"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Six Minute Walking Test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Six Minute Walking Test']/items[at0006,'Tanggal 6MWT']/value",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ]
           } ]
         }, {
           "id" : "time",
@@ -549,6 +381,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]

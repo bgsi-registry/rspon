@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersPAH-ekg-v1",
-  "semVer" : "1.0.1",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -27,41 +27,31 @@
       "max" : 1,
       "aqlPath" : "/context",
       "children" : [ {
-        "id" : "report_id",
-        "name" : "Report ID",
-        "localizedName" : "Report ID",
-        "rmType" : "DV_TEXT",
-        "nodeId" : "at0002",
-        "min" : 0,
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
         "max" : 1,
-        "localizedNames" : {
-          "en" : "Report ID"
-        },
-        "localizedDescriptions" : {
-          "en" : "Identification information about the report."
-        },
-        "aqlPath" : "/context/other_context[at0001]/items[at0002]/value",
+        "aqlPath" : "/context/start_time",
         "inputs" : [ {
-          "type" : "TEXT"
-        } ]
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
       }, {
-        "id" : "status",
-        "name" : "Status",
-        "localizedName" : "Status",
-        "rmType" : "DV_TEXT",
-        "nodeId" : "at0005",
-        "min" : 0,
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
         "max" : 1,
-        "localizedNames" : {
-          "en" : "Status"
-        },
-        "localizedDescriptions" : {
-          "en" : "The status of the entire report. Note: This is not the status of any of the report components."
-        },
-        "aqlPath" : "/context/other_context[at0001]/items[at0005]/value",
+        "aqlPath" : "/context/setting",
         "inputs" : [ {
+          "suffix" : "code",
           "type" : "TEXT"
-        } ]
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
       } ]
     }, {
       "id" : "hasil_ekg",
@@ -121,19 +111,19 @@
               "value" : "0",
               "label" : "Irama sinus",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Irama sinus"
               }
             }, {
               "value" : "1",
               "label" : "Irama atrial",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Irama atrial"
               }
             }, {
               "value" : "2",
               "label" : "Irama ventricular",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Irama ventricular"
               }
             } ],
             "terminology" : "local_afib"
@@ -227,6 +217,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
