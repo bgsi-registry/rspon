@@ -1,22 +1,22 @@
 {
-  "templateId" : "geneticDisordersPAH-laboratorium",
-  "semVer" : "2.0.0",
+  "templateId" : "pemeriksaan-fisik-v1",
+  "semVer" : "0.1.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
   "tree" : {
-    "id" : "geneticdisorderspah-laboratorium",
-    "name" : "geneticDisordersPAH-laboratorium",
-    "localizedName" : "geneticDisordersPAH-laboratorium",
+    "id" : "pemeriksaan-fisik-v1",
+    "name" : "pemeriksaan-fisik-v1",
+    "localizedName" : "pemeriksaan-fisik-v1",
     "rmType" : "COMPOSITION",
-    "nodeId" : "openEHR-EHR-COMPOSITION.report.v1",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
     "min" : 1,
     "max" : 1,
     "localizedNames" : {
-      "en" : "geneticDisordersPAH-laboratorium"
+      "en" : "pemeriksaan-fisik-v1"
     },
     "localizedDescriptions" : {
-      "en" : "Document to communicate information to others, commonly in response to a request from another party."
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
     },
     "aqlPath" : "",
     "children" : [ {
@@ -54,20 +54,20 @@
         "inContext" : true
       } ]
     }, {
-      "id" : "laboratorium",
-      "name" : "Laboratorium",
-      "localizedName" : "Laboratorium",
+      "id" : "pemeriksaan_fisik",
+      "name" : "Pemeriksaan Fisik",
+      "localizedName" : "Pemeriksaan Fisik",
       "rmType" : "OBSERVATION",
       "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
       "min" : 0,
       "max" : 1,
       "localizedNames" : {
-        "en" : "Laboratorium"
+        "en" : "Pemeriksaan Fisik"
       },
       "localizedDescriptions" : {
         "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
       },
-      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']",
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']",
       "children" : [ {
         "id" : "any_event",
         "name" : "Any event",
@@ -82,7 +82,7 @@
         "localizedDescriptions" : {
           "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
         },
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]",
         "children" : [ {
           "id" : "test_name",
           "name" : "Test name",
@@ -100,35 +100,35 @@
           "annotations" : {
             "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
           "inputs" : [ {
             "type" : "TEXT"
           } ]
         }, {
-          "id" : "laboratorium",
-          "name" : "Laboratorium",
-          "localizedName" : "Laboratorium",
+          "id" : "pemeriksaan_fisik",
+          "name" : "Pemeriksaan Fisik",
+          "localizedName" : "Pemeriksaan Fisik",
           "rmType" : "CLUSTER",
           "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
-          "min" : 1,
+          "min" : 0,
           "max" : 1,
           "localizedNames" : {
-            "en" : "Laboratorium"
+            "en" : "Pemeriksaan Fisik"
           },
           "localizedDescriptions" : {
             "en" : "The result of a laboratory test for a single analyte value."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']",
           "children" : [ {
-            "id" : "hemoglobin",
-            "name" : "Hemoglobin",
-            "localizedName" : "Hemoglobin",
+            "id" : "tinggi_badan",
+            "name" : "Tinggi Badan",
+            "localizedName" : "Tinggi Badan",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Hemoglobin"
+              "en" : "Tinggi Badan"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -138,7 +138,7 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Hemoglobin']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Tinggi Badan']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -146,23 +146,20 @@
               "suffix" : "unit",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "g/(100.ml)",
-                "label" : "g/(100.ml)",
-                "localizedLabels" : {
-                  "en" : "g/dL"
-                }
+                "value" : "cm",
+                "label" : "cm"
               } ]
             } ]
           }, {
-            "id" : "hematokrit",
-            "name" : "Hematokrit",
-            "localizedName" : "Hematokrit",
+            "id" : "berat_badan",
+            "name" : "Berat Badan",
+            "localizedName" : "Berat Badan",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Hematokrit"
+              "en" : "Berat Badan"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -172,7 +169,7 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Hematokrit']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Berat Badan']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -180,23 +177,20 @@
               "suffix" : "unit",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "%",
-                "label" : "%",
-                "localizedLabels" : {
-                  "en" : "%"
-                }
+                "value" : "kg",
+                "label" : "kg"
               } ]
             } ]
           }, {
-            "id" : "angka_trombosit",
-            "name" : "Angka trombosit",
-            "localizedName" : "Angka trombosit",
-            "rmType" : "DV_QUANTITY",
+            "id" : "imt",
+            "name" : "IMT",
+            "localizedName" : "IMT",
+            "rmType" : "DV_COUNT",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Angka trombosit"
+              "en" : "IMT"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -206,7 +200,86 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Angka trombosit']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'IMT']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          }, {
+            "id" : "kategori_imt",
+            "name" : "Kategori IMT",
+            "localizedName" : "Kategori IMT",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Kategori IMT"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Kategori IMT']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Underweight (<18,5)",
+                "localizedLabels" : {
+                  "en" : "Underweight (<18,5)"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Normal (18,5 - 22,9)",
+                "localizedLabels" : {
+                  "en" : "Normal (18,5 - 22,9)"
+                }
+              }, {
+                "value" : "2",
+                "label" : "Overweight (23 - 24,9)",
+                "localizedLabels" : {
+                  "en" : "Overweight (23 - 24,9)"
+                }
+              }, {
+                "value" : "3",
+                "label" : "Obesitas I (25 - 29,9)",
+                "localizedLabels" : {
+                  "en" : "Obesitas I (25 - 29,9)"
+                }
+              }, {
+                "value" : "4",
+                "label" : "Obesitas II (>= 30)",
+                "localizedLabels" : {
+                  "en" : "Obesitas II (>= 30)"
+                }
+              } ],
+              "terminology" : "kategori_imt"
+            } ]
+          }, {
+            "id" : "denyut_jantung",
+            "name" : "Denyut jantung",
+            "localizedName" : "Denyut jantung",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Denyut jantung"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Denyut jantung']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -214,23 +287,20 @@
               "suffix" : "unit",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "uL",
-                "label" : "uL",
-                "localizedLabels" : {
-                  "en" : "1000/uL"
-                }
+                "value" : "/min",
+                "label" : "/min"
               } ]
             } ]
           }, {
-            "id" : "angka_eritrosit",
-            "name" : "Angka eritrosit",
-            "localizedName" : "Angka eritrosit",
+            "id" : "laju_pernapasan",
+            "name" : "Laju pernapasan",
+            "localizedName" : "Laju pernapasan",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Angka eritrosit"
+              "en" : "Laju pernapasan"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -240,7 +310,7 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Angka eritrosit']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Laju pernapasan']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -248,23 +318,20 @@
               "suffix" : "unit",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "uL",
-                "label" : "uL",
-                "localizedLabels" : {
-                  "en" : "1000/uL"
-                }
+                "value" : "/min",
+                "label" : "/min"
               } ]
             } ]
           }, {
-            "id" : "ureum",
-            "name" : "Ureum",
-            "localizedName" : "Ureum",
+            "id" : "sistole",
+            "name" : "Sistole",
+            "localizedName" : "Sistole",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Ureum"
+              "en" : "Sistole"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -274,7 +341,7 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Ureum']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Sistole']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -282,23 +349,23 @@
               "suffix" : "unit",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "mg/L",
-                "label" : "mg/L",
+                "value" : "mm[Hg]",
+                "label" : "mm[Hg]",
                 "localizedLabels" : {
-                  "en" : "mg/dL"
+                  "en" : "mmHg"
                 }
               } ]
             } ]
           }, {
-            "id" : "kreatinin",
-            "name" : "Kreatinin",
-            "localizedName" : "Kreatinin",
+            "id" : "diastole",
+            "name" : "Diastole",
+            "localizedName" : "Diastole",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Kreatinin"
+              "en" : "Diastole"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -308,7 +375,7 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Kreatinin']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Diastole']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -316,23 +383,23 @@
               "suffix" : "unit",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "mg/L",
-                "label" : "mg/L",
+                "value" : "mm[Hg]",
+                "label" : "mm[Hg]",
                 "localizedLabels" : {
-                  "en" : "mg/dL"
+                  "en" : "mmHg"
                 }
               } ]
             } ]
           }, {
-            "id" : "gula_darah_sewaktu",
-            "name" : "Gula darah sewaktu",
-            "localizedName" : "Gula darah sewaktu",
+            "id" : "suhu_tubuh",
+            "name" : "Suhu tubuh",
+            "localizedName" : "Suhu tubuh",
             "rmType" : "DV_QUANTITY",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Gula darah sewaktu"
+              "en" : "Suhu tubuh"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -342,7 +409,7 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Gula darah sewaktu']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Suhu tubuh']/value",
             "inputs" : [ {
               "suffix" : "magnitude",
               "type" : "DECIMAL"
@@ -350,23 +417,23 @@
               "suffix" : "unit",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "mg/L",
-                "label" : "mg/L",
+                "value" : "Cel",
+                "label" : "Cel",
                 "localizedLabels" : {
-                  "en" : "mg/dL"
+                  "en" : "°C"
                 }
               } ]
             } ]
           }, {
-            "id" : "sgot",
-            "name" : "SGOT",
-            "localizedName" : "SGOT",
-            "rmType" : "DV_COUNT",
+            "id" : "status_hamil",
+            "name" : "Status hamil",
+            "localizedName" : "Status hamil",
+            "rmType" : "DV_BOOLEAN",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "SGOT"
+              "en" : "Status hamil"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -376,20 +443,24 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'SGOT']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Status hamil']/value",
             "inputs" : [ {
-              "type" : "INTEGER"
+              "type" : "BOOLEAN",
+              "list" : [ {
+                "value" : "true",
+                "label" : "true"
+              } ]
             } ]
           }, {
-            "id" : "sgpt",
-            "name" : "SGPT",
-            "localizedName" : "SGPT",
-            "rmType" : "DV_COUNT",
+            "id" : "rhesus",
+            "name" : "Rhesus",
+            "localizedName" : "Rhesus",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0001",
-            "min" : 1,
+            "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "SGPT"
+              "en" : "Rhesus"
             },
             "localizedDescriptions" : {
               "en" : "The value of the analyte result."
@@ -399,124 +470,30 @@
               "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
               "fhir_mapping" : "Observation.value[x]"
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'SGPT']/value",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan Fisik']/items[at0001,'Rhesus']/value",
             "inputs" : [ {
-              "type" : "INTEGER"
-            } ]
-          }, {
-            "id" : "albumin",
-            "name" : "Albumin",
-            "localizedName" : "Albumin",
-            "rmType" : "DV_COUNT",
-            "nodeId" : "at0001",
-            "min" : 1,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Albumin"
-            },
-            "localizedDescriptions" : {
-              "en" : "The value of the analyte result."
-            },
-            "annotations" : {
-              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-              "fhir_mapping" : "Observation.value[x]"
-            },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Albumin']/value",
-            "inputs" : [ {
-              "type" : "INTEGER"
-            } ]
-          }, {
-            "id" : "natrium",
-            "name" : "Natrium",
-            "localizedName" : "Natrium",
-            "rmType" : "DV_COUNT",
-            "nodeId" : "at0001",
-            "min" : 1,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Natrium"
-            },
-            "localizedDescriptions" : {
-              "en" : "The value of the analyte result."
-            },
-            "annotations" : {
-              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-              "fhir_mapping" : "Observation.value[x]"
-            },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Natrium']/value",
-            "inputs" : [ {
-              "type" : "INTEGER"
-            } ]
-          }, {
-            "id" : "kalium",
-            "name" : "Kalium",
-            "localizedName" : "Kalium",
-            "rmType" : "DV_COUNT",
-            "nodeId" : "at0001",
-            "min" : 1,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Kalium"
-            },
-            "localizedDescriptions" : {
-              "en" : "The value of the analyte result."
-            },
-            "annotations" : {
-              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-              "fhir_mapping" : "Observation.value[x]"
-            },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Kalium']/value",
-            "inputs" : [ {
-              "type" : "INTEGER"
-            } ]
-          }, {
-            "id" : "chloride",
-            "name" : "Chloride",
-            "localizedName" : "Chloride",
-            "rmType" : "DV_COUNT",
-            "nodeId" : "at0001",
-            "min" : 1,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Chloride"
-            },
-            "localizedDescriptions" : {
-              "en" : "The value of the analyte result."
-            },
-            "annotations" : {
-              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-              "fhir_mapping" : "Observation.value[x]"
-            },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'Chloride']/value",
-            "inputs" : [ {
-              "type" : "INTEGER"
-            } ]
-          }, {
-            "id" : "nt_pro_bnp",
-            "name" : "NT Pro BNP",
-            "localizedName" : "NT Pro BNP",
-            "rmType" : "DV_COUNT",
-            "nodeId" : "at0001",
-            "min" : 1,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "NT Pro BNP"
-            },
-            "localizedDescriptions" : {
-              "en" : "The value of the analyte result."
-            },
-            "annotations" : {
-              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-              "fhir_mapping" : "Observation.value[x]"
-            },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Laboratorium']/items[at0001,'NT Pro BNP']/value",
-            "inputs" : [ {
-              "type" : "INTEGER"
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Tidak diketahui",
+                "localizedLabels" : {
+                  "en" : "Tidak diketahui"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Positif",
+                "localizedLabels" : {
+                  "en" : "Positif"
+                }
+              }, {
+                "value" : "2",
+                "label" : "Negatif",
+                "localizedLabels" : {
+                  "en" : "Negatif"
+                }
+              } ],
+              "terminology" : "rhesus_type"
             } ]
           } ]
         }, {
@@ -525,7 +502,7 @@
           "rmType" : "DV_DATE_TIME",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/data[at0001]/events[at0002]/time",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/time",
           "inputs" : [ {
             "type" : "DATETIME"
           } ],
@@ -537,7 +514,7 @@
         "rmType" : "CODE_PHRASE",
         "min" : 1,
         "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/language",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/language",
         "inContext" : true
       }, {
         "id" : "encoding",
@@ -545,7 +522,7 @@
         "rmType" : "CODE_PHRASE",
         "min" : 1,
         "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/encoding",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/encoding",
         "inContext" : true
       }, {
         "id" : "subject",
@@ -553,7 +530,7 @@
         "rmType" : "PARTY_PROXY",
         "min" : 1,
         "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Laboratorium']/subject",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Fisik']/subject",
         "inputs" : [ {
           "suffix" : "id",
           "type" : "TEXT"

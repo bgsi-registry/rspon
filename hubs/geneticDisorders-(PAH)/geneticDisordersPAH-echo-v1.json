@@ -1,6 +1,6 @@
 {
   "templateId" : "geneticDisordersPAH-echo",
-  "semVer" : "1.1.0",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -27,41 +27,31 @@
       "max" : 1,
       "aqlPath" : "/context",
       "children" : [ {
-        "id" : "report_id",
-        "name" : "Report ID",
-        "localizedName" : "Report ID",
-        "rmType" : "DV_TEXT",
-        "nodeId" : "at0002",
-        "min" : 0,
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
         "max" : 1,
-        "localizedNames" : {
-          "en" : "Report ID"
-        },
-        "localizedDescriptions" : {
-          "en" : "Identification information about the report."
-        },
-        "aqlPath" : "/context/other_context[at0001]/items[at0002]/value",
+        "aqlPath" : "/context/start_time",
         "inputs" : [ {
-          "type" : "TEXT"
-        } ]
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
       }, {
-        "id" : "status",
-        "name" : "Status",
-        "localizedName" : "Status",
-        "rmType" : "DV_TEXT",
-        "nodeId" : "at0005",
-        "min" : 0,
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
         "max" : 1,
-        "localizedNames" : {
-          "en" : "Status"
-        },
-        "localizedDescriptions" : {
-          "en" : "The status of the entire report. Note: This is not the status of any of the report components."
-        },
-        "aqlPath" : "/context/other_context[at0001]/items[at0005]/value",
+        "aqlPath" : "/context/setting",
         "inputs" : [ {
+          "suffix" : "code",
           "type" : "TEXT"
-        } ]
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
       } ]
     }, {
       "id" : "hasil_echocardiography",
@@ -202,13 +192,13 @@
               "value" : "0",
               "label" : "Ya",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Ya"
               }
             }, {
               "value" : "1",
               "label" : "Tidak",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak"
               }
             } ],
             "defaultValue" : "0",
@@ -239,19 +229,19 @@
               "value" : "0",
               "label" : "Low",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Low"
               }
             }, {
               "value" : "1",
               "label" : "Intermediate",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Intermediate"
               }
             }, {
               "value" : "2",
               "label" : "High",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "High"
               }
             } ],
             "defaultValue" : "0",
@@ -471,25 +461,25 @@
               "value" : "0",
               "label" : "None",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "None"
               }
             }, {
               "value" : "1",
               "label" : "Mild",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Mild"
               }
             }, {
               "value" : "2",
               "label" : "Moderate",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Moderate"
               }
             }, {
               "value" : "3",
               "label" : "Severe",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Severe"
               }
             } ],
             "defaultValue" : "0",
@@ -664,55 +654,6 @@
             "type" : "TEXT"
           } ]
         }, {
-          "id" : "derajat_mitral_regurgitation",
-          "name" : "Derajat Mitral Regurgitation",
-          "localizedName" : "Derajat Mitral Regurgitation",
-          "rmType" : "DV_CODED_TEXT",
-          "nodeId" : "at0072",
-          "min" : 1,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Derajat Mitral Regurgitation"
-          },
-          "localizedDescriptions" : {
-            "en" : "The status of the imaging examination result as a whole."
-          },
-          "annotations" : {
-            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Derajat Mitral Regurgitation']/value",
-          "inputs" : [ {
-            "suffix" : "code",
-            "type" : "CODED_TEXT",
-            "list" : [ {
-              "value" : "0",
-              "label" : "None",
-              "localizedLabels" : {
-                "en" : ""
-              }
-            }, {
-              "value" : "1",
-              "label" : "Mild",
-              "localizedLabels" : {
-                "en" : ""
-              }
-            }, {
-              "value" : "2",
-              "label" : "Moderate",
-              "localizedLabels" : {
-                "en" : ""
-              }
-            }, {
-              "value" : "3",
-              "label" : "Severe",
-              "localizedLabels" : {
-                "en" : ""
-              }
-            } ],
-            "defaultValue" : "0",
-            "terminology" : "local_regurgitasi"
-          } ]
-        }, {
           "id" : "prolaps_anterior_mitral_leaflet",
           "name" : "Prolaps Anterior Mitral Leaflet",
           "localizedName" : "Prolaps Anterior Mitral Leaflet",
@@ -737,17 +678,66 @@
               "value" : "0",
               "label" : "Ya",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Ya"
               }
             }, {
               "value" : "1",
               "label" : "Tidak",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak"
               }
             } ],
             "defaultValue" : "0",
             "terminology" : "local_prolaps"
+          } ]
+        }, {
+          "id" : "derajat_mitral_regurgitation",
+          "name" : "Derajat Mitral Regurgitation",
+          "localizedName" : "Derajat Mitral Regurgitation",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0072",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Derajat Mitral Regurgitation"
+          },
+          "localizedDescriptions" : {
+            "en" : "The status of the imaging examination result as a whole."
+          },
+          "annotations" : {
+            "comment" : "The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0072,'Derajat Mitral Regurgitation']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "None",
+              "localizedLabels" : {
+                "en" : "None"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Mild",
+              "localizedLabels" : {
+                "en" : "Mild"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Moderate",
+              "localizedLabels" : {
+                "en" : "Moderate"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Severe",
+              "localizedLabels" : {
+                "en" : "Severe"
+              }
+            } ],
+            "defaultValue" : "0",
+            "terminology" : "local_regurgitasi"
           } ]
         }, {
           "id" : "gradient_pulmonary_stenosis",
@@ -795,13 +785,13 @@
               "value" : "0",
               "label" : "Ya",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Ya"
               }
             }, {
               "value" : "1",
               "label" : "Tidak",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Tidak"
               }
             } ],
             "defaultValue" : "0",
@@ -832,19 +822,19 @@
               "value" : "0",
               "label" : "L to R",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "L to R"
               }
             }, {
               "value" : "1",
               "label" : "Bidirectional",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "Bidirectional"
               }
             }, {
               "value" : "2",
               "label" : "R to L",
               "localizedLabels" : {
-                "en" : ""
+                "en" : "R to L"
               }
             } ],
             "defaultValue" : "0",
@@ -888,47 +878,6 @@
           "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/data[at0003]/items[at0071,'Tanggal TEE']/value",
           "inputs" : [ {
             "type" : "DATETIME"
-          } ]
-        }, {
-          "id" : "confounding_factors",
-          "name" : "Confounding factors",
-          "localizedName" : "Confounding factors",
-          "rmType" : "DV_TEXT",
-          "nodeId" : "at0048",
-          "min" : 0,
-          "max" : 1,
-          "dependsOn" : [ "prolaps_anterior_mitral_leaflet", "jenis_defek", "right_ventricular_systolic_pressure", "diameter_main_pulmonary_artery", "left_ventricular_ejection_fraction", "tricuspid_valve_gradient", "left_atrial_diameter", "gradient_pulmonary_stenosis", "efusi_perikardium", "mean_pulmonary_arterial_pressure", "diameter_defek_maximum", "diameter_right_ventricle", "disfungsi_diastolik", "tricuspid_annular_plane_systolic_excursion", "arah_shunt_pada_defek", "diameter_right_atrium_ra_area", "left_ventricle_internal_diameter_diastolic", "derajat_mitral_regurgitation", "probability_ph_by_tte", "diameter_defek_minimum", "diagnosis_tee", "estimated_right_atrial_pressure", "pulmonary_arterial_systolic_pressure", "eissenmenger_syndrome", "abnormalitas_tte_lain", "tricuspid_regurgitation_velocity", "tanggal_transtorachal_echocardiography", "rv_fac", "derajat_regurgitasi_tricuspid", "tanggal_tee", "right_ventricular_outflow_tract_velocity_time" ],
-          "localizedNames" : {
-            "en" : "Confounding factors"
-          },
-          "localizedDescriptions" : {
-            "en" : "Narrative description of factors, not recorded elsewhere, that may influence the examination findings and/or result."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/state[at0047]/items[at0048]/value",
-          "inputs" : [ {
-            "type" : "TEXT"
-          } ]
-        }, {
-          "id" : "position",
-          "name" : "Position",
-          "localizedName" : "Position",
-          "rmType" : "DV_TEXT",
-          "nodeId" : "at0108",
-          "min" : 0,
-          "max" : 1,
-          "dependsOn" : [ "prolaps_anterior_mitral_leaflet", "jenis_defek", "right_ventricular_systolic_pressure", "diameter_main_pulmonary_artery", "left_ventricular_ejection_fraction", "tricuspid_valve_gradient", "left_atrial_diameter", "gradient_pulmonary_stenosis", "efusi_perikardium", "mean_pulmonary_arterial_pressure", "diameter_defek_maximum", "diameter_right_ventricle", "disfungsi_diastolik", "tricuspid_annular_plane_systolic_excursion", "arah_shunt_pada_defek", "diameter_right_atrium_ra_area", "left_ventricle_internal_diameter_diastolic", "derajat_mitral_regurgitation", "probability_ph_by_tte", "diameter_defek_minimum", "diagnosis_tee", "estimated_right_atrial_pressure", "pulmonary_arterial_systolic_pressure", "eissenmenger_syndrome", "abnormalitas_tte_lain", "tricuspid_regurgitation_velocity", "tanggal_transtorachal_echocardiography", "rv_fac", "derajat_regurgitasi_tricuspid", "tanggal_tee", "right_ventricular_outflow_tract_velocity_time" ],
-          "localizedNames" : {
-            "en" : "Position"
-          },
-          "localizedDescriptions" : {
-            "en" : "Position of the individual during the imaging examination."
-          },
-          "annotations" : {
-            "comment" : "For example: standing or lying."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Hasil Echocardiography']/data[at0001]/events[at0002,'Echocardiography']/state[at0047]/items[at0108]/value",
-          "inputs" : [ {
-            "type" : "TEXT"
           } ]
         }, {
           "id" : "time",
@@ -998,6 +947,43 @@
           }
         } ],
         "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
       } ],
       "inContext" : true
     } ]
