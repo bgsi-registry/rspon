@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-riwayat-medis-v1",
-  "semVer" : "0.13.0",
+  "semVer" : "0.14.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -374,7 +374,7 @@
             "id" : "apakah_terdapat_riwayat_penyakit_kulit",
             "name" : "Apakah terdapat riwayat penyakit kulit?",
             "localizedName" : "Apakah terdapat riwayat penyakit kulit?",
-            "rmType" : "DV_BOOLEAN",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
             "min" : 1,
             "max" : 1,
@@ -389,7 +389,22 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat penyakit kulit screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah terdapat riwayat penyakit kulit?']/value",
             "inputs" : [ {
-              "type" : "BOOLEAN"
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "FALSE",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              }, {
+                "value" : "TRUE",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              } ],
+              "terminology" : "local_boolyatidak"
             } ]
           }, {
             "id" : "jika_iya_sebutkan_riwayat_penyakit_kulit_yang_pernah_dialami",
@@ -2075,7 +2090,7 @@
             "id" : "apakah_terdapat_riwayat_penggunaan_obat_lain",
             "name" : "Apakah terdapat riwayat penggunaan obat lain?",
             "localizedName" : "Apakah terdapat riwayat penggunaan obat lain?",
-            "rmType" : "DV_BOOLEAN",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0027",
             "min" : 1,
             "max" : 1,
@@ -2090,7 +2105,22 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat lain screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0027,'Apakah terdapat riwayat penggunaan obat lain?']/value",
             "inputs" : [ {
-              "type" : "BOOLEAN"
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "FALSE",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              }, {
+                "value" : "TRUE",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              } ],
+              "terminology" : "local_boolyatidak"
             } ]
           }, {
             "id" : "jika_iya_riwayat_obat_lain_apakah_yang_pernah_digunakan",
