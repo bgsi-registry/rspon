@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-riwayat-medis-v1",
-  "semVer" : "0.12.0",
+  "semVer" : "0.13.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -612,7 +612,7 @@
             "id" : "apakah_terdapat_riwayat_terkonfirmasi_covid-19",
             "name" : "Apakah terdapat riwayat terkonfirmasi COVID-19?",
             "localizedName" : "Apakah terdapat riwayat terkonfirmasi COVID-19?",
-            "rmType" : "DV_BOOLEAN",
+            "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
             "min" : 1,
             "max" : 1,
@@ -627,7 +627,22 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penyakit']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Riwayat COVID-19 screening questionnaire']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Apakah terdapat riwayat terkonfirmasi COVID-19?']/value",
             "inputs" : [ {
-              "type" : "BOOLEAN"
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "FALSE",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              }, {
+                "value" : "TRUE",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              } ],
+              "terminology" : "local_boolyatidak"
             } ]
           }, {
             "id" : "jika_iya_terkonfirmasi_dengan_apa",
