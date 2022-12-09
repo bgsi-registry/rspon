@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-kead.umum.sbj-v1",
-  "semVer" : "0.9.1",
+  "semVer" : "0.11.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -3792,53 +3792,56 @@
           "inContext" : true
         } ]
       }, {
-        "id" : "kelainan_lainnya",
-        "name" : "Kelainan lainnya",
-        "localizedName" : "Kelainan lainnya",
+        "id" : "keluhan_lainnya",
+        "name" : "Keluhan lainnya",
+        "localizedName" : "Keluhan lainnya",
         "rmType" : "OBSERVATION",
-        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
         "min" : 0,
         "max" : 1,
         "localizedNames" : {
-          "en" : "Kelainan lainnya"
+          "en" : "Keluhan lainnya"
         },
         "localizedDescriptions" : {
-          "en" : "Findings observed during the physical examination of a subject of care."
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
         },
-        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']",
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']",
         "children" : [ {
-          "id" : "kelainan_kuku",
-          "name" : "Kelainan kuku",
-          "localizedName" : "Kelainan kuku",
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
           "rmType" : "EVENT",
           "nodeId" : "at0002",
           "min" : 0,
           "max" : -1,
           "localizedNames" : {
-            "en" : "Kelainan kuku"
+            "en" : "Any event"
           },
           "localizedDescriptions" : {
             "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
           },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Kelainan kuku']",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]",
           "children" : [ {
-            "id" : "kelainan_kuku",
-            "name" : "Kelainan kuku",
-            "localizedName" : "Kelainan kuku",
+            "id" : "keluhan_kuku",
+            "name" : "Keluhan kuku",
+            "localizedName" : "Keluhan kuku",
             "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0004",
+            "nodeId" : "at0028",
             "min" : 0,
-            "max" : 1,
+            "max" : -1,
             "localizedNames" : {
-              "en" : "Kelainan kuku"
+              "en" : "Keluhan kuku"
             },
             "localizedDescriptions" : {
-              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
             },
             "annotations" : {
-              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Kelainan kuku']/data[at0003]/items[at0004,'Kelainan kuku']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Keluhan kuku']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
@@ -3885,196 +3888,161 @@
                   "en" : "Oil spots"
                 }
               } ],
-              "terminology" : "local_kelainankuku"
+              "terminology" : "local_keluhankuku"
             } ]
           }, {
-            "id" : "time",
-            "name" : "Time",
-            "rmType" : "DV_DATE_TIME",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Kelainan kuku']/time",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ],
-            "inContext" : true
-          } ]
-        }, {
-          "id" : "limfadenopati",
-          "name" : "Limfadenopati",
-          "localizedName" : "Limfadenopati",
-          "rmType" : "EVENT",
-          "nodeId" : "at0002",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Limfadenopati"
-          },
-          "localizedDescriptions" : {
-            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-          },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Limfadenopati']",
-          "children" : [ {
             "id" : "limfadenopati",
             "name" : "Limfadenopati",
             "localizedName" : "Limfadenopati",
             "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0004",
-            "min" : 0,
+            "nodeId" : "at0028",
+            "min" : 1,
             "max" : 1,
             "localizedNames" : {
               "en" : "Limfadenopati"
             },
             "localizedDescriptions" : {
-              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
             },
             "annotations" : {
-              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Limfadenopati']/data[at0003]/items[at0004,'Limfadenopati']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Limfadenopati']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "TRUE",
-                "label" : "Ya",
-                "localizedLabels" : {
-                  "en" : "Ya"
-                }
-              }, {
                 "value" : "FALSE",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : "Tidak"
                 }
+              }, {
+                "value" : "TRUE",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
               } ],
               "terminology" : "local_boolyatidak"
             } ]
           }, {
-            "id" : "time",
-            "name" : "Time",
-            "rmType" : "DV_DATE_TIME",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Limfadenopati']/time",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ],
-            "inContext" : true
-          } ]
-        }, {
-          "id" : "hepatomegali",
-          "name" : "Hepatomegali",
-          "localizedName" : "Hepatomegali",
-          "rmType" : "EVENT",
-          "nodeId" : "at0002",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Hepatomegali"
-          },
-          "localizedDescriptions" : {
-            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-          },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Hepatomegali']",
-          "children" : [ {
             "id" : "hepatomegali",
             "name" : "Hepatomegali",
             "localizedName" : "Hepatomegali",
             "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0004",
-            "min" : 0,
+            "nodeId" : "at0028",
+            "min" : 1,
             "max" : 1,
             "localizedNames" : {
               "en" : "Hepatomegali"
             },
             "localizedDescriptions" : {
-              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
             },
             "annotations" : {
-              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Hepatomegali']/data[at0003]/items[at0004,'Hepatomegali']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Hepatomegali']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "TRUE",
-                "label" : "Ya",
-                "localizedLabels" : {
-                  "en" : "Ya"
-                }
-              }, {
                 "value" : "FALSE",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : "Tidak"
                 }
+              }, {
+                "value" : "TRUE",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
               } ],
               "terminology" : "local_boolyatidak"
             } ]
           }, {
-            "id" : "time",
-            "name" : "Time",
-            "rmType" : "DV_DATE_TIME",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Hepatomegali']/time",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ],
-            "inContext" : true
-          } ]
-        }, {
-          "id" : "splenomegali",
-          "name" : "Splenomegali",
-          "localizedName" : "Splenomegali",
-          "rmType" : "EVENT",
-          "nodeId" : "at0002",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Splenomegali"
-          },
-          "localizedDescriptions" : {
-            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-          },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Splenomegali']",
-          "children" : [ {
             "id" : "splenomegali",
             "name" : "Splenomegali",
             "localizedName" : "Splenomegali",
             "rmType" : "DV_CODED_TEXT",
-            "nodeId" : "at0004",
-            "min" : 0,
+            "nodeId" : "at0028",
+            "min" : 1,
             "max" : 1,
             "localizedNames" : {
               "en" : "Splenomegali"
             },
             "localizedDescriptions" : {
-              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
             },
             "annotations" : {
-              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Splenomegali']/data[at0003]/items[at0004,'Splenomegali']/value",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Splenomegali']/value",
             "inputs" : [ {
               "suffix" : "code",
               "type" : "CODED_TEXT",
               "list" : [ {
-                "value" : "TRUE",
-                "label" : "Ya",
-                "localizedLabels" : {
-                  "en" : "Ya"
-                }
-              }, {
                 "value" : "FALSE",
                 "label" : "Tidak",
                 "localizedLabels" : {
                   "en" : "Tidak"
                 }
+              }, {
+                "value" : "TRUE",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
               } ],
               "terminology" : "local_boolyatidak"
+            } ]
+          }, {
+            "id" : "keluhan_lainnya",
+            "name" : "Keluhan lainnya",
+            "localizedName" : "Keluhan lainnya",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan lainnya']",
+            "children" : [ {
+              "id" : "jenis_keluhan",
+              "name" : "Jenis keluhan",
+              "localizedName" : "Jenis keluhan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Jenis keluhan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan lainnya']/items[at0004,'Jenis keluhan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Keluhan lain",
+                  "localizedLabels" : {
+                    "en" : "Keluhan lain"
+                  }
+                } ],
+                "terminology" : "local_jeniskeluhanlainnya"
+              } ]
             } ]
           }, {
             "id" : "time",
@@ -4082,7 +4050,7 @@
             "rmType" : "DV_DATE_TIME",
             "min" : 1,
             "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/data[at0001]/events[at0002,'Splenomegali']/time",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/data[at0001]/events[at0002]/time",
             "inputs" : [ {
               "type" : "DATETIME"
             } ],
@@ -4094,7 +4062,7 @@
           "rmType" : "CODE_PHRASE",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/language",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/language",
           "inContext" : true
         }, {
           "id" : "encoding",
@@ -4102,7 +4070,7 @@
           "rmType" : "CODE_PHRASE",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/encoding",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/encoding",
           "inContext" : true
         }, {
           "id" : "subject",
@@ -4110,7 +4078,7 @@
           "rmType" : "PARTY_PROXY",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Kelainan lainnya']/subject",
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan lainnya']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"
