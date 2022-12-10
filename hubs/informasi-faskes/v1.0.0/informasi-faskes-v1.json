@@ -1,0 +1,568 @@
+{
+  "templateId" : "informasi-faskes-v1",
+  "semVer" : "0.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "informasi-faskes-v1",
+    "name" : "informasi-faskes-v1",
+    "localizedName" : "informasi-faskes-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "informasi-faskes-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "data_faskes_pertama",
+      "name" : "Data Faskes Pertama",
+      "localizedName" : "Data Faskes Pertama",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Data Faskes Pertama"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']",
+      "children" : [ {
+        "id" : "episode_of_care_-_institution",
+        "name" : "Episode of care - institution",
+        "localizedName" : "Episode of care - institution",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.episode_institution.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Episode of care - institution"
+        },
+        "localizedDescriptions" : {
+          "en" : "Administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]",
+        "children" : [ {
+          "id" : "jenis_faskes",
+          "name" : "Jenis Faskes",
+          "localizedName" : "Jenis Faskes",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0008",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Jenis Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The reason why the individual was admitted for an episode of care."
+          },
+          "annotations" : {
+            "comment" : "For example: respite; rehabilitation; or infection isolation.\r\nDiagnosies should be recorded using the EVAL.problem_diagnosis archetype plus the nested CLUSTER.problem_qualifier, if necessary."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0008,'Jenis Faskes']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Puskesmas, Klinik, PPK1 Lain",
+              "localizedLabels" : {
+                "en" : "Puskesmas, Klinik, PPK1 Lain"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Rumah sakit",
+              "localizedLabels" : {
+                "en" : "Rumah sakit"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Tidak diketahui",
+              "localizedLabels" : {
+                "en" : "Tidak diketahui"
+              }
+            } ],
+            "terminology" : "jenis_faskes"
+          } ]
+        }, {
+          "id" : "nama_faskes",
+          "name" : "Nama faskes",
+          "localizedName" : "Nama faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0009",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nama faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of admission."
+          },
+          "annotations" : {
+            "comment" : "For example: day surgery; elective surgery or em. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0009,'Nama faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "provinsi_faskes",
+          "name" : "Provinsi Faskes",
+          "localizedName" : "Provinsi Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0007",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Provinsi Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of residence where the individual resided prior to admission."
+          },
+          "annotations" : {
+            "comment" : "For example: hospital, community, or nursing home. 'Admission source' should be coded with a terminology, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0007,'Provinsi Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "kabupaten_kota_faskes",
+          "name" : "Kabupaten/Kota Faskes",
+          "localizedName" : "Kabupaten/Kota Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0026",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Kabupaten/Kota Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of health insurance applicable for the episode."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0026,'Kabupaten/Kota Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "kepemilikan_faskes",
+          "name" : "Kepemilikan Faskes",
+          "localizedName" : "Kepemilikan Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0021",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Kepemilikan Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The clinical service unit assigned for care of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: Orthopaedic A unit."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0021,'Kepemilikan Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "kode_faskes",
+          "name" : "Kode Faskes",
+          "localizedName" : "Kode Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0006",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Kode Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "Outcome for the individual at the end of the episode of care."
+          },
+          "annotations" : {
+            "comment" : "For example: recovered/not recovered/death."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0006,'Kode Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Pertama']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "data_faskes_rujukan",
+      "name" : "Data Faskes Rujukan",
+      "localizedName" : "Data Faskes Rujukan",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Data Faskes Rujukan"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']",
+      "children" : [ {
+        "id" : "episode_of_care_-_institution",
+        "name" : "Episode of care - institution",
+        "localizedName" : "Episode of care - institution",
+        "rmType" : "ADMIN_ENTRY",
+        "nodeId" : "openEHR-EHR-ADMIN_ENTRY.episode_institution.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Episode of care - institution"
+        },
+        "localizedDescriptions" : {
+          "en" : "Administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]",
+        "children" : [ {
+          "id" : "jenis_faskes",
+          "name" : "Jenis Faskes",
+          "localizedName" : "Jenis Faskes",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0008",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Jenis Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The reason why the individual was admitted for an episode of care."
+          },
+          "annotations" : {
+            "comment" : "For example: respite; rehabilitation; or infection isolation.\r\nDiagnosies should be recorded using the EVAL.problem_diagnosis archetype plus the nested CLUSTER.problem_qualifier, if necessary."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0008,'Jenis Faskes']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Puskesmas, Klinik, PPK1 Lain",
+              "localizedLabels" : {
+                "en" : "Puskesmas, Klinik, PPK1 Lain"
+              }
+            }, {
+              "value" : "1",
+              "label" : "Rumah sakit",
+              "localizedLabels" : {
+                "en" : "Rumah sakit"
+              }
+            }, {
+              "value" : "2",
+              "label" : "Tidak diketahui",
+              "localizedLabels" : {
+                "en" : "Tidak diketahui"
+              }
+            }, {
+              "value" : "3",
+              "label" : "Tidak dirujuk/inisiatif pribadi",
+              "localizedLabels" : {
+                "en" : "Tidak dirujuk/inisiatif pribadi"
+              }
+            } ],
+            "terminology" : "jenis_faskes_rujukan"
+          } ]
+        }, {
+          "id" : "tanggal_rujukan",
+          "name" : "Tanggal rujukan",
+          "localizedName" : "Tanggal rujukan",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal rujukan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date and/or time of the formal or statistical admission to the institution."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0004,'Tanggal rujukan']/value",
+          "inputs" : [ {
+            "type" : "DATETIME",
+            "validation" : {
+              "pattern" : "yyyy-mm-ddTXX:XX:XX"
+            }
+          } ]
+        }, {
+          "id" : "nama_faskes",
+          "name" : "Nama faskes",
+          "localizedName" : "Nama faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0009",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nama faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of admission."
+          },
+          "annotations" : {
+            "comment" : "For example: day surgery; elective surgery or em. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0009,'Nama faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "provinsi_faskes",
+          "name" : "Provinsi Faskes",
+          "localizedName" : "Provinsi Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0007",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Provinsi Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of residence where the individual resided prior to admission."
+          },
+          "annotations" : {
+            "comment" : "For example: hospital, community, or nursing home. 'Admission source' should be coded with a terminology, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0007,'Provinsi Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "kabupaten_kota_faskes",
+          "name" : "Kabupaten/Kota Faskes",
+          "localizedName" : "Kabupaten/Kota Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0026",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Kabupaten/Kota Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The type of health insurance applicable for the episode."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0026,'Kabupaten/Kota Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "kepemilikan_faskes",
+          "name" : "Kepemilikan Faskes",
+          "localizedName" : "Kepemilikan Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0021",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Kepemilikan Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "The clinical service unit assigned for care of the individual."
+          },
+          "annotations" : {
+            "comment" : "For example: Orthopaedic A unit."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0021,'Kepemilikan Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "kode_faskes",
+          "name" : "Kode Faskes",
+          "localizedName" : "Kode Faskes",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0006",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Kode Faskes"
+          },
+          "localizedDescriptions" : {
+            "en" : "Outcome for the individual at the end of the episode of care."
+          },
+          "annotations" : {
+            "comment" : "For example: recovered/not recovered/death."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/data[at0001]/items[at0006,'Kode Faskes']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Data Faskes Rujukan']/items[openEHR-EHR-ADMIN_ENTRY.episode_institution.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
