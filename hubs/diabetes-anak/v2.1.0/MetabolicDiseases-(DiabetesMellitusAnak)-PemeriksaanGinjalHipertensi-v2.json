@@ -1,19 +1,19 @@
 {
-  "templateId" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanGinjalHipertensi-v2",
-  "semVer" : "2.2.0",
+  "templateId" : "MetabolicDiseases-(DiabetesMellitusAnak)-PemeriksaanGinjalHipertensi-v2",
+  "semVer" : "2.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
   "tree" : {
-    "id" : "metabolicdiseases-_diabetesmellitus_-pemeriksaanginjalhipertensi-v2",
-    "name" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanGinjalHipertensi-v2",
-    "localizedName" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanGinjalHipertensi-v2",
+    "id" : "metabolicdiseases-_diabetesmellitusanak_-pemeriksaanginjalhipertensi-v2",
+    "name" : "MetabolicDiseases-(DiabetesMellitusAnak)-PemeriksaanGinjalHipertensi-v2",
+    "localizedName" : "MetabolicDiseases-(DiabetesMellitusAnak)-PemeriksaanGinjalHipertensi-v2",
     "rmType" : "COMPOSITION",
     "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
     "min" : 1,
     "max" : 1,
     "localizedNames" : {
-      "en" : "MetabolicDiseases-(DiabetesMellitus)-PemeriksaanGinjalHipertensi-v2"
+      "en" : "MetabolicDiseases-(DiabetesMellitusAnak)-PemeriksaanGinjalHipertensi-v2"
     },
     "localizedDescriptions" : {
       "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
@@ -295,14 +295,14 @@
                 } ]
               }, {
                 "id" : "rata-rata_cfpwv",
-                "name" : "Rata-rata cfpWV",
-                "localizedName" : "Rata-rata cfpWV",
-                "rmType" : "DV_COUNT",
+                "name" : "Rata-rata cfPWV",
+                "localizedName" : "Rata-rata cfPWV",
+                "rmType" : "DV_QUANTITY",
                 "nodeId" : "at0001",
                 "min" : 0,
                 "max" : -1,
                 "localizedNames" : {
-                  "en" : "Rata-rata cfpWV"
+                  "en" : "Rata-rata cfPWV"
                 },
                 "localizedDescriptions" : {
                   "en" : "The value of the analyte result."
@@ -312,9 +312,29 @@
                   "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                   "fhir_mapping" : "Observation.value[x]"
                 },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'cfPWV']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan cfPWV']/items[at0001,'Rata-rata cfpWV']/value",
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'cfPWV']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan cfPWV']/items[at0001,'Rata-rata cfPWV']/value",
                 "inputs" : [ {
-                  "type" : "INTEGER"
+                  "suffix" : "magnitude",
+                  "type" : "DECIMAL",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0
+                    }
+                  }
+                }, {
+                  "suffix" : "unit",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "m/s",
+                    "label" : "m/s",
+                    "validation" : {
+                      "range" : {
+                        "minOp" : ">=",
+                        "min" : 0.0
+                      }
+                    }
+                  } ]
                 } ]
               }, {
                 "id" : "central_pulse_pressure",
@@ -532,15 +552,15 @@
                   } ]
                 } ]
               }, {
-                "id" : "augmentation_index_aix",
-                "name" : "Augmentation index (AIx)",
-                "localizedName" : "Augmentation index (AIx)",
+                "id" : "augmentation_index_alx",
+                "name" : "Augmentation index (Alx)",
+                "localizedName" : "Augmentation index (Alx)",
                 "rmType" : "DV_QUANTITY",
                 "nodeId" : "at0001",
                 "min" : 0,
                 "max" : -1,
                 "localizedNames" : {
-                  "en" : "Augmentation index (AIx)"
+                  "en" : "Augmentation index (Alx)"
                 },
                 "localizedDescriptions" : {
                   "en" : "The value of the analyte result."
@@ -550,7 +570,7 @@
                   "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                   "fhir_mapping" : "Observation.value[x]"
                 },
-                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'cfPWV']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan cfPWV']/items[at0001,'Augmentation index (AIx)']/value",
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'cfPWV']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan cfPWV']/items[at0001,'Augmentation index (Alx)']/value",
                 "inputs" : [ {
                   "suffix" : "magnitude",
                   "type" : "DECIMAL",
