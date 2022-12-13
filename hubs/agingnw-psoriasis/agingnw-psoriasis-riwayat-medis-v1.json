@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-riwayat-medis-v1",
-  "semVer" : "0.16.0",
+  "semVer" : "0.17.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -182,6 +182,12 @@
                 "localizedLabels" : {
                   "en" : "Analgesik"
                 }
+              }, {
+                "value" : "4",
+                "label" : "Lainnya (free text)",
+                "localizedLabels" : {
+                  "en" : "Lainnya (free text)"
+                }
               } ],
               "terminology" : "local_riwayatalergi"
             } ]
@@ -192,7 +198,7 @@
             "rmType" : "DV_TEXT",
             "nodeId" : "at0028",
             "min" : 0,
-            "max" : -1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Jika iya, sebutkan riwayat alergi obat yang dimiliki! (lainnya)"
             },
@@ -451,6 +457,12 @@
                 "localizedLabels" : {
                   "en" : "Pityriasis rosea"
                 }
+              }, {
+                "value" : "4",
+                "label" : "Lainnya (free text)",
+                "localizedLabels" : {
+                  "en" : "Lainnya (free text)"
+                }
               } ],
               "terminology" : "local_riwayatpenyakitkulit"
             } ]
@@ -461,7 +473,7 @@
             "rmType" : "DV_TEXT",
             "nodeId" : "at0028",
             "min" : 0,
-            "max" : -1,
+            "max" : 1,
             "localizedNames" : {
               "en" : "Jika iya, sebutkan riwayat penyakit kulit yang pernah dialami! (lainnya)"
             },
@@ -666,7 +678,7 @@
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0028",
             "min" : 0,
-            "max" : 1,
+            "max" : -1,
             "localizedNames" : {
               "en" : "Jika iya, terkonfirmasi dengan apa?"
             },
@@ -1731,7 +1743,7 @@
               "id" : "selama",
               "name" : "Selama",
               "localizedName" : "Selama",
-              "rmType" : "DV_TEXT",
+              "rmType" : "DV_DATE_TIME",
               "nodeId" : "at0002",
               "min" : 0,
               "max" : 1,
@@ -1746,7 +1758,10 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat metotreksat dan secukinumab screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat metotreksat']/items[at0002,'Selama']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-XXTXX:XX:XX"
+                }
               } ]
             }, {
               "id" : "dosage",
@@ -1908,7 +1923,7 @@
               "id" : "selama",
               "name" : "Selama",
               "localizedName" : "Selama",
-              "rmType" : "DV_TEXT",
+              "rmType" : "DV_DATE_TIME",
               "nodeId" : "at0002",
               "min" : 0,
               "max" : 1,
@@ -1923,7 +1938,10 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat metotreksat dan secukinumab screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat secukinumab']/items[at0002,'Selama']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-XXTXX:XX:XX"
+                }
               } ]
             }, {
               "id" : "dosage",
@@ -2093,7 +2111,7 @@
             "rmType" : "DV_CODED_TEXT",
             "nodeId" : "at0027",
             "min" : 0,
-            "max" : 1,
+            "max" : -1,
             "localizedNames" : {
               "en" : "Riwayat penggunaan obat lain"
             },
@@ -2136,6 +2154,12 @@
                 "label" : "Antihistamin",
                 "localizedLabels" : {
                   "en" : "Antihistamin"
+                }
+              }, {
+                "value" : "5",
+                "label" : "Lainnya (free text)",
+                "localizedLabels" : {
+                  "en" : "Lainnya (free text)"
                 }
               } ],
               "terminology" : "local_jenisobat"
@@ -2238,7 +2262,7 @@
               "id" : "durasi_penggunaan",
               "name" : "Durasi penggunaan",
               "localizedName" : "Durasi penggunaan",
-              "rmType" : "DV_TEXT",
+              "rmType" : "DV_DATE_TIME",
               "nodeId" : "at0002",
               "min" : 0,
               "max" : 1,
@@ -2253,7 +2277,10 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat lain screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat siklosporin']/items[at0002,'Durasi penggunaan']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-XXTXX:XX:XX"
+                }
               } ]
             } ]
           }, {
@@ -2333,7 +2360,7 @@
               "id" : "durasi_penggunaan",
               "name" : "Durasi penggunaan",
               "localizedName" : "Durasi penggunaan",
-              "rmType" : "DV_TEXT",
+              "rmType" : "DV_DATE_TIME",
               "nodeId" : "at0002",
               "min" : 0,
               "max" : 1,
@@ -2348,7 +2375,10 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat lain screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat kortikosteroid']/items[at0002,'Durasi penggunaan']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-XXTXX:XX:XX"
+                }
               } ]
             } ]
           }, {
@@ -2428,7 +2458,7 @@
               "id" : "durasi_penggunaan",
               "name" : "Durasi penggunaan",
               "localizedName" : "Durasi penggunaan",
-              "rmType" : "DV_TEXT",
+              "rmType" : "DV_DATE_TIME",
               "nodeId" : "at0002",
               "min" : 0,
               "max" : 1,
@@ -2443,7 +2473,10 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat penggunaan obat']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat penggunaan obat lain screening questionnaire']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Riwayat asam folat']/items[at0002,'Durasi penggunaan']/value",
               "inputs" : [ {
-                "type" : "TEXT"
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-XXTXX:XX:XX"
+                }
               } ]
             } ]
           }, {
@@ -2690,6 +2723,12 @@
                   "localizedLabels" : {
                     "en" : "Dermatitis"
                   }
+                }, {
+                  "value" : "3",
+                  "label" : "Lainnya (free text)",
+                  "localizedLabels" : {
+                    "en" : "Lainnya (free text)"
+                  }
                 } ],
                 "terminology" : "local_riwayatalergipadakeluarga"
               } ]
@@ -2700,7 +2739,7 @@
               "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0035",
               "min" : 0,
-              "max" : -1,
+              "max" : 1,
               "localizedNames" : {
                 "en" : "Jika iya, sebutkan riwayat alergi yang dimiliki! (lainnya)"
               },
@@ -2823,6 +2862,12 @@
                   "localizedLabels" : {
                     "en" : "Sistemik lupus eritematosus"
                   }
+                }, {
+                  "value" : "8",
+                  "label" : "Lainnya (free text)",
+                  "localizedLabels" : {
+                    "en" : "Lainnya (free text)"
+                  }
                 } ],
                 "terminology" : "local_riwayatpenyakitlainpadakeluarga"
               } ]
@@ -2833,7 +2878,7 @@
               "rmType" : "DV_TEXT",
               "nodeId" : "at0035",
               "min" : 0,
-              "max" : -1,
+              "max" : 1,
               "localizedNames" : {
                 "en" : "Riwayat penyakit lain pada keluarga (lainnya)"
               },
