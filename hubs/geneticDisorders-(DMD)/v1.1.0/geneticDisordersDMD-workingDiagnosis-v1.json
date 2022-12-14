@@ -1,0 +1,353 @@
+{
+  "templateId" : "geneticDisordersDMD-workingDiagnosis-v1",
+  "semVer" : "2.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisordersdmd-workingdiagnosis-v1",
+    "name" : "geneticDisordersDMD-workingDiagnosis-v1",
+    "localizedName" : "geneticDisordersDMD-workingDiagnosis-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersDMD-workingDiagnosis-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "diagnosis_kerja",
+      "name" : "Diagnosis Kerja",
+      "localizedName" : "Diagnosis Kerja",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Diagnosis Kerja"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']",
+      "children" : [ {
+        "id" : "problem_diagnosis_screening_questionnaire",
+        "name" : "Problem/Diagnosis screening questionnaire",
+        "localizedName" : "Problem/Diagnosis screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Problem/Diagnosis screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "specific_problem_or_diagnosis",
+            "name" : "Specific problem or diagnosis",
+            "localizedName" : "Specific problem or diagnosis",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Specific problem or diagnosis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]",
+            "children" : [ {
+              "id" : "sedang_mengikuti_uji_klinik_obat",
+              "name" : "Sedang mengikuti uji klinik obat",
+              "localizedName" : "Sedang mengikuti uji klinik obat",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sedang mengikuti uji klinik obat"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004,'Sedang mengikuti uji klinik obat']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "31874001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "64100000",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "tanggal_diagnosis",
+              "name" : "Tanggal Diagnosis",
+              "localizedName" : "Tanggal Diagnosis",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0040",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal Diagnosis"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the initial recognition of the issue, problem or diagnosis."
+              },
+              "annotations" : {
+                "comment" : "The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of a problem or the timing of a diagnosis. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date of diagnosis. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0040,'Tanggal Diagnosis']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
+                }
+              } ]
+            }, {
+              "id" : "diagnosis",
+              "name" : "Diagnosis",
+              "localizedName" : "Diagnosis",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0040",
+              "min" : 1,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Diagnosis"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the initial recognition of the issue, problem or diagnosis."
+              },
+              "annotations" : {
+                "comment" : "The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of a problem or the timing of a diagnosis. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date of diagnosis. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0040,'Diagnosis']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "DMD",
+                  "localizedLabels" : {
+                    "en" : "DMD"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "BMD",
+                  "localizedLabels" : {
+                    "en" : "BMD"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Lainnya",
+                  "localizedLabels" : {
+                    "en" : "Lainnya"
+                  }
+                } ],
+                "terminology" : "local_termsDMD"
+              } ]
+            }, {
+              "id" : "diagnosis_lainnya",
+              "name" : "Diagnosis Lainnya",
+              "localizedName" : "Diagnosis Lainnya",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0040",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Diagnosis Lainnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the initial recognition of the issue, problem or diagnosis."
+              },
+              "annotations" : {
+                "comment" : "The 'Onset' data element is deliberately loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of a problem or the timing of a diagnosis. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date of diagnosis. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0040,'Diagnosis Lainnya']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis Kerja']/items[openEHR-EHR-OBSERVATION.problem_screening.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
