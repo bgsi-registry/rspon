@@ -1,6 +1,6 @@
 {
   "templateId" : "neurovas-stroke-obs-v1",
-  "semVer" : "1.0.1",
+  "semVer" : "1.1.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -90,7 +90,7 @@
           "id" : "disartria",
           "name" : "Disartria",
           "localizedName" : "Disartria",
-          "rmType" : "DV_BOOLEAN",
+          "rmType" : "ELEMENT",
           "nodeId" : "at0028",
           "min" : 1,
           "max" : 1,
@@ -103,15 +103,62 @@
           "annotations" : {
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Disartria']/value",
-          "inputs" : [ {
-            "type" : "BOOLEAN"
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Disartria']",
+          "children" : [ {
+            "id" : "coded_text_value",
+            "localizedName" : "Disartria",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Disartria']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::373066001",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              }, {
+                "value" : "SCTID::373067005",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "boolean_value",
+            "localizedName" : "Disartria",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Disartria']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
           } ]
         }, {
           "id" : "nyeri_kepala",
           "name" : "Nyeri kepala",
           "localizedName" : "Nyeri kepala",
-          "rmType" : "DV_CODED_TEXT",
+          "rmType" : "ELEMENT",
           "nodeId" : "at0028",
           "min" : 1,
           "max" : 1,
@@ -124,52 +171,62 @@
           "annotations" : {
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Nyeri kepala']/value",
-          "inputs" : [ {
-            "suffix" : "code",
-            "type" : "CODED_TEXT",
-            "list" : [ {
-              "value" : "SCTID::2667000",
-              "label" : "Tidak ada",
-              "localizedLabels" : {
-                "en" : "Tidak ada"
-              }
-            }, {
-              "value" : "SCTID::25064002",
-              "label" : "Ada (unspecified)",
-              "localizedLabels" : {
-                "en" : "Ada (unspecified)"
-              }
-            }, {
-              "value" : "10111",
-              "label" : "Ada, pulsatil",
-              "localizedLabels" : {
-                "en" : "Ada, pulsatil"
-              }
-            }, {
-              "value" : "SCTID::398057008",
-              "label" : "Tension-type",
-              "localizedLabels" : {
-                "en" : "Tension-type"
-              }
-            }, {
-              "value" : "SCTID::95657009",
-              "label" : "Mixed-type",
-              "localizedLabels" : {
-                "en" : "Mixed-type"
-              }
-            } ],
-            "listOpen" : true,
-            "terminology" : "SNOMED-CT"
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Nyeri kepala']",
+          "children" : [ {
+            "id" : "coded_text_value",
+            "localizedName" : "Nyeri kepala",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Nyeri kepala']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::373066001",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              }, {
+                "value" : "SCTID::373067005",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
           }, {
-            "suffix" : "other",
-            "type" : "TEXT"
+            "id" : "boolean_value",
+            "localizedName" : "Nyeri kepala",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Nyeri kepala']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
           } ]
         }, {
           "id" : "muntah",
           "name" : "Muntah",
           "localizedName" : "Muntah",
-          "rmType" : "DV_BOOLEAN",
+          "rmType" : "ELEMENT",
           "nodeId" : "at0028",
           "min" : 1,
           "max" : 1,
@@ -182,15 +239,62 @@
           "annotations" : {
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Muntah']/value",
-          "inputs" : [ {
-            "type" : "BOOLEAN"
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Muntah']",
+          "children" : [ {
+            "id" : "coded_text_value",
+            "localizedName" : "Muntah",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Muntah']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::373066001",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              }, {
+                "value" : "SCTID::373067005",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "boolean_value",
+            "localizedName" : "Muntah",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Muntah']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
           } ]
         }, {
           "id" : "vertigo",
           "name" : "Vertigo",
           "localizedName" : "Vertigo",
-          "rmType" : "DV_BOOLEAN",
+          "rmType" : "ELEMENT",
           "nodeId" : "at0028",
           "min" : 1,
           "max" : 1,
@@ -203,18 +307,65 @@
           "annotations" : {
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Vertigo']/value",
-          "inputs" : [ {
-            "type" : "BOOLEAN"
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Vertigo']",
+          "children" : [ {
+            "id" : "coded_text_value",
+            "localizedName" : "Vertigo",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Vertigo']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::373066001",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              }, {
+                "value" : "SCTID::373067005",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "boolean_value",
+            "localizedName" : "Vertigo",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Vertigo']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
           } ]
         }, {
           "id" : "mual",
           "name" : "Mual",
           "localizedName" : "Mual",
-          "rmType" : "DV_BOOLEAN",
+          "rmType" : "ELEMENT",
           "nodeId" : "at0028",
-          "min" : 1,
-          "max" : 1,
+          "min" : 0,
+          "max" : -1,
           "localizedNames" : {
             "en" : "Mual"
           },
@@ -224,15 +375,62 @@
           "annotations" : {
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Mual']/value",
-          "inputs" : [ {
-            "type" : "BOOLEAN"
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Mual']",
+          "children" : [ {
+            "id" : "coded_text_value",
+            "localizedName" : "Mual",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Mual']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::373066001",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              }, {
+                "value" : "SCTID::373067005",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "boolean_value",
+            "localizedName" : "Mual",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Mual']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
           } ]
         }, {
           "id" : "penurunan_kesadaran",
           "name" : "Penurunan kesadaran",
           "localizedName" : "Penurunan kesadaran",
-          "rmType" : "DV_CODED_TEXT",
+          "rmType" : "ELEMENT",
           "nodeId" : "at0028",
           "min" : 0,
           "max" : -1,
@@ -245,36 +443,56 @@
           "annotations" : {
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Penurunan kesadaran']/value",
-          "inputs" : [ {
-            "suffix" : "code",
-            "type" : "CODED_TEXT",
-            "list" : [ {
-              "value" : "SCTID::2667000",
-              "label" : "Tidak ada",
-              "localizedLabels" : {
-                "en" : "Tidak ada"
-              }
-            }, {
-              "value" : "SCTID::271782001",
-              "label" : "Drowsy",
-              "localizedLabels" : {
-                "en" : "Drowsy"
-              }
-            }, {
-              "value" : "SCTID::89458003",
-              "label" : "Stupor",
-              "localizedLabels" : {
-                "en" : "Stupor"
-              }
-            }, {
-              "value" : "SCTID::371632003",
-              "label" : "Coma",
-              "localizedLabels" : {
-                "en" : "Coma"
-              }
-            } ],
-            "terminology" : "SNOMED-CT"
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Penurunan kesadaran']",
+          "children" : [ {
+            "id" : "coded_text_value",
+            "localizedName" : "Penurunan kesadaran",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Penurunan kesadaran']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::373066001",
+                "label" : "Ya",
+                "localizedLabels" : {
+                  "en" : "Ya"
+                }
+              }, {
+                "value" : "SCTID::373067005",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "boolean_value",
+            "localizedName" : "Penurunan kesadaran",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : null
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Penurunan kesadaran']/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
           } ]
         }, {
           "id" : "keluhan_lain",
