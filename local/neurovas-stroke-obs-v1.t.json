@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "1.2.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "e707e4673e90a150b6ac5116cce05bc3",
+      "MD5-CAM-1.0.1" : "e1443957f066c3e63f37cf0441c8ce94",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -1655,20 +1655,11 @@
                     }, {
                       "@type" : "C_ARCHETYPE_ROOT",
                       "rmTypeName" : "CLUSTER",
-                      "occurrences" : "1..1",
-                      "nodeId" : "at0005.6",
-                      "attributes" : [ ],
-                      "attributeTuples" : [ ],
-                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-exam-nervous_system-003.v0",
-                      "referenceType" : "archetypeOverlay"
-                    }, {
-                      "@type" : "C_ARCHETYPE_ROOT",
-                      "rmTypeName" : "CLUSTER",
                       "occurrences" : "0..1",
                       "nodeId" : "at0005.2",
                       "attributes" : [ ],
                       "attributeTuples" : [ ],
-                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-exam-003.v2",
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-exam-nervous_system-002.v0",
                       "referenceType" : "archetypeOverlay"
                     }, {
                       "@type" : "C_ARCHETYPE_ROOT",
@@ -1683,10 +1674,19 @@
                       "@type" : "C_ARCHETYPE_ROOT",
                       "rmTypeName" : "CLUSTER",
                       "occurrences" : "0..1",
-                      "nodeId" : "at0005.4",
+                      "nodeId" : "at0005.2",
                       "attributes" : [ ],
                       "attributeTuples" : [ ],
-                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-exam-nervous_system-002.v0",
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-exam-003.v2",
+                      "referenceType" : "archetypeOverlay"
+                    }, {
+                      "@type" : "C_ARCHETYPE_ROOT",
+                      "rmTypeName" : "CLUSTER",
+                      "occurrences" : "1..1",
+                      "nodeId" : "at0005.6",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ],
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-exam-nervous_system-003.v0",
                       "referenceType" : "archetypeOverlay"
                     } ]
                   } ],
@@ -2002,14 +2002,43 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0012.0.1",
-          "attributes" : [ ],
+          "nodeId" : "at0001.1.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "defaultValue" : {
+                "defining_code" : {
+                  "code_string" : "at0.1",
+                  "@type" : "CODE_PHRASE"
+                },
+                "@type" : "DV_CODED_TEXT"
+              },
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0.1" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0003.0.1",
+          "occurrences" : "0..0",
+          "nodeId" : "at0012.0.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
@@ -2129,17 +2158,22 @@
                 "children" : [ {
                   "@type" : "C_TERMINOLOGY_CODE",
                   "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
                   "terminologyId" : {
-                    "value" : "local_terms"
+                    "value" : "SNOMED-CT"
                   },
                   "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms" ],
+                  "selectedTerminologies" : [ "SNOMED-CT" ],
                   "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::2667000",
+                    "value" : "Tidak ada"
+                  }, {
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "103010",
                     "value" : "N. VII dx sentral"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "103011",
                     "value" : "N. VII sn sentral"
                   } ]
@@ -2202,6 +2236,12 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.0.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0.19.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -2218,16 +2258,20 @@
                   "rmTypeName" : "TERMINOLOGY_CODE",
                   "occurrences" : "0..1",
                   "terminologyId" : {
-                    "value" : "local_terms"
+                    "value" : "SNOMED-CT"
                   },
                   "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms" ],
+                  "selectedTerminologies" : [ "SNOMED-CT" ],
                   "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::2667000",
+                    "value" : "Tidak ada"
+                  }, {
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "103020",
                     "value" : "N. XII dx sentral"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "103021",
                     "value" : "N. XII sn sentral"
                   } ]
@@ -2470,6 +2514,13 @@
             "code" : "at0003",
             "text" : "Descrição clínica",
             "description" : "Descrição narrativa dos achados gerais observados durante o exame físico."
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "Sistema ou estrutura examinada",
+            "description" : "Identificação do sistema do corpo examinado ou da estrutura anatômica.",
+            "comment" : "A codificação do sistema ou estrutura examinada com uma terminologia é preferível, sempre que possível."
           }
         },
         "de" : {
@@ -2599,6 +2650,13 @@
             "code" : "at0003",
             "text" : "Klinische Beschreibung",
             "description" : "Beschreibung der bei der körperlichen Untersuchung beobachteten Gesamtbefunde."
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "Untersuchtes System oder untersuchte Struktur",
+            "description" : "Identifizierung des untersuchten Körpersystems oder der anatomischen Struktur.",
+            "comment" : "Wenn möglich wird die Kodierung des untersuchten Systems oder der untersuchten Struktur mit einer Terminologie bevorzugt."
           }
         },
         "sv" : {
@@ -2728,6 +2786,13 @@
             "code" : "at0003",
             "text" : "Klinisk beskrivning",
             "description" : "En övergripande beskrivning av fynden från den fysiska undersökningen. "
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "System eller struktur som undersökts",
+            "description" : "Identifiering av systemet eller strukturen som undersökts.",
+            "comment" : "Om möjligt, koda systemet eller strukturen med hjälp av ett terminologisystem."
           }
         }
       },
@@ -3014,6 +3079,10 @@
                     "terminologyId" : "SNOMED-CT",
                     "code" : "SCTID::26544005",
                     "value" : "General weakness"
+                  }, {
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::74964007",
+                    "value" : "Lainnya"
                   } ]
                 } ]
               } ],
@@ -3343,6 +3412,10 @@
                     "terminologyId" : "SNOMED-CT",
                     "code" : "SCTID::277285005",
                     "value" : "Thalamic pain"
+                  }, {
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::74964007",
+                    "value" : "Lainnya"
                   } ]
                 } ]
               } ],
@@ -3382,7 +3455,7 @@
           "at0006.0.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0006.0.1",
-            "text" : "Gangguan",
+            "text" : "Gangguan sensorik",
             "description" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings.",
             "comment" : "Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
           },
@@ -3994,6 +4067,41 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "defaultValue" : {
+                "defining_code" : {
+                  "code_string" : "at0.1",
+                  "@type" : "CODE_PHRASE"
+                },
+                "@type" : "DV_CODED_TEXT"
+              },
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0.1" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0012.0.1",
           "attributes" : [ ],
@@ -4213,6 +4321,13 @@
             "text" : "Interpretação clínica",
             "description" : "Palavra, frase ou breve descrição que represente o significado clínico e o significado dos resultados do exame físico.",
             "comment" : "*For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible. (en)"
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "Sistema ou estrutura examinada",
+            "description" : "Identificação do sistema do corpo examinado ou da estrutura anatômica.",
+            "comment" : "A codificação do sistema ou estrutura examinada com uma terminologia é preferível, sempre que possível."
           }
         },
         "de" : {
@@ -4336,6 +4451,13 @@
             "text" : "Klinische Interpretation",
             "description" : "Ein einzelnes Wort, eine Phrase oder eine kurze Beschreibung, die die klinische Bedeutung und Wichtigkeit der Untersuchungsergebnisse darstellt.",
             "comment" : "*For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible. (en)"
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "Untersuchtes System oder untersuchte Struktur",
+            "description" : "Identifizierung des untersuchten Körpersystems oder der anatomischen Struktur.",
+            "comment" : "Wenn möglich wird die Kodierung des untersuchten Systems oder der untersuchten Struktur mit einer Terminologie bevorzugt."
           }
         },
         "sv" : {
@@ -4459,6 +4581,13 @@
             "text" : "Klinisk tolkning",
             "description" : "Ord, fras eller kort beskrivning av fyndens kliniska betydelse.",
             "comment" : "*For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible. (en)"
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "System eller struktur som undersökts",
+            "description" : "Identifiering av systemet eller strukturen som undersökts.",
+            "comment" : "Om möjligt, koda systemet eller strukturen med hjälp av ett terminologisystem."
           }
         }
       },
@@ -5095,6 +5224,12 @@
             "text" : "Hemineglect",
             "description" : "Findings observed during the physical examination of a body system or anatomical structure.",
             "comment" : "SCTID::32422007\n\nNo right/left specification"
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Hemineglect",
+            "description" : "Narrative description of the overall findings observed during the physical examination."
           }
         },
         "nb" : {
@@ -5375,6 +5510,10 @@
                     "terminologyId" : "SNOMED-CT",
                     "code" : "SCTID::429998004",
                     "value" : "Demensia vaskular"
+                  }, {
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::74964007",
+                    "value" : "Lainnya"
                   } ]
                 } ]
               } ],
@@ -5414,7 +5553,7 @@
           "at0006.0.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0006.0.1",
-            "text" : "Gangguan",
+            "text" : "Gangguan fungsi luhur",
             "description" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings.",
             "comment" : "Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
           },
