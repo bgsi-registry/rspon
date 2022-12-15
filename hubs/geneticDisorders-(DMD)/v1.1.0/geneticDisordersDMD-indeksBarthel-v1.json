@@ -1,0 +1,894 @@
+{
+  "templateId" : "geneticDisordersDMD-indeksBarthel-v1",
+  "semVer" : "2.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisordersdmd-indeksbarthel-v1",
+    "name" : "geneticDisordersDMD-indeksBarthel-v1",
+    "localizedName" : "geneticDisordersDMD-indeksBarthel-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersDMD-indeksBarthel-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "adl_assessment_-_barthel_index",
+      "name" : "ADL assessment - Barthel Index",
+      "localizedName" : "ADL assessment - Barthel Index",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.adl.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "ADL assessment - Barthel Index"
+      },
+      "localizedDescriptions" : {
+        "en" : "Details about an individual's ability to perform an identified activity of daily living."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']",
+      "children" : [ {
+        "id" : "mengendalikan_rangsang_defekasi",
+        "name" : "Mengendalikan rangsang defekasi",
+        "localizedName" : "Mengendalikan rangsang defekasi",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Mengendalikan rangsang defekasi"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mengendalikan rangsang defekasi']",
+        "children" : [ {
+          "id" : "mengendalikan_rangsang_defekasi",
+          "name" : "Mengendalikan rangsang defekasi",
+          "localizedName" : "Mengendalikan rangsang defekasi",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Mengendalikan rangsang defekasi"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mengendalikan rangsang defekasi']/data[at0003]/items[at0004,'Mengendalikan rangsang defekasi']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tak terkendali/ tak teratur (perlu pencahar)",
+              "localizedLabels" : {
+                "en" : "Tak terkendali/ tak teratur (perlu pencahar)"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Kadang-kadang tak terkendali",
+              "localizedLabels" : {
+                "en" : "Kadang-kadang tak terkendali"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Terkendali teratur",
+              "localizedLabels" : {
+                "en" : "Terkendali teratur"
+              }
+            } ],
+            "terminology" : "local_termsRd"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mengendalikan rangsang defekasi']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "mengendalikan_rangsang_berkemih",
+        "name" : "Mengendalikan rangsang berkemih",
+        "localizedName" : "Mengendalikan rangsang berkemih",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Mengendalikan rangsang berkemih"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mengendalikan rangsang berkemih']",
+        "children" : [ {
+          "id" : "mengendalikan_rangsang_berkemih",
+          "name" : "Mengendalikan rangsang berkemih",
+          "localizedName" : "Mengendalikan rangsang berkemih",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Mengendalikan rangsang berkemih"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mengendalikan rangsang berkemih']/data[at0003]/items[at0004,'Mengendalikan rangsang berkemih']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tak terkendali/ pakai kateter",
+              "localizedLabels" : {
+                "en" : "Tak terkendali/ pakai kateter"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Kadang-kadang tak terkendali (1x24 jam)",
+              "localizedLabels" : {
+                "en" : "Kadang-kadang tak terkendali (1x24 jam)"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : "Mandiri"
+              }
+            } ],
+            "terminology" : "local_termsRb"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mengendalikan rangsang berkemih']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "membersihkan_diri_cucimuka_sisir_rambut_sikat_gigi",
+        "name" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+        "localizedName" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']",
+        "children" : [ {
+          "id" : "membersihkan_diri_cucimuka_sisir_rambut_sikat_gigi",
+          "name" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+          "localizedName" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Membersihkan diri (cucimuka, sisir rambut, sikat gigi)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']/data[at0003]/items[at0004,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Butuh pertolongan orang lain",
+              "localizedLabels" : {
+                "en" : "Butuh pertolongan orang lain"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : "Mandiri"
+              }
+            } ],
+            "terminology" : "local_termsCucimuka"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Membersihkan diri (cucimuka, sisir rambut, sikat gigi)']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "penggunaan_jamban_masuk_dan_keluar_melepaskan_memakai_celana_membersihkan_dan_menyiram_kotoran",
+        "name" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+        "localizedName" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']",
+        "children" : [ {
+          "id" : "penggunaan_jamban_masuk_dan_keluar_melepaskan_memakai_celana_membersihkan_dan_menyiram_kotoran",
+          "name" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+          "localizedName" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']/data[at0003]/items[at0004,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tergantung pertolongan orang lain",
+              "localizedLabels" : {
+                "en" : "Tergantung pertolongan orang lain"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Perlu pertolongan pada beberapa kegiatan tetapi dapat mengerjakan sendiri kegiatan yang lain",
+              "localizedLabels" : {
+                "en" : "Perlu pertolongan pada beberapa kegiatan tetapi dapat mengerjakan sendiri kegiatan yang lain"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : "Mandiri"
+              }
+            } ],
+            "terminology" : "local_termsJamban"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Penggunaan jamban, masuk dan keluar (melepaskan, memakai celana, membersihkan dan menyiram kotoran)']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "makan",
+        "name" : "Makan",
+        "localizedName" : "Makan",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Makan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Makan']",
+        "children" : [ {
+          "id" : "makan",
+          "name" : "Makan",
+          "localizedName" : "Makan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Makan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Makan']/data[at0003]/items[at0004,'Makan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : "Tidak mampu"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Perlu ditolong memotong makanan",
+              "localizedLabels" : {
+                "en" : "Perlu ditolong memotong makanan"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : "Mandiri"
+              }
+            } ],
+            "terminology" : "local_termsMakan"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Makan']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "berubah_sikap_dari_berbaring_ke_duduk",
+        "name" : "Berubah sikap dari berbaring ke duduk",
+        "localizedName" : "Berubah sikap dari berbaring ke duduk",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Berubah sikap dari berbaring ke duduk"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Berubah sikap dari berbaring ke duduk']",
+        "children" : [ {
+          "id" : "berubah_sikap_dari_berbaring_ke_duduk",
+          "name" : "Berubah sikap dari berbaring ke duduk",
+          "localizedName" : "Berubah sikap dari berbaring ke duduk",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Berubah sikap dari berbaring ke duduk"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Berubah sikap dari berbaring ke duduk']/data[at0003]/items[at0004,'Berubah sikap dari berbaring ke duduk']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : "Tidak mampu"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Perlu banyak bantuan untuk bisa duduk (1 atau 2 orang secara fisik)",
+              "localizedLabels" : {
+                "en" : "Perlu banyak bantuan untuk bisa duduk (1 atau 2 orang secara fisik)"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Bantuan minimal (hanya diarahkan secara verbal)",
+              "localizedLabels" : {
+                "en" : "Bantuan minimal (hanya diarahkan secara verbal)"
+              }
+            } ],
+            "terminology" : "local_termsBaringduduk"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Berubah sikap dari berbaring ke duduk']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "berpindah_berjalan",
+        "name" : "Berpindah/ berjalan",
+        "localizedName" : "Berpindah/ berjalan",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Berpindah/ berjalan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Berpindah/ berjalan']",
+        "children" : [ {
+          "id" : "berpindah_berjalan",
+          "name" : "Berpindah/ berjalan",
+          "localizedName" : "Berpindah/ berjalan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Berpindah/ berjalan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Berpindah/ berjalan']/data[at0003]/items[at0004,'Berpindah/ berjalan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : "Tidak mampu"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Bisa (pindah) dengan kursi roda",
+              "localizedLabels" : {
+                "en" : "Bisa (pindah) dengan kursi roda"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Berjalan dengan bantuan 1 orang",
+              "localizedLabels" : {
+                "en" : "Berjalan dengan bantuan 1 orang"
+              }
+            } ],
+            "terminology" : "local_termsPindahjalan"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Berpindah/ berjalan']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "memakai_baju",
+        "name" : "Memakai baju",
+        "localizedName" : "Memakai baju",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Memakai baju"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Memakai baju']",
+        "children" : [ {
+          "id" : "memakai_baju",
+          "name" : "Memakai baju",
+          "localizedName" : "Memakai baju",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Memakai baju"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Memakai baju']/data[at0003]/items[at0004,'Memakai baju']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tergantung orang lain",
+              "localizedLabels" : {
+                "en" : "Tergantung orang lain"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Sebagian dibantu (misalnya mengancing baju)",
+              "localizedLabels" : {
+                "en" : "Sebagian dibantu (misalnya mengancing baju)"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : "Mandiri"
+              }
+            } ],
+            "terminology" : "local_termsBaju"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Memakai baju']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "naik_turun_tangga",
+        "name" : "Naik turun tangga",
+        "localizedName" : "Naik turun tangga",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Naik turun tangga"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Naik turun tangga']",
+        "children" : [ {
+          "id" : "naik_turun_tangga",
+          "name" : "Naik turun tangga",
+          "localizedName" : "Naik turun tangga",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Naik turun tangga"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Naik turun tangga']/data[at0003]/items[at0004,'Naik turun tangga']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tidak mampu",
+              "localizedLabels" : {
+                "en" : "Tidak mampu"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Butuh pertolongan",
+              "localizedLabels" : {
+                "en" : "Butuh pertolongan"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : "Mandiri"
+              }
+            } ],
+            "terminology" : "local_termsTuruntangga"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Naik turun tangga']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "mandi",
+        "name" : "Mandi",
+        "localizedName" : "Mandi",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Mandi"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mandi']",
+        "children" : [ {
+          "id" : "mandi",
+          "name" : "Mandi",
+          "localizedName" : "Mandi",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Mandi"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mandi']/data[at0003]/items[at0004,'Mandi']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "0",
+              "label" : "Tergantung orang lain",
+              "localizedLabels" : {
+                "en" : "Tergantung orang lain"
+              }
+            }, {
+              "value" : "5",
+              "label" : "Mandiri",
+              "localizedLabels" : {
+                "en" : "Mandiri"
+              }
+            } ],
+            "terminology" : "local_termsMandi"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Mandi']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "skor_total",
+        "name" : "Skor Total",
+        "localizedName" : "Skor Total",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Skor Total"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Skor Total']",
+        "children" : [ {
+          "id" : "skor_total",
+          "name" : "Skor Total",
+          "localizedName" : "Skor Total",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Skor Total"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the activity of daily living."
+          },
+          "annotations" : {
+            "comment" : "For example: movement in bed; transfers; locomotion; dressing; personal hygiene; and feeding"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Skor Total']/data[at0003]/items[at0004,'Skor Total']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/data[at0001]/events[at0002,'Skor Total']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.adl.v0,'ADL assessment - Barthel Index']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
