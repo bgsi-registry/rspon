@@ -1,0 +1,3833 @@
+{
+  "templateId" : "geneticDisordersDMD-riwayatMedis-v1",
+  "semVer" : "1.2.1",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisordersdmd-riwayatmedis-v1",
+    "name" : "geneticDisordersDMD-riwayatMedis-v1",
+    "localizedName" : "geneticDisordersDMD-riwayatMedis-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersDMD-riwayatMedis-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "family_history_screening_questionnaire",
+      "name" : "Family history screening questionnaire",
+      "localizedName" : "Family history screening questionnaire",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Family history screening questionnaire"
+      },
+      "localizedDescriptions" : {
+        "en" : "An individual- or self-reported questionnaire screening for significant health-related problems found in family members."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "specific_family_health_problem",
+          "name" : "Specific family health problem",
+          "localizedName" : "Specific family health problem",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0009",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Specific family health problem"
+          },
+          "localizedDescriptions" : {
+            "en" : "Screening details about a specified health problem."
+          },
+          "annotations" : {
+            "comment" : "This grouping is currently  ordered to indicate relationships per problem, but in practice could also be used to capture problems per relationship as Problem/Diagnosis name and Relationship both allow multiple occurrences."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]",
+          "children" : [ {
+            "id" : "riwayat_penyakit_ayah",
+            "name" : "Riwayat Penyakit Ayah",
+            "localizedName" : "Riwayat Penyakit Ayah",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0035",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat Penyakit Ayah"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the identified family member."
+            },
+            "annotations" : {
+              "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. "
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0035,'Riwayat Penyakit Ayah']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            }, {
+              "suffix" : "value",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            } ]
+          }, {
+            "id" : "riwayat_penyakit_ibu",
+            "name" : "Riwayat Penyakit Ibu",
+            "localizedName" : "Riwayat Penyakit Ibu",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0035",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat Penyakit Ibu"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the identified family member."
+            },
+            "annotations" : {
+              "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. "
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0035,'Riwayat Penyakit Ibu']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            }, {
+              "suffix" : "value",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            } ]
+          }, {
+            "id" : "riwayat_penyakit_pasien",
+            "name" : "Riwayat Penyakit Pasien",
+            "localizedName" : "Riwayat Penyakit Pasien",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0035",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat Penyakit Pasien"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the identified family member."
+            },
+            "annotations" : {
+              "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. "
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0035,'Riwayat Penyakit Pasien']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            }, {
+              "suffix" : "value",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            } ]
+          }, {
+            "id" : "riwayat_pasien_memiliki_penyakit_retardasi_mental",
+            "name" : "Riwayat pasien memiliki penyakit retardasi mental",
+            "localizedName" : "Riwayat pasien memiliki penyakit retardasi mental",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0035",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat pasien memiliki penyakit retardasi mental"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the identified family member."
+            },
+            "annotations" : {
+              "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. "
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0035,'Riwayat pasien memiliki penyakit retardasi mental']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "31874001",
+                "label" : "Punya",
+                "localizedLabels" : {
+                  "en" : "Punya"
+                }
+              }, {
+                "value" : "64100000",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED_CTmental"
+            } ]
+          }, {
+            "id" : "riwayat_anggota_keluarga_pasien_memiliki_penyakit_yang_sama",
+            "name" : "Riwayat anggota keluarga pasien memiliki penyakit yang sama",
+            "localizedName" : "Riwayat anggota keluarga pasien memiliki penyakit yang sama",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0035",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat anggota keluarga pasien memiliki penyakit yang sama"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the identified family member."
+            },
+            "annotations" : {
+              "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. "
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0035,'Riwayat anggota keluarga pasien memiliki penyakit yang sama']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "31874001",
+                "label" : "Ada",
+                "localizedLabels" : {
+                  "en" : "Ada"
+                }
+              }, {
+                "value" : "64100000",
+                "label" : "Tidak",
+                "localizedLabels" : {
+                  "en" : "Tidak"
+                }
+              } ],
+              "terminology" : "SNOMED_CT"
+            } ]
+          }, {
+            "id" : "nama_penyakit",
+            "name" : "Nama penyakit",
+            "localizedName" : "Nama penyakit",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0035",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Nama penyakit"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the significant problem or diagnosis in the identified family member."
+            },
+            "annotations" : {
+              "comment" : "Coding of the family member's problem or diagnosis with a terminology is preferred, where possible. "
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0035,'Nama penyakit']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            }, {
+              "suffix" : "value",
+              "type" : "TEXT",
+              "terminology" : "ICD10"
+            } ]
+          }, {
+            "id" : "hubungan_keluarga",
+            "name" : "Hubungan Keluarga",
+            "localizedName" : "Hubungan Keluarga",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0018",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Hubungan Keluarga"
+            },
+            "localizedDescriptions" : {
+              "en" : "The relationship of the family member to the individual.\r\n"
+            },
+            "annotations" : {
+              "comment" : "For example: mother, step-father, maternal grandmother, or paternal uncle. Coding of the relationship with a terminology is preferred, where possible and including specification of maternal and paternal as required."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0018,'Hubungan Keluarga']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "media_file",
+        "name" : "Media file",
+        "localizedName" : "Media file",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.media_file.v1",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "any_event" ],
+        "localizedNames" : {
+          "en" : "Media file"
+        },
+        "localizedDescriptions" : {
+          "en" : "A media file that is acquired or used as part of the healthcare process, and associated metadata."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/protocol[at0021]/items[openEHR-EHR-CLUSTER.media_file.v1]",
+        "children" : [ {
+          "id" : "pedigree_3_generasi_link_file",
+          "name" : "Pedigree 3 generasi (link file)",
+          "localizedName" : "Pedigree 3 generasi (link file)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Pedigree 3 generasi (link file)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Descriptive name or title for the media file."
+          },
+          "annotations" : {
+            "comment" : "A description of the content of the media file. Use an agreed standardised naming convention, if available. For example: \"Right hand burn #1\" or \"Cardiology video consultation on May 2\"."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/protocol[at0021]/items[openEHR-EHR-CLUSTER.media_file.v1]/items[at0002,'Pedigree 3 generasi (link file)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.family_history_screening_questionnaire.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "riwayat_vaksin",
+      "name" : "Riwayat Vaksin",
+      "localizedName" : "Riwayat Vaksin",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat Vaksin"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']",
+      "children" : [ {
+        "id" : "vaksin_hepatitis_b",
+        "name" : "Vaksin Hepatitis B",
+        "localizedName" : "Vaksin Hepatitis B",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Hepatitis B"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis B']",
+        "children" : [ {
+          "id" : "vaksin_hepatitis_b",
+          "name" : "Vaksin Hepatitis B",
+          "localizedName" : "Vaksin Hepatitis B",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Hepatitis B"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis B']/data[at0001]/items[at0052,'Vaksin Hepatitis B']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z24.6",
+              "label" : "Hepatitis B",
+              "localizedLabels" : {
+                "en" : "Hepatitis B"
+              }
+            } ],
+            "defaultValue" : "Z24.6",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis B']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis B']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis B']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis B']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis B']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_polio",
+        "name" : "Vaksin Polio",
+        "localizedName" : "Vaksin Polio",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Polio"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Polio']",
+        "children" : [ {
+          "id" : "vaksin_polio",
+          "name" : "Vaksin Polio",
+          "localizedName" : "Vaksin Polio",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Polio"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Polio']/data[at0001]/items[at0052,'Vaksin Polio']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z24.0",
+              "label" : "Poliomyelitis",
+              "localizedLabels" : {
+                "en" : "Poliomyelitis"
+              }
+            } ],
+            "defaultValue" : "Z24.0",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Polio']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Polio']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Polio']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Polio']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Polio']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_bcg",
+        "name" : "Vaksin BCG",
+        "localizedName" : "Vaksin BCG",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin BCG"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin BCG']",
+        "children" : [ {
+          "id" : "vaksin_bcg",
+          "name" : "Vaksin BCG",
+          "localizedName" : "Vaksin BCG",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin BCG"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin BCG']/data[at0001]/items[at0052,'Vaksin BCG']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Y58.0",
+              "label" : "BCG vaccine",
+              "localizedLabels" : {
+                "en" : "BCG vaccine"
+              }
+            } ],
+            "defaultValue" : "Y58.0",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin BCG']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin BCG']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin BCG']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin BCG']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin BCG']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_dpt",
+        "name" : "Vaksin DPT",
+        "localizedName" : "Vaksin DPT",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin DPT"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin DPT']",
+        "children" : [ {
+          "id" : "vaksin_dpt",
+          "name" : "Vaksin DPT",
+          "localizedName" : "Vaksin DPT",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin DPT"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin DPT']/data[at0001]/items[at0052,'Vaksin DPT']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z27.1",
+              "label" : "DPT",
+              "localizedLabels" : {
+                "en" : "DPT"
+              }
+            } ],
+            "defaultValue" : "Z27.1",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin DPT']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin DPT']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin DPT']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin DPT']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin DPT']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_hib",
+        "name" : "Vaksin Hib",
+        "localizedName" : "Vaksin Hib",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Hib"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hib']",
+        "children" : [ {
+          "id" : "vaksin_hib",
+          "name" : "Vaksin Hib",
+          "localizedName" : "Vaksin Hib",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Hib"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hib']/data[at0001]/items[at0052,'Vaksin Hib']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z23",
+              "label" : "Haemophilus influenzae type b",
+              "localizedLabels" : {
+                "en" : "Haemophilus influenzae type b"
+              }
+            } ],
+            "defaultValue" : "Z23",
+            "terminology" : "ICD-10hib"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hib']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hib']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hib']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hib']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hib']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_pcv",
+        "name" : "Vaksin PCV",
+        "localizedName" : "Vaksin PCV",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin PCV"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin PCV']",
+        "children" : [ {
+          "id" : "vaksin_pcv",
+          "name" : "Vaksin PCV",
+          "localizedName" : "Vaksin PCV",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin PCV"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin PCV']/data[at0001]/items[at0052,'Vaksin PCV']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z23",
+              "label" : "Pnemococcal Conjugate Vaccine",
+              "localizedLabels" : {
+                "en" : "Pnemococcal Conjugate Vaccine"
+              }
+            } ],
+            "defaultValue" : "Z23",
+            "terminology" : "ICD-10PCV"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin PCV']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin PCV']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin PCV']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin PCV']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin PCV']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_rotavirus",
+        "name" : "Vaksin Rotavirus",
+        "localizedName" : "Vaksin Rotavirus",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Rotavirus"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Rotavirus']",
+        "children" : [ {
+          "id" : "vaksin_rotavirus",
+          "name" : "Vaksin Rotavirus",
+          "localizedName" : "Vaksin Rotavirus",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Rotavirus"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Rotavirus']/data[at0001]/items[at0052,'Vaksin Rotavirus']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z23",
+              "label" : "Rotavirus",
+              "localizedLabels" : {
+                "en" : "Rotavirus"
+              }
+            } ],
+            "defaultValue" : "Z23",
+            "terminology" : "ICD-10rota"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Rotavirus']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Rotavirus']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Rotavirus']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Rotavirus']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Rotavirus']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_influenza",
+        "name" : "Vaksin Influenza",
+        "localizedName" : "Vaksin Influenza",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Influenza"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Influenza']",
+        "children" : [ {
+          "id" : "vaksin_influenza",
+          "name" : "Vaksin Influenza",
+          "localizedName" : "Vaksin Influenza",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Influenza"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Influenza']/data[at0001]/items[at0052,'Vaksin Influenza']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z25.1",
+              "label" : "Influenza",
+              "localizedLabels" : {
+                "en" : "Influenza"
+              }
+            } ],
+            "defaultValue" : "Z25.1",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Influenza']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Influenza']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Influenza']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Influenza']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Influenza']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_campak",
+        "name" : "Vaksin Campak",
+        "localizedName" : "Vaksin Campak",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Campak"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Campak']",
+        "children" : [ {
+          "id" : "vaksin_campak",
+          "name" : "Vaksin Campak",
+          "localizedName" : "Vaksin Campak",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Campak"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Campak']/data[at0001]/items[at0052,'Vaksin Campak']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z24.4",
+              "label" : "Campak / measles",
+              "localizedLabels" : {
+                "en" : "Campak / measles"
+              }
+            } ],
+            "defaultValue" : "Z24.4",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Campak']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Campak']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Campak']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Campak']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Campak']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_mmr",
+        "name" : "Vaksin MMR",
+        "localizedName" : "Vaksin MMR",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin MMR"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin MMR']",
+        "children" : [ {
+          "id" : "vaksin_mmr",
+          "name" : "Vaksin MMR",
+          "localizedName" : "Vaksin MMR",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin MMR"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin MMR']/data[at0001]/items[at0052,'Vaksin MMR']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z27.4",
+              "label" : "MMR",
+              "localizedLabels" : {
+                "en" : "MMR"
+              }
+            } ],
+            "defaultValue" : "Z27.4",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin MMR']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin MMR']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin MMR']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin MMR']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin MMR']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_tifoid",
+        "name" : "Vaksin Tifoid",
+        "localizedName" : "Vaksin Tifoid",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Tifoid"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Tifoid']",
+        "children" : [ {
+          "id" : "vaksin_tifoid",
+          "name" : "Vaksin Tifoid",
+          "localizedName" : "Vaksin Tifoid",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Tifoid"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Tifoid']/data[at0001]/items[at0052,'Vaksin Tifoid']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Y58.1",
+              "label" : "Tifoid",
+              "localizedLabels" : {
+                "en" : "Tifoid"
+              }
+            } ],
+            "defaultValue" : "Y58.1",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Tifoid']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Tifoid']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Tifoid']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Tifoid']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Tifoid']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_hepatitis_a",
+        "name" : "Vaksin Hepatitis A",
+        "localizedName" : "Vaksin Hepatitis A",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Hepatitis A"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis A']",
+        "children" : [ {
+          "id" : "vaksin_hepatitis_a",
+          "name" : "Vaksin Hepatitis A",
+          "localizedName" : "Vaksin Hepatitis A",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Hepatitis A"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis A']/data[at0001]/items[at0052,'Vaksin Hepatitis A']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z24.6",
+              "label" : "Hepatitis A",
+              "localizedLabels" : {
+                "en" : "Hepatitis A"
+              }
+            } ],
+            "defaultValue" : "Z24.6",
+            "terminology" : "ICD-10"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis A']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis A']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis A']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis A']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Hepatitis A']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_varisela",
+        "name" : "Vaksin Varisela",
+        "localizedName" : "Vaksin Varisela",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Varisela"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Varisela']",
+        "children" : [ {
+          "id" : "vaksin_varisela",
+          "name" : "Vaksin Varisela",
+          "localizedName" : "Vaksin Varisela",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Varisela"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Varisela']/data[at0001]/items[at0052,'Vaksin Varisela']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z23",
+              "label" : "Varisela",
+              "localizedLabels" : {
+                "en" : "Varisela"
+              }
+            } ],
+            "defaultValue" : "Z23",
+            "terminology" : "ICD-10var"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Varisela']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Varisela']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Varisela']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Varisela']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Varisela']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_hpv",
+        "name" : "Vaksin HPV",
+        "localizedName" : "Vaksin HPV",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin HPV"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin HPV']",
+        "children" : [ {
+          "id" : "vaksin_hpv",
+          "name" : "Vaksin HPV",
+          "localizedName" : "Vaksin HPV",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin HPV"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin HPV']/data[at0001]/items[at0052,'Vaksin HPV']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z23",
+              "label" : "HPV",
+              "localizedLabels" : {
+                "en" : "HPV"
+              }
+            } ],
+            "defaultValue" : "Z23",
+            "terminology" : "ICD-10hpv"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin HPV']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin HPV']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin HPV']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin HPV']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin HPV']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_japanese_encephalitis",
+        "name" : "Vaksin Japanese encephalitis",
+        "localizedName" : "Vaksin Japanese encephalitis",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Japanese encephalitis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Japanese encephalitis']",
+        "children" : [ {
+          "id" : "vaksin_japanese_encephalitis",
+          "name" : "Vaksin Japanese encephalitis",
+          "localizedName" : "Vaksin Japanese encephalitis",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Japanese encephalitis"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Japanese encephalitis']/data[at0001]/items[at0052,'Vaksin Japanese encephalitis']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z23",
+              "label" : "Japanese encephalitis",
+              "localizedLabels" : {
+                "en" : "Japanese encephalitis"
+              }
+            } ],
+            "defaultValue" : "Z23",
+            "terminology" : "ICD-10japEnc"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Japanese encephalitis']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Japanese encephalitis']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Japanese encephalitis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Japanese encephalitis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Japanese encephalitis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "vaksin_dengue",
+        "name" : "Vaksin Dengue",
+        "localizedName" : "Vaksin Dengue",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.vaccination_summary.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Vaksin Dengue"
+        },
+        "localizedDescriptions" : {
+          "en" : "Summary of vaccination administration for a single infectious disease or agent, or a group of infectious diseases or agents that are vaccinated simultaneously using a combination vaccine."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Dengue']",
+        "children" : [ {
+          "id" : "vaksin_dengue",
+          "name" : "Vaksin Dengue",
+          "localizedName" : "Vaksin Dengue",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0052",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vaksin Dengue"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the vaccine administered."
+          },
+          "annotations" : {
+            "comment" : "The vaccine name may contain a generic or trade name for a vaccine, the name of a combination vaccine, or a category of vaccine. For example: Measles vaccine; Measles Mumps Rubella (MMR) or 'Measles-containing vaccine'. Coding with an external terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Dengue']/data[at0001]/items[at0052,'Vaksin Dengue']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Z23",
+              "label" : "Dengue",
+              "localizedLabels" : {
+                "en" : "Dengue"
+              }
+            } ],
+            "defaultValue" : "Z23",
+            "terminology" : "ICD-10dengue"
+          } ]
+        }, {
+          "id" : "status_pemberian_vaksin",
+          "name" : "Status pemberian vaksin",
+          "localizedName" : "Status pemberian vaksin",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0003",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Status pemberian vaksin"
+          },
+          "localizedDescriptions" : {
+            "en" : "Status of the primary (or catch up) course of vaccinations."
+          },
+          "annotations" : {
+            "comment" : "This status should be revised if the course has not been completed and the 'Next vaccination due' date or 'Next review due' has passed. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Dengue']/data[at0001]/items[at0003,'Status pemberian vaksin']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "373066001",
+              "label" : "Ada",
+              "localizedLabels" : {
+                "en" : "Ada"
+              }
+            }, {
+              "value" : "373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "usia_diberikan_vaksin_tahun",
+          "name" : "Usia diberikan vaksin (Tahun)",
+          "localizedName" : "Usia diberikan vaksin (Tahun)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0049",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Usia diberikan vaksin (Tahun)"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about vaccination administrationfor the identified disease or agent, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Dengue']/data[at0001]/items[at0049,'Usia diberikan vaksin (Tahun)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Dengue']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Dengue']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Vaksin']/items[openEHR-EHR-EVALUATION.vaccination_summary.v0,'Vaksin Dengue']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "riwayat_pengobatan",
+      "name" : "Riwayat Pengobatan",
+      "localizedName" : "Riwayat Pengobatan",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat Pengobatan"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']",
+      "children" : [ {
+        "id" : "riwayat_pengobatan",
+        "name" : "Riwayat Pengobatan",
+        "localizedName" : "Riwayat Pengobatan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.medication_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Riwayat Pengobatan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for the use of medications."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0023",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]",
+          "children" : [ {
+            "id" : "riwayat_obat_lain",
+            "name" : "Riwayat obat lain",
+            "localizedName" : "Riwayat obat lain",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0027",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat obat lain"
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of use of any medication related to the screening purpose?"
+            },
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0027,'Riwayat obat lain']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "steroid",
+            "name" : "Steroid",
+            "localizedName" : "Steroid",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Steroid"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']",
+            "children" : [ {
+              "id" : "riwayat_minum_steroid",
+              "name" : "Riwayat minum steroid",
+              "localizedName" : "Riwayat minum steroid",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat minum steroid"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']/items[at0021,'Riwayat minum steroid']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "31874001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "64100000",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "nama_obat_steroid",
+              "name" : "Nama Obat Steroid",
+              "localizedName" : "Nama Obat Steroid",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama Obat Steroid"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']/items[at0024,'Nama Obat Steroid']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "dosage",
+              "name" : "Dosage",
+              "localizedName" : "Dosage",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.dosage.v2",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Dosage"
+              },
+              "localizedDescriptions" : {
+                "en" : "The combination of a medication amount and administration timing for a single day, in the context of a medication order or medication management."
+              },
+              "annotations" : {
+                "comment" : "For example: '2 tablets at 6pm' or '20 mg three times per day'. Please note: this cluster allows multiple occurrences to enable representation of a complete set of dose patterns for a single dose direction."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']/items[openEHR-EHR-CLUSTER.dosage.v2]",
+              "children" : [ {
+                "id" : "dosis_obat_steroid",
+                "name" : "Dosis Obat Steroid",
+                "localizedName" : "Dosis Obat Steroid",
+                "rmType" : "DV_QUANTITY",
+                "nodeId" : "at0144",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Dosis Obat Steroid"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The amount of medication administered at one time."
+                },
+                "annotations" : {
+                  "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Steroid']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis Obat Steroid']/value",
+                "inputs" : [ {
+                  "suffix" : "magnitude",
+                  "type" : "DECIMAL"
+                }, {
+                  "suffix" : "unit",
+                  "type" : "CODED_TEXT"
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "obat_jantung",
+            "name" : "Obat Jantung",
+            "localizedName" : "Obat Jantung",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Obat Jantung"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']",
+            "children" : [ {
+              "id" : "riwayat_minum_obat_jantung",
+              "name" : "Riwayat minum obat jantung",
+              "localizedName" : "Riwayat minum obat jantung",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat minum obat jantung"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']/items[at0021,'Riwayat minum obat jantung']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "31874001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "64100000",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "nama_obat_jantung",
+              "name" : "Nama Obat jantung",
+              "localizedName" : "Nama Obat jantung",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama Obat jantung"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']/items[at0024,'Nama Obat jantung']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "dosage",
+              "name" : "Dosage",
+              "localizedName" : "Dosage",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.dosage.v2",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Dosage"
+              },
+              "localizedDescriptions" : {
+                "en" : "The combination of a medication amount and administration timing for a single day, in the context of a medication order or medication management."
+              },
+              "annotations" : {
+                "comment" : "For example: '2 tablets at 6pm' or '20 mg three times per day'. Please note: this cluster allows multiple occurrences to enable representation of a complete set of dose patterns for a single dose direction."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']/items[openEHR-EHR-CLUSTER.dosage.v2]",
+              "children" : [ {
+                "id" : "dosis_obat_jantung",
+                "name" : "Dosis Obat Jantung",
+                "localizedName" : "Dosis Obat Jantung",
+                "rmType" : "DV_QUANTITY",
+                "nodeId" : "at0144",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Dosis Obat Jantung"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The amount of medication administered at one time."
+                },
+                "annotations" : {
+                  "comment" : "For example: 1 mg, 1.5 ml, 0.125 g; or 1-2 ml, 12.5-20.5 mg."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Obat Jantung']/items[openEHR-EHR-CLUSTER.dosage.v2]/items[at0144,'Dosis Obat Jantung']/value",
+                "inputs" : [ {
+                  "suffix" : "magnitude",
+                  "type" : "DECIMAL"
+                }, {
+                  "suffix" : "unit",
+                  "type" : "CODED_TEXT"
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/data[at0022]/events[at0023]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Riwayat Pengobatan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "riwayat_tindakan",
+      "name" : "Riwayat Tindakan",
+      "localizedName" : "Riwayat Tindakan",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Riwayat Tindakan"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']",
+      "children" : [ {
+        "id" : "riwayat_tindakan",
+        "name" : "Riwayat Tindakan",
+        "localizedName" : "Riwayat Tindakan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.procedure_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Riwayat Tindakan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for procedures that has been carried out in the past."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "riwayat_operasi_skoliosis",
+            "name" : "Riwayat operasi skoliosis",
+            "localizedName" : "Riwayat operasi skoliosis",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat operasi skoliosis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat operasi skoliosis']",
+            "children" : [ {
+              "id" : "riwayat_operasi_skoliosis",
+              "name" : "Riwayat operasi skoliosis",
+              "localizedName" : "Riwayat operasi skoliosis",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat operasi skoliosis"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat operasi skoliosis']/items[at0004,'Riwayat operasi skoliosis']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "373066001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "373067005",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "tahun_operasi",
+              "name" : "Tahun operasi",
+              "localizedName" : "Tahun operasi",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tahun operasi"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat operasi skoliosis']/items[at0037,'Tahun operasi']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-XX-XXTXX:XX:XX"
+                }
+              } ]
+            }, {
+              "id" : "tempat_operasi",
+              "name" : "Tempat operasi",
+              "localizedName" : "Tempat operasi",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0025",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tempat operasi"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific procedure question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat operasi skoliosis']/items[at0025,'Tempat operasi']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "terdiagnosis_kardiomiopati_dengan_ekokardiografi",
+            "name" : "Terdiagnosis kardiomiopati (dengan ekokardiografi)",
+            "localizedName" : "Terdiagnosis kardiomiopati (dengan ekokardiografi)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Terdiagnosis kardiomiopati (dengan ekokardiografi)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Terdiagnosis kardiomiopati (dengan ekokardiografi)']",
+            "children" : [ {
+              "id" : "terdiagnosis_kardiomiopati_dengan_ekokardiografi",
+              "name" : "Terdiagnosis kardiomiopati (dengan ekokardiografi)",
+              "localizedName" : "Terdiagnosis kardiomiopati (dengan ekokardiografi)",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Terdiagnosis kardiomiopati (dengan ekokardiografi)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Terdiagnosis kardiomiopati (dengan ekokardiografi)']/items[at0004,'Terdiagnosis kardiomiopati (dengan ekokardiografi)']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "373066001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "373067005",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "tahun_terdiagnosis_kardiomiopati",
+              "name" : "Tahun terdiagnosis kardiomiopati",
+              "localizedName" : "Tahun terdiagnosis kardiomiopati",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tahun terdiagnosis kardiomiopati"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Terdiagnosis kardiomiopati (dengan ekokardiografi)']/items[at0037,'Tahun terdiagnosis kardiomiopati']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-XX-XXTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_fisioterapi",
+            "name" : "Riwayat fisioterapi",
+            "localizedName" : "Riwayat fisioterapi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat fisioterapi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat fisioterapi']",
+            "children" : [ {
+              "id" : "riwayat",
+              "name" : "Riwayat",
+              "localizedName" : "Riwayat",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat fisioterapi']/items[at0004,'Riwayat']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "722138006",
+                  "label" : "Fisioterapi",
+                  "localizedLabels" : {
+                    "en" : "Fisioterapi"
+                  }
+                } ],
+                "defaultValue" : "722138006",
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "dilakukan_fisioterapi",
+              "name" : "Dilakukan Fisioterapi?",
+              "localizedName" : "Dilakukan Fisioterapi?",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Dilakukan Fisioterapi?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat fisioterapi']/items[at0037,'Dilakukan Fisioterapi?']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_lainnya",
+            "name" : "Riwayat Lainnya",
+            "localizedName" : "Riwayat Lainnya",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat Lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Lainnya']",
+            "children" : [ {
+              "id" : "riwayat",
+              "name" : "Riwayat",
+              "localizedName" : "Riwayat",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Lainnya']/items[at0004,'Riwayat']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Operasi Lain",
+                  "localizedLabels" : {
+                    "en" : "Operasi Lain"
+                  }
+                } ],
+                "defaultValue" : "1",
+                "terminology" : "local_termsol"
+              } ]
+            }, {
+              "id" : "dilakukan_fisioterapi",
+              "name" : "Dilakukan Fisioterapi?",
+              "localizedName" : "Dilakukan Fisioterapi?",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Dilakukan Fisioterapi?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat Lainnya']/items[at0037,'Dilakukan Fisioterapi?']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "riwayat_penggunaan_alat_bantu",
+            "name" : "Riwayat penggunaan alat bantu",
+            "localizedName" : "Riwayat penggunaan alat bantu",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Riwayat penggunaan alat bantu"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penggunaan alat bantu']",
+            "children" : [ {
+              "id" : "riwayat",
+              "name" : "Riwayat",
+              "localizedName" : "Riwayat",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Riwayat"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penggunaan alat bantu']/items[at0004,'Riwayat']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "penggunaan alat bantu",
+                  "localizedLabels" : {
+                    "en" : "penggunaan alat bantu"
+                  }
+                } ],
+                "defaultValue" : "1",
+                "terminology" : "local_termsalatbantu"
+              } ]
+            }, {
+              "id" : "alat_bantu_apa",
+              "name" : "Alat bantu apa",
+              "localizedName" : "Alat bantu apa",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Alat bantu apa"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Riwayat penggunaan alat bantu']/items[at0037,'Alat bantu apa']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "pernah_dilakukan_biopsi_otot",
+            "name" : "Pernah dilakukan biopsi otot",
+            "localizedName" : "Pernah dilakukan biopsi otot",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pernah dilakukan biopsi otot"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pernah dilakukan biopsi otot']",
+            "children" : [ {
+              "id" : "biopsi",
+              "name" : "Biopsi",
+              "localizedName" : "Biopsi",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Biopsi"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pernah dilakukan biopsi otot']/items[at0004,'Biopsi']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Biopsi otot",
+                  "localizedLabels" : {
+                    "en" : "Biopsi otot"
+                  }
+                } ],
+                "defaultValue" : "1",
+                "terminology" : "local_termsbotot"
+              } ]
+            }, {
+              "id" : "pernah_dilakukan_biopsi_otot",
+              "name" : "Pernah dilakukan biopsi otot",
+              "localizedName" : "Pernah dilakukan biopsi otot",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pernah dilakukan biopsi otot"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of the identified procedure?"
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pernah dilakukan biopsi otot']/items[at0005,'Pernah dilakukan biopsi otot']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "373066001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "373067005",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "hasil_biopsi_otot",
+              "name" : "Hasil biopsi otot",
+              "localizedName" : "Hasil biopsi otot",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0025",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Hasil biopsi otot"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the specific procedure question, not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pernah dilakukan biopsi otot']/items[at0025,'Hasil biopsi otot']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "pernah_dilakukan_tes_genetik",
+            "name" : "Pernah dilakukan tes genetik",
+            "localizedName" : "Pernah dilakukan tes genetik",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pernah dilakukan tes genetik"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific procedure or grouping of procedures relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pernah dilakukan tes genetik']",
+            "children" : [ {
+              "id" : "pernah_dilakukan_tes_genetik",
+              "name" : "Pernah dilakukan tes genetik",
+              "localizedName" : "Pernah dilakukan tes genetik",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Pernah dilakukan tes genetik"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of a procedure or grouping of procedures."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Procedure name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pernah dilakukan tes genetik']/items[at0004,'Pernah dilakukan tes genetik']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "373066001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "373067005",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "tahun",
+              "name" : "Tahun",
+              "localizedName" : "Tahun",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Tahun"
+              },
+              "localizedDescriptions" : {
+                "en" : "Timing of the procedure."
+              },
+              "annotations" : {
+                "comment" : "\"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a procedure was performed. The specific and intended semantics can be further clarified in a template.\r\nFor example: \r\nDate/time for when the procedure was performed. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Pernah dilakukan tes genetik']/items[at0037,'Tahun']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-XX-XXTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "laboratory_analyte_result",
+            "name" : "Laboratory analyte result",
+            "localizedName" : "Laboratory analyte result",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Laboratory analyte result"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]",
+            "children" : [ {
+              "id" : "nama_mutasi_berdasarkan_hgvs",
+              "name" : "Nama mutasi berdasarkan HGVS",
+              "localizedName" : "Nama mutasi berdasarkan HGVS",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama mutasi berdasarkan HGVS"
+              },
+              "localizedDescriptions" : {
+                "en" : "The status of the analyte result value."
+              },
+              "annotations" : {
+                "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element allows multiple occurrences to support use cases where more than one type of status need to be implemented.",
+                "hl7v2_mapping" : "OBX.11",
+                "fhir_mapping" : "Observation.status"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0005,'Nama mutasi berdasarkan HGVS']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "delesi_ekson",
+              "name" : "Delesi ekson",
+              "localizedName" : "Delesi ekson",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Delesi ekson"
+              },
+              "localizedDescriptions" : {
+                "en" : "The status of the analyte result value."
+              },
+              "annotations" : {
+                "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element allows multiple occurrences to support use cases where more than one type of status need to be implemented.",
+                "hl7v2_mapping" : "OBX.11",
+                "fhir_mapping" : "Observation.status"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0005,'Delesi ekson']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "duplikasi_ekson",
+              "name" : "Duplikasi ekson",
+              "localizedName" : "Duplikasi ekson",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Duplikasi ekson"
+              },
+              "localizedDescriptions" : {
+                "en" : "The status of the analyte result value."
+              },
+              "annotations" : {
+                "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element allows multiple occurrences to support use cases where more than one type of status need to be implemented.",
+                "hl7v2_mapping" : "OBX.11",
+                "fhir_mapping" : "Observation.status"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0005,'Duplikasi ekson']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "small_point_mutation",
+              "name" : "Small/ point mutation",
+              "localizedName" : "Small/ point mutation",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Small/ point mutation"
+              },
+              "localizedDescriptions" : {
+                "en" : "The status of the analyte result value."
+              },
+              "annotations" : {
+                "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element allows multiple occurrences to support use cases where more than one type of status need to be implemented.",
+                "hl7v2_mapping" : "OBX.11",
+                "fhir_mapping" : "Observation.status"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0005,'Small/ point mutation']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "mutasi_dmd_bmd_pada_saudara_laki-laki",
+              "name" : "Mutasi DMD/BMD pada saudara laki-laki",
+              "localizedName" : "Mutasi DMD/BMD pada saudara laki-laki",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Mutasi DMD/BMD pada saudara laki-laki"
+              },
+              "localizedDescriptions" : {
+                "en" : "The status of the analyte result value."
+              },
+              "annotations" : {
+                "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element allows multiple occurrences to support use cases where more than one type of status need to be implemented.",
+                "hl7v2_mapping" : "OBX.11",
+                "fhir_mapping" : "Observation.status"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0005,'Mutasi DMD/BMD pada saudara laki-laki']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "373066001",
+                  "label" : "Ada",
+                  "localizedLabels" : {
+                    "en" : "Ada"
+                  }
+                }, {
+                  "value" : "373067005",
+                  "label" : "Tidak Ada",
+                  "localizedLabels" : {
+                    "en" : "Tidak Ada"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Riwayat Tindakan']/items[openEHR-EHR-OBSERVATION.procedure_screening.v1,'Riwayat Tindakan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
