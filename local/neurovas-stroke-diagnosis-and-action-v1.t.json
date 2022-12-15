@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0",
+      "sem_ver" : "1.1.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "0093b47a4f35a6d7ab45e5035b1ee967",
+      "MD5-CAM-1.0.1" : "5190d89035a2b6e8ebf12915bd75168c",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -2776,6 +2776,10 @@
                         "terminologyId" : "SNOMED-CT",
                         "code" : "SCTID::416608005",
                         "value" : "Farmakoterapi"
+                      }, {
+                        "terminologyId" : "SNOMED-CT",
+                        "code" : "SCTID::74964007",
+                        "value" : "Lainnya"
                       } ]
                     } ]
                   } ],
@@ -2917,7 +2921,7 @@
             }, {
               "@type" : "C_ARCHETYPE_ROOT",
               "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..1",
+              "occurrences" : "0..*",
               "nodeId" : "at0003.2",
               "attributes" : [ ],
               "attributeTuples" : [ ],
@@ -2926,7 +2930,7 @@
             }, {
               "@type" : "C_ARCHETYPE_ROOT",
               "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..1",
+              "occurrences" : "0..*",
               "nodeId" : "at0003.3",
               "attributes" : [ ],
               "attributeTuples" : [ ],
@@ -2935,7 +2939,7 @@
             }, {
               "@type" : "C_ARCHETYPE_ROOT",
               "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..1",
+              "occurrences" : "0..*",
               "nodeId" : "at0003.4",
               "attributes" : [ ],
               "attributeTuples" : [ ],
@@ -3026,7 +3030,7 @@
           "at0002.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0002.1",
-            "text" : "Nama tindakan",
+            "text" : "Tindakan yang diberikan",
             "description" : "Identification of the procedure by name.",
             "comment" : "Coding of the specific procedure with a terminology is preferred, where possible."
           }
@@ -3470,7 +3474,7 @@
           "at0139.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0139.1",
-            "text" : "Dosis",
+            "text" : "Dosis rtPA",
             "description" : "The amount of medication or medication component.",
             "comment" : "For example: '1 ml', '1.5 mg', '1000 ml'."
           }
@@ -3737,7 +3741,26 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0007.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DURATION",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_DURATION",
+                  "rmTypeName" : "DURATION",
+                  "occurrences" : "0..1",
+                  "patternedConstraint" : "PTH",
+                  "constraint" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -3807,7 +3830,7 @@
           "at0007.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0007.1",
-            "text" : "Durasi",
+            "text" : "Door to Needle",
             "description" : "The duration of the recognised delay."
           }
         }
@@ -3926,7 +3949,25 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0007.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DURATION",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_DURATION",
+                  "rmTypeName" : "DURATION",
+                  "patternedConstraint" : "PTH",
+                  "constraint" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -3996,7 +4037,7 @@
           "at0007.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0007.1",
-            "text" : "Durasi",
+            "text" : "Door to Puncture",
             "description" : "The duration of the recognised delay."
           }
         }
@@ -4115,7 +4156,25 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0007.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DURATION",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_DURATION",
+                  "rmTypeName" : "DURATION",
+                  "patternedConstraint" : "PTH",
+                  "constraint" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -4185,7 +4244,7 @@
           "at0007.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0007.1",
-            "text" : "Durasi",
+            "text" : "Door to Reperfusion",
             "description" : "The duration of the recognised delay."
           }
         }
@@ -4732,7 +4791,7 @@
           "at0097.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0097.1",
-            "text" : "Skor",
+            "text" : "NIHSS setelah rtPA",
             "description" : "The sum of the ordinal scores recorded for each of the fifteen component responses."
           },
           "at0158.1" : {
