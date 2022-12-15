@@ -1,0 +1,1915 @@
+{
+  "templateId" : "neurovas-stroke-diagnosticTests-v2",
+  "semVer" : "2.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "neurovas-stroke-diagnostictests-v2",
+    "name" : "neurovas-stroke-diagnosticTests-v2",
+    "localizedName" : "neurovas-stroke-diagnosticTests-v2",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "neurovas-stroke-diagnosticTests-v2"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "pemeriksaan_laboratorium",
+      "name" : "Pemeriksaan Laboratorium",
+      "localizedName" : "Pemeriksaan Laboratorium",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan Laboratorium"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']",
+      "children" : [ {
+        "id" : "stroke-diagnostictests-darahrutin.v0",
+        "name" : "stroke-diagnosticTests-darahRutin.v0",
+        "localizedName" : "stroke-diagnosticTests-darahRutin.v0",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "stroke-diagnosticTests-darahRutin.v0"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "pemeriksaan_darah_rutin",
+            "name" : "Pemeriksaan darah rutin",
+            "localizedName" : "Pemeriksaan darah rutin",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan darah rutin"
+            },
+            "localizedDescriptions" : {
+              "en" : ""
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Pemeriksaan darah rutin']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "58410-2",
+                "label" : "CBC panel - Blood by Automated count",
+                "localizedLabels" : {
+                  "en" : "CBC panel - Blood by Automated count"
+                }
+              } ],
+              "defaultValue" : "58410-2",
+              "terminology" : "LOINC"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_darah_rutin",
+            "name" : "Hasil pemeriksaan darah rutin",
+            "localizedName" : "Hasil pemeriksaan darah rutin",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan darah rutin"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan darah rutin']",
+            "children" : [ {
+              "id" : "hemoglobin",
+              "name" : "Hemoglobin",
+              "localizedName" : "Hemoglobin",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Hemoglobin"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan darah rutin']/items[at0001,'Hemoglobin']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "g/(100.ml)",
+                  "label" : "g/(100.ml)",
+                  "localizedLabels" : {
+                    "en" : "g/dL"
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "hematokrit",
+              "name" : "Hematokrit",
+              "localizedName" : "Hematokrit",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Hematokrit"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan darah rutin']/items[at0001,'Hematokrit']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%"
+                } ]
+              } ]
+            }, {
+              "id" : "leukosit_10_3_ul",
+              "name" : "Leukosit (10^3/uL)",
+              "localizedName" : "Leukosit (10^3/uL)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Leukosit (10^3/uL)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan darah rutin']/items[at0001,'Leukosit (10^3/uL)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            }, {
+              "id" : "plt_trombosit_10_3_ul",
+              "name" : "Plt (Trombosit) (10^3/uL)",
+              "localizedName" : "Plt (Trombosit) (10^3/uL)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Plt (Trombosit) (10^3/uL)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan darah rutin']/items[at0001,'Plt (Trombosit) (10^3/uL)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-darahRutin.v0']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "stroke-diagnostictests-pemeriksaankimiadarah.v0",
+        "name" : "stroke-diagnosticTests-pemeriksaanKimiaDarah.v0",
+        "localizedName" : "stroke-diagnosticTests-pemeriksaanKimiaDarah.v0",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "stroke-diagnosticTests-pemeriksaanKimiaDarah.v0"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "pemeriksaan_kimia_darah",
+            "name" : "Pemeriksaan kimia darah",
+            "localizedName" : "Pemeriksaan kimia darah",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan kimia darah"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Pemeriksaan kimia darah']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::51990-0",
+                "label" : "Pemeriksaan kimia darah",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan kimia darah"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_kimia_darah",
+            "name" : "Hasil pemeriksaan kimia darah",
+            "localizedName" : "Hasil pemeriksaan kimia darah",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan kimia darah"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan kimia darah']",
+            "children" : [ {
+              "id" : "sgot_µ_l",
+              "name" : "SGOT (µ/L)",
+              "localizedName" : "SGOT (µ/L)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "SGOT (µ/L)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: U/L"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan kimia darah']/items[at0001,'SGOT (µ/L)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "sgpt_µ_l",
+              "name" : "SGPT (µ/L)",
+              "localizedName" : "SGPT (µ/L)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "SGPT (µ/L)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: U/L"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan kimia darah']/items[at0001,'SGPT (µ/L)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "ureum_bun_mg_dl",
+              "name" : "Ureum / BUN (mg/dL)",
+              "localizedName" : "Ureum / BUN (mg/dL)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Ureum / BUN (mg/dL)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: U/L"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan kimia darah']/items[at0001,'Ureum / BUN (mg/dL)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            }, {
+              "id" : "creatinin_mg_dl",
+              "name" : "Creatinin (mg/dL)",
+              "localizedName" : "Creatinin (mg/dL)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Creatinin (mg/dL)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: U/L"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan kimia darah']/items[at0001,'Creatinin (mg/dL)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-pemeriksaanKimiaDarah.v0']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "stroke-diagnostictests-elektrolit.v0",
+        "name" : "stroke-diagnosticTests-elektrolit.v0",
+        "localizedName" : "stroke-diagnosticTests-elektrolit.v0",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "stroke-diagnosticTests-elektrolit.v0"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "pemeriksaan_elektrolit",
+            "name" : "Pemeriksaan elektrolit",
+            "localizedName" : "Pemeriksaan elektrolit",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan elektrolit"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Pemeriksaan elektrolit']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::55231-5",
+                "label" : "Pemeriksaan elektrolit",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan elektrolit"
+                }
+              } ],
+              "defaultValue" : "SCTID::55231-5",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_elektrolit",
+            "name" : "Hasil pemeriksaan elektrolit",
+            "localizedName" : "Hasil pemeriksaan elektrolit",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan elektrolit"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan elektrolit']",
+            "children" : [ {
+              "id" : "natrium",
+              "name" : "Natrium",
+              "localizedName" : "Natrium",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Natrium"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: mEq/L"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan elektrolit']/items[at0001,'Natrium']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "meq",
+                  "label" : "meq",
+                  "localizedLabels" : {
+                    "en" : "mEq/L"
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "kalium",
+              "name" : "Kalium",
+              "localizedName" : "Kalium",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kalium"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: mEq/L"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan elektrolit']/items[at0001,'Kalium']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "meq",
+                  "label" : "meq",
+                  "localizedLabels" : {
+                    "en" : "mEq/L"
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "klorida",
+              "name" : "Klorida",
+              "localizedName" : "Klorida",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Klorida"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: mEq/L"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan elektrolit']/items[at0001,'Klorida']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "meq",
+                  "label" : "meq",
+                  "localizedLabels" : {
+                    "en" : "mEq/L"
+                  }
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'stroke-diagnosticTests-elektrolit.v0']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_hemostasis",
+        "name" : "Pemeriksaan hemostasis",
+        "localizedName" : "Pemeriksaan hemostasis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan hemostasis"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "pemeriksaan_hemostasis",
+            "name" : "Pemeriksaan hemostasis",
+            "localizedName" : "Pemeriksaan hemostasis",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan hemostasis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Pemeriksaan hemostasis']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "98125-8",
+                "label" : "Intravascular coagulation and fibrinolysis panel",
+                "localizedLabels" : {
+                  "en" : "Intravascular coagulation and fibrinolysis panel"
+                }
+              } ],
+              "terminology" : "LOINC"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_hemostasis",
+            "name" : "Hasil pemeriksaan hemostasis",
+            "localizedName" : "Hasil pemeriksaan hemostasis",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan hemostasis"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan hemostasis']",
+            "children" : [ {
+              "id" : "inr",
+              "name" : "INR",
+              "localizedName" : "INR",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "INR"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: {INR}"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan hemostasis']/items[at0001,'INR']/value",
+              "inputs" : [ {
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            }, {
+              "id" : "pt",
+              "name" : "PT",
+              "localizedName" : "PT",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "PT"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: {INR}"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan hemostasis']/items[at0001,'PT']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "s",
+                  "label" : "s",
+                  "localizedLabels" : {
+                    "en" : "detik"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "aptt",
+              "name" : "APTT",
+              "localizedName" : "APTT",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "APTT"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: {INR}"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan hemostasis']/items[at0001,'APTT']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "s",
+                  "label" : "s",
+                  "localizedLabels" : {
+                    "en" : "detik"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "fibrinogen_mg_dl",
+              "name" : "Fibrinogen (mg/dL)",
+              "localizedName" : "Fibrinogen (mg/dL)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Fibrinogen (mg/dL)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: {INR}"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Hasil pemeriksaan hemostasis']/items[at0001,'Fibrinogen (mg/dL)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "d-dimer",
+            "name" : "D-Dimer",
+            "localizedName" : "D-Dimer",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "D-Dimer"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'D-Dimer']",
+            "children" : [ {
+              "id" : "hasil_pemeriksaan_d-dimer",
+              "name" : "Hasil pemeriksaan D-Dimer",
+              "localizedName" : "Hasil pemeriksaan D-Dimer",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Hasil pemeriksaan D-Dimer"
+              },
+              "localizedDescriptions" : {
+                "en" : "Unit: ng/mL"
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'D-Dimer']/items[at0001,'Hasil pemeriksaan D-Dimer']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "ng",
+                  "label" : "ng",
+                  "localizedLabels" : {
+                    "en" : "ng/mL"
+                  }
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Laboratorium']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan hemostasis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "pemeriksaan_ekg",
+      "name" : "Pemeriksaan EKG",
+      "localizedName" : "Pemeriksaan EKG",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.ecg_result.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan EKG"
+      },
+      "localizedDescriptions" : {
+        "en" : "Measurement of the electrical activity generated by the heart."
+      },
+      "annotations" : {
+        "comment" : "Also known as an electrocardiograph or EKG."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.ecg_result.v1,'Pemeriksaan EKG']",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.ecg_result.v1,'Pemeriksaan EKG']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "temuan_pemeriksaan_ekg",
+          "name" : "Temuan pemeriksaan EKG",
+          "localizedName" : "Temuan pemeriksaan EKG",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0101",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Temuan pemeriksaan EKG"
+          },
+          "localizedDescriptions" : {
+            "en" : "Single word, phrase or brief description that represents a significant finding in the ECG result."
+          },
+          "annotations" : {
+            "comment" : "For example: 'Normal ECG', 'Equivocal ECG' or 'Abnormal ECG'; 'Spikes from pacemaker signal'; 'ST depression'; or 'Atrial fibrillation'. Coding of the finding with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.ecg_result.v1,'Pemeriksaan EKG']/data[at0001]/events[at0002]/data[at0005]/items[at0101,'Temuan pemeriksaan EKG']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.ecg_result.v1,'Pemeriksaan EKG']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.ecg_result.v1,'Pemeriksaan EKG']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.ecg_result.v1,'Pemeriksaan EKG']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.ecg_result.v1,'Pemeriksaan EKG']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "pemeriksaan_radiologi",
+      "name" : "Pemeriksaan Radiologi",
+      "localizedName" : "Pemeriksaan Radiologi",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan Radiologi"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']",
+      "children" : [ {
+        "id" : "cxr",
+        "name" : "CXR",
+        "localizedName" : "CXR",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "CXR"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result of an imaging examination performed on an individual, using radiological techniques."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the imaging examination performed."
+            },
+            "annotations" : {
+              "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::399208008",
+                "label" : "Rontgen Toraks",
+                "localizedLabels" : {
+                  "en" : "Rontgen Toraks"
+                }
+              } ],
+              "defaultValue" : "SCTID::399208008",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_rontgen_toraks",
+            "name" : "Hasil pemeriksaan Rontgen Toraks",
+            "localizedName" : "Hasil pemeriksaan Rontgen Toraks",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0008",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan Rontgen Toraks"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description or overview of all clinical findings."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']/data[at0001]/events[at0002]/data[at0003]/items[at0008,'Hasil pemeriksaan Rontgen Toraks']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CXR']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "ct_scan",
+        "name" : "CT Scan",
+        "localizedName" : "CT Scan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "CT Scan"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result of an imaging examination performed on an individual, using radiological techniques."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the imaging examination performed."
+            },
+            "annotations" : {
+              "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::54953005",
+                "label" : "CT Scan",
+                "localizedLabels" : {
+                  "en" : "CT Scan"
+                }
+              } ],
+              "defaultValue" : "SCTID::54953005",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_ct_scan",
+            "name" : "Hasil pemeriksaan CT Scan",
+            "localizedName" : "Hasil pemeriksaan CT Scan",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0008",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan CT Scan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description or overview of all clinical findings."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']/data[at0001]/events[at0002]/data[at0003]/items[at0008,'Hasil pemeriksaan CT Scan']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'CT Scan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "echocardiography",
+        "name" : "Echocardiography",
+        "localizedName" : "Echocardiography",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Echocardiography"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result of an imaging examination performed on an individual, using radiological techniques."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the imaging examination performed."
+            },
+            "annotations" : {
+              "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::40701008",
+                "label" : "Echocardiography",
+                "localizedLabels" : {
+                  "en" : "Echocardiography"
+                }
+              } ],
+              "defaultValue" : "SCTID::40701008",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_echocardiography",
+            "name" : "Hasil pemeriksaan Echocardiography",
+            "localizedName" : "Hasil pemeriksaan Echocardiography",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0008",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan Echocardiography"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description or overview of all clinical findings."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']/data[at0001]/events[at0002]/data[at0003]/items[at0008,'Hasil pemeriksaan Echocardiography']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'Echocardiography']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "tcd_cd",
+        "name" : "TCD/CD",
+        "localizedName" : "TCD/CD",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "TCD/CD"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result of an imaging examination performed on an individual, using radiological techniques."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the imaging examination performed."
+            },
+            "annotations" : {
+              "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::431648005",
+                "label" : "TCD/CD",
+                "localizedLabels" : {
+                  "en" : "TCD/CD"
+                }
+              } ],
+              "defaultValue" : "SCTID::431648005",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_tcd_cd",
+            "name" : "Hasil pemeriksaan TCD/CD",
+            "localizedName" : "Hasil pemeriksaan TCD/CD",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0008",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan TCD/CD"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description or overview of all clinical findings."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']/data[at0001]/events[at0002]/data[at0003]/items[at0008,'Hasil pemeriksaan TCD/CD']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'TCD/CD']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "dsa_serebral",
+        "name" : "DSA Serebral",
+        "localizedName" : "DSA Serebral",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "DSA Serebral"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result of an imaging examination performed on an individual, using radiological techniques."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the imaging examination performed."
+            },
+            "annotations" : {
+              "comment" : "For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::312246005",
+                "label" : "DSA Serebral",
+                "localizedLabels" : {
+                  "en" : "DSA Serebral"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "hasil_pemeriksaan_dsa_serebral",
+            "name" : "Hasil pemeriksaan DSA Serebral",
+            "localizedName" : "Hasil pemeriksaan DSA Serebral",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0008",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hasil pemeriksaan DSA Serebral"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description or overview of all clinical findings."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']/data[at0001]/events[at0002]/data[at0003]/items[at0008,'Hasil pemeriksaan DSA Serebral']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan Radiologi']/items[openEHR-EHR-OBSERVATION.imaging_exam_result.v1,'DSA Serebral']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

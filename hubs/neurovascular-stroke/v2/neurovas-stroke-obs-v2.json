@@ -1,0 +1,2180 @@
+{
+  "templateId" : "neurovas-stroke-obs-v2",
+  "semVer" : "2.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "neurovas-stroke-obs-v2",
+    "name" : "neurovas-stroke-obs-v2",
+    "localizedName" : "neurovas-stroke-obs-v2",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "neurovas-stroke-obs-v2"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "anamnesis",
+      "name" : "Anamnesis",
+      "localizedName" : "Anamnesis",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Anamnesis"
+      },
+      "localizedDescriptions" : {
+        "en" : "Series of questions and associated answers used to screen for symptoms or signs."
+      },
+      "annotations" : {
+        "comment" : "The answers may be self-reported."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "disartria",
+          "name" : "Disartria",
+          "localizedName" : "Disartria",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Disartria"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Disartria']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::373066001",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : "Ya"
+              }
+            }, {
+              "value" : "SCTID::373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "nyeri_kepala",
+          "name" : "Nyeri kepala",
+          "localizedName" : "Nyeri kepala",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nyeri kepala"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Nyeri kepala']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::2667000",
+              "label" : "Tidak ada",
+              "localizedLabels" : {
+                "en" : "Tidak ada"
+              }
+            }, {
+              "value" : "SCTID::25064002",
+              "label" : "Ada (unspecified)",
+              "localizedLabels" : {
+                "en" : "Ada (unspecified)"
+              }
+            }, {
+              "value" : "10111",
+              "label" : "Ada, pulsatil",
+              "localizedLabels" : {
+                "en" : "Ada, pulsatil"
+              }
+            }, {
+              "value" : "SCTID::398057008",
+              "label" : "Tension-type",
+              "localizedLabels" : {
+                "en" : "Tension-type"
+              }
+            }, {
+              "value" : "SCTID::95657009",
+              "label" : "Mixed-type",
+              "localizedLabels" : {
+                "en" : "Mixed-type"
+              }
+            }, {
+              "value" : "SCTID::74964007",
+              "label" : "Lainnya",
+              "localizedLabels" : {
+                "en" : "Lainnya"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "muntah",
+          "name" : "Muntah",
+          "localizedName" : "Muntah",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Muntah"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Muntah']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::373066001",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : "Ya"
+              }
+            }, {
+              "value" : "SCTID::373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "vertigo",
+          "name" : "Vertigo",
+          "localizedName" : "Vertigo",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Vertigo"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Vertigo']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::373066001",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : "Ya"
+              }
+            }, {
+              "value" : "SCTID::373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "mual",
+          "name" : "Mual",
+          "localizedName" : "Mual",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Mual"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Mual']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::373066001",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : "Ya"
+              }
+            }, {
+              "value" : "SCTID::373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "penurunan_kesadaran",
+          "name" : "Penurunan kesadaran",
+          "localizedName" : "Penurunan kesadaran",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Penurunan kesadaran"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Penurunan kesadaran']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::2667000",
+              "label" : "Tidak ada",
+              "localizedLabels" : {
+                "en" : "Tidak ada"
+              }
+            }, {
+              "value" : "SCTID::271782001",
+              "label" : "Drowsy",
+              "localizedLabels" : {
+                "en" : "Drowsy"
+              }
+            }, {
+              "value" : "SCTID::89458003",
+              "label" : "Stupor",
+              "localizedLabels" : {
+                "en" : "Stupor"
+              }
+            }, {
+              "value" : "SCTID::371632003",
+              "label" : "Coma",
+              "localizedLabels" : {
+                "en" : "Coma"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "keluhan_lain",
+          "name" : "Keluhan lain",
+          "localizedName" : "Keluhan lain",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Keluhan lain"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Keluhan lain']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "nyeri_kepala_lainnya",
+          "name" : "Nyeri kepala lainnya",
+          "localizedName" : "Nyeri kepala lainnya",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0036",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nyeri kepala lainnya"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description about the history of any symptoms or signs relevant for the screening purpose."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0036,'Nyeri kepala lainnya']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "pemeriksaan_fisik",
+      "name" : "Pemeriksaan Fisik",
+      "localizedName" : "Pemeriksaan Fisik",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan Fisik"
+      },
+      "localizedDescriptions" : {
+        "en" : "Findings observed during the physical examination of a subject of care."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "gangguan_motorik",
+          "name" : "Gangguan motorik",
+          "localizedName" : "Gangguan motorik",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.exam.v2",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Gangguan motorik"
+          },
+          "localizedDescriptions" : {
+            "en" : "Findings observed during the physical examination of a body system or anatomical structure."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan motorik']",
+          "children" : [ {
+            "id" : "system_or_structure_examined",
+            "name" : "System or structure examined",
+            "localizedName" : "System or structure examined",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "System or structure examined"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the examined body system or anatomical structure."
+            },
+            "annotations" : {
+              "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan motorik']/items[at0001]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "value",
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "gangguan_motorik",
+            "name" : "Gangguan motorik",
+            "localizedName" : "Gangguan motorik",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0006",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Gangguan motorik"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan motorik']/items[at0006,'Gangguan motorik']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::2667000",
+                "label" : "Tidak ada",
+                "localizedLabels" : {
+                  "en" : "Tidak ada"
+                }
+              }, {
+                "value" : "SCTID::278286009",
+                "label" : "Hemiparesis kanan",
+                "localizedLabels" : {
+                  "en" : "Hemiparesis kanan"
+                }
+              }, {
+                "value" : "SCTID::278287000",
+                "label" : "Hemiparesis kiri",
+                "localizedLabels" : {
+                  "en" : "Hemiparesis kiri"
+                }
+              }, {
+                "value" : "10200",
+                "label" : "Hemiparesis duplex",
+                "localizedLabels" : {
+                  "en" : "Hemiparesis duplex"
+                }
+              }, {
+                "value" : "SCTID::404689008",
+                "label" : "Hemiplegi alternans",
+                "localizedLabels" : {
+                  "en" : "Hemiplegi alternans"
+                }
+              }, {
+                "value" : "SCTID::278284007",
+                "label" : "Hemiplegi kanan",
+                "localizedLabels" : {
+                  "en" : "Hemiplegi kanan"
+                }
+              }, {
+                "value" : "SCTID::278285008",
+                "label" : "Hemiplegi kiri",
+                "localizedLabels" : {
+                  "en" : "Hemiplegi kiri"
+                }
+              }, {
+                "value" : "SCTID::26544005",
+                "label" : "General weakness",
+                "localizedLabels" : {
+                  "en" : "General weakness"
+                }
+              }, {
+                "value" : "SCTID::74964007",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : "Lainnya"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "lainnya",
+            "name" : "Lainnya",
+            "localizedName" : "Lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan motorik']/items[at0006,'Lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ],
+          "termBindings" : {
+            "SNOMED-CT" : {
+              "value" : "[SNOMED-CT::5880005]",
+              "terminologyId" : "SNOMED-CT"
+            }
+          }
+        }, {
+          "id" : "gangguan_sensorik",
+          "name" : "Gangguan sensorik",
+          "localizedName" : "Gangguan sensorik",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.exam-nervous_system.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Gangguan sensorik"
+          },
+          "localizedDescriptions" : {
+            "en" : "Findings observed during the physical examination of the nervous system as a whole."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan sensorik']",
+          "children" : [ {
+            "id" : "system_or_structure_examined",
+            "name" : "System or structure examined",
+            "localizedName" : "System or structure examined",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001.1",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "System or structure examined"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the examined body system or anatomical structure."
+            },
+            "annotations" : {
+              "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan sensorik']/items[at0001.1]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0.1",
+                "label" : "Nervous system",
+                "localizedLabels" : {
+                  "en" : "Nervous system"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The nervous system was examined."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::25087005]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "gangguan_sensorik",
+            "name" : "Gangguan sensorik",
+            "localizedName" : "Gangguan sensorik",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Gangguan sensorik"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan sensorik']/items[at0006,'Gangguan sensorik']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::2667000",
+                "label" : "Tidak ada",
+                "localizedLabels" : {
+                  "en" : "Tidak ada"
+                }
+              }, {
+                "value" : "103001",
+                "label" : "Hemihipestesi kanan",
+                "localizedLabels" : {
+                  "en" : "Hemihipestesi kanan"
+                }
+              }, {
+                "value" : "103002",
+                "label" : "Hemihipestesi kiri",
+                "localizedLabels" : {
+                  "en" : "Hemihipestesi kiri"
+                }
+              }, {
+                "value" : "103003",
+                "label" : "Perioral numbness",
+                "localizedLabels" : {
+                  "en" : "Perioral numbness"
+                }
+              }, {
+                "value" : "SCTID::277285005",
+                "label" : "Thalamic pain",
+                "localizedLabels" : {
+                  "en" : "Thalamic pain"
+                }
+              }, {
+                "value" : "SCTID::74964007",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : "Lainnya"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "gangguan_sensorik_lainnya",
+            "name" : "Gangguan sensorik lainnya",
+            "localizedName" : "Gangguan sensorik lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Gangguan sensorik lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan sensorik']/items[at0006,'Gangguan sensorik lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "parese_n.n_kranialis",
+          "name" : "Parese N.n Kranialis",
+          "localizedName" : "Parese N.n Kranialis",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.exam-nervous_system.v0",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Parese N.n Kranialis"
+          },
+          "localizedDescriptions" : {
+            "en" : "Findings observed during the physical examination of the nervous system as a whole."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']",
+          "children" : [ {
+            "id" : "system_or_structure_examined",
+            "name" : "System or structure examined",
+            "localizedName" : "System or structure examined",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001.1",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "System or structure examined"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the examined body system or anatomical structure."
+            },
+            "annotations" : {
+              "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[at0001.1]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0.1",
+                "label" : "Nervous system",
+                "localizedLabels" : {
+                  "en" : "Nervous system"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The nervous system was examined."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::25087005]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              } ],
+              "defaultValue" : "at0.1"
+            } ]
+          }, {
+            "id" : "clinical_evidence",
+            "name" : "Clinical evidence",
+            "localizedName" : "Clinical evidence",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.clinical_evidence.v1",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Clinical evidence"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about findings that support a clinical assertion."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]",
+            "children" : [ {
+              "id" : "parese_n.n_kranialis",
+              "name" : "Parese N.n Kranialis",
+              "localizedName" : "Parese N.n Kranialis",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0003",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Parese N.n Kranialis"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of the finding that supports the assertion."
+              },
+              "annotations" : {
+                "comment" : "It is recommended that 'Finding' should be coded with a terminology, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]/items[at0003,'Parese N.n Kranialis']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "SCTID::2667000",
+                  "label" : "Tidak ada",
+                  "localizedLabels" : {
+                    "en" : "Tidak ada"
+                  }
+                }, {
+                  "value" : "103010",
+                  "label" : "N. VII dx sentral",
+                  "localizedLabels" : {
+                    "en" : "N. VII dx sentral"
+                  }
+                }, {
+                  "value" : "103011",
+                  "label" : "N. VII sn sentral",
+                  "localizedLabels" : {
+                    "en" : "N. VII sn sentral"
+                  }
+                }, {
+                  "value" : "103020",
+                  "label" : "N. XII dx sentral",
+                  "localizedLabels" : {
+                    "en" : "N. XII dx sentral"
+                  }
+                }, {
+                  "value" : "103021",
+                  "label" : "N. XII sn sentral",
+                  "localizedLabels" : {
+                    "en" : "N. XII sn sentral"
+                  }
+                }, {
+                  "value" : "SCTID::74964007",
+                  "label" : "Lainnya",
+                  "localizedLabels" : {
+                    "en" : "Lainnya"
+                  }
+                } ],
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "lainnya",
+              "name" : "Lainnya",
+              "localizedName" : "Lainnya",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0023",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Lainnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the finding not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]/items[at0023,'Lainnya']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ],
+            "termBindings" : {
+              "SNOMED-CT" : {
+                "value" : "[SNOMED-CT::5880005]",
+                "terminologyId" : "SNOMED-CT"
+              }
+            }
+          } ]
+        }, {
+          "id" : "gangguan_visual",
+          "name" : "Gangguan visual",
+          "localizedName" : "Gangguan visual",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.exam.v2",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Gangguan visual"
+          },
+          "localizedDescriptions" : {
+            "en" : "Findings observed during the physical examination of a body system or anatomical structure."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan visual']",
+          "children" : [ {
+            "id" : "system_or_structure_examined",
+            "name" : "System or structure examined",
+            "localizedName" : "System or structure examined",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "System or structure examined"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the examined body system or anatomical structure."
+            },
+            "annotations" : {
+              "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan visual']/items[at0001]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "gangguan_visual",
+            "name" : "Gangguan visual",
+            "localizedName" : "Gangguan visual",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Gangguan visual"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan visual']/items[at0006,'Gangguan visual']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::2667000",
+                "label" : "Tidak ada",
+                "localizedLabels" : {
+                  "en" : "Tidak ada"
+                }
+              }, {
+                "value" : "SCTID::246669008",
+                "label" : "Hemianopia altitudinal",
+                "localizedLabels" : {
+                  "en" : "Hemianopia altitudinal"
+                }
+              }, {
+                "value" : "SCTID::77674003",
+                "label" : "Hemianopia",
+                "localizedLabels" : {
+                  "en" : "Hemianopia"
+                }
+              }, {
+                "value" : "SCTID::68574006",
+                "label" : "Buta kortika",
+                "localizedLabels" : {
+                  "en" : "Buta kortika"
+                }
+              }, {
+                "value" : "SCTID::88032003",
+                "label" : "Amaurosis fugax",
+                "localizedLabels" : {
+                  "en" : "Amaurosis fugax"
+                }
+              }, {
+                "value" : "SCTID::13164000",
+                "label" : "Visus menurun",
+                "localizedLabels" : {
+                  "en" : "Visus menurun"
+                }
+              }, {
+                "value" : "SCTID::24982008",
+                "label" : "Diplopia",
+                "localizedLabels" : {
+                  "en" : "Diplopia"
+                }
+              }, {
+                "value" : "SCTID::74964007",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : "Lainnya"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "gangguan_visual_lainnya",
+            "name" : "Gangguan visual lainnya",
+            "localizedName" : "Gangguan visual lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Gangguan visual lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Gangguan visual']/items[at0006,'Gangguan visual lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ],
+          "termBindings" : {
+            "SNOMED-CT" : {
+              "value" : "[SNOMED-CT::5880005]",
+              "terminologyId" : "SNOMED-CT"
+            }
+          }
+        }, {
+          "id" : "hemineglect",
+          "name" : "Hemineglect",
+          "localizedName" : "Hemineglect",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.exam.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Hemineglect"
+          },
+          "localizedDescriptions" : {
+            "en" : "Findings observed during the physical examination of a body system or anatomical structure."
+          },
+          "annotations" : {
+            "comment" : "SCTID::32422007\n\nNo right/left specification"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Hemineglect']",
+          "children" : [ {
+            "id" : "system_or_structure_examined",
+            "name" : "System or structure examined",
+            "localizedName" : "System or structure examined",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "System or structure examined"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the examined body system or anatomical structure."
+            },
+            "annotations" : {
+              "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Hemineglect']/items[at0001]/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "defaultValue" : "Hemineglect"
+            } ]
+          }, {
+            "id" : "hemineglect",
+            "name" : "Hemineglect",
+            "localizedName" : "Hemineglect",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0003",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Hemineglect"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during the physical examination."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam.v2,'Hemineglect']/items[at0003,'Hemineglect']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "103030",
+                "label" : "Hemineglect dx",
+                "localizedLabels" : {
+                  "en" : "Hemineglect dx"
+                }
+              }, {
+                "value" : "103031",
+                "label" : "Hemineglect sn",
+                "localizedLabels" : {
+                  "en" : "Hemineglect sn"
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          } ],
+          "termBindings" : {
+            "SNOMED-CT" : {
+              "value" : "[SNOMED-CT::5880005]",
+              "terminologyId" : "SNOMED-CT"
+            }
+          }
+        }, {
+          "id" : "gangguan_fungsi_luhur",
+          "name" : "Gangguan fungsi luhur",
+          "localizedName" : "Gangguan fungsi luhur",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.exam-nervous_system.v0",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Gangguan fungsi luhur"
+          },
+          "localizedDescriptions" : {
+            "en" : "Findings observed during the physical examination of the nervous system as a whole."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan fungsi luhur']",
+          "children" : [ {
+            "id" : "system_or_structure_examined",
+            "name" : "System or structure examined",
+            "localizedName" : "System or structure examined",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001.1",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "System or structure examined"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the examined body system or anatomical structure."
+            },
+            "annotations" : {
+              "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan fungsi luhur']/items[at0001.1]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0.1",
+                "label" : "Nervous system",
+                "localizedLabels" : {
+                  "en" : "Nervous system"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The nervous system was examined."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::25087005]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "gangguan_fungsi_luhur",
+            "name" : "Gangguan fungsi luhur",
+            "localizedName" : "Gangguan fungsi luhur",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Gangguan fungsi luhur"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan fungsi luhur']/items[at0006,'Gangguan fungsi luhur']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::2667000",
+                "label" : "Tidak ada",
+                "localizedLabels" : {
+                  "en" : "Tidak ada"
+                }
+              }, {
+                "value" : "SCTID::329676006",
+                "label" : "Afasia sensorik",
+                "localizedLabels" : {
+                  "en" : "Afasia sensorik"
+                }
+              }, {
+                "value" : "SCTID::328681008",
+                "label" : "Afasia motorik",
+                "localizedLabels" : {
+                  "en" : "Afasia motorik"
+                }
+              }, {
+                "value" : "SCTID::23011003",
+                "label" : "Afasia global",
+                "localizedLabels" : {
+                  "en" : "Afasia global"
+                }
+              }, {
+                "value" : "103040",
+                "label" : "Mute",
+                "localizedLabels" : {
+                  "en" : "Mute"
+                }
+              }, {
+                "value" : "SCTID::429998004",
+                "label" : "Demensia vaskular",
+                "localizedLabels" : {
+                  "en" : "Demensia vaskular"
+                }
+              }, {
+                "value" : "SCTID::74964007",
+                "label" : "Lainnya",
+                "localizedLabels" : {
+                  "en" : "Lainnya"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "gangguan_fungsi_luhur_lainnya",
+            "name" : "Gangguan fungsi luhur lainnya",
+            "localizedName" : "Gangguan fungsi luhur lainnya",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Gangguan fungsi luhur lainnya"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "Coding of the 'Clinical interpretation' with a terminology is preferred, where possible."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Gangguan fungsi luhur']/items[at0006,'Gangguan fungsi luhur lainnya']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "kejang",
+      "name" : "Kejang",
+      "localizedName" : "Kejang",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v1",
+      "min" : 1,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Kejang"
+      },
+      "localizedDescriptions" : {
+        "en" : "Series of questions and associated answers used to screen for symptoms or signs."
+      },
+      "annotations" : {
+        "comment" : "The answers may be self-reported."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "terjadi_kejang",
+          "name" : "Terjadi kejang",
+          "localizedName" : "Terjadi kejang",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Terjadi kejang"
+          },
+          "localizedDescriptions" : {
+            "en" : "Is there a history of any symptoms or signs relevant for the screening purpose?"
+          },
+          "annotations" : {
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Terjadi kejang']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::373066001",
+              "label" : "Ya",
+              "localizedLabels" : {
+                "en" : "Ya"
+              }
+            }, {
+              "value" : "SCTID::373067005",
+              "label" : "Tidak",
+              "localizedLabels" : {
+                "en" : "Tidak"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "waktu_onset",
+          "name" : "Waktu onset",
+          "localizedName" : "Waktu onset",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0029",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Waktu onset"
+          },
+          "localizedDescriptions" : {
+            "en" : "Timing of the inital recognition of any symptom or sign relevant for the screening purpose."
+          },
+          "annotations" : {
+            "comment" : "The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/data[at0001]/events[at0002]/data[at0003]/items[at0029,'Waktu onset']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "klasifikasi_onset",
+          "name" : "Klasifikasi onset",
+          "localizedName" : "Klasifikasi onset",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0036",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Klasifikasi onset"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description about the history of any symptoms or signs relevant for the screening purpose."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/data[at0001]/events[at0002]/data[at0003]/items[at0036,'Klasifikasi onset']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::2667000",
+              "label" : "Tidak ada kejang",
+              "localizedLabels" : {
+                "en" : "Tidak ada kejang"
+              }
+            }, {
+              "value" : "10351",
+              "label" : "Sebelum kejadian (sebelum masuk RS)",
+              "localizedLabels" : {
+                "en" : "Sebelum kejadian (sebelum masuk RS)"
+              }
+            }, {
+              "value" : "10352",
+              "label" : "24 jam pertama",
+              "localizedLabels" : {
+                "en" : "24 jam pertama"
+              }
+            }, {
+              "value" : "10353",
+              "label" : "Hari ke-2 s.d. hari ke-7",
+              "localizedLabels" : {
+                "en" : "Hari ke-2 s.d. hari ke-7"
+              }
+            }, {
+              "value" : "10354",
+              "label" : "Setelah hari ke-7",
+              "localizedLabels" : {
+                "en" : "Setelah hari ke-7"
+              }
+            }, {
+              "value" : "10359",
+              "label" : "Tidak tahu",
+              "localizedLabels" : {
+                "en" : "Tidak tahu"
+              }
+            } ],
+            "terminology" : "local_terms"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kejang']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "pemeriksaan_saat_admisi",
+      "name" : "Pemeriksaan saat admisi",
+      "localizedName" : "Pemeriksaan saat admisi",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan saat admisi"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']",
+      "children" : [ {
+        "id" : "pemeriksaan_bedside",
+        "name" : "Pemeriksaan bedside",
+        "localizedName" : "Pemeriksaan bedside",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan bedside"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "test_name",
+            "name" : "Test name",
+            "localizedName" : "Test name",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Test name"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "defaultValue" : "Gula darah sewaktu"
+            } ]
+          }, {
+            "id" : "gula_darah_sewaktu",
+            "name" : "Gula darah sewaktu",
+            "localizedName" : "Gula darah sewaktu",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Gula darah sewaktu"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Gula darah sewaktu']",
+            "children" : [ {
+              "id" : "gula_darah_sewaktu_gds",
+              "name" : "Gula darah sewaktu (GDS)",
+              "localizedName" : "Gula darah sewaktu (GDS)",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Gula darah sewaktu (GDS)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Gula darah sewaktu']/items[at0001,'Gula darah sewaktu (GDS)']/value",
+              "inputs" : [ {
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan bedside']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "gcs",
+        "name" : "GCS",
+        "localizedName" : "GCS",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "GCS"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "clinical_evidence",
+            "name" : "Clinical evidence",
+            "localizedName" : "Clinical evidence",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.clinical_evidence.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Clinical evidence"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about findings that support a clinical assertion."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]",
+            "children" : [ {
+              "id" : "glasgow_comma_scale",
+              "name" : "Glasgow Comma Scale",
+              "localizedName" : "Glasgow Comma Scale",
+              "rmType" : "DV_COUNT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Glasgow Comma Scale"
+              },
+              "localizedDescriptions" : {
+                "en" : "Measurement or value associated with the finding."
+              },
+              "annotations" : {
+                "comment" : "For example: Mantoux test result."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]/items[at0005,'Glasgow Comma Scale']/value",
+              "inputs" : [ {
+                "type" : "INTEGER",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 3,
+                    "maxOp" : "<=",
+                    "max" : 15
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'GCS']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "nih_stroke_scale",
+        "name" : "NIH Stroke Scale",
+        "localizedName" : "NIH Stroke Scale",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "NIH Stroke Scale"
+        },
+        "localizedDescriptions" : {
+          "en" : "15-item neurologic examination stroke scale that provides a quantitative measure of stroke-related neurological deficit."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]",
+        "children" : [ {
+          "id" : "nihss_saat_admisi",
+          "name" : "NIHSS saat admisi",
+          "localizedName" : "NIHSS saat admisi",
+          "rmType" : "DV_COUNT",
+          "nodeId" : "at0097",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "NIHSS saat admisi"
+          },
+          "localizedDescriptions" : {
+            "en" : "The sum of the ordinal scores recorded for each of the fifteen component responses."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/data[at0001]/events[at0002,'Saat admisi']/data[at0003]/items[at0097,'NIHSS saat admisi']/value",
+          "inputs" : [ {
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0,
+                "maxOp" : "<=",
+                "max" : 42
+              }
+            }
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/data[at0001]/events[at0002,'Saat admisi']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "derajat_defisit_neurologis",
+        "name" : "Derajat defisit neurologis",
+        "localizedName" : "Derajat defisit neurologis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Derajat defisit neurologis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Derajat defisit neurologis']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Derajat defisit neurologis']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "derajat_defisit_neurologis",
+            "name" : "Derajat defisit neurologis",
+            "localizedName" : "Derajat defisit neurologis",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Derajat defisit neurologis"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description which represents the clinical meaning and significance of the physical examination findings."
+            },
+            "annotations" : {
+              "comment" : "Coding with a terminology is preferred, if possible. For example, 'normal examination' or 'tympanic membrane perforation'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Derajat defisit neurologis']/data[at0001]/events[at0002]/data[at0003]/items[at0006,'Derajat defisit neurologis']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "10360",
+                "label" : "Tanpa gangguan (0)",
+                "localizedLabels" : {
+                  "en" : "Tanpa gangguan (0)"
+                }
+              }, {
+                "value" : "10361",
+                "label" : "Ringan (NIHSS 1 - 4)",
+                "localizedLabels" : {
+                  "en" : "Ringan (NIHSS 1 - 4)"
+                }
+              }, {
+                "value" : "10362",
+                "label" : "Sedang (NIHSS 5 - 14)",
+                "localizedLabels" : {
+                  "en" : "Sedang (NIHSS 5 - 14)"
+                }
+              }, {
+                "value" : "10363",
+                "label" : "Berat (NIHSS 15 - 20)",
+                "localizedLabels" : {
+                  "en" : "Berat (NIHSS 15 - 20)"
+                }
+              }, {
+                "value" : "10364",
+                "label" : "Sangat berat (NIHSS ≥ 21)",
+                "localizedLabels" : {
+                  "en" : "Sangat berat (NIHSS ≥ 21)"
+                }
+              } ],
+              "terminology" : "local_terms"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Derajat defisit neurologis']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Derajat defisit neurologis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Derajat defisit neurologis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.exam.v1,'Derajat defisit neurologis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "indeks_barthel",
+        "name" : "Indeks Barthel",
+        "localizedName" : "Indeks Barthel",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.modified_barthel_index.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Indeks Barthel"
+        },
+        "localizedDescriptions" : {
+          "en" : "Modification of the Barthel index, used as a functional assessment for activities of daily living (ADL)."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0,'Indeks Barthel']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0,'Indeks Barthel']/data[at0002]/events[at0003]",
+          "children" : [ {
+            "id" : "indeks_barthel_sebelum_serangan_stroke",
+            "name" : "Indeks Barthel (sebelum serangan stroke)",
+            "localizedName" : "Indeks Barthel (sebelum serangan stroke)",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0016",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Indeks Barthel (sebelum serangan stroke)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Sum of the individual scores assigned for each of the contributing variables."
+            },
+            "annotations" : {
+              "comment" : "A score of 0-9 indicates high dependency, 10-19 moderate dependency and 20 is independent."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0,'Indeks Barthel']/data[at0002]/events[at0003]/data[at0001]/items[at0016,'Indeks Barthel (sebelum serangan stroke)']/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 20
+                }
+              }
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0,'Indeks Barthel']/data[at0002]/events[at0003]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0,'Indeks Barthel']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0,'Indeks Barthel']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan saat admisi']/items[openEHR-EHR-OBSERVATION.modified_barthel_index.v0,'Indeks Barthel']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
