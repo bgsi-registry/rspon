@@ -1,6 +1,6 @@
 {
   "templateId" : "neurovas-stroke-obs-v1",
-  "semVer" : "1.4.0",
+  "semVer" : "1.6.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -173,8 +173,32 @@
               "localizedLabels" : {
                 "en" : "Mixed-type"
               }
+            }, {
+              "value" : "SCTID::74964007",
+              "label" : "Lainnya",
+              "localizedLabels" : {
+                "en" : "Lainnya"
+              }
             } ],
             "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "nyeri_kepala_lainnya",
+          "name" : "Nyeri kepala lainnya",
+          "localizedName" : "Nyeri kepala lainnya",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0036",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nyeri kepala lainnya"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description about the history of any symptoms or signs relevant for the screening purpose."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Anamnesis']/data[at0001]/events[at0002]/data[at0003]/items[at0036,'Nyeri kepala lainnya']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
           } ]
         }, {
           "id" : "muntah",
@@ -769,74 +793,38 @@
               "defaultValue" : "at0.1"
             } ]
           }, {
-            "id" : "parese_n.n_kranialis",
-            "name" : "Parese N.n Kranialis",
-            "localizedName" : "Parese N.n Kranialis",
+            "id" : "clinical_evidence",
+            "name" : "Clinical evidence",
+            "localizedName" : "Clinical evidence",
             "rmType" : "CLUSTER",
-            "nodeId" : "openEHR-EHR-CLUSTER.exam-cranial_nerves.v0",
-            "min" : 1,
-            "max" : 1,
+            "nodeId" : "openEHR-EHR-CLUSTER.clinical_evidence.v1",
+            "min" : 0,
+            "max" : -1,
             "localizedNames" : {
-              "en" : "Parese N.n Kranialis"
+              "en" : "Clinical evidence"
             },
             "localizedDescriptions" : {
-              "en" : "Findings observed during the physical examination of the cranial nerves."
+              "en" : "Details about findings that support a clinical assertion."
             },
-            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.exam-cranial_nerves.v0,'Parese N.n Kranialis']",
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]",
             "children" : [ {
-              "id" : "system_or_structure_examined",
-              "name" : "System or structure examined",
-              "localizedName" : "System or structure examined",
+              "id" : "parese_n.n_kranialis",
+              "name" : "Parese N.n Kranialis",
+              "localizedName" : "Parese N.n Kranialis",
               "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0001.1",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "System or structure examined"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of the examined body system or anatomical structure."
-              },
-              "annotations" : {
-                "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.exam-cranial_nerves.v0,'Parese N.n Kranialis']/items[at0001.1]/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "at0.1",
-                  "label" : "Cranial nerve",
-                  "localizedLabels" : {
-                    "en" : "Cranial nerve"
-                  },
-                  "localizedDescriptions" : {
-                    "en" : "One of each of twelve pairs of nerves which arise directly from the brain."
-                  },
-                  "termBindings" : {
-                    "SNOMED-CT" : {
-                      "value" : "[SNOMED-CT::5238003]",
-                      "terminologyId" : "SNOMED-CT"
-                    }
-                  }
-                } ],
-                "defaultValue" : "at0.1"
-              } ]
-            }, {
-              "id" : "parese_n._vii",
-              "name" : "Parese n. VII",
-              "localizedName" : "Parese n. VII",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0.15",
+              "nodeId" : "at0003",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Parese n. VII"
+                "en" : "Parese N.n Kranialis"
               },
               "localizedDescriptions" : {
-                "en" : "Narrative description about findings on examination of the facial nerve."
+                "en" : "Identification of the finding that supports the assertion."
               },
-              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.exam-cranial_nerves.v0,'Parese N.n Kranialis']/items[at0.15,'Parese n. VII']/value",
+              "annotations" : {
+                "comment" : "It is recommended that 'Finding' should be coded with a terminology, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]/items[at0003,'Parese N.n Kranialis']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
@@ -858,51 +846,6 @@
                   "localizedLabels" : {
                     "en" : "N. VII sn sentral"
                   }
-                } ],
-                "terminology" : "SNOMED-CT"
-              } ]
-            }, {
-              "id" : "lainnya",
-              "name" : "Lainnya",
-              "localizedName" : "Lainnya",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0003",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Lainnya"
-              },
-              "localizedDescriptions" : {
-                "en" : "Narrative description of the overall findings observed during the physical examination."
-              },
-              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.exam-cranial_nerves.v0,'Parese N.n Kranialis']/items[at0003,'Lainnya']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            }, {
-              "id" : "parese_n._xii",
-              "name" : "Parese n. XII",
-              "localizedName" : "Parese n. XII",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0.19",
-              "min" : 0,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Parese n. XII"
-              },
-              "localizedDescriptions" : {
-                "en" : "Narrative description about findings on examination of the hypoglossal nerve."
-              },
-              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.exam-cranial_nerves.v0,'Parese N.n Kranialis']/items[at0.19,'Parese n. XII']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "SCTID::2667000",
-                  "label" : "Tidak ada",
-                  "localizedLabels" : {
-                    "en" : "Tidak ada"
-                  }
                 }, {
                   "value" : "103020",
                   "label" : "N. XII dx sentral",
@@ -915,10 +858,40 @@
                   "localizedLabels" : {
                     "en" : "N. XII sn sentral"
                   }
+                }, {
+                  "value" : "SCTID::74964007",
+                  "label" : "Lainnya",
+                  "localizedLabels" : {
+                    "en" : "Lainnya"
+                  }
                 } ],
                 "terminology" : "SNOMED-CT"
               } ]
-            } ]
+            }, {
+              "id" : "lainnya",
+              "name" : "Lainnya",
+              "localizedName" : "Lainnya",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0023",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Lainnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Additional narrative about the finding not captured in other fields."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1,'Pemeriksaan Fisik']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.exam-nervous_system.v0,'Parese N.n Kranialis']/items[openEHR-EHR-CLUSTER.clinical_evidence.v1]/items[at0023,'Lainnya']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ],
+            "termBindings" : {
+              "SNOMED-CT" : {
+                "value" : "[SNOMED-CT::5880005]",
+                "terminologyId" : "SNOMED-CT"
+              }
+            }
           } ]
         }, {
           "id" : "gangguan_visual",
