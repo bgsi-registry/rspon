@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-kead.umum.sbj-v1",
-  "semVer" : "0.12.0",
+  "semVer" : "0.13.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -1702,6 +1702,107 @@
           "min" : 1,
           "max" : 1,
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Ekstremitas inferior']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "simpulan",
+        "name" : "Simpulan",
+        "localizedName" : "Simpulan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Simpulan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Findings observed during the physical examination of a subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Simpulan']",
+        "children" : [ {
+          "id" : "skor_keparahan_lesi",
+          "name" : "Skor keparahan lesi",
+          "localizedName" : "Skor keparahan lesi",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Skor keparahan lesi"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Simpulan']/data[at0001]/events[at0002,'Skor keparahan lesi']",
+          "children" : [ {
+            "id" : "total_skor_keparahan_lesi",
+            "name" : "Total skor keparahan lesi",
+            "localizedName" : "Total skor keparahan lesi",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Total skor keparahan lesi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Narrative description of the overall findings observed during a physical examination of a patient."
+            },
+            "annotations" : {
+              "comment" : "May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Simpulan']/data[at0001]/events[at0002,'Skor keparahan lesi']/data[at0003]/items[at0004,'Total skor keparahan lesi']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Simpulan']/data[at0001]/events[at0002,'Skor keparahan lesi']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Simpulan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Simpulan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status dermatologis']/items[openEHR-EHR-OBSERVATION.exam.v1,'Simpulan']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"
