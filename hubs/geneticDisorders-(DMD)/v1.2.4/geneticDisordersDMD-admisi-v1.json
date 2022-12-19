@@ -1,0 +1,757 @@
+{
+  "templateId" : "geneticDisordersDMD-admisi-v1",
+  "semVer" : "1.2.4",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisordersdmd-admisi-v1",
+    "name" : "geneticDisordersDMD-admisi-v1",
+    "localizedName" : "geneticDisordersDMD-admisi-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersDMD-admisi-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "gejala",
+      "name" : "Gejala",
+      "localizedName" : "Gejala",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Gejala"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']",
+      "children" : [ {
+        "id" : "symptom_sign_screening_questionnaire",
+        "name" : "Symptom/sign screening questionnaire",
+        "localizedName" : "Symptom/sign screening questionnaire",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Symptom/sign screening questionnaire"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for symptoms or signs."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "onset_gejala",
+            "name" : "Onset Gejala",
+            "localizedName" : "Onset Gejala",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Onset Gejala"
+            },
+            "localizedDescriptions" : {
+              "en" : "Timing of the inital recognition of any symptom or sign relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0029,'Onset Gejala']/value",
+            "inputs" : [ {
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
+            } ]
+          }, {
+            "id" : "usia_saat_onset_gejala_tahun",
+            "name" : "Usia saat onset gejala (Tahun)",
+            "localizedName" : "Usia saat onset gejala (Tahun)",
+            "rmType" : "DV_DURATION",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Usia saat onset gejala (Tahun)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Timing of the inital recognition of any symptom or sign relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0029,'Usia saat onset gejala (Tahun)']/value",
+            "inputs" : [ {
+              "suffix" : "year",
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            } ]
+          }, {
+            "id" : "durasi_gejala_hingga_admisi_ke_rumah_sakit",
+            "name" : "Durasi gejala (hingga admisi ke rumah sakit)",
+            "localizedName" : "Durasi gejala (hingga admisi ke rumah sakit)",
+            "rmType" : "DV_DURATION",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Durasi gejala (hingga admisi ke rumah sakit)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Timing of the inital recognition of any symptom or sign relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. \r\n\r\nFor example:\r\nDate/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0029,'Durasi gejala (hingga admisi ke rumah sakit)']/value",
+            "inputs" : [ {
+              "suffix" : "year",
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            }, {
+              "suffix" : "month",
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            }, {
+              "suffix" : "week",
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            }, {
+              "suffix" : "day",
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            } ]
+          }, {
+            "id" : "problem_diagnosis_qualifier",
+            "name" : "Problem/Diagnosis qualifier",
+            "localizedName" : "Problem/Diagnosis qualifier",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.problem_qualifier.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Problem/Diagnosis qualifier"
+            },
+            "localizedDescriptions" : {
+              "en" : "Contextual or temporal qualifier for a specified problem or diagnosis."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]",
+            "children" : [ {
+              "id" : "gejala",
+              "name" : "Gejala",
+              "localizedName" : "Gejala",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0063",
+              "min" : 1,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Gejala"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Gejala']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Keterlambatan perkembangan",
+                  "localizedLabels" : {
+                    "en" : "Keterlambatan perkembangan"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Waddling gait",
+                  "localizedLabels" : {
+                    "en" : "Waddling gait"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Jalan jinjit",
+                  "localizedLabels" : {
+                    "en" : "Jalan jinjit"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Gower's sign",
+                  "localizedLabels" : {
+                    "en" : "Gower's sign"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Skoliosis",
+                  "localizedLabels" : {
+                    "en" : "Skoliosis"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "Merambat saat di tangga",
+                  "localizedLabels" : {
+                    "en" : "Merambat saat di tangga"
+                  }
+                }, {
+                  "value" : "6",
+                  "label" : "Tidak mampu naik tangga",
+                  "localizedLabels" : {
+                    "en" : "Tidak mampu naik tangga"
+                  }
+                }, {
+                  "value" : "7",
+                  "label" : "Mudah terjatuh",
+                  "localizedLabels" : {
+                    "en" : "Mudah terjatuh"
+                  }
+                }, {
+                  "value" : "8",
+                  "label" : "Gangguan nutrisi",
+                  "localizedLabels" : {
+                    "en" : "Gangguan nutrisi"
+                  }
+                }, {
+                  "value" : "9",
+                  "label" : "Gangguan nafas",
+                  "localizedLabels" : {
+                    "en" : "Gangguan nafas"
+                  }
+                }, {
+                  "value" : "10",
+                  "label" : "Progresivitas",
+                  "localizedLabels" : {
+                    "en" : "Progresivitas"
+                  }
+                }, {
+                  "value" : "11",
+                  "label" : "Lain-lain (isi dibawah)",
+                  "localizedLabels" : {
+                    "en" : "Lain-lain (isi dibawah)"
+                  }
+                } ],
+                "terminology" : "local_termsGejala"
+              } ]
+            }, {
+              "id" : "gejala_lainnya",
+              "name" : "Gejala lainnya",
+              "localizedName" : "Gejala lainnya",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Gejala lainnya"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Gejala lainnya']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "usia_muncul_gejala_keterlambatan_perkembangan_tahun",
+              "name" : "Usia muncul gejala keterlambatan perkembangan (Tahun)",
+              "localizedName" : "Usia muncul gejala keterlambatan perkembangan (Tahun)",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Usia muncul gejala keterlambatan perkembangan (Tahun)"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Usia muncul gejala keterlambatan perkembangan (Tahun)']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "keadaan_motorik_kasar",
+              "name" : "Keadaan Motorik kasar",
+              "localizedName" : "Keadaan Motorik kasar",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Keadaan Motorik kasar"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Keadaan Motorik kasar']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "keadaan_motorik_halus",
+              "name" : "Keadaan Motorik halus",
+              "localizedName" : "Keadaan Motorik halus",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Keadaan Motorik halus"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Keadaan Motorik halus']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "keadaan_bahasa",
+              "name" : "Keadaan bahasa",
+              "localizedName" : "Keadaan bahasa",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Keadaan bahasa"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Keadaan bahasa']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "keadaan_sosial",
+              "name" : "Keadaan sosial",
+              "localizedName" : "Keadaan sosial",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Keadaan sosial"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Keadaan sosial']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "kondisi_berjalan",
+              "name" : "Kondisi berjalan",
+              "localizedName" : "Kondisi berjalan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Kondisi berjalan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Kondisi berjalan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "Berjalan tanpa support",
+                  "localizedLabels" : {
+                    "en" : "Berjalan tanpa support"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Berjalan dengan support",
+                  "localizedLabels" : {
+                    "en" : "Berjalan dengan support"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Tidak dapat Berjalan",
+                  "localizedLabels" : {
+                    "en" : "Tidak dapat Berjalan"
+                  }
+                } ],
+                "terminology" : "local_termskondisiBerjalan"
+              } ]
+            }, {
+              "id" : "penggunaan_kursi_roda",
+              "name" : "Penggunaan kursi roda",
+              "localizedName" : "Penggunaan kursi roda",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Penggunaan kursi roda"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Penggunaan kursi roda']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Selalu",
+                  "localizedLabels" : {
+                    "en" : "Selalu"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Kadang-kadang",
+                  "localizedLabels" : {
+                    "en" : "Kadang-kadang"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Tidak pernah",
+                  "localizedLabels" : {
+                    "en" : "Tidak pernah"
+                  }
+                } ],
+                "terminology" : "local_termskursiRoda"
+              } ]
+            }, {
+              "id" : "dapat_duduk_tanpa_bantuan",
+              "name" : "Dapat duduk tanpa bantuan",
+              "localizedName" : "Dapat duduk tanpa bantuan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0063",
+              "min" : 1,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Dapat duduk tanpa bantuan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Dapat duduk tanpa bantuan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "373066001",
+                  "label" : "Ya",
+                  "localizedLabels" : {
+                    "en" : "Ya"
+                  }
+                }, {
+                  "value" : "373067005",
+                  "label" : "Tidak",
+                  "localizedLabels" : {
+                    "en" : "Tidak"
+                  }
+                } ],
+                "terminology" : "SNOMED_CT"
+              } ]
+            }, {
+              "id" : "penggunaan_alat_bantu_nafas",
+              "name" : "Penggunaan alat bantu nafas",
+              "localizedName" : "Penggunaan alat bantu nafas",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0063",
+              "min" : 1,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Penggunaan alat bantu nafas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Penggunaan alat bantu nafas']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Invasif",
+                  "localizedLabels" : {
+                    "en" : "Invasif"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Non-invasif",
+                  "localizedLabels" : {
+                    "en" : "Non-invasif"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Tidak menggunakan",
+                  "localizedLabels" : {
+                    "en" : "Tidak menggunakan"
+                  }
+                } ],
+                "terminology" : "local_termsbantuNafas"
+              } ]
+            }, {
+              "id" : "lama_pemakaian_alat_bantu_nafas_non-invasif",
+              "name" : "Lama pemakaian alat bantu nafas non-invasif",
+              "localizedName" : "Lama pemakaian alat bantu nafas non-invasif",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0063",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Lama pemakaian alat bantu nafas non-invasif"
+              },
+              "localizedDescriptions" : {
+                "en" : "Category of the problem or diagnosis within a specified episode of care and/or local care context."
+              },
+              "annotations" : {
+                "comment" : "This data element contains a value set commonly used in diagnostic categorisation. In episodic care contexts (commonly secondary care) it is common to categorise/organise diagnoses according to their relationship to the principal diagnosis being addressed during that episode of care. These categories may also be used for clinical coding, reporting and billing purposes. In some countries the diagnostic category may be known as a DRG.\r\n In addition, the free text choice permits use of other local value sets, as required."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.problem_qualifier.v1]/items[at0063,'Lama pemakaian alat bantu nafas non-invasif']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Sepanjang hari",
+                  "localizedLabels" : {
+                    "en" : "Sepanjang hari"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Beberapa jam",
+                  "localizedLabels" : {
+                    "en" : "Beberapa jam"
+                  }
+                } ],
+                "terminology" : "local_termsbantuNafaslama"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Gejala']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
