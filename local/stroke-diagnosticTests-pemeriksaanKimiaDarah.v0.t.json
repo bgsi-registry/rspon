@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.5.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "8513fbf923a8969234ca51a1485ae129",
+      "MD5-CAM-1.0.1" : "2c4bafed71be740992e1438bd96c7b8c",
       "PARENT:MD5-CAM-1.0.1" : "D02DE57ACD4A04C1ADAE1F8B28197890"
     },
     "details" : {
@@ -214,6 +214,18 @@
                         "@type" : "C_COMPLEX_OBJECT",
                         "rmTypeName" : "DV_CODED_TEXT",
                         "occurrences" : "1..1",
+                        "defaultValue" : {
+                          "defining_code" : {
+                            "terminology_id" : {
+                              "value" : "SNOMED-CT",
+                              "@type" : "TERMINOLOGY_ID"
+                            },
+                            "code_string" : "SCTID::51990-0",
+                            "@type" : "CODE_PHRASE"
+                          },
+                          "value" : "Pemeriksaan kimia darah",
+                          "@type" : "DV_CODED_TEXT"
+                        },
                         "attributes" : [ {
                           "@type" : "C_ATTRIBUTE",
                           "rmAttributeName" : "defining_code",
@@ -1131,10 +1143,52 @@
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_COUNT",
+              "rmTypeName" : "DV_QUANTITY",
               "occurrences" : "1..1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "property",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "129" ]
+                } ]
+              } ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "uL" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "upper" : 9.99999999999E11,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                } ]
+              } ]
             } ]
           } ],
           "attributeTuples" : [ ]
@@ -1148,10 +1202,52 @@
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_COUNT",
+              "rmTypeName" : "DV_QUANTITY",
               "occurrences" : "1..1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "property",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "129" ]
+                } ]
+              } ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "uL" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "upper" : 9.99999999999E11,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                } ]
+              } ]
             } ]
           } ],
           "attributeTuples" : [ ]
@@ -1165,10 +1261,40 @@
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_COUNT",
+              "rmTypeName" : "DV_QUANTITY",
               "occurrences" : "1..1",
               "attributes" : [ ],
-              "attributeTuples" : [ ]
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "[arb'U]/dL" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "upper" : 9.99999999999E11,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                } ]
+              } ]
             } ]
           } ],
           "attributeTuples" : [ ]
@@ -1182,10 +1308,40 @@
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_COUNT",
+              "rmTypeName" : "DV_QUANTITY",
               "occurrences" : "1..1",
               "attributes" : [ ],
-              "attributeTuples" : [ ]
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "[arb'U]/dL" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "upper" : 9.99999999999E11,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                } ]
+              } ]
             } ]
           } ],
           "attributeTuples" : [ ]
@@ -1463,7 +1619,7 @@
           "at0001.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.1",
-            "text" : "SGOT (µ/L)",
+            "text" : "SGOT",
             "description" : "Unit: U/L",
             "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
@@ -1472,7 +1628,7 @@
           "at0001.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.2",
-            "text" : "SGPT (µ/L)",
+            "text" : "SGPT",
             "description" : "Unit: U/L",
             "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
@@ -1481,7 +1637,7 @@
           "at0001.3" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.3",
-            "text" : "Ureum / BUN (mg/dL)",
+            "text" : "Ureum / BUN",
             "description" : "Unit: mg/dL",
             "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
@@ -1490,11 +1646,23 @@
           "at0001.4" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.4",
-            "text" : "Creatinin (mg/dL)",
+            "text" : "Creatinin",
             "description" : "Unit: U/L",
             "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
             "fhir_mapping" : "Observation.value[x]"
+          },
+          "uL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "µ/L",
+            "description" : "micro litre",
+            "code" : "uL"
+          },
+          "[arb'U]/dL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "mg/dL",
+            "description" : "@ units @",
+            "code" : "[arb'U]/dL"
           }
         },
         "nb" : {
@@ -1530,6 +1698,18 @@
             "comment" : "For eksempel \"7,3 mmol/L\" eller \"Forhøyet\". Datatypen \"Udefinert datatype\" må begrenses til en passende datatype i en spesialisering, et templat eller i applikasjonen. Datatypen Quantity har attributter fra referansemodellen som dekker flagg for normalt/unormalt, referanseområder og approksimeringer. Se https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for mer detaljer.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
             "fhir_mapping" : "Observation.value[x]"
+          },
+          "uL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*µ/L (en)",
+            "description" : "*micro litre (en)",
+            "code" : "uL"
+          },
+          "[arb'U]/dL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "[arb'U]/dL",
+            "description" : "@ units @",
+            "code" : "[arb'U]/dL"
           }
         },
         "pt-br" : {
@@ -1565,6 +1745,18 @@
             "comment" : "*For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.(en)",
             "hl7v2_mapping" : "*OBX.2,OBX.5,OBX.6(en)",
             "fhir_mapping" : "*Observation.value[x](en)"
+          },
+          "uL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*µ/L (en)",
+            "description" : "*micro litre (en)",
+            "code" : "uL"
+          },
+          "[arb'U]/dL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "[arb'U]/dL",
+            "description" : "@ units @",
+            "code" : "[arb'U]/dL"
           }
         },
         "de" : {
@@ -1600,6 +1792,18 @@
             "comment" : "Z.B. \"7,3 mmol/l\", \"Erhöht\". Der \"Any\"-Datentyp wird dann durch eine Spezialisierung, eine Vorlage oder zur Laufzeit der Anwendung auf einen passenden Datentyp eingeschränkt werden müssen, um das aktuelle Analyt-Ergebnis wiederzugeben. Der \"Quantity\"-Datentyp hat Referenzmodell-Attribute, wie Kennungen für normal/abnormal, Referenzbereiche und Näherungen - für weitere Details s. https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class .",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
             "fhir_mapping" : "Observation.value[x]"
+          },
+          "uL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*µ/L (en)",
+            "description" : "*micro litre (en)",
+            "code" : "uL"
+          },
+          "[arb'U]/dL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "[arb'U]/dL",
+            "description" : "@ units @",
+            "code" : "[arb'U]/dL"
           }
         },
         "nl" : {
@@ -1635,6 +1839,18 @@
             "comment" : "Bijvoorbeeld: '7.3 mmol/l', 'Verhoogd'. Om het daadwerkelijke analyt result weer te geven dient het 'Any' data type gespecificeerd te worden tot een toepasselijk data type in een specialisatie, een template of terwijl de applicatie loopt.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
             "fhir_mapping" : "Observation.value[x]"
+          },
+          "uL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*µ/L (en)",
+            "description" : "*micro litre (en)",
+            "code" : "uL"
+          },
+          "[arb'U]/dL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "[arb'U]/dL",
+            "description" : "@ units @",
+            "code" : "[arb'U]/dL"
           }
         },
         "sv" : {
@@ -1670,6 +1886,18 @@
             "comment" : "Till exempel \"7,3 mmol/L\" eller \"Förhöjd\". Datatypen \"Any\", som är en odefinierad datatyp, måste begränsas till en lämplig datatyp i en specialisering, mall eller applikation. Datatypen \"Quantity\" har attribut från referensmodellen som täcker flaggor för normal/onormal, referensområden och approximationer.\r\nSe https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class för mer information.",
             "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
             "fhir_mapping" : "Observation.value[x]"
+          },
+          "uL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*µ/L (en)",
+            "description" : "*micro litre (en)",
+            "code" : "uL"
+          },
+          "[arb'U]/dL" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "[arb'U]/dL",
+            "description" : "@ units @",
+            "code" : "[arb'U]/dL"
           }
         }
       },
