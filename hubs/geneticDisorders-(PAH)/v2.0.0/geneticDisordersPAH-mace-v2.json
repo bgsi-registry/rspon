@@ -1,0 +1,228 @@
+{
+  "templateId" : "geneticDisordersPAH-mace-v1",
+  "semVer" : "2.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "geneticdisorderspah-mace-v1",
+    "name" : "geneticDisordersPAH-mace-v1",
+    "localizedName" : "geneticDisordersPAH-mace-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.report.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "geneticDisordersPAH-mace-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Document to communicate information to others, commonly in response to a request from another party."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "major_adverse_cardiac_events",
+      "name" : "Major Adverse Cardiac Events",
+      "localizedName" : "Major Adverse Cardiac Events",
+      "rmType" : "EVALUATION",
+      "nodeId" : "openEHR-EHR-EVALUATION.death_summary.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Major Adverse Cardiac Events"
+      },
+      "localizedDescriptions" : {
+        "en" : "Summary information about the death of an individual, excluding the cause(s) of death."
+      },
+      "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0,'Major Adverse Cardiac Events']",
+      "children" : [ {
+        "id" : "penyebab_kematian",
+        "name" : "Penyebab kematian",
+        "localizedName" : "Penyebab kematian",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0093",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Penyebab kematian"
+        },
+        "localizedDescriptions" : {
+          "en" : "Narrative description about the context or setting of the death."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0,'Major Adverse Cardiac Events']/data[at0001]/items[at0093,'Penyebab kematian']/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "jumlah_rehospitalisasi",
+        "name" : "Jumlah rehospitalisasi",
+        "localizedName" : "Jumlah rehospitalisasi",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0021",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Jumlah rehospitalisasi"
+        },
+        "localizedDescriptions" : {
+          "en" : "The category of the place where the individual died."
+        },
+        "annotations" : {
+          "comment" : "This data element has multiple occurrences to allow more than one level of category, including subcategories about the place of death. It is recommended that 'Place category' be coded with an external terminology. For example: hospital or home; or, within the context of a hospital: ICU; ward; or operating theatre."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0,'Major Adverse Cardiac Events']/data[at0001]/items[at0021,'Jumlah rehospitalisasi']/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "penyebab_rehospitalisasi",
+        "name" : "Penyebab rehospitalisasi",
+        "localizedName" : "Penyebab rehospitalisasi",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0109",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Penyebab rehospitalisasi"
+        },
+        "localizedDescriptions" : {
+          "en" : "The simple name of, or description about, the place where the individual died."
+        },
+        "annotations" : {
+          "comment" : "For example: 'City Hospital'; 'Mother's house'; or 'Eiffel tower'. This data element has multiple occurrences to allow more than one level of detail about the place of death, such as recording both 'City Hospital' and 'Ward 6 North'."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0,'Major Adverse Cardiac Events']/data[at0001]/items[at0109,'Penyebab rehospitalisasi']/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0,'Major Adverse Cardiac Events']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0,'Major Adverse Cardiac Events']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.death_summary.v0,'Major Adverse Cardiac Events']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
