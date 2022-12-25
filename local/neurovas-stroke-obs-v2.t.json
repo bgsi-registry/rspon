@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "2.3.0",
+      "sem_ver" : "2.4.1",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "5f285d6b1379003c3129c2c3f7460a53",
+      "MD5-CAM-1.0.1" : "325afedc528cd7436182d5ceb493c558",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -3100,7 +3100,7 @@
                     "value" : "Hemiparesis kiri"
                   }, {
                     "terminologyId" : "SNOMED-CT",
-                    "code" : "10200",
+                    "code" : "SCTID::10200",
                     "value" : "Hemiparesis duplex"
                   }, {
                     "terminologyId" : "SNOMED-CT",
@@ -3482,15 +3482,15 @@
                     "value" : "Tidak ada"
                   }, {
                     "terminologyId" : "SNOMED-CT",
-                    "code" : "103001",
+                    "code" : "SCTID::103001",
                     "value" : "Hemihipestesi kanan"
                   }, {
                     "terminologyId" : "SNOMED-CT",
-                    "code" : "103002",
+                    "code" : "SCTID::103002",
                     "value" : "Hemihipestesi kiri"
                   }, {
                     "terminologyId" : "SNOMED-CT",
-                    "code" : "103003",
+                    "code" : "SCTID::103003",
                     "value" : "Perioral numbness"
                   }, {
                     "terminologyId" : "SNOMED-CT",
@@ -5395,16 +5395,16 @@
                   "rmTypeName" : "TERMINOLOGY_CODE",
                   "occurrences" : "0..1",
                   "terminologyId" : {
-                    "value" : "local_terms"
+                    "value" : "SNOMED-CT"
                   },
                   "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms" ],
+                  "selectedTerminologies" : [ "SNOMED-CT" ],
                   "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "103030",
                     "value" : "Hemineglect dx"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "103031",
                     "value" : "Hemineglect sn"
                   } ]
@@ -5671,6 +5671,51 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "defaultValue" : {
+                "defining_code" : {
+                  "terminology_id" : {
+                    "value" : "SNOMED-CT",
+                    "@type" : "TERMINOLOGY_ID"
+                  },
+                  "code_string" : "SCTID::25087005",
+                  "@type" : "CODE_PHRASE"
+                },
+                "value" : "Sistem saraf",
+                "@type" : "DV_CODED_TEXT"
+              },
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "SNOMED-CT"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "SNOMED-CT" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::25087005",
+                    "value" : "Sistem saraf"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0012.0.1",
           "attributes" : [ ],
@@ -5723,7 +5768,7 @@
                     "value" : "Afasia global"
                   }, {
                     "terminologyId" : "SNOMED-CT",
-                    "code" : "103040",
+                    "code" : "SCTID::103040",
                     "value" : "Mute"
                   }, {
                     "terminologyId" : "SNOMED-CT",
@@ -5954,6 +5999,13 @@
             "code" : "at0003",
             "text" : "Descrição clínica",
             "description" : "Descrição narrativa dos achados gerais observados durante o exame físico."
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "Sistema ou estrutura examinada",
+            "description" : "Identificação do sistema do corpo examinado ou da estrutura anatômica.",
+            "comment" : "A codificação do sistema ou estrutura examinada com uma terminologia é preferível, sempre que possível."
           }
         },
         "de" : {
@@ -6078,6 +6130,13 @@
             "code" : "at0003",
             "text" : "Klinische Beschreibung",
             "description" : "Beschreibung der bei der körperlichen Untersuchung beobachteten Gesamtbefunde."
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "Untersuchtes System oder untersuchte Struktur",
+            "description" : "Identifizierung des untersuchten Körpersystems oder der anatomischen Struktur.",
+            "comment" : "Wenn möglich wird die Kodierung des untersuchten Systems oder der untersuchten Struktur mit einer Terminologie bevorzugt."
           }
         },
         "sv" : {
@@ -6202,6 +6261,13 @@
             "code" : "at0003",
             "text" : "Klinisk beskrivning",
             "description" : "En övergripande beskrivning av fynden från den fysiska undersökningen. "
+          },
+          "at0001.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1.1",
+            "text" : "System eller struktur som undersökts",
+            "description" : "Identifiering av systemet eller strukturen som undersökts.",
+            "comment" : "Om möjligt, koda systemet eller strukturen med hjälp av ett terminologisystem."
           }
         }
       },
@@ -7376,6 +7442,18 @@
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_CODED_TEXT",
                           "occurrences" : "1..1",
+                          "defaultValue" : {
+                            "defining_code" : {
+                              "terminology_id" : {
+                                "value" : "SNOMED-CT",
+                                "@type" : "TERMINOLOGY_ID"
+                              },
+                              "code_string" : "SCTID::271061004",
+                              "@type" : "CODE_PHRASE"
+                            },
+                            "value" : "Gula darah sewaktu",
+                            "@type" : "DV_CODED_TEXT"
+                          },
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
                             "rmAttributeName" : "defining_code",
@@ -11163,32 +11241,32 @@
                   "rmTypeName" : "TERMINOLOGY_CODE",
                   "occurrences" : "0..1",
                   "terminologyId" : {
-                    "value" : "local_terms"
+                    "value" : "SNOMED-CT"
                   },
                   "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms" ],
+                  "selectedTerminologies" : [ "SNOMED-CT" ],
                   "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "SCTID::2667000",
                     "value" : "Tidak ada"
                   }, {
-                    "terminologyId" : "local_terms",
-                    "code" : "103010",
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::103010",
                     "value" : "N. VII dx sentral"
                   }, {
-                    "terminologyId" : "local_terms",
-                    "code" : "103011",
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::103011",
                     "value" : "N. VII sn sentral"
                   }, {
-                    "terminologyId" : "local_terms",
-                    "code" : "103020",
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::103020",
                     "value" : "N. XII dx sentral"
                   }, {
-                    "terminologyId" : "local_terms",
-                    "code" : "103021",
+                    "terminologyId" : "SNOMED-CT",
+                    "code" : "SCTID::103021",
                     "value" : "N. XII sn sentral"
                   }, {
-                    "terminologyId" : "local_terms",
+                    "terminologyId" : "SNOMED-CT",
                     "code" : "SCTID::74964007",
                     "value" : "Lainnya"
                   } ]
