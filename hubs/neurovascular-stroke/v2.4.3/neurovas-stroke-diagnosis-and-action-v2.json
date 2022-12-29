@@ -1,0 +1,919 @@
+{
+  "templateId" : "neurovas-stroke-diagnosis-and-action-v2",
+  "semVer" : "2.4.3",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "neurovas-stroke-diagnosis-and-action-v2",
+    "name" : "neurovas-stroke-diagnosis-and-action-v2",
+    "localizedName" : "neurovas-stroke-diagnosis-and-action-v2",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "neurovas-stroke-diagnosis-and-action-v2"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "diagnosis",
+      "name" : "Diagnosis",
+      "localizedName" : "Diagnosis",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Diagnosis"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis']",
+      "children" : [ {
+        "id" : "diagnosis",
+        "name" : "Diagnosis",
+        "localizedName" : "Diagnosis",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Diagnosis"
+        },
+        "localizedDescriptions" : {
+          "en" : "Details about a single identified health condition, injury, disability or any other issue which impacts on the physical, mental and/or social well-being of an individual."
+        },
+        "annotations" : {
+          "comment" : "Clear delineation between the scope of a problem versus a diagnosis is not easy to achieve in practice. For the purposes of clinical documentation with this archetype, problem and diagnosis are regarded as a continuum, with increasing levels of detail and supportive evidence usually providing weight towards the label of 'diagnosis'."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diagnosis']",
+        "children" : [ {
+          "id" : "tipe_stroke",
+          "name" : "Tipe Stroke",
+          "localizedName" : "Tipe Stroke",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tipe Stroke"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the problem or diagnosis, by name."
+          },
+          "annotations" : {
+            "comment" : "Coding of the name of the problem or diagnosis with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diagnosis']/data[at0001]/items[at0002,'Tipe Stroke']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::422504002",
+              "label" : "Stroke iskemik",
+              "localizedLabels" : {
+                "en" : "Stroke iskemik"
+              }
+            }, {
+              "value" : "SCTID::10410",
+              "label" : "Stroke perdarahan",
+              "localizedLabels" : {
+                "en" : "Stroke perdarahan"
+              }
+            }, {
+              "value" : "SCTID::21454007",
+              "label" : "SAH (Subarachnoid hemorrhage)",
+              "localizedLabels" : {
+                "en" : "SAH (Subarachnoid hemorrhage)"
+              }
+            }, {
+              "value" : "SCTID::266257000",
+              "label" : "TIA (Transient ischemic attack)",
+              "localizedLabels" : {
+                "en" : "TIA (Transient ischemic attack)"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diagnosis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diagnosis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Diagnosis']/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1,'Diagnosis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "tindakan",
+      "name" : "Tindakan",
+      "localizedName" : "Tindakan",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Tindakan"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']",
+      "children" : [ {
+        "id" : "tindakan_yang_diberikan",
+        "name" : "Tindakan yang diberikan",
+        "localizedName" : "Tindakan yang diberikan",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.procedure.v1",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Tindakan yang diberikan"
+        },
+        "localizedDescriptions" : {
+          "en" : "A clinical activity carried out for screening, investigative, diagnostic, curative, therapeutic, evaluative or palliative purposes."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']",
+        "children" : [ {
+          "id" : "tindakan_medis_yang_diberikan",
+          "name" : "Tindakan medis yang diberikan",
+          "localizedName" : "Tindakan medis yang diberikan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tindakan medis yang diberikan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the procedure by name."
+          },
+          "annotations" : {
+            "comment" : "Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[at0002,'Tindakan medis yang diberikan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::426347000",
+              "label" : "rtPA/Trombolisis",
+              "localizedLabels" : {
+                "en" : "rtPA/Trombolisis"
+              }
+            }, {
+              "value" : "SCTID::233422002",
+              "label" : "Trombektomi",
+              "localizedLabels" : {
+                "en" : "Trombektomi"
+              }
+            }, {
+              "value" : "SCTID::118441006",
+              "label" : "Evakuasi Hematom",
+              "localizedLabels" : {
+                "en" : "Evakuasi Hematom"
+              }
+            }, {
+              "value" : "SCTID::36910002",
+              "label" : "Craniectomy",
+              "localizedLabels" : {
+                "en" : "Craniectomy"
+              }
+            }, {
+              "value" : "SCTID::274024009",
+              "label" : "Clipping",
+              "localizedLabels" : {
+                "en" : "Clipping"
+              }
+            }, {
+              "value" : "SCTID::230869001",
+              "label" : "EVD",
+              "localizedLabels" : {
+                "en" : "EVD"
+              }
+            }, {
+              "value" : "SCTID::43785003",
+              "label" : "Coiling",
+              "localizedLabels" : {
+                "en" : "Coiling"
+              }
+            }, {
+              "value" : "SCTID::103716009",
+              "label" : "Stenting",
+              "localizedLabels" : {
+                "en" : "Stenting"
+              }
+            }, {
+              "value" : "SCTID::429062005",
+              "label" : "Embolisasi",
+              "localizedLabels" : {
+                "en" : "Embolisasi"
+              }
+            }, {
+              "value" : "SCTID::416608005",
+              "label" : "Farmakoterapi",
+              "localizedLabels" : {
+                "en" : "Farmakoterapi"
+              }
+            }, {
+              "value" : "SCTID::74964007",
+              "label" : "Lainnya",
+              "localizedLabels" : {
+                "en" : "Lainnya"
+              }
+            } ],
+            "listOpen" : true,
+            "terminology" : "SNOMED-CT"
+          }, {
+            "suffix" : "other",
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "tindakan_yang_diberikan",
+          "name" : "Tindakan yang diberikan",
+          "localizedName" : "Tindakan yang diberikan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0065",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Tindakan yang diberikan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of specific method or technique for the procedure."
+          },
+          "annotations" : {
+            "comment" : "Use this data element to record simple terms or a narrative description. If the requirements for recording the method require more complex modelling then this can be represented by additional archetypes within the 'Procedure detail' SLOT in this archetype. If the method is included in the 'Procedure name' via precoordinated codes, this data element becomes redundant."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[at0065,'Tindakan yang diberikan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::426347000",
+              "label" : "rtPA/Trombolisis",
+              "localizedLabels" : {
+                "en" : "rtPA/Trombolisis"
+              }
+            }, {
+              "value" : "SCTID::233422002",
+              "label" : "Trombektomi",
+              "localizedLabels" : {
+                "en" : "Trombektomi"
+              }
+            }, {
+              "value" : "SCTID::118441006",
+              "label" : "Evakuasi Hematom",
+              "localizedLabels" : {
+                "en" : "Evakuasi Hematom"
+              }
+            }, {
+              "value" : "SCTID::36910002",
+              "label" : "Craniectomy",
+              "localizedLabels" : {
+                "en" : "Craniectomy"
+              }
+            }, {
+              "value" : "SCTID::274024009",
+              "label" : "Clipping",
+              "localizedLabels" : {
+                "en" : "Clipping"
+              }
+            }, {
+              "value" : "SCTID::230869001",
+              "label" : "EVD",
+              "localizedLabels" : {
+                "en" : "EVD"
+              }
+            }, {
+              "value" : "SCTID::43785003",
+              "label" : "Coiling",
+              "localizedLabels" : {
+                "en" : "Coiling"
+              }
+            }, {
+              "value" : "SCTID::103716009",
+              "label" : "Stenting",
+              "localizedLabels" : {
+                "en" : "Stenting"
+              }
+            }, {
+              "value" : "SCTID::429062005",
+              "label" : "Embolisasi",
+              "localizedLabels" : {
+                "en" : "Embolisasi"
+              }
+            }, {
+              "value" : "SCTID::416608005",
+              "label" : "Farmakoterapi",
+              "localizedLabels" : {
+                "en" : "Farmakoterapi"
+              }
+            }, {
+              "value" : "SCTID::74964007",
+              "label" : "Lainnya",
+              "localizedLabels" : {
+                "en" : "Lainnya"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "tindakan_lainnya_yang_diberikan",
+          "name" : "Tindakan lainnya yang diberikan",
+          "localizedName" : "Tindakan lainnya yang diberikan",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0065",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Tindakan lainnya yang diberikan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of specific method or technique for the procedure."
+          },
+          "annotations" : {
+            "comment" : "Use this data element to record simple terms or a narrative description. If the requirements for recording the method require more complex modelling then this can be represented by additional archetypes within the 'Procedure detail' SLOT in this archetype. If the method is included in the 'Procedure name' via precoordinated codes, this data element becomes redundant."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[at0065,'Tindakan lainnya yang diberikan']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "rtpa",
+          "name" : "rtPA",
+          "localizedName" : "rtPA",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.medication.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "rtPA"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about a medication or component of a medication, including strength, form and details of any specific constituents."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'rtPA']",
+          "children" : [ {
+            "id" : "dosis_rtpa",
+            "name" : "Dosis rtPA",
+            "localizedName" : "Dosis rtPA",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0139",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Dosis rtPA"
+            },
+            "localizedDescriptions" : {
+              "en" : "The amount of medication or medication component."
+            },
+            "annotations" : {
+              "comment" : "For example: '1 ml', '1.5 mg', '1000 ml'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.medication.v2,'rtPA']/items[at0139,'Dosis rtPA']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL"
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "door_to_needle",
+          "name" : "Door to Needle",
+          "localizedName" : "Door to Needle",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.therapeutic_direction.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Door to Needle"
+          },
+          "localizedDescriptions" : {
+            "en" : "Structured details of a single therapeutic direction for an ordered item, such as a medication or blood transfusion order."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.therapeutic_direction.v1,'Door to Needle']",
+          "children" : [ {
+            "id" : "door_to_needle",
+            "name" : "Door to Needle",
+            "localizedName" : "Door to Needle",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0177",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Door to Needle"
+            },
+            "localizedDescriptions" : {
+              "en" : "After a number of administrations for when a review is required."
+            },
+            "annotations" : {
+              "comment" : "For example: '3 administrations' or 'Two weeks'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.therapeutic_direction.v1,'Door to Needle']/items[at0177,'Door to Needle']/value",
+            "inputs" : [ {
+              "type" : "INTEGER"
+            } ]
+          } ]
+        }, {
+          "id" : "door_to_puncture",
+          "name" : "Door to Puncture",
+          "localizedName" : "Door to Puncture",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.therapeutic_direction.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Door to Puncture"
+          },
+          "localizedDescriptions" : {
+            "en" : "Structured details of a single therapeutic direction for an ordered item, such as a medication or blood transfusion order."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.therapeutic_direction.v1,'Door to Puncture']",
+          "children" : [ {
+            "id" : "door_to_puncture",
+            "name" : "Door to Puncture",
+            "localizedName" : "Door to Puncture",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0177",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Door to Puncture"
+            },
+            "localizedDescriptions" : {
+              "en" : "After a number of administrations for when a review is required."
+            },
+            "annotations" : {
+              "comment" : "For example: '3 administrations' or 'Two weeks'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.therapeutic_direction.v1,'Door to Puncture']/items[at0177,'Door to Puncture']/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "door_to_reperfusion",
+          "name" : "Door to Reperfusion",
+          "localizedName" : "Door to Reperfusion",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.therapeutic_direction.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Door to Reperfusion"
+          },
+          "localizedDescriptions" : {
+            "en" : "Structured details of a single therapeutic direction for an ordered item, such as a medication or blood transfusion order."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.therapeutic_direction.v1,'Door to Reperfusion']",
+          "children" : [ {
+            "id" : "door_to_reperfusion",
+            "name" : "Door to Reperfusion",
+            "localizedName" : "Door to Reperfusion",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0177",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Door to Reperfusion"
+            },
+            "localizedDescriptions" : {
+              "en" : "After a number of administrations for when a review is required."
+            },
+            "annotations" : {
+              "comment" : "For example: '3 administrations' or 'Two weeks'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/description[at0001]/items[openEHR-EHR-CLUSTER.therapeutic_direction.v1,'Door to Reperfusion']/items[at0177,'Door to Reperfusion']/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-ACTION.procedure.v1,'Tindakan yang diberikan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "nih_stroke_scale",
+        "name" : "NIH Stroke Scale",
+        "localizedName" : "NIH Stroke Scale",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "NIH Stroke Scale"
+        },
+        "localizedDescriptions" : {
+          "en" : "15-item neurologic examination stroke scale that provides a quantitative measure of stroke-related neurological deficit."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]",
+        "children" : [ {
+          "id" : "nihss_setelah_rtpa",
+          "name" : "NIHSS setelah rtPA",
+          "localizedName" : "NIHSS setelah rtPA",
+          "rmType" : "DV_COUNT",
+          "nodeId" : "at0097",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "NIHSS setelah rtPA"
+          },
+          "localizedDescriptions" : {
+            "en" : "The sum of the ordinal scores recorded for each of the fifteen component responses."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/data[at0001]/events[at0158,'NIHSS setelah RTPA']/data[at0003]/items[at0097,'NIHSS setelah rtPA']/value",
+          "inputs" : [ {
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0,
+                "maxOp" : "<=",
+                "max" : 42
+              }
+            }
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/data[at0001]/events[at0158,'NIHSS setelah RTPA']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.stroke_scale_neurological_assessment.v0]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "preventif_stroke_sekunder",
+        "name" : "Preventif Stroke Sekunder",
+        "localizedName" : "Preventif Stroke Sekunder",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.medication_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Preventif Stroke Sekunder"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for the use of medications."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Preventif Stroke Sekunder']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0023",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Preventif Stroke Sekunder']/data[at0022]/events[at0023]",
+          "children" : [ {
+            "id" : "preventif_stroke_sekunder",
+            "name" : "Preventif Stroke Sekunder",
+            "localizedName" : "Preventif Stroke Sekunder",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0027",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Preventif Stroke Sekunder"
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of use of any medication related to the screening purpose?"
+            },
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Preventif Stroke Sekunder']/data[at0022]/events[at0023]/data[at0001]/items[at0027,'Preventif Stroke Sekunder']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::438486002",
+                "label" : "Antiplatelet",
+                "localizedLabels" : {
+                  "en" : "Antiplatelet"
+                }
+              }, {
+                "value" : "SCTID::372912004",
+                "label" : "Statin",
+                "localizedLabels" : {
+                  "en" : "Statin"
+                }
+              }, {
+                "value" : "SCTID::308116003",
+                "label" : "Antihipertensi",
+                "localizedLabels" : {
+                  "en" : "Antihipertensi"
+                }
+              }, {
+                "value" : "SCTID::384953001",
+                "label" : "Antidiabetik",
+                "localizedLabels" : {
+                  "en" : "Antidiabetik"
+                }
+              }, {
+                "value" : "SCTID::81839001",
+                "label" : "Antikoagulan/warfarin",
+                "localizedLabels" : {
+                  "en" : "Antikoagulan/warfarin"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Preventif Stroke Sekunder']/data[at0022]/events[at0023]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Preventif Stroke Sekunder']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Preventif Stroke Sekunder']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Tindakan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Preventif Stroke Sekunder']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
