@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-kead.umum.sbj-v1",
-  "semVer" : "0.14.0",
+  "semVer" : "1.0.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -3893,6 +3893,190 @@
           "inContext" : true
         } ]
       }, {
+        "id" : "keluhan_sendi",
+        "name" : "Keluhan sendi",
+        "localizedName" : "Keluhan sendi",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Keluhan sendi"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "lokasi_sendi",
+            "name" : "Lokasi sendi",
+            "localizedName" : "Lokasi sendi",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0028",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Lokasi sendi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Is there a history of any issues, problems or diagnoses relevant for the screening purpose?"
+            },
+            "annotations" : {
+              "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Lokasi sendi']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Kepala",
+                "localizedLabels" : {
+                  "en" : "Kepala"
+                }
+              }, {
+                "value" : "1",
+                "label" : "Bahu",
+                "localizedLabels" : {
+                  "en" : "Bahu"
+                }
+              }, {
+                "value" : "2",
+                "label" : "Ekstremitas atas",
+                "localizedLabels" : {
+                  "en" : "Ekstremitas atas"
+                }
+              }, {
+                "value" : "3",
+                "label" : "Pinggul",
+                "localizedLabels" : {
+                  "en" : "Pinggul"
+                }
+              }, {
+                "value" : "4",
+                "label" : "Ekstremitas bawah",
+                "localizedLabels" : {
+                  "en" : "Ekstremitas bawah"
+                }
+              } ],
+              "terminology" : "local_lokasikeluhansendi"
+            } ]
+          }, {
+            "id" : "keluhan_sendi",
+            "name" : "Keluhan sendi",
+            "localizedName" : "Keluhan sendi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Keluhan sendi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan sendi']",
+            "children" : [ {
+              "id" : "jenis_keluhan",
+              "name" : "Jenis keluhan",
+              "localizedName" : "Jenis keluhan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Jenis keluhan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Keluhan sendi']/items[at0004,'Jenis keluhan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Keluhan sendi",
+                  "localizedLabels" : {
+                    "en" : "Keluhan sendi"
+                  }
+                } ],
+                "defaultValue" : "0",
+                "terminology" : "local_jeniskeluhansendi"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Deskripsi']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Keluhan sendi']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
         "id" : "keluhan_lainnya",
         "name" : "Keluhan lainnya",
         "localizedName" : "Keluhan lainnya",
@@ -4475,25 +4659,25 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
@@ -4539,25 +4723,25 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
@@ -4603,31 +4787,31 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
                   }
                 }, {
-                  "value" : "4",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -4673,31 +4857,31 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
                   }
                 }, {
-                  "value" : "4",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -4743,31 +4927,31 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
                   }
                 }, {
-                  "value" : "4",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -4813,31 +4997,31 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
                   }
                 }, {
-                  "value" : "4",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -4847,30 +5031,30 @@
               } ]
             } ]
           }, {
-            "id" : "apakah_kelainan_kulit_anda_mengakibatkan_anda_tidak_dapat_bekerja_atau_berbelanja",
-            "name" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?",
-            "localizedName" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?",
+            "id" : "apakah_kelainan_kulit_anda_mengakibatkan_anda_tidak_dapat_bekerja_atau_belajar",
+            "name" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?",
+            "localizedName" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?",
             "rmType" : "CLUSTER",
             "nodeId" : "at0022",
             "min" : 0,
             "max" : -1,
             "localizedNames" : {
-              "en" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?"
+              "en" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?"
             },
             "localizedDescriptions" : {
               "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
             },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks kualitas hidup dermatologi (DLQI)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks kualitas hidup dermatologi (DLQI)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?']",
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks kualitas hidup dermatologi (DLQI)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks kualitas hidup dermatologi (DLQI)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?']",
             "children" : [ {
-              "id" : "apakah_kelainan_kulit_anda_mengakibatkan_anda_tidak_dapat_bekerja_atau_berbelanja",
-              "name" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?",
-              "localizedName" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?",
+              "id" : "apakah_kelainan_kulit_anda_mengakibatkan_anda_tidak_dapat_bekerja_atau_belajar",
+              "name" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?",
+              "localizedName" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?",
               "rmType" : "DV_CODED_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?"
+                "en" : "Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?"
               },
               "localizedDescriptions" : {
                 "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
@@ -4878,24 +5062,24 @@
               "annotations" : {
                 "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks kualitas hidup dermatologi (DLQI)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks kualitas hidup dermatologi (DLQI)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?']/items[at0004,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks kualitas hidup dermatologi (DLQI)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks kualitas hidup dermatologi (DLQI)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?']/items[at0004,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Ya",
                   "localizedLabels" : {
                     "en" : "Ya"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "0",
                   "label" : "Tidak",
                   "localizedLabels" : {
                     "en" : "Tidak"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -4917,12 +5101,12 @@
               "localizedDescriptions" : {
                 "en" : "Additional narrative about the specific issue, problem or diagnosis question, not captured in other fields."
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks kualitas hidup dermatologi (DLQI)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks kualitas hidup dermatologi (DLQI)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau berbelanja?']/items[at0025,'Seberapa besar kelainan kulit Anda menjadi masalah ketika Anda bekerja atau belajar?']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks kualitas hidup dermatologi (DLQI)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks kualitas hidup dermatologi (DLQI)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Apakah kelainan kulit anda mengakibatkan Anda tidak dapat bekerja atau belajar?']/items[at0025,'Seberapa besar kelainan kulit Anda menjadi masalah ketika Anda bekerja atau belajar?']/value",
               "inputs" : [ {
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
@@ -4934,7 +5118,7 @@
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
@@ -4980,31 +5164,31 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
                   }
                 }, {
-                  "value" : "4",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -5050,31 +5234,31 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
                   }
                 }, {
-                  "value" : "4",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -5120,31 +5304,31 @@
                 "suffix" : "code",
                 "type" : "CODED_TEXT",
                 "list" : [ {
-                  "value" : "0",
+                  "value" : "3",
                   "label" : "Sangat besar",
                   "localizedLabels" : {
                     "en" : "Sangat besar"
                   }
                 }, {
-                  "value" : "1",
+                  "value" : "2",
                   "label" : "Besar",
                   "localizedLabels" : {
                     "en" : "Besar"
                   }
                 }, {
-                  "value" : "2",
+                  "value" : "1",
                   "label" : "Kecil",
                   "localizedLabels" : {
                     "en" : "Kecil"
                   }
                 }, {
-                  "value" : "3",
+                  "value" : "0",
                   "label" : "Tidak sama sekali",
                   "localizedLabels" : {
                     "en" : "Tidak sama sekali"
                   }
                 }, {
-                  "value" : "4",
+                  "value" : "null",
                   "label" : "Pertanyaan tidak sesuai untuk saya",
                   "localizedLabels" : {
                     "en" : "Pertanyaan tidak sesuai untuk saya"
@@ -5172,7 +5356,7 @@
               "id" : "skor_dlqi",
               "name" : "Skor DLQI",
               "localizedName" : "Skor DLQI",
-              "rmType" : "DV_CODED_TEXT",
+              "rmType" : "DV_TEXT",
               "nodeId" : "at0004",
               "min" : 1,
               "max" : 1,
@@ -5187,34 +5371,7 @@
               },
               "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks kualitas hidup dermatologi (DLQI)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks kualitas hidup dermatologi (DLQI)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skor DLQI']/items[at0004,'Skor DLQI']/value",
               "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "0",
-                  "label" : "Tidak sama sekali & tidak sesuai",
-                  "localizedLabels" : {
-                    "en" : "Tidak sama sekali & tidak sesuai"
-                  }
-                }, {
-                  "value" : "1",
-                  "label" : "Kecil",
-                  "localizedLabels" : {
-                    "en" : "Kecil"
-                  }
-                }, {
-                  "value" : "2",
-                  "label" : "Besar",
-                  "localizedLabels" : {
-                    "en" : "Besar"
-                  }
-                }, {
-                  "value" : "3",
-                  "label" : "Sangat besar",
-                  "localizedLabels" : {
-                    "en" : "Sangat besar"
-                  }
-                } ],
-                "terminology" : "local_kategoriskordlqi"
+                "type" : "TEXT"
               } ]
             } ]
           }, {
@@ -7262,424 +7419,6 @@
           "min" : 1,
           "max" : 1,
           "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Penilaian depresi, ansietas, dan stress (DASS) 21']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Penilaian depresi, ansietas, dan stress (DASS) 21']/subject",
-          "inputs" : [ {
-            "suffix" : "id",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_scheme",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "id_namespace",
-            "type" : "TEXT"
-          }, {
-            "suffix" : "name",
-            "type" : "TEXT"
-          } ],
-          "inContext" : true
-        } ]
-      } ]
-    }, {
-      "id" : "dapsa_disease_actitivity_in_psoriasis_arthritis",
-      "name" : "DAPSA (Disease Actitivity in Psoriasis Arthritis)",
-      "localizedName" : "DAPSA (Disease Actitivity in Psoriasis Arthritis)",
-      "rmType" : "SECTION",
-      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
-      "min" : 0,
-      "max" : 1,
-      "localizedNames" : {
-        "en" : "DAPSA (Disease Actitivity in Psoriasis Arthritis)"
-      },
-      "localizedDescriptions" : {
-        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
-      },
-      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']",
-      "children" : [ {
-        "id" : "dapsa_disease_actitivity_in_psoriasis_arthritis",
-        "name" : "DAPSA (Disease Actitivity in Psoriasis Arthritis)",
-        "localizedName" : "DAPSA (Disease Actitivity in Psoriasis Arthritis)",
-        "rmType" : "OBSERVATION",
-        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
-        "min" : 0,
-        "max" : 1,
-        "localizedNames" : {
-          "en" : "DAPSA (Disease Actitivity in Psoriasis Arthritis)"
-        },
-        "localizedDescriptions" : {
-          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
-        },
-        "annotations" : {
-          "comment" : "The answers may be self-reported."
-        },
-        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']",
-        "children" : [ {
-          "id" : "any_event",
-          "name" : "Any event",
-          "localizedName" : "Any event",
-          "rmType" : "EVENT",
-          "nodeId" : "at0002",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Any event"
-          },
-          "localizedDescriptions" : {
-            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-          },
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]",
-          "children" : [ {
-            "id" : "lokasi_sendi",
-            "name" : "Lokasi sendi",
-            "localizedName" : "Lokasi sendi",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Lokasi sendi"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Lokasi sendi']",
-            "children" : [ {
-              "id" : "lokasi_sendi",
-              "name" : "Lokasi sendi",
-              "localizedName" : "Lokasi sendi",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Lokasi sendi"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Lokasi sendi']/items[at0004,'Lokasi sendi']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "0",
-                  "label" : "Kepala",
-                  "localizedLabels" : {
-                    "en" : "Kepala"
-                  }
-                }, {
-                  "value" : "1",
-                  "label" : "Bahu",
-                  "localizedLabels" : {
-                    "en" : "Bahu"
-                  }
-                }, {
-                  "value" : "2",
-                  "label" : "Ekstremitas atas",
-                  "localizedLabels" : {
-                    "en" : "Ekstremitas atas"
-                  }
-                }, {
-                  "value" : "3",
-                  "label" : "Pinggul",
-                  "localizedLabels" : {
-                    "en" : "Pinggul"
-                  }
-                }, {
-                  "value" : "4",
-                  "label" : "Ekstremitas bawah",
-                  "localizedLabels" : {
-                    "en" : "Ekstremitas bawah"
-                  }
-                } ],
-                "terminology" : "local_dapsalokasisendi"
-              } ]
-            } ]
-          }, {
-            "id" : "perhitungan_tender_joints_tj",
-            "name" : "Perhitungan tender joints (TJ)",
-            "localizedName" : "Perhitungan tender joints (TJ)",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Perhitungan tender joints (TJ)"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Perhitungan tender joints (TJ)']",
-            "children" : [ {
-              "id" : "perhitungan_tender_joints_tj",
-              "name" : "Perhitungan tender joints (TJ)",
-              "localizedName" : "Perhitungan tender joints (TJ)",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Perhitungan tender joints (TJ)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Perhitungan tender joints (TJ)']/items[at0004,'Perhitungan tender joints (TJ)']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "perhitungan_swollen_joints_sj",
-            "name" : "Perhitungan swollen joints (SJ)",
-            "localizedName" : "Perhitungan swollen joints (SJ)",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Perhitungan swollen joints (SJ)"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Perhitungan swollen joints (SJ)']",
-            "children" : [ {
-              "id" : "perhitungan_swollen_joints_sj",
-              "name" : "Perhitungan swollen joints (SJ)",
-              "localizedName" : "Perhitungan swollen joints (SJ)",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Perhitungan swollen joints (SJ)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Perhitungan swollen joints (SJ)']/items[at0004,'Perhitungan swollen joints (SJ)']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "disease_activity_dari_rheumatic_disease_dalam_satu_pekan_terakhir_activity",
-            "name" : "Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)",
-            "localizedName" : "Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)']",
-            "children" : [ {
-              "id" : "disease_activity_dari_rheumatic_disease_dalam_satu_pekan_terakhir_activity",
-              "name" : "Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)",
-              "localizedName" : "Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)']/items[at0004,'Disease activity dari rheumatic disease dalam satu pekan terakhir (Activity)']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "level_sakit_dari_persendian_dalam_satu_pekan_terakhir_pain",
-            "name" : "Level sakit dari persendian dalam satu pekan terakhir (Pain)",
-            "localizedName" : "Level sakit dari persendian dalam satu pekan terakhir (Pain)",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Level sakit dari persendian dalam satu pekan terakhir (Pain)"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Level sakit dari persendian dalam satu pekan terakhir (Pain)']",
-            "children" : [ {
-              "id" : "level_sakit_dari_persendian_dalam_satu_pekan_terakhir_pain",
-              "name" : "Level sakit dari persendian dalam satu pekan terakhir (Pain)",
-              "localizedName" : "Level sakit dari persendian dalam satu pekan terakhir (Pain)",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Level sakit dari persendian dalam satu pekan terakhir (Pain)"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Level sakit dari persendian dalam satu pekan terakhir (Pain)']/items[at0004,'Level sakit dari persendian dalam satu pekan terakhir (Pain)']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "skor_dapsa",
-            "name" : "Skor DAPSA",
-            "localizedName" : "Skor DAPSA",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Skor DAPSA"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skor DAPSA']",
-            "children" : [ {
-              "id" : "skor_dapsa",
-              "name" : "Skor DAPSA",
-              "localizedName" : "Skor DAPSA",
-              "rmType" : "DV_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Skor DAPSA"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skor DAPSA']/items[at0004,'Skor DAPSA']/value",
-              "inputs" : [ {
-                "type" : "TEXT"
-              } ]
-            } ]
-          }, {
-            "id" : "interpretasi_skor_dapsa",
-            "name" : "Interpretasi skor DAPSA",
-            "localizedName" : "Interpretasi skor DAPSA",
-            "rmType" : "CLUSTER",
-            "nodeId" : "at0022",
-            "min" : 0,
-            "max" : -1,
-            "localizedNames" : {
-              "en" : "Interpretasi skor DAPSA"
-            },
-            "localizedDescriptions" : {
-              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Interpretasi skor DAPSA']",
-            "children" : [ {
-              "id" : "interpretasi_skor_dapsa",
-              "name" : "Interpretasi skor DAPSA",
-              "localizedName" : "Interpretasi skor DAPSA",
-              "rmType" : "DV_CODED_TEXT",
-              "nodeId" : "at0004",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "Interpretasi skor DAPSA"
-              },
-              "localizedDescriptions" : {
-                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
-              },
-              "annotations" : {
-                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Interpretasi skor DAPSA']/items[at0004,'Interpretasi skor DAPSA']/value",
-              "inputs" : [ {
-                "suffix" : "code",
-                "type" : "CODED_TEXT",
-                "list" : [ {
-                  "value" : "0",
-                  "label" : "0-4: Remisi",
-                  "localizedLabels" : {
-                    "en" : "0-4: Remisi"
-                  }
-                }, {
-                  "value" : "1",
-                  "label" : "5-14: Low",
-                  "localizedLabels" : {
-                    "en" : "5-14: Low"
-                  }
-                }, {
-                  "value" : "2",
-                  "label" : "15-28: Moderate",
-                  "localizedLabels" : {
-                    "en" : "15-28: Moderate"
-                  }
-                }, {
-                  "value" : "3",
-                  "label" : ">28: High",
-                  "localizedLabels" : {
-                    "en" : ">28: High"
-                  }
-                } ],
-                "terminology" : "local_interpretasiskordapsa"
-              } ]
-            } ]
-          }, {
-            "id" : "time",
-            "name" : "Time",
-            "rmType" : "DV_DATE_TIME",
-            "min" : 1,
-            "max" : 1,
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/data[at0001]/events[at0002]/time",
-            "inputs" : [ {
-              "type" : "DATETIME"
-            } ],
-            "inContext" : true
-          } ]
-        }, {
-          "id" : "language",
-          "name" : "Language",
-          "rmType" : "CODE_PHRASE",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/language",
-          "inContext" : true
-        }, {
-          "id" : "encoding",
-          "name" : "Encoding",
-          "rmType" : "CODE_PHRASE",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/encoding",
-          "inContext" : true
-        }, {
-          "id" : "subject",
-          "name" : "Subject",
-          "rmType" : "PARTY_PROXY",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'DAPSA (Disease Actitivity in Psoriasis Arthritis)']/subject",
           "inputs" : [ {
             "suffix" : "id",
             "type" : "TEXT"

@@ -1,6 +1,6 @@
 {
   "templateId" : "agingnw-psoriasis-pem.penunjang-v1",
-  "semVer" : "0.10.0",
+  "semVer" : "1.2.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
@@ -145,15 +145,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']",
             "children" : [ {
-              "id" : "wbc_10_3_μl",
-              "name" : "WBC (10^3 / μL)",
-              "localizedName" : "WBC (10^3 / μL)",
+              "id" : "wbc",
+              "name" : "WBC",
+              "localizedName" : "WBC",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "WBC (10^3 / μL)"
+                "en" : "WBC"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -163,24 +163,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'WBC (10^3 / μL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'WBC']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "10*3",
+                  "label" : "10*3",
+                  "localizedLabels" : {
+                    "en" : "10^3 / μL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "rbc_10_6_μl",
-              "name" : "RBC (10^6 / μL)",
-              "localizedName" : "RBC (10^6 / μL)",
+              "id" : "rbc",
+              "name" : "RBC",
+              "localizedName" : "RBC",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "RBC (10^6 / μL)"
+                "en" : "RBC"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -190,24 +213,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'RBC (10^6 / μL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'RBC']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "10*6",
+                  "label" : "10*6",
+                  "localizedLabels" : {
+                    "en" : "10^6 / μL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "hb_g_dl",
-              "name" : "Hb (g/dL)",
-              "localizedName" : "Hb (g/dL)",
+              "id" : "hb",
+              "name" : "Hb",
+              "localizedName" : "Hb",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Hb (g/dL)"
+                "en" : "Hb"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -217,24 +263,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Hb (g/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Hb']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "U/dL",
+                  "label" : "U/dL",
+                  "localizedLabels" : {
+                    "en" : "g/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "hct",
-              "name" : "HCT (%)",
-              "localizedName" : "HCT (%)",
+              "name" : "HCT",
+              "localizedName" : "HCT",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "HCT (%)"
+                "en" : "HCT"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -244,24 +313,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'HCT (%)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'HCT']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "plt_10_3_μl",
-              "name" : "PLT (10^3 / μL)",
-              "localizedName" : "PLT (10^3 / μL)",
+              "id" : "plt",
+              "name" : "PLT",
+              "localizedName" : "PLT",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "PLT (10^3 / μL)"
+                "en" : "PLT"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -271,24 +363,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'PLT (10^3 / μL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'PLT']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "10*3",
+                  "label" : "10*3",
+                  "localizedLabels" : {
+                    "en" : "10^3 / μL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "netrofil",
-              "name" : "Netrofil (%)",
-              "localizedName" : "Netrofil (%)",
+              "name" : "Netrofil",
+              "localizedName" : "Netrofil",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Netrofil (%)"
+                "en" : "Netrofil"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -298,24 +413,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Netrofil (%)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Netrofil']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "limfosit",
-              "name" : "Limfosit (%)",
-              "localizedName" : "Limfosit (%)",
+              "name" : "Limfosit",
+              "localizedName" : "Limfosit",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Limfosit (%)"
+                "en" : "Limfosit"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -325,24 +463,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Limfosit (%)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Limfosit']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "monosit",
-              "name" : "Monosit (%)",
-              "localizedName" : "Monosit (%)",
+              "name" : "Monosit",
+              "localizedName" : "Monosit",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Monosit (%)"
+                "en" : "Monosit"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -352,24 +513,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Monosit (%)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Monosit']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "basofil",
-              "name" : "Basofil (%)",
-              "localizedName" : "Basofil (%)",
+              "name" : "Basofil",
+              "localizedName" : "Basofil",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Basofil (%)"
+                "en" : "Basofil"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -379,24 +563,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Basofil (%)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Basofil']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "eosinofil",
-              "name" : "Eosinofil (%)",
-              "localizedName" : "Eosinofil (%)",
+              "name" : "Eosinofil",
+              "localizedName" : "Eosinofil",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Eosinofil (%)"
+                "en" : "Eosinofil"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -406,24 +613,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Eosinofil (%)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Eosinofil']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "led_mm",
-              "name" : "LED (mm)",
-              "localizedName" : "LED (mm)",
+              "id" : "led",
+              "name" : "LED",
+              "localizedName" : "LED",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 1,
               "max" : 1,
               "localizedNames" : {
-                "en" : "LED (mm)"
+                "en" : "LED"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -433,40 +663,36 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'LED (mm)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'LED']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
-              } ]
-            }, {
-              "id" : "crp_mg_dl",
-              "name" : "CRP (mg/dL)",
-              "localizedName" : "CRP (mg/dL)",
-              "rmType" : "DV_QUANTITY",
-              "nodeId" : "at0001",
-              "min" : 1,
-              "max" : 1,
-              "localizedNames" : {
-                "en" : "CRP (mg/dL)"
-              },
-              "localizedDescriptions" : {
-                "en" : "The value of the analyte result."
-              },
-              "annotations" : {
-                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-                "fhir_mapping" : "Observation.value[x]"
-              },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'CRP (mg/dL)']/value",
-              "inputs" : [ {
-                "suffix" : "magnitude",
-                "type" : "DECIMAL"
-              }, {
-                "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "mm",
+                  "label" : "mm",
+                  "localizedLabels" : {
+                    "en" : "mm"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "tanggal_pemeriksaan",
@@ -621,15 +847,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']",
             "children" : [ {
-              "id" : "sgot_μ_l",
-              "name" : "SGOT (μ/L)",
-              "localizedName" : "SGOT (μ/L)",
+              "id" : "sgot",
+              "name" : "SGOT",
+              "localizedName" : "SGOT",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "SGOT (μ/L)"
+                "en" : "SGOT"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -639,24 +865,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']/items[at0001,'SGOT (μ/L)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']/items[at0001,'SGOT']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/L",
+                  "label" : "[arb'U]/L",
+                  "localizedLabels" : {
+                    "en" : "μ/L"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "sgpt_μ_l",
-              "name" : "SGPT (μ/L)",
-              "localizedName" : "SGPT (μ/L)",
+              "id" : "sgpt",
+              "name" : "SGPT",
+              "localizedName" : "SGPT",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "SGPT (μ/L)"
+                "en" : "SGPT"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -666,13 +915,36 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']/items[at0001,'SGPT (μ/L)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']/items[at0001,'SGPT']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/L",
+                  "label" : "[arb'U]/L",
+                  "localizedLabels" : {
+                    "en" : "μ/L"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "tanggal_pemeriksaan",
@@ -827,15 +1099,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']",
             "children" : [ {
-              "id" : "ureum_mg_dl",
-              "name" : "Ureum (mg/dL)",
-              "localizedName" : "Ureum (mg/dL)",
+              "id" : "ureum",
+              "name" : "Ureum",
+              "localizedName" : "Ureum",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Ureum (mg/dL)"
+                "en" : "Ureum"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -845,24 +1117,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']/items[at0001,'Ureum (mg/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']/items[at0001,'Ureum']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "kreatinin_mg_dl",
-              "name" : "Kreatinin (mg/dL)",
-              "localizedName" : "Kreatinin (mg/dL)",
+              "id" : "kreatinin",
+              "name" : "Kreatinin",
+              "localizedName" : "Kreatinin",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Kreatinin (mg/dL)"
+                "en" : "Kreatinin"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -872,13 +1167,36 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']/items[at0001,'Kreatinin (mg/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']/items[at0001,'Kreatinin']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "tanggal_pemeriksaan",
@@ -1033,15 +1351,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']",
             "children" : [ {
-              "id" : "trigliserida_mg_dl",
-              "name" : "Trigliserida (mg/dL)",
-              "localizedName" : "Trigliserida (mg/dL)",
+              "id" : "trigliserida",
+              "name" : "Trigliserida",
+              "localizedName" : "Trigliserida",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Trigliserida (mg/dL)"
+                "en" : "Trigliserida"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -1051,24 +1369,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'Trigliserida (mg/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'Trigliserida']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "hdl_mg_dl",
-              "name" : "HDL (mg/dL)",
-              "localizedName" : "HDL (mg/dL)",
+              "id" : "hdl",
+              "name" : "HDL",
+              "localizedName" : "HDL",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "HDL (mg/dL)"
+                "en" : "HDL"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -1078,24 +1419,47 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'HDL (mg/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'HDL']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
-              "id" : "ldl_mg_dl",
-              "name" : "LDL (mg/dL)",
-              "localizedName" : "LDL (mg/dL)",
+              "id" : "ldl",
+              "name" : "LDL",
+              "localizedName" : "LDL",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "LDL (mg/dL)"
+                "en" : "LDL"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -1105,13 +1469,36 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'LDL (mg/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'LDL']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "tanggal_pemeriksaan",
@@ -1266,15 +1653,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan asam urat']",
             "children" : [ {
-              "id" : "asam_urat_mg_dl",
-              "name" : "Asam urat (mg/dL)",
-              "localizedName" : "Asam urat (mg/dL)",
+              "id" : "asam_urat",
+              "name" : "Asam urat",
+              "localizedName" : "Asam urat",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "Asam urat (mg/dL)"
+                "en" : "Asam urat"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -1284,13 +1671,36 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan asam urat']/items[at0001,'Asam urat (mg/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan asam urat']/items[at0001,'Asam urat']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "tanggal_pemeriksaan",
@@ -1445,15 +1855,15 @@
             },
             "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan gula darah']",
             "children" : [ {
-              "id" : "gds_mg_dl",
-              "name" : "GDS (mg/dL)",
-              "localizedName" : "GDS (mg/dL)",
+              "id" : "gds",
+              "name" : "GDS",
+              "localizedName" : "GDS",
               "rmType" : "DV_QUANTITY",
               "nodeId" : "at0001",
               "min" : 0,
               "max" : 1,
               "localizedNames" : {
-                "en" : "GDS (mg/dL)"
+                "en" : "GDS"
               },
               "localizedDescriptions" : {
                 "en" : "The value of the analyte result."
@@ -1463,13 +1873,36 @@
                 "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
                 "fhir_mapping" : "Observation.value[x]"
               },
-              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan gula darah']/items[at0001,'GDS (mg/dL)']/value",
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan gula darah']/items[at0001,'GDS']/value",
               "inputs" : [ {
                 "suffix" : "magnitude",
-                "type" : "DECIMAL"
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
               }, {
                 "suffix" : "unit",
-                "type" : "CODED_TEXT"
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
               } ]
             }, {
               "id" : "tanggal_pemeriksaan",
