@@ -1,0 +1,2977 @@
+{
+  "templateId" : "tuberculosis-med.v4",
+  "semVer" : "4.6.4",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "tuberculosis-med.v4",
+    "name" : "tuberculosis-med.v4",
+    "localizedName" : "tuberculosis-med.v4",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "tuberculosis-med.v4"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "pengobatan",
+      "name" : "Pengobatan",
+      "localizedName" : "Pengobatan",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pengobatan"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']",
+      "children" : [ {
+        "id" : "pemeriksaan_lpa_lini_2",
+        "name" : "Pemeriksaan LPA lini 2",
+        "localizedName" : "Pemeriksaan LPA lini 2",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan LPA lini 2"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::9718006",
+                "label" : "Line Probe Assay (LPA) lini 2",
+                "localizedLabels" : {
+                  "en" : "Line Probe Assay (LPA) lini 2"
+                }
+              } ],
+              "defaultValue" : "SCTID::9718006",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "status_hasil_pemeriksaan",
+            "name" : "Status hasil pemeriksaan",
+            "localizedName" : "Status hasil pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0073",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Status hasil pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "The status of the laboratory test result as a whole."
+            },
+            "annotations" : {
+              "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[at0073,'Status hasil pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "TRUE",
+                "label" : "Valid",
+                "localizedLabels" : {
+                  "en" : "Valid"
+                }
+              }, {
+                "value" : "FALSE",
+                "label" : "Invalid",
+                "localizedLabels" : {
+                  "en" : "Invalid"
+                }
+              } ],
+              "terminology" : "lpa2_status"
+            } ]
+          }, {
+            "id" : "panel_resistensi_obat",
+            "name" : "Panel resistensi obat",
+            "localizedName" : "Panel resistensi obat",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_panel.v0",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Panel resistensi obat"
+            },
+            "localizedDescriptions" : {
+              "en" : "Laboratory test result as a panel/battery/profile structure common to clinical pathology testing."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']",
+            "children" : [ {
+              "id" : "panel_resistensi_obat",
+              "name" : "Panel resistensi obat",
+              "localizedName" : "Panel resistensi obat",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Panel resistensi obat"
+              },
+              "localizedDescriptions" : {
+                "en" : "The result of a laboratory test for a single analyte value."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']",
+              "children" : [ {
+                "id" : "resistensi_floroquinolone_-_levofloxacin",
+                "name" : "Resistensi floroquinolone - levofloxacin",
+                "localizedName" : "Resistensi floroquinolone - levofloxacin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi floroquinolone - levofloxacin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi floroquinolone - levofloxacin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "RD",
+                    "label" : "Resistance detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance detected"
+                    }
+                  }, {
+                    "value" : "RND",
+                    "label" : "Resistance not detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance not detected"
+                    }
+                  }, {
+                    "value" : "IDT",
+                    "label" : "Indeterminated",
+                    "localizedLabels" : {
+                      "en" : "Indeterminated"
+                    }
+                  } ],
+                  "terminology" : "lpa2_result"
+                } ]
+              }, {
+                "id" : "resistensi_floroquinolone_-_moxifloxacin",
+                "name" : "Resistensi floroquinolone - moxifloxacin",
+                "localizedName" : "Resistensi floroquinolone - moxifloxacin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi floroquinolone - moxifloxacin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi floroquinolone - moxifloxacin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "RD",
+                    "label" : "Resistance detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance detected"
+                    }
+                  }, {
+                    "value" : "RND",
+                    "label" : "Resistance not detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance not detected"
+                    }
+                  }, {
+                    "value" : "IDT",
+                    "label" : "Indeterminated",
+                    "localizedLabels" : {
+                      "en" : "Indeterminated"
+                    }
+                  } ],
+                  "terminology" : "lpa2_result"
+                } ]
+              }, {
+                "id" : "resistensi_floroquinolone_-_moxifloxacin_dosis_tinggi",
+                "name" : "Resistensi floroquinolone - moxifloxacin (dosis tinggi)",
+                "localizedName" : "Resistensi floroquinolone - moxifloxacin (dosis tinggi)",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi floroquinolone - moxifloxacin (dosis tinggi)"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi floroquinolone - moxifloxacin (dosis tinggi)']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "RD",
+                    "label" : "Resistance detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance detected"
+                    }
+                  }, {
+                    "value" : "RND",
+                    "label" : "Resistance not detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance not detected"
+                    }
+                  }, {
+                    "value" : "IDT",
+                    "label" : "Indeterminated",
+                    "localizedLabels" : {
+                      "en" : "Indeterminated"
+                    }
+                  } ],
+                  "terminology" : "lpa2_result"
+                } ]
+              }, {
+                "id" : "resistensi_slid_-_kanamycin",
+                "name" : "Resistensi SLID - kanamycin",
+                "localizedName" : "Resistensi SLID - kanamycin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi SLID - kanamycin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi SLID - kanamycin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "RD",
+                    "label" : "Resistance detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance detected"
+                    }
+                  }, {
+                    "value" : "RND",
+                    "label" : "Resistance not detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance not detected"
+                    }
+                  }, {
+                    "value" : "IDT",
+                    "label" : "Indeterminated",
+                    "localizedLabels" : {
+                      "en" : "Indeterminated"
+                    }
+                  } ],
+                  "terminology" : "lpa2_result"
+                } ]
+              }, {
+                "id" : "resistensi_slid_-_amikacin",
+                "name" : "Resistensi SLID - amikacin",
+                "localizedName" : "Resistensi SLID - amikacin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi SLID - amikacin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi SLID - amikacin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "RD",
+                    "label" : "Resistance detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance detected"
+                    }
+                  }, {
+                    "value" : "RND",
+                    "label" : "Resistance not detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance not detected"
+                    }
+                  }, {
+                    "value" : "IDT",
+                    "label" : "Indeterminated",
+                    "localizedLabels" : {
+                      "en" : "Indeterminated"
+                    }
+                  } ],
+                  "terminology" : "lpa2_result"
+                } ]
+              }, {
+                "id" : "resistensi_slid_-_capreomycin",
+                "name" : "Resistensi SLID - capreomycin",
+                "localizedName" : "Resistensi SLID - capreomycin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi SLID - capreomycin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi SLID - capreomycin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "RD",
+                    "label" : "Resistance detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance detected"
+                    }
+                  }, {
+                    "value" : "RND",
+                    "label" : "Resistance not detected",
+                    "localizedLabels" : {
+                      "en" : "Resistance not detected"
+                    }
+                  }, {
+                    "value" : "IDT",
+                    "label" : "Indeterminated",
+                    "localizedLabels" : {
+                      "en" : "Indeterminated"
+                    }
+                  } ],
+                  "terminology" : "lpa2_result"
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "temuan_mtb",
+            "name" : "Temuan MTB",
+            "localizedName" : "Temuan MTB",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0098",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Temuan MTB"
+            },
+            "localizedDescriptions" : {
+              "en" : "Single word, phrase or brief description that represents the clinical meaning and significance of the laboratory test result."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Severe hepatic impairment', 'Salmonella contamination'. Coding of the diagnosis with a terminology is strongly recommended, where possible. This diagnosis should be aligned with the narrative in the 'Conclusion'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/data[at0003]/items[at0098,'Temuan MTB']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::260373001",
+                "label" : "Terdeteksi",
+                "localizedLabels" : {
+                  "en" : "Terdeteksi"
+                }
+              }, {
+                "value" : "SCTID::260415000",
+                "label" : "Tidak terdeteksi",
+                "localizedLabels" : {
+                  "en" : "Tidak terdeteksi"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan LPA lini 2']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_paket_standar_uji_kepekaan",
+        "name" : "Pemeriksaan Paket Standar Uji Kepekaan",
+        "localizedName" : "Pemeriksaan Paket Standar Uji Kepekaan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan Paket Standar Uji Kepekaan"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::9718006",
+                "label" : "Pemeriksaan paket standar uji kepekaan",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan paket standar uji kepekaan"
+                }
+              } ],
+              "defaultValue" : "SCTID::9718006",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "panel_resistensi_obat",
+            "name" : "Panel resistensi obat",
+            "localizedName" : "Panel resistensi obat",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_panel.v0",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Panel resistensi obat"
+            },
+            "localizedDescriptions" : {
+              "en" : "Laboratory test result as a panel/battery/profile structure common to clinical pathology testing."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']",
+            "children" : [ {
+              "id" : "panel_resistensi_obat",
+              "name" : "Panel resistensi obat",
+              "localizedName" : "Panel resistensi obat",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Panel resistensi obat"
+              },
+              "localizedDescriptions" : {
+                "en" : "The result of a laboratory test for a single analyte value."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']",
+              "children" : [ {
+                "id" : "resistensi_isoniazid_dosis_tinggi",
+                "name" : "Resistensi isoniazid (dosis tinggi)",
+                "localizedName" : "Resistensi isoniazid (dosis tinggi)",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi isoniazid (dosis tinggi)"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi isoniazid (dosis tinggi)']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_isoniazid_-_slid_-_capreomycin",
+                "name" : "Resistensi isoniazid - SLID - capreomycin",
+                "localizedName" : "Resistensi isoniazid - SLID - capreomycin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi isoniazid - SLID - capreomycin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi isoniazid - SLID - capreomycin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_kanamycin",
+                "name" : "Resistensi kanamycin",
+                "localizedName" : "Resistensi kanamycin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi kanamycin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi kanamycin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_capreomycin",
+                "name" : "Resistensi capreomycin",
+                "localizedName" : "Resistensi capreomycin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi capreomycin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi capreomycin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_levofloxacin",
+                "name" : "Resistensi levofloxacin",
+                "localizedName" : "Resistensi levofloxacin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi levofloxacin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi levofloxacin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_moxifloxacin_dosis_tinggi",
+                "name" : "Resistensi moxifloxacin (dosis tinggi)",
+                "localizedName" : "Resistensi moxifloxacin (dosis tinggi)",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi moxifloxacin (dosis tinggi)"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi moxifloxacin (dosis tinggi)']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_moxifloxacin",
+                "name" : "Resistensi moxifloxacin",
+                "localizedName" : "Resistensi moxifloxacin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi moxifloxacin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi moxifloxacin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_amikacin",
+                "name" : "Resistensi amikacin",
+                "localizedName" : "Resistensi amikacin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi amikacin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi amikacin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_ethionamide",
+                "name" : "Resistensi ethionamide",
+                "localizedName" : "Resistensi ethionamide",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi ethionamide"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi ethionamide']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_linezolid",
+                "name" : "Resistensi linezolid",
+                "localizedName" : "Resistensi linezolid",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi linezolid"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi linezolid']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_delamanid",
+                "name" : "Resistensi delamanid",
+                "localizedName" : "Resistensi delamanid",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi delamanid"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi delamanid']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_clofazimine",
+                "name" : "Resistensi clofazimine",
+                "localizedName" : "Resistensi clofazimine",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi clofazimine"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi clofazimine']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_bedaquiline",
+                "name" : "Resistensi bedaquiline",
+                "localizedName" : "Resistensi bedaquiline",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi bedaquiline"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi bedaquiline']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_ofloxacin",
+                "name" : "Resistensi ofloxacin",
+                "localizedName" : "Resistensi ofloxacin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi ofloxacin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi ofloxacin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_streptomycin",
+                "name" : "Resistensi streptomycin",
+                "localizedName" : "Resistensi streptomycin",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi streptomycin"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi streptomycin']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_ethambutol",
+                "name" : "Resistensi ethambutol",
+                "localizedName" : "Resistensi ethambutol",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi ethambutol"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi ethambutol']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              }, {
+                "id" : "resistensi_pyrazinamide",
+                "name" : "Resistensi pyrazinamide",
+                "localizedName" : "Resistensi pyrazinamide",
+                "rmType" : "DV_CODED_TEXT",
+                "nodeId" : "at0001",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Resistensi pyrazinamide"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The value of the analyte result."
+                },
+                "annotations" : {
+                  "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                  "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                  "fhir_mapping" : "Observation.value[x]"
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0,'Panel resistensi obat']/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Panel resistensi obat']/items[at0001,'Resistensi pyrazinamide']/value",
+                "inputs" : [ {
+                  "suffix" : "code",
+                  "type" : "CODED_TEXT",
+                  "list" : [ {
+                    "value" : "0",
+                    "label" : "Sensitif",
+                    "localizedLabels" : {
+                      "en" : "Sensitif"
+                    }
+                  }, {
+                    "value" : "SCTID::31438003",
+                    "label" : "Resisten",
+                    "localizedLabels" : {
+                      "en" : "Resisten"
+                    }
+                  }, {
+                    "value" : "SCTID::262008008",
+                    "label" : "Tidak dilakukan",
+                    "localizedLabels" : {
+                      "en" : "Tidak dilakukan"
+                    }
+                  } ],
+                  "defaultValue" : "0",
+                  "terminology" : "SNOMED_CT"
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Paket Standar Uji Kepekaan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_dahak_follow_up_bta",
+        "name" : "Pemeriksaan dahak follow up (BTA)",
+        "localizedName" : "Pemeriksaan dahak follow up (BTA)",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan dahak follow up (BTA)"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::117259009",
+                "label" : "Basil tahan asam (BTA)",
+                "localizedLabels" : {
+                  "en" : "Basil tahan asam (BTA)"
+                }
+              } ],
+              "defaultValue" : "SCTID::117259009",
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "pemeriksaan_dahak_follow-up_bta_pasien_tbc_ro_bulan_1-12",
+            "name" : "Pemeriksaan dahak follow-up BTA pasien TBC RO (Bulan 1-12)",
+            "localizedName" : "Pemeriksaan dahak follow-up BTA pasien TBC RO (Bulan 1-12)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan dahak follow-up BTA pasien TBC RO (Bulan 1-12)"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan dahak follow-up BTA pasien TBC RO (Bulan 1-12)']",
+            "children" : [ {
+              "id" : "bulan_pengobatan",
+              "name" : "Bulan pengobatan",
+              "localizedName" : "Bulan pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Bulan pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan dahak follow-up BTA pasien TBC RO (Bulan 1-12)']/items[at0001,'Bulan pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "1",
+                  "localizedLabels" : {
+                    "en" : "1"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "2",
+                  "localizedLabels" : {
+                    "en" : "2"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "3",
+                  "localizedLabels" : {
+                    "en" : "3"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "4",
+                  "localizedLabels" : {
+                    "en" : "4"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "5",
+                  "localizedLabels" : {
+                    "en" : "5"
+                  }
+                }, {
+                  "value" : "6",
+                  "label" : "6",
+                  "localizedLabels" : {
+                    "en" : "6"
+                  }
+                }, {
+                  "value" : "7",
+                  "label" : "7",
+                  "localizedLabels" : {
+                    "en" : "7"
+                  }
+                }, {
+                  "value" : "8",
+                  "label" : "8",
+                  "localizedLabels" : {
+                    "en" : "8"
+                  }
+                }, {
+                  "value" : "9",
+                  "label" : "9",
+                  "localizedLabels" : {
+                    "en" : "9"
+                  }
+                }, {
+                  "value" : "10",
+                  "label" : "10",
+                  "localizedLabels" : {
+                    "en" : "10"
+                  }
+                }, {
+                  "value" : "11",
+                  "label" : "11",
+                  "localizedLabels" : {
+                    "en" : "11"
+                  }
+                }, {
+                  "value" : "12",
+                  "label" : "12",
+                  "localizedLabels" : {
+                    "en" : "12"
+                  }
+                } ],
+                "terminology" : "localtermsBulan"
+              } ]
+            }, {
+              "id" : "pemeriksaan_dahak_follow-up_bta_pasien_tbc_ro",
+              "name" : "Pemeriksaan dahak follow-up BTA pasien TBC RO",
+              "localizedName" : "Pemeriksaan dahak follow-up BTA pasien TBC RO",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Pemeriksaan dahak follow-up BTA pasien TBC RO"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan dahak follow-up BTA pasien TBC RO (Bulan 1-12)']/items[at0001,'Pemeriksaan dahak follow-up BTA pasien TBC RO']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (BTA)']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_dahak_follow_up_biakan",
+        "name" : "Pemeriksaan dahak follow up (Biakan)",
+        "localizedName" : "Pemeriksaan dahak follow up (Biakan)",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan dahak follow up (Biakan)"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "nama_pemeriksaan",
+            "name" : "Nama pemeriksaan",
+            "localizedName" : "Nama pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Nama pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Nama pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "SCTID::61594008",
+                "label" : "Biakan mikroba (kultur)",
+                "localizedLabels" : {
+                  "en" : "Biakan mikroba (kultur)"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "pemeriksaan_dahak_follow-up_biakan_pasien_tbc_ro_bulan_1-12",
+            "name" : "Pemeriksaan dahak follow-up biakan pasien TBC RO (Bulan 1-12)",
+            "localizedName" : "Pemeriksaan dahak follow-up biakan pasien TBC RO (Bulan 1-12)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan dahak follow-up biakan pasien TBC RO (Bulan 1-12)"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan dahak follow-up biakan pasien TBC RO (Bulan 1-12)']",
+            "children" : [ {
+              "id" : "bulan_pengobatan",
+              "name" : "Bulan pengobatan",
+              "localizedName" : "Bulan pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Bulan pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan dahak follow-up biakan pasien TBC RO (Bulan 1-12)']/items[at0001,'Bulan pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "1",
+                  "label" : "1",
+                  "localizedLabels" : {
+                    "en" : "1"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "2",
+                  "localizedLabels" : {
+                    "en" : "2"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "3",
+                  "localizedLabels" : {
+                    "en" : "3"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "4",
+                  "localizedLabels" : {
+                    "en" : "4"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "5",
+                  "localizedLabels" : {
+                    "en" : "5"
+                  }
+                }, {
+                  "value" : "6",
+                  "label" : "6",
+                  "localizedLabels" : {
+                    "en" : "6"
+                  }
+                }, {
+                  "value" : "7",
+                  "label" : "7",
+                  "localizedLabels" : {
+                    "en" : "7"
+                  }
+                }, {
+                  "value" : "8",
+                  "label" : "8",
+                  "localizedLabels" : {
+                    "en" : "8"
+                  }
+                }, {
+                  "value" : "9",
+                  "label" : "9",
+                  "localizedLabels" : {
+                    "en" : "9"
+                  }
+                }, {
+                  "value" : "10",
+                  "label" : "10",
+                  "localizedLabels" : {
+                    "en" : "10"
+                  }
+                }, {
+                  "value" : "11",
+                  "label" : "11",
+                  "localizedLabels" : {
+                    "en" : "11"
+                  }
+                }, {
+                  "value" : "12",
+                  "label" : "12",
+                  "localizedLabels" : {
+                    "en" : "12"
+                  }
+                } ],
+                "terminology" : "localtermsBulan"
+              } ]
+            }, {
+              "id" : "pemeriksaan_dahak_follow-up_biakan_pasien_tbc_ro",
+              "name" : "Pemeriksaan dahak follow-up biakan pasien TBC RO",
+              "localizedName" : "Pemeriksaan dahak follow-up biakan pasien TBC RO",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Pemeriksaan dahak follow-up biakan pasien TBC RO"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan dahak follow-up biakan pasien TBC RO (Bulan 1-12)']/items[at0001,'Pemeriksaan dahak follow-up biakan pasien TBC RO']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan dahak follow up (Biakan)']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "hasil_akhir_pengobatan",
+        "name" : "Hasil akhir pengobatan",
+        "localizedName" : "Hasil akhir pengobatan",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.goal.v1",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Hasil akhir pengobatan"
+        },
+        "localizedDescriptions" : {
+          "en" : "A desired health, or well-being, outcome for the subject of care."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-EVALUATION.goal.v1,'Hasil akhir pengobatan']",
+        "children" : [ {
+          "id" : "tujuan_pencatatan",
+          "name" : "Tujuan pencatatan",
+          "localizedName" : "Tujuan pencatatan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tujuan pencatatan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the desired health outcome."
+          },
+          "annotations" : {
+            "comment" : "For example: reduced blood pressure; 10 kilogram weight loss; or diabetes control."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-EVALUATION.goal.v1,'Hasil akhir pengobatan']/data[at0001]/items[at0002,'Tujuan pencatatan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::314530002",
+              "label" : "Hasil akhir pengobatan",
+              "localizedLabels" : {
+                "en" : "Hasil akhir pengobatan"
+              }
+            } ],
+            "defaultValue" : "SCTID::314530002",
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "tanggal_pencatatan",
+          "name" : "Tanggal pencatatan",
+          "localizedName" : "Tanggal pencatatan",
+          "rmType" : "DV_DATE",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal pencatatan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The actual date that the goal was achieved or abandoned."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-EVALUATION.goal.v1,'Hasil akhir pengobatan']/data[at0001]/items[at0004,'Tanggal pencatatan']/value",
+          "inputs" : [ {
+            "type" : "DATE",
+            "validation" : {
+              "pattern" : "yyyy-mm-dd"
+            }
+          } ]
+        }, {
+          "id" : "luaran",
+          "name" : "Luaran",
+          "localizedName" : "Luaran",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0013",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Luaran"
+          },
+          "localizedDescriptions" : {
+            "en" : "Single word, phrase or brief description which represents the outcome actually achieved for the goal."
+          },
+          "annotations" : {
+            "comment" : "Coding with a terminology is preferred, where possible. For example: target weight achieved; poor diabetes control; or successful completion."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-EVALUATION.goal.v1,'Hasil akhir pengobatan']/data[at0001]/items[at0013,'Luaran']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::833323000",
+              "label" : "Tidak dievaluasi/pindah",
+              "localizedLabels" : {
+                "en" : "Tidak dievaluasi/pindah"
+              }
+            }, {
+              "value" : "SCTID::7058009",
+              "label" : "Putus berobat",
+              "localizedLabels" : {
+                "en" : "Putus berobat"
+              }
+            }, {
+              "value" : "SCTID::419620001",
+              "label" : "Meninggal",
+              "localizedLabels" : {
+                "en" : "Meninggal"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-EVALUATION.goal.v1,'Hasil akhir pengobatan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-EVALUATION.goal.v1,'Hasil akhir pengobatan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-EVALUATION.goal.v1,'Hasil akhir pengobatan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "kegiatan_tbc-hiv",
+        "name" : "Kegiatan TBC-HIV",
+        "localizedName" : "Kegiatan TBC-HIV",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.procedure.v1",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Kegiatan TBC-HIV"
+        },
+        "localizedDescriptions" : {
+          "en" : "A clinical activity carried out for screening, investigative, diagnostic, curative, therapeutic, evaluative or palliative purposes."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']",
+        "children" : [ {
+          "id" : "nama_kegiatan",
+          "name" : "Nama kegiatan",
+          "localizedName" : "Nama kegiatan",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nama kegiatan"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the procedure by name."
+          },
+          "annotations" : {
+            "comment" : "Coding of the specific procedure with a terminology is preferred, where possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/description[at0001]/items[at0002,'Nama kegiatan']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "SCTID::171121004",
+              "label" : "Skrining HIV",
+              "localizedLabels" : {
+                "en" : "Skrining HIV"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "tanggal_dianjurkan",
+          "name" : "Tanggal dianjurkan",
+          "localizedName" : "Tanggal dianjurkan",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0066",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal dianjurkan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date and/or time on which the procedure is intended to be performed."
+          },
+          "annotations" : {
+            "comment" : "Only for use in association with the 'Procedure scheduled' pathway step."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/description[at0001]/items[at0066,'Tanggal dianjurkan']/value",
+          "inputs" : [ {
+            "type" : "DATETIME",
+            "validation" : {
+              "pattern" : "yyyy-mm-ddT??:??:??"
+            }
+          } ]
+        }, {
+          "id" : "tanggal_pelaksanaan",
+          "name" : "Tanggal pelaksanaan",
+          "localizedName" : "Tanggal pelaksanaan",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0060",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Tanggal pelaksanaan"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date and/or time when the entire procedure, or the last component of a multicomponent procedure, was finished."
+          },
+          "annotations" : {
+            "comment" : "Only for use in association with the 'Procedure performed' pathway step, and in situations where the procedure is repeated on multiple occasions before being completed or there are multiple components to the whole procedure. This may be the same as the RM time attribute for the 'Procedure completed' pathway step."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/description[at0001]/items[at0060,'Tanggal pelaksanaan']/value",
+          "inputs" : [ {
+            "type" : "DATETIME",
+            "validation" : {
+              "pattern" : "yyyy-mm-ddT??:??:??"
+            }
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "annotations" : {
+            "view:VisibleInView" : "ism_transition"
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-ACTION.procedure.v1,'Kegiatan TBC-HIV']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "skrining_penyakit_penyerta",
+        "name" : "Skrining penyakit penyerta",
+        "localizedName" : "Skrining penyakit penyerta",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Skrining penyakit penyerta"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "skrining_hiv",
+            "name" : "Skrining HIV",
+            "localizedName" : "Skrining HIV",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining HIV"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skrining HIV']",
+            "children" : [ {
+              "id" : "penyakit_penyerta",
+              "name" : "Penyakit penyerta",
+              "localizedName" : "Penyakit penyerta",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Penyakit penyerta"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skrining HIV']/items[at0004,'Penyakit penyerta']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "SCTID::86406008",
+                  "label" : "Infeksi Human Immunodeficiency Virus (HIV)",
+                  "localizedLabels" : {
+                    "en" : "Infeksi Human Immunodeficiency Virus (HIV)"
+                  }
+                } ],
+                "defaultValue" : "SCTID::86406008",
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_kondisi_di_atas",
+              "name" : "Centang jika terdapat kondisi di atas",
+              "localizedName" : "Centang jika terdapat kondisi di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0005",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat kondisi di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skrining HIV']/items[at0005,'Centang jika terdapat kondisi di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
+            "id" : "skrining_dm",
+            "name" : "Skrining DM",
+            "localizedName" : "Skrining DM",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining DM"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skrining DM']",
+            "children" : [ {
+              "id" : "penyakit_penyerta",
+              "name" : "Penyakit penyerta",
+              "localizedName" : "Penyakit penyerta",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Penyakit penyerta"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skrining DM']/items[at0004,'Penyakit penyerta']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "SCTID::73211009",
+                  "label" : "Diabetes Mellitus (DM)",
+                  "localizedLabels" : {
+                    "en" : "Diabetes Mellitus (DM)"
+                  }
+                } ],
+                "defaultValue" : "SCTID::73211009",
+                "terminology" : "SNOMED-CT"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_kondisi_di_atas",
+              "name" : "Centang jika terdapat kondisi di atas",
+              "localizedName" : "Centang jika terdapat kondisi di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0005",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat kondisi di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of the specific issue, problem or diagnosis related to the screening purpose?"
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Skrining DM']/items[at0005,'Centang jika terdapat kondisi di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Skrining penyakit penyerta']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "skrining_pengobatan_tambahan",
+        "name" : "Skrining pengobatan tambahan",
+        "localizedName" : "Skrining pengobatan tambahan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.medication_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Skrining pengobatan tambahan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for the use of medications."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0023",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]",
+          "children" : [ {
+            "id" : "skrining_kotrimoksasol",
+            "name" : "Skrining kotrimoksasol",
+            "localizedName" : "Skrining kotrimoksasol",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining kotrimoksasol"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining kotrimoksasol']",
+            "children" : [ {
+              "id" : "nama_pengobatan",
+              "name" : "Nama pengobatan",
+              "localizedName" : "Nama pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining kotrimoksasol']/items[at0021,'Nama pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "RxCUI::10831",
+                  "label" : "Cotrimoxazole",
+                  "localizedLabels" : {
+                    "en" : "Cotrimoxazole"
+                  }
+                } ],
+                "defaultValue" : "RxCUI::10831",
+                "terminology" : "RxNorm"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_pengobatan_di_atas",
+              "name" : "Centang jika terdapat pengobatan di atas",
+              "localizedName" : "Centang jika terdapat pengobatan di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat pengobatan di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining kotrimoksasol']/items[at0024,'Centang jika terdapat pengobatan di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
+            "id" : "skrining_art",
+            "name" : "Skrining ART",
+            "localizedName" : "Skrining ART",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining ART"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining ART']",
+            "children" : [ {
+              "id" : "nama_pengobatan",
+              "name" : "Nama pengobatan",
+              "localizedName" : "Nama pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining ART']/items[at0021,'Nama pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "RxCUI::154914",
+                  "label" : "Anti Retroviral Therapy (ART)",
+                  "localizedLabels" : {
+                    "en" : "Anti Retroviral Therapy (ART)"
+                  }
+                } ],
+                "defaultValue" : "RxCUI::154914",
+                "terminology" : "RxNorm"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_pengobatan_di_atas",
+              "name" : "Centang jika terdapat pengobatan di atas",
+              "localizedName" : "Centang jika terdapat pengobatan di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat pengobatan di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining ART']/items[at0024,'Centang jika terdapat pengobatan di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
+            "id" : "skrining_ppk_pemberian_profilaksis_kotrimoksasol",
+            "name" : "Skrining PPK (Pemberian Profilaksis Kotrimoksasol)",
+            "localizedName" : "Skrining PPK (Pemberian Profilaksis Kotrimoksasol)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining PPK (Pemberian Profilaksis Kotrimoksasol)"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining PPK (Pemberian Profilaksis Kotrimoksasol)']",
+            "children" : [ {
+              "id" : "nama_pengobatan",
+              "name" : "Nama pengobatan",
+              "localizedName" : "Nama pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining PPK (Pemberian Profilaksis Kotrimoksasol)']/items[at0021,'Nama pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "RxCUI::C0980399",
+                  "label" : "Profilaksis Kotrimoksasol",
+                  "localizedLabels" : {
+                    "en" : "Profilaksis Kotrimoksasol"
+                  }
+                } ],
+                "defaultValue" : "RxCUI::C0980399",
+                "terminology" : "RxNorm"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_pengobatan_di_atas",
+              "name" : "Centang jika terdapat pengobatan di atas",
+              "localizedName" : "Centang jika terdapat pengobatan di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat pengobatan di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining PPK (Pemberian Profilaksis Kotrimoksasol)']/items[at0024,'Centang jika terdapat pengobatan di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
+            "id" : "skrining_insulin",
+            "name" : "Skrining insulin",
+            "localizedName" : "Skrining insulin",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining insulin"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining insulin']",
+            "children" : [ {
+              "id" : "nama_pengobatan",
+              "name" : "Nama pengobatan",
+              "localizedName" : "Nama pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining insulin']/items[at0021,'Nama pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "RxCUI::1007184",
+                  "label" : "Insulin",
+                  "localizedLabels" : {
+                    "en" : "Insulin"
+                  }
+                } ],
+                "defaultValue" : "RxCUI::1007184",
+                "terminology" : "RxNorm"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_pengobatan_di_atas",
+              "name" : "Centang jika terdapat pengobatan di atas",
+              "localizedName" : "Centang jika terdapat pengobatan di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat pengobatan di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining insulin']/items[at0024,'Centang jika terdapat pengobatan di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
+            "id" : "skrining_oho",
+            "name" : "Skrining OHO",
+            "localizedName" : "Skrining OHO",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0026",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Skrining OHO"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specified medication or grouping of medications relevant for the screening purpose."
+            },
+            "annotations" : {
+              "comment" : "Use separate instances of this CLUSTER to differentiate between specific medications or groupings of medication."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining OHO']",
+            "children" : [ {
+              "id" : "nama_pengobatan",
+              "name" : "Nama pengobatan",
+              "localizedName" : "Nama pengobatan",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0021",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nama pengobatan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Name of medication or grouping of medication."
+              },
+              "annotations" : {
+                "comment" : "For example: 'alendronic acid', 'anti osteoporosis medications' or 'bisphosphonates'.\r\nCoding of the 'Medication name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining OHO']/items[at0021,'Nama pengobatan']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "RxCUI::5604",
+                  "label" : "Obat hipoglikemik oral (OHO)",
+                  "localizedLabels" : {
+                    "en" : "Obat hipoglikemik oral (OHO)"
+                  }
+                } ],
+                "defaultValue" : "RxCUI::5604",
+                "terminology" : "RxNorm"
+              } ]
+            }, {
+              "id" : "centang_jika_terdapat_pengobatan_di_atas",
+              "name" : "Centang jika terdapat pengobatan di atas",
+              "localizedName" : "Centang jika terdapat pengobatan di atas",
+              "rmType" : "DV_BOOLEAN",
+              "nodeId" : "at0024",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Centang jika terdapat pengobatan di atas"
+              },
+              "localizedDescriptions" : {
+                "en" : "Is there a history of use of a specific medication or group of medications."
+              },
+              "annotations" : {
+                "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case. \r\nFor example an alternative valueset using the DV_TEXT datatype can be: \r\nCurrently using [The individual currently uses the specific medication either on a regular basis or as required.]\r\nNever used [The individual has never used the specific medication.]\r\nUsed in the past [The individual has used the specific medication in the past, but isn't currently using it.]\r\nUnknown [It is not known whether the individual uses or has used the specific medication.]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/data[at0001]/items[at0026,'Skrining OHO']/items[at0024,'Centang jika terdapat pengobatan di atas']/value",
+              "inputs" : [ {
+                "type" : "BOOLEAN",
+                "defaultValue" : false
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/data[at0022]/events[at0023]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pengobatan']/items[openEHR-EHR-OBSERVATION.medication_screening.v1,'Skrining pengobatan tambahan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
