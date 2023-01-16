@@ -1,0 +1,646 @@
+{
+  "templateId" : "MetabolicDiseases-(DiabetesMellitus)-UrologiFemale-v2",
+  "semVer" : "2.1.2",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "metabolicdiseases-_diabetesmellitus_-urologifemale-v2",
+    "name" : "MetabolicDiseases-(DiabetesMellitus)-UrologiFemale-v2",
+    "localizedName" : "MetabolicDiseases-(DiabetesMellitus)-UrologiFemale-v2",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "MetabolicDiseases-(DiabetesMellitus)-UrologiFemale-v2"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "indeks_fungsi_seksual_perempuan",
+      "name" : "Indeks Fungsi Seksual Perempuan",
+      "localizedName" : "Indeks Fungsi Seksual Perempuan",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Indeks Fungsi Seksual Perempuan"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']",
+      "children" : [ {
+        "id" : "indeks_fungsi_seksual_perempuan",
+        "name" : "Indeks Fungsi Seksual Perempuan",
+        "localizedName" : "Indeks Fungsi Seksual Perempuan",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Indeks Fungsi Seksual Perempuan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Series of questions and associated answers used to screen for issues, problems or diagnoses."
+        },
+        "annotations" : {
+          "comment" : "The answers may be self-reported."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "hasrat",
+            "name" : "Hasrat",
+            "localizedName" : "Hasrat",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Hasrat"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Hasrat']",
+            "children" : [ {
+              "id" : "bagaimana_anda_mengukur_hasrat_minat_seksual_anda",
+              "name" : "Bagaimana Anda mengukur hasrat/minat seksual Anda?",
+              "localizedName" : "Bagaimana Anda mengukur hasrat/minat seksual Anda?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Bagaimana Anda mengukur hasrat/minat seksual Anda?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Hasrat']/items[at0004,'Bagaimana Anda mengukur hasrat/minat seksual Anda?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Sangat Tinggi",
+                  "localizedLabels" : {
+                    "en" : "Sangat Tinggi"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Tinggi",
+                  "localizedLabels" : {
+                    "en" : "Tinggi"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Cukup Tinggi",
+                  "localizedLabels" : {
+                    "en" : "Cukup Tinggi"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Rendah",
+                  "localizedLabels" : {
+                    "en" : "Rendah"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Sangat rendah atau tidak ada sama sekali",
+                  "localizedLabels" : {
+                    "en" : "Sangat rendah atau tidak ada sama sekali"
+                  }
+                } ],
+                "terminology" : "local_termsSP"
+              } ]
+            } ]
+          }, {
+            "id" : "terangsang",
+            "name" : "Terangsang",
+            "localizedName" : "Terangsang",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Terangsang"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Terangsang']",
+            "children" : [ {
+              "id" : "seberapa_sering_anda_merasa_terangsang_selama_aktivitas_seksual_senggama_contoh_keluar_cairan_vagina_putting_mengeras_dll",
+              "name" : "Seberapa sering Anda merasa terangsang selama aktivitas seksual/senggama? Contoh: keluar cairan vagina, putting mengeras, dll",
+              "localizedName" : "Seberapa sering Anda merasa terangsang selama aktivitas seksual/senggama? Contoh: keluar cairan vagina, putting mengeras, dll",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Seberapa sering Anda merasa terangsang selama aktivitas seksual/senggama? Contoh: keluar cairan vagina, putting mengeras, dll"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Terangsang']/items[at0004,'Seberapa sering Anda merasa terangsang selama aktivitas seksual/senggama? Contoh: keluar cairan vagina, putting mengeras, dll']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak ada aktivitas seksual",
+                  "localizedLabels" : {
+                    "en" : "Tidak ada aktivitas seksual"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Sangat tinggi",
+                  "localizedLabels" : {
+                    "en" : "Sangat tinggi"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Tinggi",
+                  "localizedLabels" : {
+                    "en" : "Tinggi"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Cukup",
+                  "localizedLabels" : {
+                    "en" : "Cukup"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Rendah",
+                  "localizedLabels" : {
+                    "en" : "Rendah"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "Sangat rendah atau tidak ada sama sekali",
+                  "localizedLabels" : {
+                    "en" : "Sangat rendah atau tidak ada sama sekali"
+                  }
+                } ],
+                "terminology" : "local_termsTerangsang"
+              } ]
+            } ]
+          }, {
+            "id" : "basah_vagina",
+            "name" : "Basah Vagina",
+            "localizedName" : "Basah Vagina",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Basah Vagina"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Basah Vagina']",
+            "children" : [ {
+              "id" : "seberapa_sering_anda_merasa_basah_di_daerah_vagina_selama_aktivitas_seksual_senggama",
+              "name" : "Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?",
+              "localizedName" : "Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Basah Vagina']/items[at0004,'Seberapa sering Anda merasa basah di daerah vagina selama aktivitas seksual/senggama?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak ada aktivitas seksual",
+                  "localizedLabels" : {
+                    "en" : "Tidak ada aktivitas seksual"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Hampir selalu atau selalu",
+                  "localizedLabels" : {
+                    "en" : "Hampir selalu atau selalu"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Sebagian besar waktu",
+                  "localizedLabels" : {
+                    "en" : "Sebagian besar waktu"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Kadang – kadang",
+                  "localizedLabels" : {
+                    "en" : "Kadang – kadang"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Hanya beberapa kali",
+                  "localizedLabels" : {
+                    "en" : "Hanya beberapa kali"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "Hampir tidak pernah atau tidak pernah",
+                  "localizedLabels" : {
+                    "en" : "Hampir tidak pernah atau tidak pernah"
+                  }
+                } ],
+                "terminology" : "local_termsTer"
+              } ]
+            } ]
+          }, {
+            "id" : "orgasme",
+            "name" : "Orgasme",
+            "localizedName" : "Orgasme",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Orgasme"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Orgasme']",
+            "children" : [ {
+              "id" : "seberapa_sering_anda_mengalami_orgasme_klimaks_selama_aktivitas_seksual_senggama",
+              "name" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?",
+              "localizedName" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Orgasme']/items[at0004,'Seberapa sering Anda mengalami orgasme (klimaks) selama aktivitas seksual/senggama?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak ada aktivitas seksual",
+                  "localizedLabels" : {
+                    "en" : "Tidak ada aktivitas seksual"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Hampir selalu atau selalu",
+                  "localizedLabels" : {
+                    "en" : "Hampir selalu atau selalu"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Sebagian besar waktu",
+                  "localizedLabels" : {
+                    "en" : "Sebagian besar waktu"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Kadang – kadang",
+                  "localizedLabels" : {
+                    "en" : "Kadang – kadang"
+                  }
+                } ],
+                "terminology" : "local_termsOrgasme"
+              } ]
+            } ]
+          }, {
+            "id" : "kepuasan_seks",
+            "name" : "Kepuasan Seks",
+            "localizedName" : "Kepuasan Seks",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Kepuasan Seks"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kepuasan Seks']",
+            "children" : [ {
+              "id" : "seberapa_puas_anda_dengan_kehidupan_seksual_anda_secara_keseluruhan",
+              "name" : "Seberapa puas Anda dengan kehidupan seksual Anda secara keseluruhan?",
+              "localizedName" : "Seberapa puas Anda dengan kehidupan seksual Anda secara keseluruhan?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Seberapa puas Anda dengan kehidupan seksual Anda secara keseluruhan?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Kepuasan Seks']/items[at0004,'Seberapa puas Anda dengan kehidupan seksual Anda secara keseluruhan?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Sangat puas",
+                  "localizedLabels" : {
+                    "en" : "Sangat puas"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Puas",
+                  "localizedLabels" : {
+                    "en" : "Puas"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Seimbang puas dan tidak puas",
+                  "localizedLabels" : {
+                    "en" : "Seimbang puas dan tidak puas"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Tidak puas",
+                  "localizedLabels" : {
+                    "en" : "Tidak puas"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Sangat tidak puas",
+                  "localizedLabels" : {
+                    "en" : "Sangat tidak puas"
+                  }
+                } ],
+                "terminology" : "local_termsKSeks"
+              } ]
+            } ]
+          }, {
+            "id" : "tidak_nyaman",
+            "name" : "Tidak Nyaman",
+            "localizedName" : "Tidak Nyaman",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Tidak Nyaman"
+            },
+            "localizedDescriptions" : {
+              "en" : "Details about a specific issue, problem or diagnosis or grouping of problems or diagnoses relevant for the screening purpose."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tidak Nyaman']",
+            "children" : [ {
+              "id" : "seberapa_sering_anda_mengalami_nyeri_rasa_tidak_nyaman_selama_senggama_penetrasi_vagina",
+              "name" : "Seberapa sering Anda mengalami nyeri/rasa tidak nyaman selama senggama/penetrasi vagina?",
+              "localizedName" : "Seberapa sering Anda mengalami nyeri/rasa tidak nyaman selama senggama/penetrasi vagina?",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Seberapa sering Anda mengalami nyeri/rasa tidak nyaman selama senggama/penetrasi vagina?"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of an issue, problem or diagnosis, or grouping of issues, problems or diagnoses, by name."
+              },
+              "annotations" : {
+                "comment" : "Coding of the 'Problem/diagnosis name' with a terminology is preferred, where possible."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Tidak Nyaman']/items[at0004,'Seberapa sering Anda mengalami nyeri/rasa tidak nyaman selama senggama/penetrasi vagina?']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "0",
+                  "label" : "Tidak mencoba hubungan seksual",
+                  "localizedLabels" : {
+                    "en" : "Tidak mencoba hubungan seksual"
+                  }
+                }, {
+                  "value" : "1",
+                  "label" : "Hampir selalu atau selalu",
+                  "localizedLabels" : {
+                    "en" : "Hampir selalu atau selalu"
+                  }
+                }, {
+                  "value" : "2",
+                  "label" : "Sebagian besar waktu",
+                  "localizedLabels" : {
+                    "en" : "Sebagian besar waktu"
+                  }
+                }, {
+                  "value" : "3",
+                  "label" : "Kadang – kadang",
+                  "localizedLabels" : {
+                    "en" : "Kadang – kadang"
+                  }
+                }, {
+                  "value" : "4",
+                  "label" : "Hanya beberapa kali",
+                  "localizedLabels" : {
+                    "en" : "Hanya beberapa kali"
+                  }
+                }, {
+                  "value" : "5",
+                  "label" : "Hampir tidak pernah atau tidak pernah",
+                  "localizedLabels" : {
+                    "en" : "Hampir tidak pernah atau tidak pernah"
+                  }
+                } ],
+                "terminology" : "local_termsTer1"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Indeks Fungsi Seksual Perempuan']/items[openEHR-EHR-OBSERVATION.problem_screening.v1,'Indeks Fungsi Seksual Perempuan']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
