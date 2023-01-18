@@ -1,19 +1,19 @@
 {
-  "templateId" : "Cancer-FollowUp-v2",
-  "semVer" : "2.0.0",
+  "templateId" : "Cancer-FollowUp-v1",
+  "semVer" : "1.2.1",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
   "tree" : {
-    "id" : "cancer-followup-v2",
-    "name" : "Cancer-FollowUp-v2",
-    "localizedName" : "Cancer-FollowUp-v2",
+    "id" : "cancer-followup-v1",
+    "name" : "Cancer-FollowUp-v1",
+    "localizedName" : "Cancer-FollowUp-v1",
     "rmType" : "COMPOSITION",
     "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
     "min" : 1,
     "max" : 1,
     "localizedNames" : {
-      "en" : "Cancer-FollowUp-v2"
+      "en" : "Cancer-FollowUp-v1"
     },
     "localizedDescriptions" : {
       "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
@@ -560,30 +560,6 @@
               "terminology" : "SNOMEDCT"
             } ]
           }, {
-            "id" : "tanggal_kemoterapi_sesuai_jadwal",
-            "name" : "Tanggal Kemoterapi sesuai jadwal",
-            "localizedName" : "Tanggal Kemoterapi sesuai jadwal",
-            "rmType" : "DV_DATE_TIME",
-            "nodeId" : "at0145",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Tanggal Kemoterapi sesuai jadwal"
-            },
-            "localizedDescriptions" : {
-              "en" : "The date/time that marks the beginning of the valid period of time for delivery of this activity."
-            },
-            "annotations" : {
-              "comment" : "This date/time is the equivalent to the earliest possible date for carrying out the activity. For example: sometimes a certain amount of time must pass before an activity can be carried out. For example: 'start mobilisation 2 days post surgery'."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Kemoterapi']/description[at0009]/items[at0145,'Tanggal Kemoterapi sesuai jadwal']/value",
-            "inputs" : [ {
-              "type" : "DATETIME",
-              "validation" : {
-                "pattern" : "yyyy-mm-ddTXX:XX:XX"
-              }
-            } ]
-          }, {
             "id" : "apakah_kemoterapi_diberikan_sesuai_jadwal_atau_tidak",
             "name" : "Apakah kemoterapi diberikan sesuai jadwal atau tidak",
             "localizedName" : "Apakah kemoterapi diberikan sesuai jadwal atau tidak",
@@ -618,6 +594,30 @@
                 }
               } ],
               "terminology" : "SNOMED_CT"
+            } ]
+          }, {
+            "id" : "tanggal_kemoterapi_sesuai_jadwal",
+            "name" : "Tanggal Kemoterapi sesuai jadwal",
+            "localizedName" : "Tanggal Kemoterapi sesuai jadwal",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0145",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tanggal Kemoterapi sesuai jadwal"
+            },
+            "localizedDescriptions" : {
+              "en" : "The date/time that marks the beginning of the valid period of time for delivery of this activity."
+            },
+            "annotations" : {
+              "comment" : "This date/time is the equivalent to the earliest possible date for carrying out the activity. For example: sometimes a certain amount of time must pass before an activity can be carried out. For example: 'start mobilisation 2 days post surgery'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Kemoterapi']/description[at0009]/items[at0145,'Tanggal Kemoterapi sesuai jadwal']/value",
+            "inputs" : [ {
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
@@ -698,30 +698,6 @@
               "terminology" : "SNOMEDCT"
             } ]
           }, {
-            "id" : "tanggal_radiasi_sesuai_jadwal",
-            "name" : "Tanggal Radiasi sesuai jadwal",
-            "localizedName" : "Tanggal Radiasi sesuai jadwal",
-            "rmType" : "DV_DATE_TIME",
-            "nodeId" : "at0040",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Tanggal Radiasi sesuai jadwal"
-            },
-            "localizedDescriptions" : {
-              "en" : "The date/time, or acceptable interval of date/time, for provision of the therapy."
-            },
-            "annotations" : {
-              "comment" : "This data element allows for recording of the timing for a single therapy, either as a date and time, a date ranges or a text descriptor which can allow for 'next available. In practice, clinicians will often think in terms of ordering therapys as approximate timing, for example: review in 3 months, 6 months or 12 months. As clinical systems need more exact parameters to operate on, this '3 months' will usually be converted to an exact date 3 months from the date of recording and stored using this data element. If complex timing or sequences of timings are required, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT and this data element becomes redundant."
-            },
-            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Radiasi Eksternal']/description[at0009]/items[at0040,'Tanggal Radiasi sesuai jadwal']/value",
-            "inputs" : [ {
-              "type" : "DATETIME",
-              "validation" : {
-                "pattern" : "yyyy-mm-ddTXX:XX:XX"
-              }
-            } ]
-          }, {
             "id" : "apakah_terapi_radiasi_diberikan_sesuai_jadwal_atau_tidak",
             "name" : "Apakah terapi radiasi diberikan sesuai jadwal atau tidak",
             "localizedName" : "Apakah terapi radiasi diberikan sesuai jadwal atau tidak",
@@ -756,6 +732,30 @@
                 }
               } ],
               "terminology" : "SNOMED_CT"
+            } ]
+          }, {
+            "id" : "tanggal_radiasi_sesuai_jadwal",
+            "name" : "Tanggal Radiasi sesuai jadwal",
+            "localizedName" : "Tanggal Radiasi sesuai jadwal",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0040",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Tanggal Radiasi sesuai jadwal"
+            },
+            "localizedDescriptions" : {
+              "en" : "The date/time, or acceptable interval of date/time, for provision of the therapy."
+            },
+            "annotations" : {
+              "comment" : "This data element allows for recording of the timing for a single therapy, either as a date and time, a date ranges or a text descriptor which can allow for 'next available. In practice, clinicians will often think in terms of ordering therapys as approximate timing, for example: review in 3 months, 6 months or 12 months. As clinical systems need more exact parameters to operate on, this '3 months' will usually be converted to an exact date 3 months from the date of recording and stored using this data element. If complex timing or sequences of timings are required, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT and this data element becomes redundant."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Jenis Terapi sejak Follow-up Terakhir']/items[openEHR-EHR-INSTRUCTION.therapeutic_activity_order.v0]/activities[at0001,'Radiasi Eksternal']/description[at0009]/items[at0040,'Tanggal Radiasi sesuai jadwal']/value",
+            "inputs" : [ {
+              "type" : "DATETIME",
+              "validation" : {
+                "pattern" : "yyyy-mm-ddTXX:XX:XX"
+              }
             } ]
           }, {
             "id" : "timing",
