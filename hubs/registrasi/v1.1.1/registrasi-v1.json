@@ -1,0 +1,492 @@
+{
+  "templateId" : "registrasi-v1",
+  "semVer" : "1.1.1",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "registrasi-v1",
+    "name" : "registrasi-v1",
+    "localizedName" : "registrasi-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "registrasi-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "service",
+      "name" : "Service",
+      "localizedName" : "Service",
+      "rmType" : "ACTION",
+      "nodeId" : "openEHR-EHR-ACTION.service.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Service"
+      },
+      "localizedDescriptions" : {
+        "en" : "A general clinical activity carried out for the patient to receive a specified service, advice or care from an expert healthcare provider."
+      },
+      "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]",
+      "children" : [ {
+        "id" : "no._rekam_medik",
+        "name" : "No. Rekam Medik",
+        "localizedName" : "No. Rekam Medik",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0011",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "No. Rekam Medik"
+        },
+        "localizedDescriptions" : {
+          "en" : "Identification of the clinical service to be/being carried out."
+        },
+        "annotations" : {
+          "comment" : "Coding of the specific service name with a terminology is preferred, where possible."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/description[at0001]/items[at0011,'No. Rekam Medik']/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "pembiayaan",
+        "name" : "Pembiayaan",
+        "localizedName" : "Pembiayaan",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0014",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pembiayaan"
+        },
+        "localizedDescriptions" : {
+          "en" : "Type of service to be carried out or being carried out."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/description[at0001]/items[at0014,'Pembiayaan']/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "0",
+            "label" : "Perusahaan/asuransi",
+            "localizedLabels" : {
+              "en" : "Perusahaan/asuransi"
+            }
+          }, {
+            "value" : "1",
+            "label" : "Pribadi",
+            "localizedLabels" : {
+              "en" : "Pribadi"
+            }
+          }, {
+            "value" : "2",
+            "label" : "JKN / KIS / BPJS Kesehatan (jika memilih BPJS, input nomor BPJS)",
+            "localizedLabels" : {
+              "en" : "JKN / KIS / BPJS Kesehatan (jika memilih BPJS, input nomor BPJS)"
+            }
+          }, {
+            "value" : "3",
+            "label" : "Lain-lain (free text)",
+            "localizedLabels" : {
+              "en" : "Lain-lain (free text)"
+            }
+          } ],
+          "listOpen" : true,
+          "terminology" : "pembiayaan"
+        }, {
+          "suffix" : "other",
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "jenis_sampel_yang_diambil",
+        "name" : "Jenis sampel yang diambil",
+        "localizedName" : "Jenis sampel yang diambil",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0013",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Jenis sampel yang diambil"
+        },
+        "localizedDescriptions" : {
+          "en" : "Narrative description about the service, as appropriate for the pathway step."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/description[at0001]/items[at0013,'Jenis sampel yang diambil']/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "0",
+            "label" : "Darah",
+            "localizedLabels" : {
+              "en" : "Darah"
+            }
+          }, {
+            "value" : "1",
+            "label" : "Sputum",
+            "localizedLabels" : {
+              "en" : "Sputum"
+            }
+          }, {
+            "value" : "2",
+            "label" : "Sel",
+            "localizedLabels" : {
+              "en" : "Sel"
+            }
+          }, {
+            "value" : "3",
+            "label" : "Jaringan",
+            "localizedLabels" : {
+              "en" : "Jaringan"
+            }
+          }, {
+            "value" : "4",
+            "label" : "Usap",
+            "localizedLabels" : {
+              "en" : "Usap"
+            }
+          }, {
+            "value" : "5",
+            "label" : "Bukal",
+            "localizedLabels" : {
+              "en" : "Bukal"
+            }
+          }, {
+            "value" : "6",
+            "label" : "Saliva",
+            "localizedLabels" : {
+              "en" : "Saliva"
+            }
+          }, {
+            "value" : "7",
+            "label" : "Aspirasi",
+            "localizedLabels" : {
+              "en" : "Aspirasi"
+            }
+          }, {
+            "value" : "8",
+            "label" : "Sumsung",
+            "localizedLabels" : {
+              "en" : "Sumsung"
+            }
+          }, {
+            "value" : "9",
+            "label" : "Tulang",
+            "localizedLabels" : {
+              "en" : "Tulang"
+            }
+          }, {
+            "value" : "10",
+            "label" : "Urin",
+            "localizedLabels" : {
+              "en" : "Urin"
+            }
+          }, {
+            "value" : "11",
+            "label" : "Feses",
+            "localizedLabels" : {
+              "en" : "Feses"
+            }
+          }, {
+            "value" : "12",
+            "label" : "Sampel lainnya (free text)",
+            "localizedLabels" : {
+              "en" : "Sampel lainnya (free text)"
+            }
+          } ],
+          "listOpen" : true,
+          "terminology" : "jenis_sampel"
+        }, {
+          "suffix" : "other",
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "tanggal_registrasi",
+        "name" : "Tanggal Registrasi",
+        "localizedName" : "Tanggal Registrasi",
+        "rmType" : "DV_DATE_TIME",
+        "nodeId" : "at0025",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Tanggal Registrasi"
+        },
+        "localizedDescriptions" : {
+          "en" : "The date and/or time on which the service is intended to be performed."
+        },
+        "annotations" : {
+          "comment" : "Only for use in association with the 'Service scheduled' pathway step."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/description[at0001]/items[at0025,'Tanggal Registrasi']/value",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ]
+      }, {
+        "id" : "time",
+        "name" : "Time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "ism_transition",
+        "name" : "Ism_transition",
+        "rmType" : "ISM_TRANSITION",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/ism_transition",
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "demographics_container",
+      "name" : "Demographics container",
+      "localizedName" : "Demographics container",
+      "rmType" : "ADMIN_ENTRY",
+      "nodeId" : "openEHR-EHR-ADMIN_ENTRY.demographics.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Demographics container"
+      },
+      "localizedDescriptions" : {
+        "en" : "A container archetype used to hold demographic-related EHR CLUSTER archetypes."
+      },
+      "aqlPath" : "/content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]",
+      "children" : [ {
+        "id" : "person",
+        "name" : "Person",
+        "localizedName" : "Person",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.person.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Person"
+        },
+        "localizedDescriptions" : {
+          "en" : "An individual human being."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]",
+        "children" : [ {
+          "id" : "nomor_bpjs",
+          "name" : "Nomor BPJS",
+          "localizedName" : "Nomor BPJS",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nomor BPJS"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identifier associated with the individual."
+          },
+          "annotations" : {
+            "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the DV_IDENTIFIER data type contains multiple subcomponents for recording the ID value, type, issuer and assigned. For example - social security number; driver's license; or passport number."
+          },
+          "aqlPath" : "/content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0003,'Nomor BPJS']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "nomor_identifikasi_lainnya",
+          "name" : "Nomor Identifikasi Lainnya",
+          "localizedName" : "Nomor Identifikasi Lainnya",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Nomor Identifikasi Lainnya"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identifier associated with the individual."
+          },
+          "annotations" : {
+            "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the DV_IDENTIFIER data type contains multiple subcomponents for recording the ID value, type, issuer and assigned. For example - social security number; driver's license; or passport number."
+          },
+          "aqlPath" : "/content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.person.v1]/items[at0003,'Nomor Identifikasi Lainnya']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ADMIN_ENTRY.demographics.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
