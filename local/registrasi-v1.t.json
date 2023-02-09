@@ -22,7 +22,7 @@
       "sem_ver" : "1.1.2",
       "build_uid" : "ad7bfd2c-523f-43ae-9c45-a4b609b1be09",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD",
-      "MD5-CAM-1.0.1" : "44dd5db9d2a936ef7b92f734f9a81fb3"
+      "MD5-CAM-1.0.1" : "2526f5bdd194aa2ddd0dd7496b368962"
     },
     "details" : {
       "de" : {
@@ -2012,6 +2012,21 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
+                      "nodeId" : "at0073.2",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_TEXT",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
                       "occurrences" : "0..0",
                       "nodeId" : "at0075.1",
                       "attributes" : [ ],
@@ -2197,7 +2212,15 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "ar-sy" : { },
+        "ar-sy" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "*Overall test status(en) (2)",
+            "description" : "*The status of the laboratory test result as a whole.(en)",
+            "comment" : "*The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements. (en)"
+          }
+        },
         "en" : {
           "at0073.1" : {
             "@type" : "ARCHETYPE_TERM",
@@ -2212,15 +2235,77 @@
             "text" : "Pengambilan Sampel",
             "description" : "Name of the laboratory investigation performed on the specimen(s).",
             "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+          },
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073.2",
+            "text" : "Jenis sampel lainnya",
+            "description" : "The status of the laboratory test result as a whole.",
+            "comment" : "The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements."
           }
         },
-        "nb" : { },
-        "zh-cn" : { },
-        "de" : { },
-        "it" : { },
-        "nl" : { },
-        "sv" : { },
-        "pt-br" : { }
+        "nb" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "Overordnet resultatstatus (2)",
+            "description" : "Den overordnede statusen for hele laboratorieresultatet/prøven.",
+            "comment" : "Verdiene er valgt spesifikt for å samsvare med verdiene i HL7 FHIR-ressursen \"Diagnostic report\", som historisk sett kommer fra HL7 v2. Andre lokale koder eller termer kan brukes ved å bruke datatypen \"Fri eller kodet tekst.\r\n\r\nDette elementet kan repeteres for å understøtte bruksområdene der statuser for forskjellige aspekter av resultatet er delt opp i flere elementer. Et eksempel på dette er de norske standard labsvarmeldingene i HIS 1.4-standarden, der status for svaret og status for laboratorieprosessen håndteres separat."
+          }
+        },
+        "zh-cn" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "*Overall test status(en) (2)",
+            "description" : "*The status of the laboratory test result as a whole.(en)",
+            "comment" : "*The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements. (en)"
+          }
+        },
+        "de" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "Gesamtteststatus (2)",
+            "description" : "Der Status des gesamten Laborprüfergebnisses.",
+            "comment" : "Die Werte wurden so ausgewählt, dass sie mit denen im HL7 FHIR Diagnosebericht übereinstimmen, der historisch aus der HL7v2Praxis stammt. Andere lokale Codes/Begriffe können über den Text \"Auswahl\" verwendet werden. \r\n\r\nDieses Element kann mehrfach vorkommen, um Fälle abzudecken, bei denen der Status für verschiedene Aspekte des Ergebnisses in mehrere Elemente unterteilt wurde.\r\n"
+          }
+        },
+        "it" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "Stato complessivo dell'esame (2)",
+            "description" : "Lo stato relativo all'esame di laboratorio nel suo complesso. ",
+            "comment" : "I valori sono stati specificatamente scelti in moto tale da corrispondere a quelli del \"FHIR Diagnostic Report\" di HL7, a loro volta storicamente derivanti dal HL7 v2. Altre codifiche/terminologie locali possono essere utilizzare tramite la scelta \"Text\". Questo elemento ha occorrenze multiple al fine di soddisfare le esigenze di quegli use case in cui gli stati relativi a differenti aspetti del risultato sono stati divisi in più componenti."
+          }
+        },
+        "nl" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "*Overall test status(en) (2)",
+            "description" : "*The status of the laboratory test result as a whole.(en)"
+          }
+        },
+        "sv" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "Status svarsrapport (2)",
+            "description" : "Status för undersökningsresultatet som helhet.",
+            "comment" : "Värdena har valts specifikt för att motsvara värdena i HL7 FHIR-resursen \"Diagnostic Report\", som historiskt kommer från HL7 v2. Andra lokala koder eller termer kan användas med datatypen \"Fri eller kodad text.\r\n\r\nDetta element kan upprepas för att stödja applikationer där status för olika aspekter av resultatet delas in i flera element."
+          }
+        },
+        "pt-br" : {
+          "at0073.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0073",
+            "text" : "*Overall test status(en) (2)",
+            "description" : "*The status of the laboratory test result as a whole.(en)",
+            "comment" : "*The values have been specifically chosen to match those in the HL7 FHIR Diagnostic report, historically derived from HL7v2 practice. Other local codes/terms can be used via the Text 'choice'.\r\n\r\nThis element is multiple occurrence to cater for the use cases where statuses for different aspects of the result have been split into several elements.(en)"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
