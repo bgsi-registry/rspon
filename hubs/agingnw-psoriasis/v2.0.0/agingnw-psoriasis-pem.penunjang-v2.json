@@ -1,0 +1,2896 @@
+{
+  "templateId" : "agingnw-psoriasis-pem.penunjang-v2",
+  "semVer" : "2.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "agingnw-psoriasis-pem.penunjang-v1",
+    "name" : "agingnw-psoriasis-pem.penunjang-v1",
+    "localizedName" : "agingnw-psoriasis-pem.penunjang-v1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "agingnw-psoriasis-pem.penunjang-v1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "pemeriksaan_penunjang",
+      "name" : "Pemeriksaan penunjang",
+      "localizedName" : "Pemeriksaan penunjang",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Pemeriksaan penunjang"
+      },
+      "localizedDescriptions" : {
+        "en" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']",
+      "children" : [ {
+        "id" : "pemeriksaan_darah_rutin",
+        "name" : "Pemeriksaan darah rutin",
+        "localizedName" : "Pemeriksaan darah rutin",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan darah rutin"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis pemeriksaan",
+            "localizedName" : "Jenis pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Jenis pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Pemeriksaan darah rutin",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan darah rutin"
+                }
+              } ],
+              "defaultValue" : "0",
+              "terminology" : "local_jenispemeriksaandarahrutin"
+            } ]
+          }, {
+            "id" : "pemeriksaan_darah_rutin",
+            "name" : "Pemeriksaan darah rutin",
+            "localizedName" : "Pemeriksaan darah rutin",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan darah rutin"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']",
+            "children" : [ {
+              "id" : "wbc",
+              "name" : "WBC",
+              "localizedName" : "WBC",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "WBC"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'WBC']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "10*3",
+                  "label" : "10*3",
+                  "localizedLabels" : {
+                    "en" : "10^3 / μL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "rbc",
+              "name" : "RBC",
+              "localizedName" : "RBC",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "RBC"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'RBC']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "10*6",
+                  "label" : "10*6",
+                  "localizedLabels" : {
+                    "en" : "10^6 / μL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "hb",
+              "name" : "Hb",
+              "localizedName" : "Hb",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Hb"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Hb']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "U/dL",
+                  "label" : "U/dL",
+                  "localizedLabels" : {
+                    "en" : "g/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "hct",
+              "name" : "HCT",
+              "localizedName" : "HCT",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "HCT"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'HCT']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "plt",
+              "name" : "PLT",
+              "localizedName" : "PLT",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "PLT"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'PLT']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "10*3",
+                  "label" : "10*3",
+                  "localizedLabels" : {
+                    "en" : "10^3 / μL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "netrofil",
+              "name" : "Netrofil",
+              "localizedName" : "Netrofil",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Netrofil"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Netrofil']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "limfosit",
+              "name" : "Limfosit",
+              "localizedName" : "Limfosit",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Limfosit"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Limfosit']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "monosit",
+              "name" : "Monosit",
+              "localizedName" : "Monosit",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Monosit"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Monosit']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "basofil",
+              "name" : "Basofil",
+              "localizedName" : "Basofil",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Basofil"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Basofil']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "eosinofil",
+              "name" : "Eosinofil",
+              "localizedName" : "Eosinofil",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Eosinofil"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0001,'Eosinofil']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "%",
+                  "label" : "%",
+                  "localizedLabels" : {
+                    "en" : "%"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "tanggal_pemeriksaan",
+              "name" : "Tanggal pemeriksaan",
+              "localizedName" : "Tanggal pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0006",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "OBX.19",
+                "fhir_mapping" : "Observation.issued"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan darah rutin']/items[at0006,'Tanggal pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan darah rutin']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_liver_function_test_lft",
+        "name" : "Pemeriksaan liver function test (LFT)",
+        "localizedName" : "Pemeriksaan liver function test (LFT)",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan liver function test (LFT)"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis pemeriksaan",
+            "localizedName" : "Jenis pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Jenis pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Pemeriksaan liver function test (LFT)",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan liver function test (LFT)"
+                }
+              } ],
+              "defaultValue" : "0",
+              "terminology" : "lokal_jenispemeriksaanlft"
+            } ]
+          }, {
+            "id" : "pemeriksaan_liver_function_test_lft",
+            "name" : "Pemeriksaan liver function test (LFT)",
+            "localizedName" : "Pemeriksaan liver function test (LFT)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan liver function test (LFT)"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']",
+            "children" : [ {
+              "id" : "sgot",
+              "name" : "SGOT",
+              "localizedName" : "SGOT",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "SGOT"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']/items[at0001,'SGOT']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/L",
+                  "label" : "[arb'U]/L",
+                  "localizedLabels" : {
+                    "en" : "μ/L"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "sgpt",
+              "name" : "SGPT",
+              "localizedName" : "SGPT",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "SGPT"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']/items[at0001,'SGPT']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/L",
+                  "label" : "[arb'U]/L",
+                  "localizedLabels" : {
+                    "en" : "μ/L"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "tanggal_pemeriksaan",
+              "name" : "Tanggal pemeriksaan",
+              "localizedName" : "Tanggal pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0006",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "OBX.19",
+                "fhir_mapping" : "Observation.issued"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan liver function test (LFT)']/items[at0006,'Tanggal pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan liver function test (LFT)']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_renal_function_test_rft",
+        "name" : "Pemeriksaan renal function test (RFT)",
+        "localizedName" : "Pemeriksaan renal function test (RFT)",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan renal function test (RFT)"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis pemeriksaan",
+            "localizedName" : "Jenis pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Jenis pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Pemeriksaan renal function test (RFT)",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan renal function test (RFT)"
+                }
+              } ],
+              "defaultValue" : "0",
+              "terminology" : "local_jenispemeriksaanrft"
+            } ]
+          }, {
+            "id" : "pemeriksaan_renal_function_test_rft",
+            "name" : "Pemeriksaan renal function test (RFT)",
+            "localizedName" : "Pemeriksaan renal function test (RFT)",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan renal function test (RFT)"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']",
+            "children" : [ {
+              "id" : "ureum",
+              "name" : "Ureum",
+              "localizedName" : "Ureum",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Ureum"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']/items[at0001,'Ureum']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "kreatinin",
+              "name" : "Kreatinin",
+              "localizedName" : "Kreatinin",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kreatinin"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']/items[at0001,'Kreatinin']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "tanggal_pemeriksaan",
+              "name" : "Tanggal pemeriksaan",
+              "localizedName" : "Tanggal pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0006",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "OBX.19",
+                "fhir_mapping" : "Observation.issued"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan renal function test (RFT)']/items[at0006,'Tanggal pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan renal function test (RFT)']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_profil_lipid",
+        "name" : "Pemeriksaan profil lipid",
+        "localizedName" : "Pemeriksaan profil lipid",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan profil lipid"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis pemeriksaan",
+            "localizedName" : "Jenis pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Jenis pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Pemeriksaan profil lipid",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan profil lipid"
+                }
+              } ],
+              "defaultValue" : "0",
+              "terminology" : "local_jenispemeriksaanlipid"
+            } ]
+          }, {
+            "id" : "pemeriksaan_profil_lipid",
+            "name" : "Pemeriksaan profil lipid",
+            "localizedName" : "Pemeriksaan profil lipid",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan profil lipid"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']",
+            "children" : [ {
+              "id" : "trigliserida",
+              "name" : "Trigliserida",
+              "localizedName" : "Trigliserida",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Trigliserida"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'Trigliserida']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "hdl",
+              "name" : "HDL",
+              "localizedName" : "HDL",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "HDL"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'HDL']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "ldl",
+              "name" : "LDL",
+              "localizedName" : "LDL",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "LDL"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0001,'LDL']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "tanggal_pemeriksaan",
+              "name" : "Tanggal pemeriksaan",
+              "localizedName" : "Tanggal pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0006",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "OBX.19",
+                "fhir_mapping" : "Observation.issued"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan profil lipid']/items[at0006,'Tanggal pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan profil lipid']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_asam_urat",
+        "name" : "Pemeriksaan asam urat",
+        "localizedName" : "Pemeriksaan asam urat",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan asam urat"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis pemeriksaan",
+            "localizedName" : "Jenis pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Jenis pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Pemeriksaan asam urat",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan asam urat"
+                }
+              } ],
+              "defaultValue" : "0",
+              "terminology" : "local_jenispemeriksaanasamurat"
+            } ]
+          }, {
+            "id" : "pemeriksaan_asam_urat",
+            "name" : "Pemeriksaan asam urat",
+            "localizedName" : "Pemeriksaan asam urat",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan asam urat"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan asam urat']",
+            "children" : [ {
+              "id" : "asam_urat",
+              "name" : "Asam urat",
+              "localizedName" : "Asam urat",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Asam urat"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan asam urat']/items[at0001,'Asam urat']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "tanggal_pemeriksaan",
+              "name" : "Tanggal pemeriksaan",
+              "localizedName" : "Tanggal pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0006",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "OBX.19",
+                "fhir_mapping" : "Observation.issued"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan asam urat']/items[at0006,'Tanggal pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan asam urat']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_gula_darah",
+        "name" : "Pemeriksaan gula darah",
+        "localizedName" : "Pemeriksaan gula darah",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan gula darah"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis pemeriksaan",
+            "localizedName" : "Jenis pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Jenis pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Pemeriksaan gula darah",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan gula darah"
+                }
+              } ],
+              "defaultValue" : "0",
+              "terminology" : "local_jenispemeriksaanguladarah"
+            } ]
+          }, {
+            "id" : "pemeriksaan_gula_darah",
+            "name" : "Pemeriksaan gula darah",
+            "localizedName" : "Pemeriksaan gula darah",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan gula darah"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan gula darah']",
+            "children" : [ {
+              "id" : "gula_darah_puasa",
+              "name" : "Gula Darah Puasa",
+              "localizedName" : "Gula Darah Puasa",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Gula Darah Puasa"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan gula darah']/items[at0001,'Gula Darah Puasa']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "gula_darah_2pp",
+              "name" : "Gula Darah 2PP",
+              "localizedName" : "Gula Darah 2PP",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Gula Darah 2PP"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan gula darah']/items[at0001,'Gula Darah 2PP']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1.0E12
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "[arb'U]/dL",
+                  "label" : "[arb'U]/dL",
+                  "localizedLabels" : {
+                    "en" : "mg/dL"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1.0E12
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "tanggal_pemeriksaan",
+              "name" : "Tanggal pemeriksaan",
+              "localizedName" : "Tanggal pemeriksaan",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0006",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Tanggal pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The date and time that the analyte result was issued for the recorded ‘Result status’."
+              },
+              "annotations" : {
+                "hl7v2_mapping" : "OBX.19",
+                "fhir_mapping" : "Observation.issued"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1,'Pemeriksaan gula darah']/items[at0006,'Tanggal pemeriksaan']/value",
+              "inputs" : [ {
+                "type" : "DATETIME",
+                "validation" : {
+                  "pattern" : "yyyy-mm-ddTXX:XX:XX"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan gula darah']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "rontgen_toraks",
+        "name" : "Rontgen Toraks",
+        "localizedName" : "Rontgen Toraks",
+        "rmType" : "ACTION",
+        "nodeId" : "openEHR-EHR-ACTION.imaging_exam.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Rontgen Toraks"
+        },
+        "localizedDescriptions" : {
+          "en" : "Clinical activity about performing an imaging examination."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Rontgen Toraks']",
+        "children" : [ {
+          "id" : "kesimpulan_rontgen_toraks",
+          "name" : "Kesimpulan Rontgen Toraks",
+          "localizedName" : "Kesimpulan Rontgen Toraks",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0018",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Kesimpulan Rontgen Toraks"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description about the activity or care pathway step for the identified examination, for example description about the performance and findings from the the examination, the failed attempt or the cancellation of the examination."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Rontgen Toraks']/description[at0001]/items[at0018,'Kesimpulan Rontgen Toraks']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Rontgen Toraks']/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "ism_transition",
+          "name" : "Ism_transition",
+          "rmType" : "ISM_TRANSITION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Rontgen Toraks']/ism_transition",
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Rontgen Toraks']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Rontgen Toraks']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-ACTION.imaging_exam.v0,'Rontgen Toraks']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_histopatologi",
+        "name" : "Pemeriksaan histopatologi",
+        "localizedName" : "Pemeriksaan histopatologi",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan histopatologi"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "jenis_pemeriksaan",
+            "name" : "Jenis pemeriksaan",
+            "localizedName" : "Jenis pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Jenis pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Jenis pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "0",
+                "label" : "Pemeriksaan histopatologi",
+                "localizedLabels" : {
+                  "en" : "Pemeriksaan histopatologi"
+                }
+              } ],
+              "terminology" : "local_jenispemeriksaanhistopatologi"
+            } ]
+          }, {
+            "id" : "pemeriksaan_histopatologi",
+            "name" : "Pemeriksaan histopatologi",
+            "localizedName" : "Pemeriksaan histopatologi",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_pathology_exam.v0",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan histopatologi"
+            },
+            "localizedDescriptions" : {
+              "en" : "Findings and interpretation of an anatomical pathology examination performed on tissues and body fluids."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_pathology_exam.v0,'Pemeriksaan histopatologi']",
+            "children" : [ {
+              "id" : "hasil_pemeriksaan",
+              "name" : "Hasil pemeriksaan",
+              "localizedName" : "Hasil pemeriksaan",
+              "rmType" : "CLUSTER",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "en" : "Hasil pemeriksaan"
+              },
+              "localizedDescriptions" : {
+                "en" : "Details of an individual anatomical pathology finding, often related to a specific anatomical location or specimen."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_pathology_exam.v0,'Pemeriksaan histopatologi']/items[at0005,'Hasil pemeriksaan']",
+              "children" : [ {
+                "id" : "kesimpulan",
+                "name" : "Kesimpulan",
+                "localizedName" : "Kesimpulan",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0008",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "Kesimpulan"
+                },
+                "localizedDescriptions" : {
+                  "en" : "A narrative description of the anatomical pathology finding."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_pathology_exam.v0,'Pemeriksaan histopatologi']/items[at0005,'Hasil pemeriksaan']/items[at0008,'Kesimpulan']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              }, {
+                "id" : "no._pa",
+                "name" : "No. PA",
+                "localizedName" : "No. PA",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0017",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "en" : "No. PA"
+                },
+                "localizedDescriptions" : {
+                  "en" : "Reference ID, URI or text for a specimen container related to this finding."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.anatomical_pathology_exam.v0,'Pemeriksaan histopatologi']/items[at0005,'Hasil pemeriksaan']/items[at0017,'No. PA']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan histopatologi']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "pemeriksaan_urinalisis",
+        "name" : "Pemeriksaan Urinalisis",
+        "localizedName" : "Pemeriksaan Urinalisis",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Pemeriksaan Urinalisis"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']",
+        "children" : [ {
+          "id" : "any_event",
+          "name" : "Any event",
+          "localizedName" : "Any event",
+          "rmType" : "EVENT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Any event"
+          },
+          "localizedDescriptions" : {
+            "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]",
+          "children" : [ {
+            "id" : "pemeriksaan",
+            "name" : "Pemeriksaan",
+            "localizedName" : "Pemeriksaan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Pemeriksaan"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the laboratory investigation performed on the specimen(s)."
+            },
+            "annotations" : {
+              "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[at0005,'Pemeriksaan']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "27171005",
+                "label" : "Urinalisis",
+                "localizedLabels" : {
+                  "en" : "Urinalisis"
+                }
+              } ],
+              "terminology" : "SNOMED_CT"
+            } ]
+          }, {
+            "id" : "laboratory_analyte_result",
+            "name" : "Laboratory analyte result",
+            "localizedName" : "Laboratory analyte result",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Laboratory analyte result"
+            },
+            "localizedDescriptions" : {
+              "en" : "The result of a laboratory test for a single analyte value."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]",
+            "children" : [ {
+              "id" : "berat_jenis",
+              "name" : "Berat jenis",
+              "localizedName" : "Berat jenis",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Berat jenis"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Berat jenis']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "kekeruhan",
+              "name" : "Kekeruhan",
+              "localizedName" : "Kekeruhan",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Kekeruhan"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Kekeruhan']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "ph",
+              "name" : "pH",
+              "localizedName" : "pH",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "pH"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'pH']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "leukosit",
+              "name" : "Leukosit",
+              "localizedName" : "Leukosit",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Leukosit"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Leukosit']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "nitrit",
+              "name" : "Nitrit",
+              "localizedName" : "Nitrit",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Nitrit"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Nitrit']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "protein",
+              "name" : "Protein",
+              "localizedName" : "Protein",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Protein"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Protein']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "glukosa",
+              "name" : "Glukosa",
+              "localizedName" : "Glukosa",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Glukosa"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Glukosa']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "keton",
+              "name" : "Keton",
+              "localizedName" : "Keton",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Keton"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Keton']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "darah",
+              "name" : "Darah",
+              "localizedName" : "Darah",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Darah"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Darah']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "urobilinogen",
+              "name" : "Urobilinogen",
+              "localizedName" : "Urobilinogen",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Urobilinogen"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Urobilinogen']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "bilirubin",
+              "name" : "Bilirubin",
+              "localizedName" : "Bilirubin",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Bilirubin"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Bilirubin']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "warna",
+              "name" : "Warna",
+              "localizedName" : "Warna",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Warna"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Warna']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "leukosit_sedimen_urin",
+              "name" : "Leukosit (sedimen urin)",
+              "localizedName" : "Leukosit (sedimen urin)",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Leukosit (sedimen urin)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Leukosit (sedimen urin)']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "eritrosit_sedimen_urin",
+              "name" : "Eritrosit (sedimen urin)",
+              "localizedName" : "Eritrosit (sedimen urin)",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Eritrosit (sedimen urin)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Eritrosit (sedimen urin)']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "sel_epitel_sedimen_urin",
+              "name" : "Sel epitel (sedimen urin)",
+              "localizedName" : "Sel epitel (sedimen urin)",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Sel epitel (sedimen urin)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Sel epitel (sedimen urin)']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "silinder_sedimen_urin",
+              "name" : "Silinder (sedimen urin)",
+              "localizedName" : "Silinder (sedimen urin)",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Silinder (sedimen urin)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Silinder (sedimen urin)']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "bakteri_sedimen_urin",
+              "name" : "Bakteri (sedimen urin)",
+              "localizedName" : "Bakteri (sedimen urin)",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Bakteri (sedimen urin)"
+              },
+              "localizedDescriptions" : {
+                "en" : "The value of the analyte result."
+              },
+              "annotations" : {
+                "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+                "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+                "fhir_mapping" : "Observation.value[x]"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001,'Bakteri (sedimen urin)']/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Pemeriksaan penunjang']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Pemeriksaan Urinalisis']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
